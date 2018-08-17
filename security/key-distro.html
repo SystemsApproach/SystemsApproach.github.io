@@ -1,0 +1,1310 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>8.2 Key Predistribution · Computer Networks: A Systems Approach</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="authentication.html" />
+    
+    
+    <link rel="prev" href="crypto.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../foundation/problem.html">
+            
+                <a href="../foundation/problem.html">
+            
+                    
+                    Chapter 1: Foundation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foundation/applications.html">
+            
+                <a href="../foundation/applications.html">
+            
+                    
+                    1.1 Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foundation/requirements.html">
+            
+                <a href="../foundation/requirements.html">
+            
+                    
+                    1.2 Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../foundation/architecture.html">
+            
+                <a href="../foundation/architecture.html">
+            
+                    
+                    1.3 Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../foundation/software.html">
+            
+                <a href="../foundation/software.html">
+            
+                    
+                    1.4 Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../foundation/performance.html">
+            
+                <a href="../foundation/performance.html">
+            
+                    
+                    1.5 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+            
+                <a href="../foundation/summary.html">
+            
+                    
+                    1.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../direct/problem.html">
+            
+                <a href="../direct/problem.html">
+            
+                    
+                    Chapter 2: Direct Connections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../direct/perspective.html">
+            
+                <a href="../direct/perspective.html">
+            
+                    
+                    2.1 Perspective on Connecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../direct/encoding.html">
+            
+                <a href="../direct/encoding.html">
+            
+                    
+                    2.2 Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../direct/framing.html">
+            
+                <a href="../direct/framing.html">
+            
+                    
+                    2.3 Framing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../direct/error.html">
+            
+                <a href="../direct/error.html">
+            
+                    
+                    2.4 Error Detection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../direct/reliable.html">
+            
+                <a href="../direct/reliable.html">
+            
+                    
+                    2.5 Reliable Transmission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../direct/ethernet.html">
+            
+                <a href="../direct/ethernet.html">
+            
+                    
+                    2.6 Multi-Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../direct/wireless.html">
+            
+                <a href="../direct/wireless.html">
+            
+                    
+                    2.7 Wireless Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+            
+                <a href="../direct/summary.html">
+            
+                    
+                    2.8 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../internetworking/problem.html">
+            
+                <a href="../internetworking/problem.html">
+            
+                    
+                    Chapter 3: Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../internetworking/switching.html">
+            
+                <a href="../internetworking/switching.html">
+            
+                    
+                    3.1 Switching and Bridging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../internetworking/basic-ip.html">
+            
+                <a href="../internetworking/basic-ip.html">
+            
+                    
+                    3.2 Basic Internetworking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../internetworking/routing.html">
+            
+                <a href="../internetworking/routing.html">
+            
+                    
+                    3.3 Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../internetworking/impl.html">
+            
+                <a href="../internetworking/impl.html">
+            
+                    
+                    3.4 Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../internetworking/summary.html">
+            
+                <a href="../internetworking/summary.html">
+            
+                    
+                    3.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../scaling/problem.html">
+            
+                <a href="../scaling/problem.html">
+            
+                    
+                    Chapter 4: Advanced Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../scaling/global.html">
+            
+                <a href="../scaling/global.html">
+            
+                    
+                    4.1 Global Internet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../scaling/multicast.html">
+            
+                <a href="../scaling/multicast.html">
+            
+                    
+                    4.2 Multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../scaling/mpls.html">
+            
+                <a href="../scaling/mpls.html">
+            
+                    
+                    4.3 Multiprotocol Label Switching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../scaling/mobile-ip.html">
+            
+                <a href="../scaling/mobile-ip.html">
+            
+                    
+                    4.4 Routing Among Mobile Devices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+            
+                <a href="../scaling/summary.html">
+            
+                    
+                    4.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../e2e/problem.html">
+            
+                <a href="../e2e/problem.html">
+            
+                    
+                    Chapter 5: End-to-End Protocols
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../e2e/udp.html">
+            
+                <a href="../e2e/udp.html">
+            
+                    
+                    5.1 Simple Demultiplexor (UDP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../e2e/tcp.html">
+            
+                <a href="../e2e/tcp.html">
+            
+                    
+                    5.2 Reliable Byte Stream (TCP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../e2e/rpc.html">
+            
+                <a href="../e2e/rpc.html">
+            
+                    
+                    5.3 Remote Procedure Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../e2e/rtp.html">
+            
+                <a href="../e2e/rtp.html">
+            
+                    
+                    5.4 Transport for Real-Time Applications (RTP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+            
+                <a href="../e2e/summary.html">
+            
+                    
+                    5.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../congestion/problem.html">
+            
+                <a href="../congestion/problem.html">
+            
+                    
+                    Chapter 6: Congestion Control and Resource Allocation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../congestion/issues.html">
+            
+                <a href="../congestion/issues.html">
+            
+                    
+                    6.1 Issues in Resource Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../congestion/queuing.html">
+            
+                <a href="../congestion/queuing.html">
+            
+                    
+                    6.2 Queuing Disciplines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../congestion/tcpcc.html">
+            
+                <a href="../congestion/tcpcc.html">
+            
+                    
+                    6.3 TCP Congestion Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../congestion/avoidance.html">
+            
+                <a href="../congestion/avoidance.html">
+            
+                    
+                    6.4 Congestion-Avoidance Mechanisms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../congestion/qos.html">
+            
+                <a href="../congestion/qos.html">
+            
+                    
+                    6.5 Quality of Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../congestion/summary.html">
+            
+                <a href="../congestion/summary.html">
+            
+                    
+                    6.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../data/problem.html">
+            
+                <a href="../data/problem.html">
+            
+                    
+                    Chapter 7: End-to-End Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../data/presentation.html">
+            
+                <a href="../data/presentation.html">
+            
+                    
+                    7.1 Presentation Formatting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../data/multimedia.html">
+            
+                <a href="../data/multimedia.html">
+            
+                    
+                    7.2 Multimedia Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+            
+                <a href="../data/summary.html">
+            
+                    
+                    7.3 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="problem.html">
+            
+                <a href="problem.html">
+            
+                    
+                    Chapter 8: Network Security
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="crypto.html">
+            
+                <a href="crypto.html">
+            
+                    
+                    8.1 Cryptographic Building Blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.2" data-path="key-distro.html">
+            
+                <a href="key-distro.html">
+            
+                    
+                    8.2 Key Predistribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="authentication.html">
+            
+                <a href="authentication.html">
+            
+                    
+                    8.3 Authentication Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="systems.html">
+            
+                <a href="systems.html">
+            
+                    
+                    8.4 Example Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    8.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../applications/problem.html">
+            
+                <a href="../applications/problem.html">
+            
+                    
+                    Chapter 9: Applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../applications/traditional.html">
+            
+                <a href="../applications/traditional.html">
+            
+                    
+                    9.1 Traditional Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../applications/multimedia.html">
+            
+                <a href="../applications/multimedia.html">
+            
+                    
+                    9.2 Multimedia Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../applications/infrastructure.html">
+            
+                <a href="../applications/infrastructure.html">
+            
+                    
+                    9.3 Infrastructure Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../applications/overlays.html">
+            
+                <a href="../applications/overlays.html">
+            
+                    
+                    9.4 Overlay Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+            
+                <a href="../applications/summary.html">
+            
+                    
+                    9.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >8.2 Key Predistribution</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="82-key-predistribution">8.2 Key Predistribution</h1>
+<p>To use ciphers and authenticators, the communicating participants need
+to know what keys to use. In the case of a symmetric-key cipher, how
+does a pair of participants obtain the key they share? In the case of a
+public-key cipher, how do participants know what public key belongs to a
+certain participant? The answer differs depending on whether the keys
+are short-lived <em>session keys</em> or longer-lived <em>predistributed keys</em>.</p>
+<p>A session key is a key used to secure a single, relatively short episode
+of communication: a session. Each distinct session between a pair of
+participants uses a new session key, which is always a symmetric key for
+speed. The participants determine what session key to use by means of a
+protocol&#x2014;a session key establishment protocol. A session key
+establishment protocol needs its own security (so that, for example, an
+adversary cannot learn the new session key); that security is based on
+the longer-lived predistributed keys.</p>
+<p>There are several motivations for this division of labor between session
+keys and predistributed keys:</p>
+<ul>
+<li><p>Limiting the amount of time a key is used results in less time for
+ computationally intensive attacks, less ciphertext for
+ cryptanalysis, and less information exposed should the key be
+ broken.</p>
+</li>
+<li><p>Predistribution of symmetric keys is problematic.</p>
+</li>
+<li><p>Public key ciphers are generally superior for authentication and
+ session key establishment but too slow to use for encrypting entire
+ messages for confidentiality.</p>
+</li>
+</ul>
+<p>This section explains how predistributed keys are distributed, and the
+next section will explain how session keys are then established. We
+henceforth use &quot;Alice&quot; and &quot;Bob&quot; to designate participants, as is common
+in the cryptography literature. Bear in mind that although we tend to
+refer to participants in anthropomorphic terms, we are more frequently
+concerned with the communication between software or hardware entities
+such as clients and servers that often have no direct relationship with
+any particular person.</p>
+<h2 id="predistribution-of-public-keys">Predistribution of Public Keys</h2>
+<p>The algorithms to generate a matched pair of public and private keys are
+publicly known, and software that does it is widely available. So, if
+Alice wanted to use a public-key cipher, she could generate her own pair
+of public and private keys, keep the private key hidden, and publicize
+the public key. But, how can she publicize her public key&#x2014;assert that
+it belongs to her&#x2014;in such a way that other participants can be sure it
+really belongs to her? Not via email or Web, because an adversary could
+forge an equally plausible claim that key <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> belongs to Alice when
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> really belongs to the adversary.</p>
+<p>A complete scheme for certifying bindings between public keys and
+identities&#x2014;what key belongs to whom&#x2014;is called a <em>Public Key
+Infrastructure</em> (PKI). A PKI starts with the ability to verify
+identities and bind them to keys out of band. By &quot;out of band,&quot; we mean
+something outside the network and the computers that comprise it, such
+as in the following If Alice and Bob are individuals who know each
+other, then they could get together in the same room and Alice could
+give her public key to Bob directly, perhaps on a business card. If Bob
+is an organization, Alice the individual could present conventional
+identification, perhaps involving a photograph or fingerprints. If Alice
+and Bob are computers owned by the same company, then a system
+administrator could configure Bob with Alice&apos;s public key.</p>
+<p>Establishing keys out of band doesn&apos;t sound like it would scale well,
+but it suffices to bootstrap a PKI. Bob&apos;s knowledge that Alice&apos;s key is
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> can be widely, scalably disseminated using a combination of digital
+signatures and a concept of trust. For example, suppose that you have
+received Bob&apos;s public key out of band and that you know enough about Bob
+to trust him on matters of keys and identities. Then Bob could send you
+a message asserting that Alice&apos;s key is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> and&#x2014;since you already know
+Bob&apos;s public key&#x2014;you could authenticate the message as having come
+from Bob. (Remember that to digitally sign the statement Bob would
+append a cryptographic hash of it that has been encrypted using his
+private key.) Since you trust Bob to tell the truth, you would now know
+that Alice&apos;s key is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>, even though you had never met her or exchanged
+a single message with her. Using digital signatures, Bob wouldn&apos;t even
+have to send you a he could simply create and publish a digitally signed
+statement that Alice&apos;s key is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>. Such a digitally signed statement of
+a public key binding is called a <em>public key certificate</em>, or simply a
+certificate. Bob could send Alice a copy of the certificate, or post it
+on a website. If and when someone needs to verify Alice&apos;s public key,
+they could do so by getting a copy of the certificate, perhaps directly
+from Alice&#x2014;as long as they trust Bob and know his public key. You can
+see how starting from a very small number of keys (in this case, just
+Bob&apos;s) you could build up a large set of trusted keys over time. Bob in
+this case is playing the role often referred to as a <em>certification
+authority</em> (CA), and much of today&apos;s Internet security depends on CAs.
+VeriSign is one well-known commercial CA. We return to this topic below.</p>
+<p>One of the major standards for certificates is known as X.509. This
+standard leaves a lot of details open, but specifies a basic structure.
+A certificate clearly must include:</p>
+<ul>
+<li><p>The identity of the entity being certified</p>
+</li>
+<li><p>The public key of the entity being certified</p>
+</li>
+<li><p>The identity of the signer</p>
+</li>
+<li><p>The digital signature</p>
+</li>
+<li><p>A digital signature algorithm identifier (which cryptographic hash
+ and which cipher)</p>
+</li>
+</ul>
+<p>An optional component is an expiration time for the certificate. We will
+see a particular use of this feature below.</p>
+<p>Since a certificate creates a binding between an identity and a public
+key, we should look more closely at what we mean by &quot;identity.&quot; For
+example, a certificate that says, &quot;This public key belongs to John
+Smith,&quot; may not be terribly useful if you can&apos;t tell which of the
+thousands of John Smiths is being identified. Thus, certificates must
+use a well-defined name space for the identities being certified; for
+example, certificates are often issued for email addresses and DNS
+domains.</p>
+<p>There are different ways a PKI could formalize the notion of trust. We
+discuss the two main approaches.</p>
+<h3 id="certification-authorities">Certification Authorities</h3>
+<p>In this model of trust, trust is binary; you either trust someone
+completely or not at all. Together with certificates, this allows the
+building of <em>chains of trust</em>. If X certifies that a certain public
+key belongs to Y, and then Y goes on to certify that another public
+key belongs to Z, then there exists a chain of certificates from X
+to Z, even though X and Z may have never met. If you know X&apos;s
+key&#x2014;and you trust X and Y&#x2014;then you can believe the certificate
+that gives Z&apos;s key. In other words, all you need is a chain of
+certificates, all signed by entities you trust, as long as it leads back
+to an entity whose key you already know.</p>
+<p>A <em>certification authority</em> or <em>certificate authority</em> (CA) is an entity
+claimed (by someone) to be trustworthy for verifying identities and
+issuing public key certificates. There are commercial CAs, governmental
+CAs, and even free CAs. To use a CA, you must know its own key. You can
+learn that CA&apos;s key, however, if you can obtain a chain of CA-signed
+certificates that starts with a CA whose key you already know. Then you
+can believe any certificate signed by that new CA.</p>
+<p>A common way to build such chains is to arrange them in a
+tree-structured hierarchy, as shown in <a href="#pem-tree">Figure 1</a>. If
+everyone has the public key of the root CA, then any participant can
+provide a chain of certificates to another participant and know that it
+will be sufficient to build a chain of trust for that participant.</p>
+<figure class="line">
+    <a id="pem-tree"></a>
+    <img src="figures/f08-06-9780123850591.png" width="600px">
+    <figcaption>Tree-structured certification authority hierarchy.</figcaption>
+</figure>
+
+<p>There are some significant issues with building chains of trust. Most
+importantly, even if you are certain that you have the public key of the
+root CA, you need to be sure that every CA from the root on down is
+doing its job properly. If just one CA in the chain is willing to issue
+certificates to entities without verifying their identities, then what
+looks like a valid chain of certificates becomes meaningless. For
+example, a root CA might issue a certificate to a second-tier CA and
+thoroughly verify that the name on the certificate matches the business
+name of the CA, but that second-tier CA might be willing to sell
+certificates to anyone who asks, without verifying their identity. This
+problem gets worse the longer the chain of trust. X.509 certificates
+provide the option of restricting the set of entities that the subject
+of a certificate is, in turn, trusted to certify.</p>
+<p>There can be more than one root to a certification tree, and this is
+common in securing Web transactions today, for example. Web browsers
+such as Firefox and Internet Explorer come pre-equipped with
+certificates for a set of CAs; in effect, the browser&apos;s producer has
+decided these CAs and their keys can be trusted. A user can also add CAs
+to those that their browser recognizes as trusted. These certificates
+are accepted by Secure Socket Layer (SSL)/Transport Layer Security
+(TLS), the protocol most often used to secure Web transactions, which we
+discuss in a later section. (If you are curious, you can poke around in
+the preferences settings for your browser and find the &quot;view
+certificates&quot; option to see how many CAs your browser is configured to
+trust.)</p>
+<h3 id="web-of-trust">Web of Trust</h3>
+<p>An alternative model of trust is the <em>web of trust</em> exemplified by
+Pretty Good Privacy (PGP), which is further discussed in a later
+section. PGP is a security system for email, so email addresses are the
+identities to which keys are bound and by which certificates are signed.
+In keeping with PGP&apos;s roots as protection against government intrusion,
+there are no CAs. Instead, every individual decides whom they trust and
+how much they trust them&#x2014;in this model, trust is a matter of degree.
+In addition, a public key certificate can include a confidence level
+indicating how confident the signer is of the key binding claimed in the
+certificate, so a given user may have to have several certificates
+attesting to the same key binding before he is willing to trust it.</p>
+<p>For example, suppose you have a certificate for Bob provided by Alice;
+you can assign a moderate level of trust to that certificate. However,
+if you have additional certificates for Bob that were provided by C
+and D, each of whom is also moderately trustworthy, that might
+considerably increase your level of confidence that the public key you
+have for Bob is valid. In short, PGP recognizes that the problem of
+establishing trust is quite a personal matter and gives users the raw
+material to make their own decisions, rather than assuming that they are
+all willing to trust in a single hierarchical structure of CAs. To quote
+Phil Zimmerman, the developer of PGP, &quot;PGP is for people who prefer to
+pack their own parachutes.&quot;</p>
+<p>PGP has become quite popular in the networking community, and PGP
+key-signing parties are a regular feature of IETF meetings. At these
+gatherings, an individual can</p>
+<ul>
+<li><p>Collect public keys from others whose identity he knows.</p>
+</li>
+<li><p>Provide his public key to others.</p>
+</li>
+<li><p>Get his public key signed by others, thus collecting certificates
+  that will be persuasive to an increasingly large set of people.</p>
+</li>
+<li><p>Sign the public key of other individuals, thus helping them build up
+ their set of certificates that they can use to distribute their
+ public keys.</p>
+</li>
+<li><p>Collect certificates from other individuals whom he trusts enough to
+ sign keys.</p>
+</li>
+</ul>
+<p>Thus, over time, a user will collect a set of certificates with varying
+degrees of trust.</p>
+<h3 id="certificate-revocation">Certificate Revocation</h3>
+<p>One issue that arises with certificates is how to revoke, or undo, a
+certificate. Why is this important? Suppose that you suspect that
+someone has discovered your private key. There may be any number of
+certificates in the universe that assert that you are the owner of the
+public key corresponding to that private key. The person who discovered
+your private key thus has everything he needs to impersonate you: valid
+certificates and your private key. To solve this problem, it would be
+nice to be able to revoke the certificates that bind your old,
+compromised key to your identity, so that the impersonator will no
+longer be able to persuade other people that he is you.</p>
+<p>The basic solution to the problem is simple enough. Each CA can issue a
+<em>certificate revocation list</em> (CRL), which is a digitally signed list of
+certificates that have been revoked. The CRL is periodically updated and
+made publicly available. Because it is digitally signed, it can just be
+posted on a website. Now, when Alice receives a certificate for Bob that
+she wants to verify, she will first consult the latest CRL issued by the
+CA. As long as the certificate has not been revoked, it is valid. Note
+that, if all certificates have unlimited life spans, the CRL would
+always be getting longer, since you could never take a certificate off
+the CRL for fear that some copy of the revoked certificate might be
+used. For this reason, it is common to attach an expiration date to a
+certificate when it is issued. Thus, we can limit the length of time
+that a revoked certificate needs to stay on a CRL. As soon as its
+original expiration date is passed, it can be removed from the CRL.</p>
+<h2 id="predistribution-of-symmetric-keys">Predistribution of Symmetric Keys</h2>
+<p>If Alice wants to use a secret-key cipher to communicate with Bob, she
+can&apos;t just pick a key and send it to to him because, without already
+having a key, they can&apos;t encrypt this key to keep it confidential and
+they can&apos;t authenticate each other. As with public keys, some
+predistribution scheme is needed. Predistribution is harder for
+symmetric keys than for public keys for two obvious reasons:</p>
+<ul>
+<li><p>While only one public key per entity is sufficient for
+ authentication and confidentiality, there must be a symmetric key
+ for each pair of entities who wish to communicate. If there are N
+ entities, that means N(N-1)/2 keys.</p>
+</li>
+<li><p>Unlike public keys, secret keys must be kept secret.</p>
+</li>
+</ul>
+<p>In summary, there are a lot more keys to distribute, and you can&apos;t use
+certificates that everyone can read.</p>
+<p>The most common solution is to use a <em>Key Distribution Center</em> (KDC). A
+KDC is a trusted entity that shares a secret key with each other entity.
+This brings the number of keys down to a more manageable N-1, few
+enough to establish out of band for some applications. When Alice wishes
+to communicate with Bob, that communication does not travel via the KDC.
+Rather, the KDC participates in a protocol that authenticates Alice and
+Bob&#x2014;using the keys that the KDC already shares with each of them&#x2014;and
+generates a new session key for them to use. Then Alice and Bob
+communicate directly using their session key. Kerberos is a widely used
+system based on this approach.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="crypto.html" class="navigation navigation-prev " aria-label="Previous page: 8.1 Cryptographic Building Blocks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="authentication.html" class="navigation navigation-next " aria-label="Next page: 8.3 Authentication Protocols">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"next":{"title":"8.3 Authentication Protocols","level":"1.9.3","depth":2,"path":"security/authentication.md","ref":"security/authentication.md","articles":[]},"previous":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"livereload":{},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/key-distro.md","mtime":"2018-08-15T22:11:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T18:23:38.784Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

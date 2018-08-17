@@ -1,0 +1,1462 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.5 Performance · Computer Networks: A Systems Approach</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="summary.html" />
+    
+    
+    <link rel="prev" href="software.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="problem.html">
+            
+                <a href="problem.html">
+            
+                    
+                    Chapter 1: Foundation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="applications.html">
+            
+                <a href="applications.html">
+            
+                    
+                    1.1 Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="requirements.html">
+            
+                <a href="requirements.html">
+            
+                    
+                    1.2 Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="architecture.html">
+            
+                <a href="architecture.html">
+            
+                    
+                    1.3 Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="software.html">
+            
+                <a href="software.html">
+            
+                    
+                    1.4 Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="performance.html">
+            
+                <a href="performance.html">
+            
+                    
+                    1.5 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    1.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../direct/problem.html">
+            
+                <a href="../direct/problem.html">
+            
+                    
+                    Chapter 2: Direct Connections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../direct/perspective.html">
+            
+                <a href="../direct/perspective.html">
+            
+                    
+                    2.1 Perspective on Connecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../direct/encoding.html">
+            
+                <a href="../direct/encoding.html">
+            
+                    
+                    2.2 Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../direct/framing.html">
+            
+                <a href="../direct/framing.html">
+            
+                    
+                    2.3 Framing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../direct/error.html">
+            
+                <a href="../direct/error.html">
+            
+                    
+                    2.4 Error Detection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../direct/reliable.html">
+            
+                <a href="../direct/reliable.html">
+            
+                    
+                    2.5 Reliable Transmission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../direct/ethernet.html">
+            
+                <a href="../direct/ethernet.html">
+            
+                    
+                    2.6 Multi-Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../direct/wireless.html">
+            
+                <a href="../direct/wireless.html">
+            
+                    
+                    2.7 Wireless Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+            
+                <a href="../direct/summary.html">
+            
+                    
+                    2.8 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../internetworking/problem.html">
+            
+                <a href="../internetworking/problem.html">
+            
+                    
+                    Chapter 3: Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../internetworking/switching.html">
+            
+                <a href="../internetworking/switching.html">
+            
+                    
+                    3.1 Switching and Bridging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../internetworking/basic-ip.html">
+            
+                <a href="../internetworking/basic-ip.html">
+            
+                    
+                    3.2 Basic Internetworking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../internetworking/routing.html">
+            
+                <a href="../internetworking/routing.html">
+            
+                    
+                    3.3 Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../internetworking/impl.html">
+            
+                <a href="../internetworking/impl.html">
+            
+                    
+                    3.4 Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../internetworking/summary.html">
+            
+                <a href="../internetworking/summary.html">
+            
+                    
+                    3.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../scaling/problem.html">
+            
+                <a href="../scaling/problem.html">
+            
+                    
+                    Chapter 4: Advanced Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../scaling/global.html">
+            
+                <a href="../scaling/global.html">
+            
+                    
+                    4.1 Global Internet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../scaling/multicast.html">
+            
+                <a href="../scaling/multicast.html">
+            
+                    
+                    4.2 Multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../scaling/mpls.html">
+            
+                <a href="../scaling/mpls.html">
+            
+                    
+                    4.3 Multiprotocol Label Switching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../scaling/mobile-ip.html">
+            
+                <a href="../scaling/mobile-ip.html">
+            
+                    
+                    4.4 Routing Among Mobile Devices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+            
+                <a href="../scaling/summary.html">
+            
+                    
+                    4.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../e2e/problem.html">
+            
+                <a href="../e2e/problem.html">
+            
+                    
+                    Chapter 5: End-to-End Protocols
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../e2e/udp.html">
+            
+                <a href="../e2e/udp.html">
+            
+                    
+                    5.1 Simple Demultiplexor (UDP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../e2e/tcp.html">
+            
+                <a href="../e2e/tcp.html">
+            
+                    
+                    5.2 Reliable Byte Stream (TCP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../e2e/rpc.html">
+            
+                <a href="../e2e/rpc.html">
+            
+                    
+                    5.3 Remote Procedure Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../e2e/rtp.html">
+            
+                <a href="../e2e/rtp.html">
+            
+                    
+                    5.4 Transport for Real-Time Applications (RTP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+            
+                <a href="../e2e/summary.html">
+            
+                    
+                    5.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../congestion/problem.html">
+            
+                <a href="../congestion/problem.html">
+            
+                    
+                    Chapter 6: Congestion Control and Resource Allocation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../congestion/issues.html">
+            
+                <a href="../congestion/issues.html">
+            
+                    
+                    6.1 Issues in Resource Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../congestion/queuing.html">
+            
+                <a href="../congestion/queuing.html">
+            
+                    
+                    6.2 Queuing Disciplines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../congestion/tcpcc.html">
+            
+                <a href="../congestion/tcpcc.html">
+            
+                    
+                    6.3 TCP Congestion Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../congestion/avoidance.html">
+            
+                <a href="../congestion/avoidance.html">
+            
+                    
+                    6.4 Congestion-Avoidance Mechanisms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../congestion/qos.html">
+            
+                <a href="../congestion/qos.html">
+            
+                    
+                    6.5 Quality of Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../congestion/summary.html">
+            
+                <a href="../congestion/summary.html">
+            
+                    
+                    6.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../data/problem.html">
+            
+                <a href="../data/problem.html">
+            
+                    
+                    Chapter 7: End-to-End Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../data/presentation.html">
+            
+                <a href="../data/presentation.html">
+            
+                    
+                    7.1 Presentation Formatting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../data/multimedia.html">
+            
+                <a href="../data/multimedia.html">
+            
+                    
+                    7.2 Multimedia Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+            
+                <a href="../data/summary.html">
+            
+                    
+                    7.3 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../security/problem.html">
+            
+                <a href="../security/problem.html">
+            
+                    
+                    Chapter 8: Network Security
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../security/crypto.html">
+            
+                <a href="../security/crypto.html">
+            
+                    
+                    8.1 Cryptographic Building Blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../security/key-distro.html">
+            
+                <a href="../security/key-distro.html">
+            
+                    
+                    8.2 Key Predistribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../security/authentication.html">
+            
+                <a href="../security/authentication.html">
+            
+                    
+                    8.3 Authentication Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../security/systems.html">
+            
+                <a href="../security/systems.html">
+            
+                    
+                    8.4 Example Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../security/summary.html">
+            
+                <a href="../security/summary.html">
+            
+                    
+                    8.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../applications/problem.html">
+            
+                <a href="../applications/problem.html">
+            
+                    
+                    Chapter 9: Applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../applications/traditional.html">
+            
+                <a href="../applications/traditional.html">
+            
+                    
+                    9.1 Traditional Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../applications/multimedia.html">
+            
+                <a href="../applications/multimedia.html">
+            
+                    
+                    9.2 Multimedia Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../applications/infrastructure.html">
+            
+                <a href="../applications/infrastructure.html">
+            
+                    
+                    9.3 Infrastructure Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../applications/overlays.html">
+            
+                <a href="../applications/overlays.html">
+            
+                    
+                    9.4 Overlay Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+            
+                <a href="../applications/summary.html">
+            
+                    
+                    9.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.5 Performance</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="15-performance">1.5 Performance</h1>
+<p>Up to this point, we have focused primarily on the functional aspects of
+network. Like any computer system, however, computer networks are also
+expected to perform well. This is because the effectiveness of
+computations distributed over the network often depends directly on the
+efficiency with which the network delivers the computation&apos;s data. While
+the old programming adage &quot;first get it right and then make it fast&quot; is
+valid in many settings, in networking it is usually necessary to &quot;design
+for performance.&quot; It is therefore important to understand the various
+factors that impact network performance.</p>
+<h2 id="bandwidth-and-latency">Bandwidth and Latency</h2>
+<p>Network performance is measured in two fundamental ways: <em>bandwidth</em>
+(also called <em>throughput</em>) and <em>latency</em> (also called <em>delay</em>). The
+bandwidth of a network is given by the number of bits that can be
+transmitted over the network in a certain period of time. For example, a
+network might have a bandwidth of 10 million bits/second (Mbps), meaning
+that it is able to deliver 10 million bits every second. It is sometimes
+useful to think of bandwidth in terms of how long it takes to transmit
+each bit of data. On a 10-Mbps network, for example, it takes 0.1
+microsecond (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s) to transmit each bit.</p>
+<p>Bandwidth and throughput are subtly different terms. First of all,
+bandwidth is literally a measure of the width of a frequency band. For
+example, a voice-grade telephone line supports a frequency band
+ranging from 300 to 3300 Hz; it is said to have a bandwidth of
+3300 Hz - 300 Hz = 3000 Hz. If you see the word <em>bandwidth</em> used in
+a situation in which it is being measured in hertz, then it probably
+refers to the range of signals that can be accommodated.</p>
+<p>When we talk about the bandwidth of a communication link, we normally
+refer to the number of bits per second that can be transmitted on the
+link. This is also sometimes called the <em>data rate.</em> We might say that
+the bandwidth of an Ethernet link is 10 Mbps. A useful distinction can
+also be made, however, between the maximum data rate that is available
+on the link and the number of bits per second that we can actually
+transmit over the link in practice. We tend to use the word <em>throughput</em>
+to refer to the <em>measured performance</em> of a system. Thus, because of
+various inefficiencies of implementation, a pair of nodes connected by a
+link with a bandwidth of 10 Mbps might achieve a throughput of only
+2 Mbps. This would mean that an application on one host could send data
+to the other host at 2 Mbps.</p>
+<p>Finally, we often talk about the bandwidth <em>requirements</em> of an
+application. This is the number of bits per second that it needs to
+transmit over the network to perform acceptably. For some applications,
+this might be &quot;whatever I can get&quot;; for others, it might be some fixed
+number (preferably no more than the available link bandwidth); and for
+others, it might be a number that varies with time. We will provide more
+on this topic later in this section.</p>
+<p>While you can talk about the bandwidth of the network as a whole,
+sometimes you want to be more precise, focusing, for example, on the
+bandwidth of a single physical link or of a logical process-to-process
+channel. At the physical level, bandwidth is constantly improving, with
+no end in sight. Intuitively, if you think of a second of time as a
+distance you could measure with a ruler and bandwidth as how many bits
+fit in that distance, then you can think of each bit as a pulse of some
+width. For example, each bit on a 1-Mbps link is 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s wide, while
+each bit on a 2-Mbps link is 0.5 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s wide, as illustrated in
+<a href="#bit-width">Figure 1</a>. The more sophisticated the transmitting
+and receiving technology, the narrower each bit can become and, thus,
+the higher the bandwidth. For logical process-to-process channels,
+bandwidth is also influenced by other including how many times the
+software that implements the channel has to handle, and possibly
+transform, each bit of data.</p>
+<figure class="line">
+    <a id="bit-width"></a>
+    <img src="figures/f01-16-9780123850591.png" width="400px">
+    <figcaption>Bits transmitted at a particular bandwidth can be
+    regarded as having some width: (a) bits transmitted at 1 Mbps
+    (each bit is 1 microsecond wide); (b) bits transmitted at 2 Mbps
+    (each bit is 0.5 microseconds wide).</figcaption>
+</figure>
+
+<p>The second performance metric, latency, corresponds to how long it takes
+a message to travel from one end of a network to the other. (As with
+bandwidth, we could be focused on the latency of a single link or an
+end-to-end channel.) Latency is measured strictly in terms of time. For
+example, a transcontinental network might have a latency of
+24 milliseconds (ms); that is, it takes a message 24 ms to travel from
+one coast of North America to the other. There are many situations in
+which it is more important to know how long it takes to send a message
+from one end of a network to the other and back, rather than the one-way
+latency. We call this the <em>round-trip time</em> (RTT) of the network.</p>
+<p>We often think of latency as having three components. First, there is
+the speed-of-light propagation delay. This delay occurs because nothing,
+including a bit on a wire, can travel faster than the speed of light. If
+you know the distance between two points, you can calculate the
+speed-of-light latency, although you have to be careful because light
+travels across different media at different speeds: It travels at
+3.0 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>m/s in a vacuum, 2.3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>m/s
+in a copper cable, and 2.0 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>m/s in an optical
+fiber. Second, there is the amount of time it takes to transmit a unit
+of data. This is a function of the network bandwidth and the size of
+the packet in which the data is carried. Third, there may be queuing
+delays inside the network, since packet switches generally need to
+store packets for some time before forwarding them on an outbound
+link. So, we could define the total latency as</p>
+<pre><code class="lang-c">Latency = Propagation + Transmit + Queue
+Propagation =  Distance/SpeedOfLight
+Transmit = Size/Bandwidth
+</code></pre>
+<p>where <code>Distance</code> is the length of the wire over which the data will
+travel, <code>SpeedOfLight</code> is the effective speed of light over that wire,
+<code>Size</code> is the size of the packet, and <code>Bandwidth</code> is the bandwidth at
+which the packet is transmitted. Note that if the message contains
+only one bit and we are talking about a single link (as opposed to a
+whole network), then the <code>Transmit</code> and <code>Queue</code> terms are not
+relevant, and latency corresponds to the propagation delay only.</p>
+<p>Bandwidth and latency combine to define the performance characteristics
+of a given link or channel. Their relative importance, however, depends
+on the application. For some applications, latency dominates bandwidth.
+For example, a client that sends a 1-byte message to a server and
+receives a 1-byte message in return is latency bound. Assuming that no
+serious computation is involved in preparing the response, the
+application will perform much differently on a transcontinental channel
+with a 100-ms RTT than it will on an across-the-room channel with a
+1-ms RTT. Whether the channel is 1 Mbps or 100 Mbps is relatively
+insignificant, however, since the former implies that the time to
+transmit a byte (<code>Transimt</code>) is 8 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s and the latter implies
+<code>Transmit</code> = 0.08 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s.</p>
+<p>In contrast, consider a digital library program that is being asked to
+fetch a 25-megabyte (MB) image&#x2014;the more bandwidth that is available,
+the faster it will be able to return the image to the user. Here, the
+bandwidth of the channel dominates performance. To see this, suppose
+that the channel has a bandwidth of 10 Mbps. It will take 20 seconds to
+transmit the image (25 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>6</mn></msup><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">^6 \times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord">&#xD7;</span></span></span></span> 8-bits / (10
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> Mbps = 20 seconds), making it relatively
+unimportant if the image is on the other side of a 1-ms channel or a
+100-ms channel; the difference between a 20.001-second response time
+and a 20.1-second response time is negligible.</p>
+<figure class="line">
+    <a id="latency"></a>
+    <img src="figures/f01-17-9780123850591.png" width="600px">
+    <figcaption>Perceived latency (response time) versus round-trip
+    time for various object sizes and link speeds.</figcaption>
+</figure>
+
+<p><a href="#latency">Figure 2</a> gives you a sense of how latency or bandwidth can dominate
+performance in different circumstances. The graph shows how long it takes
+to move objects of various sizes (1 byte, 2 KB, 1 MB) across networks with
+RTTs ranging from 1 to 100 ms and link speeds of either 1.5 or 10 Mbps.
+We use logarithmic scales to show relative performance. For a 1-byte object
+(say, a keystroke), latency remains almost exactly equal to the RTT, so
+that you cannot distinguish between a 1.5-Mbps network and a 10-Mbps
+network. For a 2-KB object (say, an email message), the link speed makes
+quite a difference on a 1-ms RTT network but a negligible difference on
+a 100-ms RTT network. And for a 1-MB object (say, a digital image), the
+RTT makes no difference&#x2014;it is the link speed that dominates
+performance across the full range of RTT.</p>
+<p>Note that throughout this book we use the terms <em>latency</em> and <em>delay</em> in
+a generic way to denote how long it takes to perform a particular
+function, such as delivering a message or moving an object. When we are
+referring to the specific amount of time it takes a signal to propagate
+from one end of a link to another, we use the term <em>propagation delay</em>.
+Also, we make it clear in the context of the discussion whether we are
+referring to the one-way latency or the round-trip time.</p>
+<p>As an aside, computers are becoming so fast that when we connect them to
+networks, it is sometimes useful to think, at least figuratively, in
+terms of <em>instructions per mile</em>. Consider what happens when a computer
+that is able to execute 1 billion instructions per second sends a
+message out on a channel with a 100-ms RTT. (To make the math easier,
+assume that the message covers a distance of 5000 miles.) If that
+computer sits idle the full 100 ms waiting for a reply message, then it
+has forfeited the ability to execute 100 million instructions, or 20,000
+instructions per mile. It had better have been worth going over the
+network to justify this waste.</p>
+<h2 id="delay-x-bandwidth-product">Delay x Bandwidth Product</h2>
+<p>It is also useful to talk about the product of these two metrics, often
+called the <em>delay x bandwidth product</em>. Intuitively, if we think of a
+channel between a pair of processes as a hollow pipe (see
+<a href="#pipe">Figure 3</a>), where the latency corresponds to the length of the
+pipe and the bandwidth gives the diameter of the pipe, then the <em>delay
+x bandwidth</em> product gives the volume of the pipe&#x2014;the maximum number
+of bits that could be in transit through the pipe at any given instant.
+Said another way, if latency (measured in time) corresponds to the
+length of the pipe, then given the width of each bit (also measured in
+time) you can calculate how many bits fit in the pipe. For example, a
+transcontinental channel with a one-way latency of 50 ms and a
+bandwidth of 45 Mbps is able to hold</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn><mn>0</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>&#x2212;</mo><mn>3</mn></mrow></msup><mi>s</mi><mi>e</mi><mi>c</mi><mo>&#xD7;</mo><mn>4</mn><mn>5</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mtext>&#xA0;</mtext><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi><mi mathvariant="normal">/</mi><mi>s</mi><mi>e</mi><mi>c</mi><mo>=</mo><mn>2</mn><mi mathvariant="normal">.</mi><mn>2</mn><mn>5</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mtext>&#xA0;</mtext><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">
+50 \times 10^{-3}sec \times 45 \times 10^6\ bits/sec = 2.25 \times 10^6\ bits
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.864108em;"></span><span class="strut bottom" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.41300000000000003em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mtight">&#x2212;</span><span class="mord mathrm mtight">3</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mord mathit">c</span><span class="mbin">&#xD7;</span><span class="mord mathrm">4</span><span class="mord mathrm">5</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit">b</span></span><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mord mathit">s</span><span class="mord mathrm">/</span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mord mathit">c</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">.</span><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit">b</span></span><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mord mathit">s</span></span></span></span></span></p>
+<p>or approximately 280 KB of data. In other words, this example channel
+(pipe) holds as many bytes as the memory of a personal computer from the
+early 1980s could hold.</p>
+<figure class="line">
+    <a id="pipe"></a>
+    <img src="figures/f01-18-9780123850591.png" width="400px">
+    <figcaption>Network as a pipe.</figcaption>
+</figure>
+
+<p>The <em>delay x bandwidth</em> product is important to know
+when constructing high-performance networks because it corresponds to
+how many bits the sender must transmit before the first bit arrives at
+the receiver. If the sender is expecting the receiver to somehow signal
+that bits are starting to arrive, and it takes another channel latency
+for this signal to propagate back to the sender, then the sender can
+send up one <em>RTT x bandwidth</em> worth of data before hearing from the
+receiver that all is well. The bits in the pipe are said to be &quot;in
+flight,&quot; which means that if the receiver tells the sender to stop
+transmitting it might receive up to one <em>RTT x bandwidth&apos;s</em> worth of
+data before the sender manages to respond. In our example above, that
+amount corresponds to 5.5 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> bits (671 KB) of
+data. On the other hand, if the sender does not fill the pipe&#x2014;sends a
+whole <em>RTT x bandwidth</em> product&apos;s worth of data before it stops to
+wait for a signal&#x2014;the sender will not fully utilize the network.</p>
+<p>Note that most of the time we are interested in the RTT scenario, which
+we simply refer to as the <em>delay x bandwidth product</em>, without
+explicitly saying that &quot;delay&quot; is the RTT (i.e., the one-way delay by
+two). Usually, whether the &quot;delay&quot; in <em>delay x bandwidth</em> means
+one-way latency or RTT is made clear by the context.
+<a href="#delay-bw">Table 1</a> shows some examples of  <em>RTT x  bandwidth</em>
+products for some typical network links.</p>
+<p><a id="delay-bw"></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Link Type</th>
+<th style="text-align:center">Bandwidth</th>
+<th style="text-align:center">One-Way Distance</th>
+<th style="text-align:center">RTT</th>
+<th style="text-align:center">RTT x Bandwidth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Dial-up</td>
+<td style="text-align:center">56 kbps</td>
+<td style="text-align:center">10 km</td>
+<td style="text-align:center">87 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s</td>
+<td style="text-align:center">5 bits</td>
+</tr>
+<tr>
+<td style="text-align:center">Wireless LAN</td>
+<td style="text-align:center">54 Mbps</td>
+<td style="text-align:center">50 m</td>
+<td style="text-align:center">0.33 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s</td>
+<td style="text-align:center">18 bits</td>
+</tr>
+<tr>
+<td style="text-align:center">Satellite</td>
+<td style="text-align:center">45 Mbps</td>
+<td style="text-align:center">35,000 km</td>
+<td style="text-align:center">230 ms</td>
+<td style="text-align:center">10 Mb</td>
+</tr>
+<tr>
+<td style="text-align:center">Cross-country fiber</td>
+<td style="text-align:center">10 Gbps</td>
+<td style="text-align:center">4,000 km</td>
+<td style="text-align:center">40 ms</td>
+<td style="text-align:center">400 Mb</td>
+</tr>
+</tbody>
+</table>
+<div class="ba-center"><p><em>Table 1. Example delay x bandwidth products.</em></p></div>
+
+<h2 id="high-speed-networks">High-Speed Networks</h2>
+<p>The bandwidths available on today&apos;s networks are increasing at a
+dramatic rate, and there is eternal optimism that network bandwidth will
+continue to improve. This causes network designers to start thinking
+about what happens in the limit or, stated another way, what is the
+impact on network design of having infinite bandwidth available.</p>
+<p>Although high-speed networks bring a dramatic change in the bandwidth
+available to applications, in many respects their impact on how we think
+about networking comes in what does <em>not</em> change as bandwidth increases:
+the speed of light. To quote Scotty from <em>Star Trek,</em> &quot;Ye cannae change
+the laws of physics.&quot; In other words, &quot;high speed&quot; does not mean
+that latency improves at the same rate as bandwidth; the
+transcontinental RTT of a 1-Gbps link is the same 100 ms as it is for a
+1-Mbps link.</p>
+<p>To appreciate the significance of ever-increasing bandwidth in the face
+of fixed latency, consider what is required to transmit a 1-MB file over
+a 1-Mbps network versus over a 1-Gbps network, both of which have an RTT
+of 100 ms. In the case of the 1-Mbps network, it takes 80 round-trip
+times to transmit the file; during each RTT, 1.25% of the file is sent.
+In contrast, the same 1-MB file doesn&apos;t even come close to filling
+1 RTT&apos;s worth of the 1-Gbps link, which has a
+delay x bandwidth product of 12.5 MB.</p>
+<p><a href="#bw-lat">Figure 4</a> illustrates the difference between the two
+networks. In effect, the 1-MB file looks like a stream of data that
+needs to be transmitted across a 1-Mbps network, while it looks like a
+single packet on a 1-Gbps network. To help drive this point home,
+consider that a 1-MB file is to a 1-Gbps network what a 1-KB <em>packet</em>
+is to a 1-Mbps network.</p>
+<figure class="line">
+    <a id="bw-lat"></a>
+    <img src="figures/f01-19-9780123850591.png" width="500px">
+    <figcaption>Relationship between bandwidth and latency. A 1-MB
+    file would fill the 1-Mbps link 80 times but only fill 1/12th of a
+    1-Gbps link.</figcaption>
+</figure>
+
+<p>Another way to think about the situation is that more data can be
+transmitted during each RTT on a high-speed network, so much so that a
+single RTT becomes a significant amount of time. Thus, while you
+wouldn&apos;t think twice about the difference between a file transfer taking
+101 RTTs rather than 100 RTTs (a relative difference of only 1%),
+suddenly the difference between 1 RTT and 2 RTTs is significant&#x2014;a 100%
+increase. In other words, latency, rather than throughput, starts to
+dominate our thinking about network design.</p>
+<p>Perhaps the best way to understand the relationship between throughput
+and latency is to return to basics. The effective end-to-end throughput
+that can be achieved over a network is given by the simple relationship</p>
+<div class="ba-center"><p>TransferTime = TransferSize / TransferTime</p></div>
+
+<p>where includes not only the elements of one-way identified earlier in
+this section, but also any additional time spent requesting or setting
+up the transfer. Generally, we represent this relationship as</p>
+<div class="ba-center"><p>TransferTime = RTT + 1/Bandwidth</p></div>
+
+<p>We use in this calculation to account for a request message being sent
+across the network and the data being sent back. For example, consider a
+situation where a user wants to fetch a 1-MB file across a 1-Gbps with a
+round-trip time of 100 ms. The includes both the transmit time for 1 MB
+(1 / 1 Gbps <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 1 MB = 8 ms) and the 100-ms RTT, for a total
+transfer time of 108 ms. This means that the effective throughput will be</p>
+<div class="ba-center"><p>1 MB / 108 ms = 74.1 Mbps</p></div>
+
+<p>not 1 Gbps. Clearly, transferring a larger amount of data will help
+improve the effective throughput, where in the limit an infinitely large
+transfer size will cause the effective throughput to approach the
+network bandwidth. On the other hand, having to endure more than
+1 RTT&#x2014;for example, to retransmit missing packets&#x2014;will hurt the
+effective throughput for any transfer of finite size and will be most
+noticeable for small transfers.</p>
+<h2 id="application-performance-needs">Application Performance Needs</h2>
+<p>The discussion in this section has taken a network-centric view of
+performance; that is, we have talked in terms of what a given link or
+channel will support. The unstated assumption has been that application
+programs have simple needs&#x2014;they want as much bandwidth as the network
+can provide. This is certainly true of the aforementioned digital
+library program that is retrieving a 25-MB image; the more bandwidth
+that is available, the faster the program will be able to return the
+image to the user.</p>
+<p>However, some applications are able to state an upper limit on how much
+bandwidth they need. Video applications are a prime example. Suppose one
+wants to stream a video that is one quarter the size of a standard TV
+screen; that is, it has a resolution of 352 by 240 pixels. If each pixel
+is represented by 24 bits of information, as would be the case for
+24-bit color, then the size of each frame would be</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mn>3</mn><mn>5</mn><mn>2</mn><mo>&#xD7;</mo><mn>2</mn><mn>4</mn><mn>0</mn><mo>&#xD7;</mo><mn>2</mn><mn>4</mn><mo>)</mo><mi mathvariant="normal">/</mi><mn>8</mn><mo>=</mo><mn>2</mn><mn>4</mn><mn>7</mn><mi mathvariant="normal">.</mi><mn>5</mn><mi>K</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">
+(352 \times 240 \times 24) / 8 = 247.5 KB
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">3</span><span class="mord mathrm">5</span><span class="mord mathrm">2</span><span class="mbin">&#xD7;</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mord mathrm">0</span><span class="mbin">&#xD7;</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mclose">)</span><span class="mord mathrm">/</span><span class="mord mathrm">8</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mord mathrm">7</span><span class="mord mathrm">.</span><span class="mord mathrm">5</span><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span></span></p>
+<p>If the application needs to support a frame rate of 30 frames per
+second, then it might request a throughput rate of 75 Mbps. The ability
+of the network to provide more bandwidth is of no interest to such an
+application because it has only so much data to transmit in a given
+period of time.</p>
+<p>Unfortunately, the situation is not as simple as this example suggests.
+Because the difference between any two adjacent frames in a video stream
+is often small, it is possible to compress the video by transmitting
+only the differences between adjacent frames. Each frame can also be
+compressed because not all the detail in a picture is readily perceived
+by a human eye. The compressed video does not flow at a constant rate,
+but varies with time according to factors such as the amount of action
+and detail in the picture and the compression algorithm being used.
+Therefore, it is possible to say what the average bandwidth requirement
+will be, but the instantaneous rate may be more or less.</p>
+<p>The key issue is the time interval over which the average is computed.
+Suppose that this example video application can be compressed down to
+the point that it needs only 2 Mbps, on average. If it transmits 1
+megabit in a 1-second interval and 3 megabits in the following 1-second
+interval, then over the 2-second interval it is transmitting at an
+average rate of 2 Mbps; however, this will be of little consolation to a
+channel that was engineered to support no more than 2 megabits in any
+one second. Clearly, just knowing the average bandwidth needs of an
+application will not always suffice.</p>
+<p>Generally, however, it is possible to put an upper bound on how large a
+burst an application like this is likely to transmit. A burst might be
+described by some peak rate that is maintained for some period of time.
+Alternatively, it could be described as the number of bytes that can be
+sent at the peak rate before reverting to the average rate or some lower
+rate. If this peak rate is higher than the available channel capacity,
+then the excess data will have to be buffered somewhere, to be
+transmitted later. Knowing how big of a burst might be sent allows the
+network designer to allocate sufficient buffer capacity to hold the
+burst.</p>
+<p>Analogous to the way an application&apos;s bandwidth needs can be something
+other than &quot;all it can get,&quot; an application&apos;s delay requirements may be
+more complex than simply &quot;as little delay as possible.&quot; In the case of
+delay, it sometimes doesn&apos;t matter so much whether the one-way latency
+of the network is 100 ms or 500 ms as how much the latency varies from
+packet to packet. The variation in latency is called <em>jitter</em>.</p>
+<p>Consider the situation in which the source sends a packet once every
+33 ms, as would be the case for a video application transmitting frames
+30 times a second. If the packets arrive at the destination spaced out
+exactly 33 ms apart, then we can deduce that the delay experienced by
+each packet in the network was exactly the same. If the spacing between
+when packets arrive at the destination&#x2014;sometimes called the
+<em>inter-packet gap</em>&#x2014;is variable, however, then the delay experienced by
+the sequence of packets must have also been variable, and the network is
+said to have introduced jitter into the packet stream, as shown in
+<a href="#jitter">Figure 5</a>. Such variation is generally not introduced in a
+single physical link, but it can happen when packets experience
+different queuing delays in a multihop packet-switched network. This
+queuing delay corresponds to the component of latency defined earlier
+in this section, which varies with time.</p>
+<figure class="line">
+    <a id="jitter"></a>
+    <img src="figures/f01-20-9780123850591.png" width="600px">
+    <figcaption>Network-induced jitter.</figcaption>
+</figure>
+
+<p>To understand the relevance of jitter, suppose that the packets being
+transmitted over the network contain video frames, and in order to
+display these frames on the screen the receiver needs to receive a new
+one every 33 ms. If a frame arrives early, then it can simply be saved
+by the receiver until it is time to display it. Unfortunately, if a
+frame arrives late, then the receiver will not have the frame it needs
+in time to update the screen, and the video quality will suffer; it will
+not be smooth. Note that it is not necessary to eliminate jitter, only
+to know how bad it is. The reason for this is that if the receiver knows
+the upper and lower bounds on the latency that a packet can experience,
+it can delay the time at which it starts playing back the video (i.e.,
+displays the first frame) long enough to ensure that in the future it
+will always have a frame to display when it needs it. The receiver
+delays the frame, effectively smoothing out the jitter, by storing it in
+a buffer.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="software.html" class="navigation navigation-prev " aria-label="Previous page: 1.4 Software">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="summary.html" class="navigation navigation-next " aria-label="Next page: 1.6 Summary">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.5 Performance","level":"1.2.5","depth":2,"next":{"title":"1.6 Summary","level":"1.2.6","depth":2,"path":"foundation/summary.md","ref":"foundation/summary.md","articles":[]},"previous":{"title":"1.4 Software","level":"1.2.4","depth":2,"path":"foundation/software.md","ref":"foundation/software.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"livereload":{},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/performance.md","mtime":"2018-08-15T20:29:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T18:23:38.784Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

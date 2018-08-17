@@ -1,0 +1,1314 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.2 Queuing Disciplines · Computer Networks: A Systems Approach</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="tcpcc.html" />
+    
+    
+    <link rel="prev" href="issues.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../foundation/problem.html">
+            
+                <a href="../foundation/problem.html">
+            
+                    
+                    Chapter 1: Foundation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foundation/applications.html">
+            
+                <a href="../foundation/applications.html">
+            
+                    
+                    1.1 Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foundation/requirements.html">
+            
+                <a href="../foundation/requirements.html">
+            
+                    
+                    1.2 Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../foundation/architecture.html">
+            
+                <a href="../foundation/architecture.html">
+            
+                    
+                    1.3 Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../foundation/software.html">
+            
+                <a href="../foundation/software.html">
+            
+                    
+                    1.4 Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../foundation/performance.html">
+            
+                <a href="../foundation/performance.html">
+            
+                    
+                    1.5 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+            
+                <a href="../foundation/summary.html">
+            
+                    
+                    1.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../direct/problem.html">
+            
+                <a href="../direct/problem.html">
+            
+                    
+                    Chapter 2: Direct Connections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../direct/perspective.html">
+            
+                <a href="../direct/perspective.html">
+            
+                    
+                    2.1 Perspective on Connecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../direct/encoding.html">
+            
+                <a href="../direct/encoding.html">
+            
+                    
+                    2.2 Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../direct/framing.html">
+            
+                <a href="../direct/framing.html">
+            
+                    
+                    2.3 Framing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../direct/error.html">
+            
+                <a href="../direct/error.html">
+            
+                    
+                    2.4 Error Detection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../direct/reliable.html">
+            
+                <a href="../direct/reliable.html">
+            
+                    
+                    2.5 Reliable Transmission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../direct/ethernet.html">
+            
+                <a href="../direct/ethernet.html">
+            
+                    
+                    2.6 Multi-Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../direct/wireless.html">
+            
+                <a href="../direct/wireless.html">
+            
+                    
+                    2.7 Wireless Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+            
+                <a href="../direct/summary.html">
+            
+                    
+                    2.8 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../internetworking/problem.html">
+            
+                <a href="../internetworking/problem.html">
+            
+                    
+                    Chapter 3: Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../internetworking/switching.html">
+            
+                <a href="../internetworking/switching.html">
+            
+                    
+                    3.1 Switching and Bridging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../internetworking/basic-ip.html">
+            
+                <a href="../internetworking/basic-ip.html">
+            
+                    
+                    3.2 Basic Internetworking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../internetworking/routing.html">
+            
+                <a href="../internetworking/routing.html">
+            
+                    
+                    3.3 Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../internetworking/impl.html">
+            
+                <a href="../internetworking/impl.html">
+            
+                    
+                    3.4 Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../internetworking/summary.html">
+            
+                <a href="../internetworking/summary.html">
+            
+                    
+                    3.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../scaling/problem.html">
+            
+                <a href="../scaling/problem.html">
+            
+                    
+                    Chapter 4: Advanced Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../scaling/global.html">
+            
+                <a href="../scaling/global.html">
+            
+                    
+                    4.1 Global Internet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../scaling/multicast.html">
+            
+                <a href="../scaling/multicast.html">
+            
+                    
+                    4.2 Multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../scaling/mpls.html">
+            
+                <a href="../scaling/mpls.html">
+            
+                    
+                    4.3 Multiprotocol Label Switching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../scaling/mobile-ip.html">
+            
+                <a href="../scaling/mobile-ip.html">
+            
+                    
+                    4.4 Routing Among Mobile Devices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+            
+                <a href="../scaling/summary.html">
+            
+                    
+                    4.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../e2e/problem.html">
+            
+                <a href="../e2e/problem.html">
+            
+                    
+                    Chapter 5: End-to-End Protocols
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../e2e/udp.html">
+            
+                <a href="../e2e/udp.html">
+            
+                    
+                    5.1 Simple Demultiplexor (UDP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../e2e/tcp.html">
+            
+                <a href="../e2e/tcp.html">
+            
+                    
+                    5.2 Reliable Byte Stream (TCP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../e2e/rpc.html">
+            
+                <a href="../e2e/rpc.html">
+            
+                    
+                    5.3 Remote Procedure Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../e2e/rtp.html">
+            
+                <a href="../e2e/rtp.html">
+            
+                    
+                    5.4 Transport for Real-Time Applications (RTP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+            
+                <a href="../e2e/summary.html">
+            
+                    
+                    5.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="problem.html">
+            
+                <a href="problem.html">
+            
+                    
+                    Chapter 6: Congestion Control and Resource Allocation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="issues.html">
+            
+                <a href="issues.html">
+            
+                    
+                    6.1 Issues in Resource Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.2" data-path="queuing.html">
+            
+                <a href="queuing.html">
+            
+                    
+                    6.2 Queuing Disciplines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="tcpcc.html">
+            
+                <a href="tcpcc.html">
+            
+                    
+                    6.3 TCP Congestion Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="avoidance.html">
+            
+                <a href="avoidance.html">
+            
+                    
+                    6.4 Congestion-Avoidance Mechanisms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="qos.html">
+            
+                <a href="qos.html">
+            
+                    
+                    6.5 Quality of Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    6.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../data/problem.html">
+            
+                <a href="../data/problem.html">
+            
+                    
+                    Chapter 7: End-to-End Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../data/presentation.html">
+            
+                <a href="../data/presentation.html">
+            
+                    
+                    7.1 Presentation Formatting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../data/multimedia.html">
+            
+                <a href="../data/multimedia.html">
+            
+                    
+                    7.2 Multimedia Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+            
+                <a href="../data/summary.html">
+            
+                    
+                    7.3 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../security/problem.html">
+            
+                <a href="../security/problem.html">
+            
+                    
+                    Chapter 8: Network Security
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../security/crypto.html">
+            
+                <a href="../security/crypto.html">
+            
+                    
+                    8.1 Cryptographic Building Blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../security/key-distro.html">
+            
+                <a href="../security/key-distro.html">
+            
+                    
+                    8.2 Key Predistribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../security/authentication.html">
+            
+                <a href="../security/authentication.html">
+            
+                    
+                    8.3 Authentication Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../security/systems.html">
+            
+                <a href="../security/systems.html">
+            
+                    
+                    8.4 Example Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../security/summary.html">
+            
+                <a href="../security/summary.html">
+            
+                    
+                    8.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../applications/problem.html">
+            
+                <a href="../applications/problem.html">
+            
+                    
+                    Chapter 9: Applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../applications/traditional.html">
+            
+                <a href="../applications/traditional.html">
+            
+                    
+                    9.1 Traditional Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../applications/multimedia.html">
+            
+                <a href="../applications/multimedia.html">
+            
+                    
+                    9.2 Multimedia Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../applications/infrastructure.html">
+            
+                <a href="../applications/infrastructure.html">
+            
+                    
+                    9.3 Infrastructure Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../applications/overlays.html">
+            
+                <a href="../applications/overlays.html">
+            
+                    
+                    9.4 Overlay Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+            
+                <a href="../applications/summary.html">
+            
+                    
+                    9.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.2 Queuing Disciplines</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="62-queuing-disciplines">6.2 Queuing Disciplines</h1>
+<p>Regardless of how simple or how sophisticated the rest of the resource
+allocation mechanism is, each router must implement some queuing
+discipline that governs how packets are buffered while waiting to be
+transmitted. The queuing algorithm can be thought of as allocating both
+bandwidth (which packets get transmitted) and buffer space (which
+packets get discarded). It also directly affects the latency experienced
+by a packet by determining how long a packet waits to be transmitted.
+This section introduces two common queuing algorithms&#x2014;first-in,
+first-out (FIFO) and fair queuing (FQ)&#x2014;and identifies several
+variations that have been proposed.</p>
+<h2 id="fifo">FIFO</h2>
+<p>The idea of FIFO queuing, also called first-come, first-served (FCFS)
+queuing, is simple: The first packet that arrives at a router is the
+first packet to be transmitted. This is illustrated in
+<a href="#fifo">Figure 1(a)</a>, which shows a FIFO with &quot;slots&quot; to hold up to
+eight packets. Given that the amount of buffer space at each router is
+finite, if a packet arrives and the queue (buffer space) is full, then
+the router discards that packet, as shown in <a href="#fifo">Figure 1(b)</a>. This
+is done without regard to which flow the packet belongs to or how
+important the packet is. This is sometimes called <em>tail drop</em>, since
+packets that arrive at the tail end of the FIFO are dropped.</p>
+<figure class="line">
+    <a id="fifo"></a>
+    <img src="figures/f06-05-9780123850591.png" width="400px">
+    <figcaption>(a) FIFO queuing; (b) tail drop at a FIFO queue.</figcaption>
+</figure>
+
+<p>Note that tail drop and FIFO are two separable ideas. FIFO is a
+<em>scheduling discipline</em>&#x2014;it determines the order in which packets are
+transmitted. Tail drop is a <em>drop policy</em>&#x2014;it determines which packets
+get dropped. Because FIFO and tail drop are the simplest instances of
+scheduling discipline and drop policy, respectively, they are sometimes
+viewed as a bundle&#x2014;the vanilla queuing implementation. Unfortunately,
+the bundle is often referred to simply as <em>FIFO queuing</em>, when it should
+more precisely be called <em>FIFO with tail drop</em>. A later section provides
+an example of another drop policy, which uses a more complex algorithm
+than &quot;Is there a free buffer?&quot; to decide when to drop packets. Such a
+drop policy may be used with FIFO, or with more complex scheduling
+disciplines.</p>
+<p>FIFO with tail drop, as the simplest of all queuing algorithms, is the
+most widely used in Internet routers at the time of writing. This simple
+approach to queuing pushes all responsibility for congestion control and
+resource allocation out to the edges of the network. Thus, the prevalent
+form of congestion control in the Internet currently assumes no help
+from the routers: TCP takes responsibility for detecting and responding
+to congestion. We will see how this works in the next section.</p>
+<p>A simple variation on basic FIFO queuing is priority queuing. The idea
+is to mark each packet with a priority; the mark could be carried, for
+example, in the IP header, as we&apos;ll discuss in a later section. The
+routers then implement multiple FIFO queues, one for each priority
+class. The router always transmits packets out of the highest-priority
+queue if that queue is nonempty before moving on to the next priority
+queue. Within each priority, packets are still managed in a FIFO manner.
+This idea is a small departure from the best-effort delivery model, but
+it does not go so far as to make guarantees to any particular priority
+class. It just allows high-priority packets to cut to the front of the
+line.</p>
+<p>The problem with priority queuing, of course, is that the high-priority
+queue can starve out all the other queues; that is, as long as there is
+at least one high-priority packet in the high-priority queue,
+lower-priority queues do not get served. For this to be viable, there
+need to be hard limits on how much high-priority traffic is inserted in
+the queue. It should be immediately clear that we can&apos;t allow users to
+set their own packets to high priority in an uncontrolled way; we must
+either prevent them from doing this altogether or provide some form of
+&quot;pushback&quot; on users. One obvious way to do this is to use
+economics&#x2014;the network could charge more to deliver high-priority
+packets than low-priority packets. However, there are significant
+challenges to implementing such a scheme in a decentralized environment
+such as the Internet.</p>
+<p>One situation in which priority queuing is used in the Internet is to
+protect the most important packets&#x2014;typically, the routing updates that
+are necessary to stabilize the routing tables after a topology change.
+Often there is a special queue for such packets, which can be identified
+by the Differentiated Services Code Point (formerly the TOS field) in
+the IP header. This is in fact a simple case of the idea of
+&quot;Differentiated Services.&quot;</p>
+<h2 id="fair-queuing">Fair Queuing</h2>
+<p>The main problem with FIFO queuing is that it does not discriminate
+between different traffic sources, or, in the language introduced in the
+previous section, it does not separate packets according to the flow to
+which they belong. This is a problem at two different levels. At one
+level, it is not clear that any congestion-control algorithm implemented
+entirely at the source will be able to adequately control congestion
+with so little help from the routers. We will suspend judgment on this
+point until the next section when we discuss TCP congestion control. At
+another level, because the entire congestion-control mechanism is
+implemented at the sources and FIFO queuing does not provide a means to
+police how well the sources adhere to this mechanism, it is possible for
+an ill-behaved source (flow) to capture an arbitrarily large fraction of
+the network capacity. Considering the Internet again, it is certainly
+possible for a given application not to use TCP and, as a consequence,
+to bypass its end-to-end congestion-control mechanism. (Applications
+such as Internet telephony do this today.) Such an application is able
+to flood the Internet&apos;s routers with its own packets, thereby causing
+other applications&apos; packets to be discarded.</p>
+<p>Fair queuing (FQ) is an algorithm that has been proposed to address this
+problem. The idea of FQ is to maintain a separate queue for each flow
+currently being handled by the router. The router then services these
+queues in a sort of round-robin, as illustrated in <a href="#fq">Figure 2</a>.
+When a flow sends packets too quickly, then its queue fills up. When a
+queue reaches a particular length, additional packets belonging to that
+flow&apos;s queue are discarded. In this way, a given source cannot
+arbitrarily increase its share of the network&apos;s capacity at the expense
+of other flows.</p>
+<figure class="line">
+    <a id="fq"></a>
+    <img src="figures/f06-06-9780123850591.png" width="350px">
+    <figcaption>Round-robin service of four flows at a router.</figcaption>
+</figure>
+
+<p>Note that FQ does not involve the router telling the traffic sources
+anything about the state of the router or in any way limiting how
+quickly a given source sends packets. In other words, FQ is still
+designed to be used in conjunction with an end-to-end congestion-control
+mechanism. It simply segregates traffic so that ill-behaved traffic
+sources do not interfere with those that are faithfully implementing the
+end-to-end algorithm. FQ also enforces fairness among a collection of
+flows managed by a well-behaved congestion-control algorithm.</p>
+<p>As simple as the basic idea is, there are still a modest number of
+details that you have to get right. The main complication is that the
+packets being processed at a router are not necessarily the same length.
+To truly allocate the bandwidth of the outgoing link in a fair manner,
+it is necessary to take packet length into consideration. For example,
+if a router is managing two flows, one with 1000-byte packets and the
+other with 500-byte packets (perhaps because of fragmentation upstream
+from this router), then a simple round-robin servicing of packets from
+each flow&apos;s queue will give the first flow two-thirds of the link&apos;s
+bandwidth and the second flow only one-third of its bandwidth.</p>
+<p>What we really want is bit-by-bit round-robin, where the router
+transmits a bit from flow 1, then a bit from flow 2, and so on. Clearly,
+it is not feasible to interleave the bits from different packets. The FQ
+mechanism therefore simulates this behavior by first determining when a
+given packet would finish being transmitted if it were being sent using
+bit-by-bit round-robin and then using this finishing time to sequence
+the packets for transmission.</p>
+<p>To understand the algorithm for approximating bit-by-bit round-robin,
+consider the behavior of a single flow and imagine a clock that ticks
+once each time one bit is transmitted from all of the active flows. (A
+flow is active when it has data in the queue.) For this flow, let <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>
+denote the length of packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>, let <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">S_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> denote the time when the
+router starts to transmit packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>, and let <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">F_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> denote the time
+when the router finishes transmitting packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>. If <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> is expressed
+in terms of how many clock ticks it takes to transmit packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>
+(keeping in mind that time advances 1 tick each time this flow gets 1
+bit&apos;s worth of service), then it is easy to see that
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><msub><mi>S</mi><mi>i</mi></msub><mo>+</mo><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">F_i = S_i + P_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>.</p>
+<p>When do we start transmitting packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>? The answer to this question
+depends on whether packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> arrived before or after the router
+finished transmitting packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">&#x2212;</span><span class="mord mathrm">1</span></span></span></span> from this flow. If it was before,
+then logically the first bit of packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> is transmitted immediately
+after the last bit of packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">&#x2212;</span><span class="mord mathrm">1</span></span></span></span>. On the other hand, it is possible
+that the router finished transmitting packet <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">&#x2212;</span><span class="mord mathrm">1</span></span></span></span> long before <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>
+arrived, meaning that there was a period of time during which the queue
+for this flow was empty, so the round-robin mechanism could not transmit
+any packets from this flow. If we let <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> denote the time that packet
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> arrives at the router, then <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub><mo>=</mo><mi>max</mi><mo>(</mo><msub><mi>F</mi><mrow><mi>i</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>A</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">S_i = \max(F_{i-1}, A_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mbin mtight">&#x2212;</span><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>. Thus, we
+can compute</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub><mo>=</mo><mi>max</mi><mo>(</mo><msub><mi>F</mi><mrow><mi>i</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>A</mi><mi>i</mi></msub><mo>)</mo><mo>+</mo><msub><mi>P</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+F_i = \max(F_{i-1}, A_i) + P_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mbin mtight">&#x2212;</span><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
+<p>Now we move on to the situation in which there is more than one flow,
+and we find that there is a catch to determining <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>. We can&apos;t just
+read the wall clock when the packet arrives. As noted above, we want
+time to advance by one tick each time all the active flows get one bit
+of service under bit-by-bit round-robin, so we need a clock that
+advances more slowly when there are more flows. Specifically, the clock
+must advance by one tick when <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> bits are transmitted if there are <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>
+active flows. This clock will be used to calculate <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">A_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>.</p>
+<p>Now, for every flow, we calculate <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">F_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> for each packet that arrives
+using the above formula. We then treat all the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>F</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">F_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> as timestamps, and
+the next packet to transmit is always the packet that has the lowest
+timestamp&#x2014;the packet that, based on the above reasoning, should finish
+transmission before all others.</p>
+<p>Note that this means that a packet can arrive on a flow, and, because it
+is shorter than a packet from some other flow that is already in the
+queue waiting to be transmitted, it can be inserted into the queue in
+front of that longer packet. However, this does not mean that a newly
+arriving packet can preempt a packet that is currently being
+transmitted. It is this lack of preemption that keeps the implementation
+of FQ just described from exactly simulating the bit-by-bit round-robin
+scheme that we are attempting to approximate.</p>
+<figure class="line">
+    <a id="fair-queuing"></a>
+    <img src="figures/f06-07-9780123850591.png" width="600px">
+    <figcaption>Example of fair queuing in action: (a) Packets with
+    earlier finishing times are sent first; (b) sending of a packet
+    already in progress is completed.</figcaption>
+</figure>
+
+<p>To better see how this implementation of fair queuing works, consider
+the example given in <a href="#fair-queuing">Figure 3</a>. Part (a) shows the
+queues for two flows; the algorithm selects both packets from flow 1 to
+be transmitted before the packet in the flow 2 queue, because of their
+earlier finishing times. In (b), the router has already begun to send a
+packet from flow 2 when the packet from flow 1 arrives. Though the
+packet arriving on flow 1 would have finished before flow 2 if we had
+been using perfect bit-by-bit fair queuing, the implementation does not
+preempt the flow 2 packet.</p>
+<p>There are two things to notice about fair queuing. First, the link is
+never left idle as long as there is at least one packet in the queue.
+Any queuing scheme with this characteristic is said to be <em>work
+conserving</em>. One effect of being work conserving is that if I am sharing
+a link with a lot of flows that are not sending any data then; I can use
+the full link capacity for my flow. As soon as the other flows start
+sending, however, they will start to use their share and the capacity
+available to my flow will drop.</p>
+<p>The second thing to notice is that if the link is fully loaded and there
+are <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> flows sending data, I cannot use more than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">/</span><span class="mord mathit">n</span></span></span></span>th of the link
+bandwidth. If I try to send more than that, my packets will be assigned
+increasingly large timestamps, causing them to sit in the queue longer
+awaiting transmission. Eventually, the queue will overflow&#x2014;although
+whether it is my packets or someone else&apos;s that are dropped is a
+decision that is not determined by the fact that we are using fair
+queuing. This is determined by the drop policy; FQ is a scheduling
+algorithm, which, like FIFO, may be combined with various drop policies.</p>
+<p>Because FQ is work conserving, any bandwidth that is not used by one
+flow is automatically available to other flows. For example, if we have
+four flows passing through a router, and all of them are sending
+packets, then each one will receive one-quarter of the bandwidth. But,
+if one of them is idle long enough that all its packets drain out of the
+router&apos;s queue, then the available bandwidth will be shared among the
+remaining three flows, which will each now receive one-third of the
+bandwidth. Thus, we can think of FQ as providing a guaranteed minimum
+share of bandwidth to each flow, with the possibility that it can get
+more than its guarantee if other flows are not using their shares.</p>
+<p>It is possible to implement a variation of FQ, called <em>weighted fair
+queuing</em> (WFQ), that allows a weight to be assigned to each flow
+(queue). This weight logically specifies how many bits to transmit each
+time the router services that queue, which effectively controls the
+percentage of the link&apos;s bandwidth that that flow will get. Simple FQ
+gives each queue a weight of 1, which means that logically only 1 bit is
+transmitted from each queue each time around. This results in each flow
+getting <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">/</span><span class="mord mathit">n</span></span></span></span>th of the bandwidth when there are <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> flows. With WFQ,
+however, one queue might have a weight of 2, a second queue might have a
+weight of 1, and a third queue might have a weight of 3. Assuming that
+each queue always contains a packet waiting to be transmitted, the first
+flow will get one-third of the available bandwidth, the second will get
+one-sixth of the available bandwidth, and the third will get one-half of
+the available bandwidth.</p>
+<p>While we have described WFQ in terms of flows, note that it could be
+implemented on <em>classes</em> of traffic, where classes are defined in some
+other way than the simple flows introduced at the start of this chapter.
+For example, we could use some bits in the IP header to identify classes
+and allocate a queue and a weight to each class. This is exactly what is
+proposed as part of the Differentiated Services architecture described
+in a later section.</p>
+<p>Note that a router performing WFQ must learn what weights to assign to
+each queue from somewhere, either by manual configuration or by some
+sort of signalling from the sources. In the latter case, we are moving
+toward a reservation-based model. Just assigning a weight to a queue
+provides a rather weak form of reservation because these weights are
+only indirectly related to the bandwidth the flow receives. (The
+bandwidth available to a flow also depends, for example, on how many
+other flows are sharing the link.) We will see in a later section how
+WFQ can be used as a component of a reservation-based resource
+allocation mechanism.</p>
+<p>Finally, we observe that this whole discussion of queue management
+illustrates an important system design principle known as <em>separating
+policy and mechanism</em>. The idea is to view each mechanism as a black box
+that provides a multifaceted service that can be controlled by a set of
+knobs. A policy specifies a particular setting of those knobs but does
+not know (or care) about how the black box is implemented. In this case,
+the mechanism in question is the queuing discipline, and the policy is a
+particular setting of which flow gets what level of service (e.g.,
+priority or weight). We discuss some policies that can be used with the
+WFQ mechanism in a later section.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="issues.html" class="navigation navigation-prev " aria-label="Previous page: 6.1 Issues in Resource Allocation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="tcpcc.html" class="navigation navigation-next " aria-label="Next page: 6.3 TCP Congestion Control">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.2 Queuing Disciplines","level":"1.7.2","depth":2,"next":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"previous":{"title":"6.1 Issues in Resource Allocation","level":"1.7.1","depth":2,"path":"congestion/issues.md","ref":"congestion/issues.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"livereload":{},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/queuing.md","mtime":"2018-08-15T22:10:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T18:23:38.784Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

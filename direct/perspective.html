@@ -1,0 +1,1226 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 Perspective on Connecting · Computer Networks: A Systems Approach</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="encoding.html" />
+    
+    
+    <link rel="prev" href="problem.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../foundation/problem.html">
+            
+                <a href="../foundation/problem.html">
+            
+                    
+                    Chapter 1: Foundation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foundation/applications.html">
+            
+                <a href="../foundation/applications.html">
+            
+                    
+                    1.1 Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foundation/requirements.html">
+            
+                <a href="../foundation/requirements.html">
+            
+                    
+                    1.2 Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../foundation/architecture.html">
+            
+                <a href="../foundation/architecture.html">
+            
+                    
+                    1.3 Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../foundation/software.html">
+            
+                <a href="../foundation/software.html">
+            
+                    
+                    1.4 Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../foundation/performance.html">
+            
+                <a href="../foundation/performance.html">
+            
+                    
+                    1.5 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+            
+                <a href="../foundation/summary.html">
+            
+                    
+                    1.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="problem.html">
+            
+                <a href="problem.html">
+            
+                    
+                    Chapter 2: Direct Connections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="perspective.html">
+            
+                <a href="perspective.html">
+            
+                    
+                    2.1 Perspective on Connecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="encoding.html">
+            
+                <a href="encoding.html">
+            
+                    
+                    2.2 Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="framing.html">
+            
+                <a href="framing.html">
+            
+                    
+                    2.3 Framing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="error.html">
+            
+                <a href="error.html">
+            
+                    
+                    2.4 Error Detection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="reliable.html">
+            
+                <a href="reliable.html">
+            
+                    
+                    2.5 Reliable Transmission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="ethernet.html">
+            
+                <a href="ethernet.html">
+            
+                    
+                    2.6 Multi-Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="wireless.html">
+            
+                <a href="wireless.html">
+            
+                    
+                    2.7 Wireless Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    2.8 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../internetworking/problem.html">
+            
+                <a href="../internetworking/problem.html">
+            
+                    
+                    Chapter 3: Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../internetworking/switching.html">
+            
+                <a href="../internetworking/switching.html">
+            
+                    
+                    3.1 Switching and Bridging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../internetworking/basic-ip.html">
+            
+                <a href="../internetworking/basic-ip.html">
+            
+                    
+                    3.2 Basic Internetworking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../internetworking/routing.html">
+            
+                <a href="../internetworking/routing.html">
+            
+                    
+                    3.3 Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../internetworking/impl.html">
+            
+                <a href="../internetworking/impl.html">
+            
+                    
+                    3.4 Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../internetworking/summary.html">
+            
+                <a href="../internetworking/summary.html">
+            
+                    
+                    3.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../scaling/problem.html">
+            
+                <a href="../scaling/problem.html">
+            
+                    
+                    Chapter 4: Advanced Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../scaling/global.html">
+            
+                <a href="../scaling/global.html">
+            
+                    
+                    4.1 Global Internet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../scaling/multicast.html">
+            
+                <a href="../scaling/multicast.html">
+            
+                    
+                    4.2 Multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../scaling/mpls.html">
+            
+                <a href="../scaling/mpls.html">
+            
+                    
+                    4.3 Multiprotocol Label Switching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../scaling/mobile-ip.html">
+            
+                <a href="../scaling/mobile-ip.html">
+            
+                    
+                    4.4 Routing Among Mobile Devices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+            
+                <a href="../scaling/summary.html">
+            
+                    
+                    4.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../e2e/problem.html">
+            
+                <a href="../e2e/problem.html">
+            
+                    
+                    Chapter 5: End-to-End Protocols
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../e2e/udp.html">
+            
+                <a href="../e2e/udp.html">
+            
+                    
+                    5.1 Simple Demultiplexor (UDP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../e2e/tcp.html">
+            
+                <a href="../e2e/tcp.html">
+            
+                    
+                    5.2 Reliable Byte Stream (TCP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../e2e/rpc.html">
+            
+                <a href="../e2e/rpc.html">
+            
+                    
+                    5.3 Remote Procedure Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../e2e/rtp.html">
+            
+                <a href="../e2e/rtp.html">
+            
+                    
+                    5.4 Transport for Real-Time Applications (RTP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+            
+                <a href="../e2e/summary.html">
+            
+                    
+                    5.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../congestion/problem.html">
+            
+                <a href="../congestion/problem.html">
+            
+                    
+                    Chapter 6: Congestion Control and Resource Allocation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../congestion/issues.html">
+            
+                <a href="../congestion/issues.html">
+            
+                    
+                    6.1 Issues in Resource Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../congestion/queuing.html">
+            
+                <a href="../congestion/queuing.html">
+            
+                    
+                    6.2 Queuing Disciplines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../congestion/tcpcc.html">
+            
+                <a href="../congestion/tcpcc.html">
+            
+                    
+                    6.3 TCP Congestion Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../congestion/avoidance.html">
+            
+                <a href="../congestion/avoidance.html">
+            
+                    
+                    6.4 Congestion-Avoidance Mechanisms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../congestion/qos.html">
+            
+                <a href="../congestion/qos.html">
+            
+                    
+                    6.5 Quality of Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../congestion/summary.html">
+            
+                <a href="../congestion/summary.html">
+            
+                    
+                    6.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../data/problem.html">
+            
+                <a href="../data/problem.html">
+            
+                    
+                    Chapter 7: End-to-End Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../data/presentation.html">
+            
+                <a href="../data/presentation.html">
+            
+                    
+                    7.1 Presentation Formatting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../data/multimedia.html">
+            
+                <a href="../data/multimedia.html">
+            
+                    
+                    7.2 Multimedia Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+            
+                <a href="../data/summary.html">
+            
+                    
+                    7.3 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../security/problem.html">
+            
+                <a href="../security/problem.html">
+            
+                    
+                    Chapter 8: Network Security
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../security/crypto.html">
+            
+                <a href="../security/crypto.html">
+            
+                    
+                    8.1 Cryptographic Building Blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../security/key-distro.html">
+            
+                <a href="../security/key-distro.html">
+            
+                    
+                    8.2 Key Predistribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../security/authentication.html">
+            
+                <a href="../security/authentication.html">
+            
+                    
+                    8.3 Authentication Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../security/systems.html">
+            
+                <a href="../security/systems.html">
+            
+                    
+                    8.4 Example Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../security/summary.html">
+            
+                <a href="../security/summary.html">
+            
+                    
+                    8.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../applications/problem.html">
+            
+                <a href="../applications/problem.html">
+            
+                    
+                    Chapter 9: Applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../applications/traditional.html">
+            
+                <a href="../applications/traditional.html">
+            
+                    
+                    9.1 Traditional Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../applications/multimedia.html">
+            
+                <a href="../applications/multimedia.html">
+            
+                    
+                    9.2 Multimedia Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../applications/infrastructure.html">
+            
+                <a href="../applications/infrastructure.html">
+            
+                    
+                    9.3 Infrastructure Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../applications/overlays.html">
+            
+                <a href="../applications/overlays.html">
+            
+                    
+                    9.4 Overlay Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+            
+                <a href="../applications/summary.html">
+            
+                    
+                    9.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 Perspective on Connecting</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="21-perspective-on-connecting">2.1 Perspective on Connecting</h1>
+<p>As we saw in Chapter 1, networks are constructed from two classes of
+hardware building blocks: <em>nodes</em> and <em>links</em>. In this chapter, we focus
+on what it takes to make a useful link, so that large, reliable networks
+containing millions of links can be built.</p>
+<figure class="line">
+    <a id="isp-access"></a>
+    <img src="figures/f02-01-9780123850591.png" width="650px">
+    <figcaption>An end-user&apos;s view of the  Internet.</figcaption>
+</figure>
+
+<p>While the operators of large networks deal with links that span hundreds
+or thousands of kilometers connecting refrigerator-sized routers, the
+typical user of a network encounters links mostly as a way to connect a
+computer to the global Internet. Sometimes this link will be a wireless
+(Wi-Fi) link in a coffee shop; sometimes it is an Ethernet link in a
+office building or university; for an increasingly large (and fortunate)
+slice of the population, it is a fiber optic link provided by a
+telecommunications company or ISP; and many others use some sort of
+copper wire or cable to connect. Fortunately, there are many common
+strategies used on these seemingly disparate types of links so that they
+can all be made reliable and useful to higher layers in the protocol
+stack. This chapter will examine those strategies.</p>
+<p><a href="#isp-access">Figure 1</a> illustrates various types of links as
+seen by a typical end-user of today&apos;s Internet. On the left, we see a
+variety of end-user devices ranging from mobile phones to PDAs to
+full-fledged computers connected by various means to an Internet
+Service Provider. While those links might be of any type mentioned
+above, or some other type, they all look the same in this picture&#x2014;a
+straight line connecting a device to a router. Also, there are some
+links that connect routers together inside the ISP and a link that
+connects the ISP to the &quot;rest of the Internet,&quot; which consists of lots
+of other ISPs and the hosts to which they connect. These links all
+look alike not just because we&apos;re not very good artists but because
+part of the role of a network architecture is to provide a common
+abstraction of something as complex and diverse as a link. The idea is
+that your laptop or smartphone doesn&apos;t have to care what sort of link
+it is connected to&#x2014;the only thing that matters is that it has a link
+to the Internet. Similarly, a router doesn&apos;t have to care what sort of
+link connects it to other routers&#x2014;it can send a packet on the link
+with a pretty good expectation that the packet will reach the other
+end of the link.</p>
+<p>How do we make all these different types of link look sufficiently alike
+to end users and routers? Essentially, we have to deal with all the
+physical limitations and shortcomings of links that exist in the real
+world. We sketched out some of these issues in the opening problem
+statement for this chapter. The first issue is that links are made of
+some physical material that can propagate signals (such as radio waves
+or other sorts of electromagnetic radiation), but what we really want to
+do is send <em>bits</em>. In later sections of this chapter, we&apos;ll look at how
+to encode bits for transmission on a physical medium, followed by the
+other issues mentioned above. By the end of this chapter, we&apos;ll
+understand how to send complete packets over just about any sort of
+link, no matter what physical medium is involved.</p>
+<h2 id="classes-of-links">Classes of Links</h2>
+<p>While most readers of this book have probably encountered at least a few
+different types of links, it will help to understand some of the broad
+classes of links that exist and their general properties. For a start,
+all practical links rely on some sort of electromagnetic radiation
+propagating through a medium or, in some cases, through free space. One
+way to characterize links, then, is by the medium they use&#x2014;typically
+copper wire in some form, as in Digital Subscriber Line (DSL) and
+coaxial cable; optical fiber, as in both commercial fiber-to-the-home
+services and many long-distance links in the Internet&apos;s backbone; or
+air/free space for wireless links.</p>
+<p>Another important link characteristic is the <em>frequency</em>, measured in
+hertz, with which the electromagnetic waves oscillate. The distance
+between a pair of adjacent maxima or minima of a wave, typically
+measured in meters, is called the wave&apos;s <em>wavelength</em>. Since all
+electromagnetic waves travel at the speed of light (which in turn
+depends on the medium), that speed divided by the wave&apos;s frequency is
+equal to its wavelength. We have already seen the example of a
+voice-grade telephone line, which carries continuous electromagnetic
+signals ranging between 300 Hz and 3300 Hz; a 300-Hz wave traveling
+through copper would have a wavelength of</p>
+<div class="ba-center"><p>SpeedOfLightInCopper / Frequency</p></div>
+
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>2</mn><mi mathvariant="normal">/</mi><mn>3</mn><mo>&#xD7;</mo><mn>3</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup><mi mathvariant="normal">/</mi><mn>3</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">
+= 2/3 \times 3 \times 10^8 / 300
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">/</span><span class="mord mathrm">3</span><span class="mbin">&#xD7;</span><span class="mord mathrm">3</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">/</span><span class="mord mathrm">3</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>6</mn><mn>6</mn><mn>7</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>3</mn></msup><mtext>&#xA0;</mtext><mi>m</mi><mi>e</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">
+= 667 \times 10^3\ meters
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">6</span><span class="mord mathrm">6</span><span class="mord mathrm">7</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit">m</span></span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">s</span></span></span></span></span></p>
+<p>Generally, electromagnetic waves span a much wider range of frequencies,
+ranging from radio waves, to infrared light, to visible light, to x-rays
+and gamma rays. <a href="#spectrum">Figure 2</a> depicts the
+electromagnetic spectrum and shows which media are commonly used to
+carry which frequency bands.</p>
+<figure class="line">
+    <a id="spectrum"></a>
+    <img src="figures/f02-02-9780123850591.png" width="600px">
+    <figcaption>Electromagnetic spectrum.</figcaption>
+</figure>
+
+<p>So far we understand a link to be a physical medium carrying signals in
+the form of electromagnetic waves. Such links provide the foundation for
+transmitting all sorts of information, including the kind of data we are
+interested in transmitting&#x2014;binary data (1s and 0s). We say that the
+binary data is <em>encoded</em> in the signal. The problem of encoding binary
+data onto electromagnetic signals is a complex topic. To help make the
+topic more manageable, we can think of it as being divided into two
+layers. The lower layer is concerned with <em>modulation</em>&#x2014;varying the
+frequency, amplitude, or phase of the signal to effect the transmission
+of information. A simple example of modulation is to vary the power
+(amplitude) of a single wavelength. Intuitively, this is equivalent to
+turning a light on and off. Because the issue of modulation is secondary
+to our discussion of links as a building block for computer networks, we
+simply assume that it is possible to transmit a pair of distinguishable
+signals&#x2014;think of them as a &quot;high&quot; signal and a &quot;low&quot; signal&#x2014;and we
+consider only the upper layer, which is concerned with the much simpler
+problem of encoding binary data onto these two signals. The next section
+discusses such encodings.</p>
+<p>Another way to classify links is in terms of how they are used. Various
+economic and deployment issues tend to influence where different link
+types are found. Most consumers interact with the Internet either
+through wireless networks (which they encounter in coffee shops,
+airports, universities, etc.) or through so-called &quot;last mile&quot; links
+provided by Internet Service Providers, as illustrated in an earlier
+<a href="#isp-access">Figure</a>. These link types are summarized in
+<a href="#home">Table 1</a>. They typically are chosen because they are cost-
+effective ways of reaching millions of consumers; DSL, for example,
+was deployed over the existing twisted pair copper wires that already
+existed for plain old telephone services. Most of these technologies
+are not sufficient for building a complete network from scratch&#x2014;for
+example, you&apos;ll likely need some long-distance, very high-speed links
+to interconnect cities in a large network.</p>
+<p><a id="home"></a></p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Bandwidth (typical)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dial-up</td>
+<td>28-56 kbps</td>
+</tr>
+<tr>
+<td>ISDN</td>
+<td>64-128 kbps</td>
+</tr>
+<tr>
+<td>DSL</td>
+<td>128 kbps-100 Mbps</td>
+</tr>
+<tr>
+<td>CATV (cable TV)</td>
+<td>1-40 Mbps</td>
+</tr>
+<tr>
+<td>FTTH (fiber to the home)</td>
+<td>50 Mbps-1 Gbps</td>
+</tr>
+</tbody>
+</table>
+<div class="ba-center"><p><em>Table 1. Common services available to connect your
+home.</em></p></div>
+
+<p>Modern long-distance links are almost exclusively fiber today, with
+coaxial cables having been largely replaced over the last couple of
+decades. These links typically use a technology called SONET
+(Synchronous Optical Network), which was developed to meet the demanding
+management requirements of telephone carriers. We&apos;ll take a closer look
+at SONET in a later section.</p>
+<p>Finally, in addition to last-mile and backbone links, there are the
+links that you find inside a building or a campus&#x2014;generally referred
+to as <em>local area networks</em> (LANs). Ethernet, described in a later section.
+has for some time been the dominant technology in this space, having
+displaced token ring technologies after many years. While Ethernet
+continues to be popular, it is now mostly seen alongside wireless
+technologies based around the 802.11 standards, which we will discuss
+in a later section.</p>
+<p>This survey of link types is by no means exhaustive but should have
+given you a taste of the diversity of link types that exist and some of
+the reasons for that diversity. In the coming sections, we will see how
+networking protocols can take advantage of that diversity and present a
+consistent view of the network to higher layers in spite of all the
+low-level complexity.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="problem.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 2: Direct Connections">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="encoding.html" class="navigation navigation-next " aria-label="Next page: 2.2 Encoding">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 Perspective on Connecting","level":"1.3.1","depth":2,"next":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"previous":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"path":"direct/problem.md","ref":"direct/problem.md","articles":[{"title":"2.1 Perspective on Connecting","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},{"title":"2.8 Summary","level":"1.3.8","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"livereload":{},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/perspective.md","mtime":"2018-08-15T22:04:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T18:23:38.784Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

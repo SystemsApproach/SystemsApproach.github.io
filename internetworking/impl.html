@@ -1,0 +1,1459 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.4 Implementation · Computer Networks: A Systems Approach</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="summary.html" />
+    
+    
+    <link rel="prev" href="routing.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../foundation/problem.html">
+            
+                <a href="../foundation/problem.html">
+            
+                    
+                    Chapter 1: Foundation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foundation/applications.html">
+            
+                <a href="../foundation/applications.html">
+            
+                    
+                    1.1 Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foundation/requirements.html">
+            
+                <a href="../foundation/requirements.html">
+            
+                    
+                    1.2 Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../foundation/architecture.html">
+            
+                <a href="../foundation/architecture.html">
+            
+                    
+                    1.3 Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../foundation/software.html">
+            
+                <a href="../foundation/software.html">
+            
+                    
+                    1.4 Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../foundation/performance.html">
+            
+                <a href="../foundation/performance.html">
+            
+                    
+                    1.5 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+            
+                <a href="../foundation/summary.html">
+            
+                    
+                    1.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../direct/problem.html">
+            
+                <a href="../direct/problem.html">
+            
+                    
+                    Chapter 2: Direct Connections
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../direct/perspective.html">
+            
+                <a href="../direct/perspective.html">
+            
+                    
+                    2.1 Perspective on Connecting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../direct/encoding.html">
+            
+                <a href="../direct/encoding.html">
+            
+                    
+                    2.2 Encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../direct/framing.html">
+            
+                <a href="../direct/framing.html">
+            
+                    
+                    2.3 Framing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../direct/error.html">
+            
+                <a href="../direct/error.html">
+            
+                    
+                    2.4 Error Detection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../direct/reliable.html">
+            
+                <a href="../direct/reliable.html">
+            
+                    
+                    2.5 Reliable Transmission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../direct/ethernet.html">
+            
+                <a href="../direct/ethernet.html">
+            
+                    
+                    2.6 Multi-Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../direct/wireless.html">
+            
+                <a href="../direct/wireless.html">
+            
+                    
+                    2.7 Wireless Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+            
+                <a href="../direct/summary.html">
+            
+                    
+                    2.8 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="problem.html">
+            
+                <a href="problem.html">
+            
+                    
+                    Chapter 3: Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="switching.html">
+            
+                <a href="switching.html">
+            
+                    
+                    3.1 Switching and Bridging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="basic-ip.html">
+            
+                <a href="basic-ip.html">
+            
+                    
+                    3.2 Basic Internetworking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="routing.html">
+            
+                <a href="routing.html">
+            
+                    
+                    3.3 Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="impl.html">
+            
+                <a href="impl.html">
+            
+                    
+                    3.4 Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    3.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../scaling/problem.html">
+            
+                <a href="../scaling/problem.html">
+            
+                    
+                    Chapter 4: Advanced Internetworking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../scaling/global.html">
+            
+                <a href="../scaling/global.html">
+            
+                    
+                    4.1 Global Internet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../scaling/multicast.html">
+            
+                <a href="../scaling/multicast.html">
+            
+                    
+                    4.2 Multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../scaling/mpls.html">
+            
+                <a href="../scaling/mpls.html">
+            
+                    
+                    4.3 Multiprotocol Label Switching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../scaling/mobile-ip.html">
+            
+                <a href="../scaling/mobile-ip.html">
+            
+                    
+                    4.4 Routing Among Mobile Devices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+            
+                <a href="../scaling/summary.html">
+            
+                    
+                    4.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../e2e/problem.html">
+            
+                <a href="../e2e/problem.html">
+            
+                    
+                    Chapter 5: End-to-End Protocols
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../e2e/udp.html">
+            
+                <a href="../e2e/udp.html">
+            
+                    
+                    5.1 Simple Demultiplexor (UDP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../e2e/tcp.html">
+            
+                <a href="../e2e/tcp.html">
+            
+                    
+                    5.2 Reliable Byte Stream (TCP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../e2e/rpc.html">
+            
+                <a href="../e2e/rpc.html">
+            
+                    
+                    5.3 Remote Procedure Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../e2e/rtp.html">
+            
+                <a href="../e2e/rtp.html">
+            
+                    
+                    5.4 Transport for Real-Time Applications (RTP)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+            
+                <a href="../e2e/summary.html">
+            
+                    
+                    5.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../congestion/problem.html">
+            
+                <a href="../congestion/problem.html">
+            
+                    
+                    Chapter 6: Congestion Control and Resource Allocation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../congestion/issues.html">
+            
+                <a href="../congestion/issues.html">
+            
+                    
+                    6.1 Issues in Resource Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../congestion/queuing.html">
+            
+                <a href="../congestion/queuing.html">
+            
+                    
+                    6.2 Queuing Disciplines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../congestion/tcpcc.html">
+            
+                <a href="../congestion/tcpcc.html">
+            
+                    
+                    6.3 TCP Congestion Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../congestion/avoidance.html">
+            
+                <a href="../congestion/avoidance.html">
+            
+                    
+                    6.4 Congestion-Avoidance Mechanisms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../congestion/qos.html">
+            
+                <a href="../congestion/qos.html">
+            
+                    
+                    6.5 Quality of Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../congestion/summary.html">
+            
+                <a href="../congestion/summary.html">
+            
+                    
+                    6.6 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../data/problem.html">
+            
+                <a href="../data/problem.html">
+            
+                    
+                    Chapter 7: End-to-End Data
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../data/presentation.html">
+            
+                <a href="../data/presentation.html">
+            
+                    
+                    7.1 Presentation Formatting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../data/multimedia.html">
+            
+                <a href="../data/multimedia.html">
+            
+                    
+                    7.2 Multimedia Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+            
+                <a href="../data/summary.html">
+            
+                    
+                    7.3 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../security/problem.html">
+            
+                <a href="../security/problem.html">
+            
+                    
+                    Chapter 8: Network Security
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../security/crypto.html">
+            
+                <a href="../security/crypto.html">
+            
+                    
+                    8.1 Cryptographic Building Blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../security/key-distro.html">
+            
+                <a href="../security/key-distro.html">
+            
+                    
+                    8.2 Key Predistribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../security/authentication.html">
+            
+                <a href="../security/authentication.html">
+            
+                    
+                    8.3 Authentication Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../security/systems.html">
+            
+                <a href="../security/systems.html">
+            
+                    
+                    8.4 Example Systems
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../security/summary.html">
+            
+                <a href="../security/summary.html">
+            
+                    
+                    8.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../applications/problem.html">
+            
+                <a href="../applications/problem.html">
+            
+                    
+                    Chapter 9: Applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../applications/traditional.html">
+            
+                <a href="../applications/traditional.html">
+            
+                    
+                    9.1 Traditional Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../applications/multimedia.html">
+            
+                <a href="../applications/multimedia.html">
+            
+                    
+                    9.2 Multimedia Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../applications/infrastructure.html">
+            
+                <a href="../applications/infrastructure.html">
+            
+                    
+                    9.3 Infrastructure Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../applications/overlays.html">
+            
+                <a href="../applications/overlays.html">
+            
+                    
+                    9.4 Overlay Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+            
+                <a href="../applications/summary.html">
+            
+                    
+                    9.5 Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.4 Implementation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="34-implementation">3.4 Implementation</h1>
+<p>So far, we have talked about what switches and routers must do without
+discussing how to do it. There is a very simple way to build a switch or
+router: Buy a general-purpose processor and equip it with a number of
+network interfaces. Such a device, running suitable software, can
+receive packets on one of its interfaces, perform any of the switching
+or forwarding functions described above, and send packets out another of
+its interfaces. This is, in fact, a popular way to build experimental
+routers and switches when you want to be able to do things like develop
+new routing protocols because it offers extreme flexibility and a
+familiar programming environment. It is also not too far removed from
+the architecture of many commercial mid- to low-end routers.</p>
+<h2 id="switch-basics">Switch Basics</h2>
+<p>Switches and routers use similar implementation techniques, so we&apos;ll
+start this section by looking at those common techniques, then move on
+to look at the specific issues affecting router implementation in the
+next section. For most of this section, we&apos;ll use the word <em>switch</em> to
+cover both types of devices, since their internal designs are so similar
+(and it&apos;s tedious to say &quot;switch or router&quot; all the time).</p>
+<figure class="line">
+    <a id="softswitch"></a>
+    <img src="figures/f03-37-9780123850591.png" width="500px">
+    <figcaption>A general-purpose processor used as a packet
+    switch.</figcaption>
+</figure>
+
+<p><a href="#softswitch">Figure 1</a> shows a processor with three network
+interfaces used as a switch. The figure shows a path that a packet
+might take from the time it arrives on interface 1 until it is output
+on interface 2. We have assumed here that the processor has a
+mechanism to move data directly from an interface to its main memory
+without having to be directly copied by the CPU, a technique called
+<em>direct memory access</em> (DMA). Once the packet is in memory, the CPU
+examines its header to determine which interface the packet should be
+sent out on. It then uses DMA to move the packet out to the
+appropriate interface. Note that <a href="#softswitch">Figure 1</a> does
+not show the packet going to the CPU because the CPU inspects only the
+header of the packet; it does not have to read every byte of data in
+the packet.</p>
+<p>The main problem with using a general-purpose processor as a switch is
+that its performance is limited by the fact that all packets must pass
+through a single point of contention: In the example shown, each packet
+crosses the I/O bus twice and is written to and read from main memory
+once. The upper bound on aggregate throughput of such a device (the
+total sustainable data rate summed over all inputs) is, thus, either
+half the main memory bandwidth or half the I/O bus bandwidth, whichever
+is less. (Usually, it&apos;s the I/O bus bandwidth.) For example, a machine
+with a 133-MHz, 64-bit-wide I/O bus can transmit data at a peak rate of
+a little over 8 Gbps. Since forwarding a packet involves crossing the
+bus twice, the actual limit is 4 Gbps&#x2014;enough to build a switch with a
+fair number of 100-Mbps Ethernet ports, for example, but hardly enough
+for a high-end router in the core of the Internet.</p>
+<p>Moreover, this upper bound also assumes that moving data is the only
+problem&#x2014;a fair approximation for long packets but a bad one when
+packets are short. In the latter case, the cost of processing each
+packet&#x2014;parsing its header and deciding which output link to transmit
+it on&#x2014;is likely to dominate. Suppose, for example, that a processor
+can perform all the necessary processing to switch 2 million packets
+each second. This is sometimes called the packet per second (pps) rate.
+(This number is representative of what is achievable on an inexpensive
+PC.) If the average packet is short, say, 64 bytes, this would imply</p>
+<div class="ba-center"><p>Throughput = pps x BitsPerPacket</p></div>
+
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>2</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>&#xD7;</mo><mn>6</mn><mn>4</mn><mo>&#xD7;</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
+= 2 \times 10^6 \times 64 \times 8
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#xD7;</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">8</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>1</mn><mn>0</mn><mn>2</mn><mn>4</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">
+= 1024 \times 10^6
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
+<p>that is, a throughput of about 1 Gbps&#x2014;substantially below the range
+that users are demanding from their networks today. Bear in mind that
+this 1 Gbps would be shared by all users connected to the switch, just
+as the bandwidth of a single (unswitched) Ethernet segment is shared
+among all users connected to the shared medium. Thus, for example, a
+20-port switch with this aggregate throughput would only be able to cope
+with an average data rate of about 50 Mbps on each port.</p>
+<p>To address this problem, hardware designers have come up with a large
+array of switch designs that reduce the amount of contention and provide
+high aggregate throughput. Note that some contention is unavoidable: If
+every input has data to send to a single output, then they cannot all
+send it at once. However, if data destined for different outputs is
+arriving at different inputs, then a well-designed switch will be able to
+move data from inputs to outputs in parallel, thus increasing the
+aggregate throughput.</p>
+<figure class="line">
+    <a id="portfab"></a>
+    <img src="figures/f03-38-9780123850591.png" width="500px">
+    <figcaption>A 4 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 4 switch.</figcaption>
+</figure>
+
+<h2 id="ports">Ports</h2>
+<p>Most switches look conceptually similar to the one shown in
+<a href="#portfab">Figure 2</a>. They consist of a number of <em>input</em> and <em>output
+ports</em> and a <em>fabric</em>. There is usually at least one control processor
+in charge of the whole switch that communicates with the ports either
+directly or, as shown here, via the switch fabric. The ports communicate
+with the outside world. They may contain fiber optic receivers and
+lasers, buffers to hold packets that are waiting to be switched or
+transmitted, and often a significant amount of other circuitry that
+enables the switch to function. The fabric has a very simple and
+well-defined job: When presented with a packet, deliver it to the right
+output port.</p>
+<p>One of the jobs of the ports, then, is to deal with the complexity of
+the real world in such a way that the fabric can do its relatively
+simple job. For example, suppose that this switch is supporting a
+virtual circuit model of communication. In general, the virtual circuit
+mapping tables are located in the ports. The ports maintain lists of
+virtual circuit identifiers that are currently in use, with information
+about what output a packet should be sent out on for each VCI and how
+the VCI needs to be remapped to ensure uniqueness on the outgoing link.
+Similarly, the ports of an Ethernet switch store tables that map between
+Ethernet addresses and output ports (bridge forwarding tables). In
+general, when a packet is handed from an input port to the fabric, the
+port has figured out where the packet needs to go, and either the port
+sets up the fabric accordingly by communicating some control information
+to it, or it attaches enough information to the packet itself (e.g., an
+output port number) to allow the fabric to do its job automatically.
+Fabrics that switch packets by looking only at the information in the
+packet are referred to as <em>self-routing</em>, since they require no external
+control to route packets. An example of a self-routing fabric is
+discussed below.</p>
+<p>The input port is the first place to look for performance bottlenecks.
+The input port has to receive a steady stream of packets, analyze
+information in the header of each one to determine which output port (or
+ports) the packet must be sent to, and pass the packet on to the fabric.
+The type of header analysis that it performs can range from a simple
+table lookup on a VCI to complex matching algorithms that examine many
+fields in the header. This is the type of operation that sometimes
+becomes a problem when the average packet size is very small. Consider,
+for example, 64-byte packets arriving on a port connected to an OC-48
+(2.48 Gbps) link. Such a port needs to process packets at a rate of</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi mathvariant="normal">.</mi><mn>4</mn><mn>8</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mi mathvariant="normal">/</mi><mo>(</mo><mn>6</mn><mn>4</mn><mo>&#xD7;</mo><mn>8</mn><mo>)</mo><mo>=</mo><mn>4</mn><mi mathvariant="normal">.</mi><mn>8</mn><mn>3</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mtext>&#xA0;</mtext><mi>p</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">
+2.48 \times 10^9 / (64 \times 8) = 4.83 \times 10^6\ pps
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathrm">.</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">/</span><span class="mopen">(</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">8</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mord mathrm">.</span><span class="mord mathrm">8</span><span class="mord mathrm">3</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit">p</span></span><span class="mord mathit">p</span><span class="mord mathit">s</span></span></span></span></span></p>
+<p>In other words, when small packets are arriving as fast as possible on
+this link (the worst-case scenario that most ports are engineered to
+handle), the input port has approximately 200 nanoseconds to process
+each packet.</p>
+<p>Another key function of ports is buffering. Observe that buffering can
+happen in either the input or the output port; it can also happen within
+the fabric (sometimes called <em>internal buffering</em>). Simple input
+buffering has some serious limitations. Consider an input buffer
+implemented as a FIFO. As packets arrive at the switch, they are placed
+in the input buffer. The switch then tries to forward the packets at the
+front of each FIFO to their appropriate output port. However, if the
+packets at the front of several different input ports are destined for
+the same output port at the same time, then only one of them can be
+forwarded; the rest must stay in their input buffers.</p>
+<blockquote>
+<p>For a simple input-buffered switch, exactly one packet at a time 
+can be sent to a given output port. It is possible to design 
+switches that can forward more than one packet to the same output at 
+once, at a cost of higher switch complexity, but there is always 
+some upper limit on the number. </p>
+</blockquote>
+<figure class="line">
+    <a id="hol"></a>
+    <img src="figures/f03-39-9780123850591.png" width="400px">
+    <figcaption>Simple illustration of head-of-line blocking.</figcaption>
+</figure>
+
+<p> The drawback of this feature is that those packets left at the front of
+the input buffer prevent other packets further back in the buffer from
+getting a chance to go to their chosen outputs, even though there may be
+no contention for those outputs. This phenomenon is called <em>head-of-line
+blocking</em>. A simple example of head-of-line blocking is given in
+<a href="#hol">Figure 3</a>, where we see a packet destined for port 1 blocked
+behind a packet contending for port 2. It can be shown that when traffic
+is uniformly distributed among outputs, head-of-line blocking limits the
+throughput of an input-buffered switch to 59% of the theoretical maximum
+(which is the sum of the link bandwidths for the switch). Thus, the
+majority of switches use either pure output buffering or a mixture of
+internal and output buffering. Those that do rely on input buffers use
+more advanced buffer management schemes to avoid head-of-line blocking.</p>
+<p>Buffers actually perform a more complex task than just holding onto
+packets that are waiting to be transmitted. Buffers are the main source
+of delay in a switch, and also the place where packets are most likely
+to get dropped due to lack of space to store them. The buffers therefore
+are the main place where the quality of service characteristics of a
+switch are determined. For example, if a certain packet has been sent
+along a VC that has a guaranteed delay, it cannot afford to sit in a
+buffer for very long. This means that the buffers, in general, must be
+managed using packet scheduling and discard algorithms that meet a wide
+range of QoS requirements.</p>
+<h2 id="fabrics">Fabrics</h2>
+<p>While there has been an abundance of impressive research conducted on
+the design of efficient and scalable fabrics, it is sufficient for our
+purposes here to understand only the high-level properties of a switch
+fabric. A switch fabric should be able to move packets from input ports
+to output ports with minimal delay and in a way that meets the
+throughput goals of the switch. That usually means that fabrics display
+some degree of parallelism. A high-performance fabric with n ports can
+often move one packet from each of its n ports to one of the output
+ports at the same time. A sample of fabric types includes the following:</p>
+<figure class="line">
+    <a id="xbar"></a>
+    <img src="figures/f03-40-9780123850591.png" width="400px">
+    <figcaption>A 4 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 4 crossbar switch.</figcaption>
+</figure>
+
+<ul>
+<li><p><em>Shared Bus</em>&#x2014;This is the type of &quot;fabric&quot; found in a conventional
+  processor used as a switch, as described above. Because the bus
+  bandwidth determines the throughput of the switch, high-performance
+  switches usually have specially designed busses rather than the
+  standard busses found in PCs.</p>
+</li>
+<li><p><em>Shared Memory</em>&#x2014;In a shared memory switch, packets are written
+  into a memory location by an input port and then read from memory by
+  the output ports. Here it is the memory bandwidth that determines
+  switch throughput, so wide and fast memory is typically used in this
+  sort of design. A shared memory switch is similar in principle to
+  the shared bus switch, except it usually uses a specially designed,
+  high-speed memory bus rather than an I/O bus.</p>
+</li>
+<li><p><em>Crossbar</em>&#x2014;A crossbar switch is a matrix of pathways that can be
+  configured to connect any input port to any output port.
+  <a href="#xbar">Figure 4</a> shows a 4 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 4 crossbar switch. The main
+  problem with crossbars is that, in their simplest form, they require
+  each output port to be able to accept packets from all inputs at
+  once, implying that each port would have a memory bandwidth equal to
+  the total switch throughput. In reality, more complex designs are
+  typically used to address this issue (see, for example, the Knockout
+  switch and McKeown&apos;s virtual output-buffered approach in the Further
+  Reading section.)</p>
+</li>
+<li><p><em>Self-routing</em>&#x2014;As noted above, self-routing fabrics rely on some
+  information in the packet header to direct each packet to its
+  correct output. Usually a special &quot;self-routing header&quot; is appended
+  to the packet by the input port after it has determined which output
+  the packet needs to go to, as illustrated in
+  <a href="#self-route">Figure 5</a>; this extra header is removed before the
+  packet leaves the switch. Self-routing fabrics are often built from
+  large numbers of very simple 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 2 switching elements
+  interconnected in regular patterns, such as the <em>banyan</em> switching
+  fabric shown in<a href="#banyaneg">Figure 6</a>.</p>
+</li>
+</ul>
+<figure class="line">
+    <a id="self-route"></a>
+    <img src="figures/f03-41-9780123850591.png" width="500px">
+    <figcaption>A self-routing header is applied to a packet at input
+    to enable the fabric to send the packet to the correct output,
+    where it is removed: (a) Packet arrives at input port; (b) input
+    port attaches self-routing header to direct packet to correct
+    output; (c) self-routing header is removed at output port before
+    packet leaves switch.</figcaption>    
+</figure>
+
+<figure class="line">
+    <a id="banyaneg"></a>
+    <img src="figures/f03-42-9780123850591.png" width="400px">
+    <figcaption>Routing packets through a banyan network. The 3-bit
+    numbers represent values in the self-routing headers of four
+    arriving packets.</figcaption>
+</figure>
+
+<p> Self-routing fabrics are among the most scalable approaches to fabric
+design, and there has been a wealth of research on the topic, some of
+which is listed in the Further Reading section. Many self-routing
+fabrics resemble the one shown in <a href="#banyaneg">Figure 6</a>, consisting
+of regularly interconnected 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 2 switching elements. For example,
+the 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 2 switches in the banyan network perform a simple task:
+They look at 1 bit in each self-routing header and route packets toward
+the upper output if it is zero or toward the lower output if it is one.
+Obviously, if two packets arrive at a banyan element at the same time
+and both have the bit set to the same value, then they want to be routed
+to the same output and a collision will occur. Either preventing or
+dealing with these collisions is a main challenge for self-routing
+switch design. The banyan network is a clever arrangement of
+2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 2 switching elements that routes all packets to the correct
+output without collisions if the packets are presented in ascending
+order.</p>
+<p>We can see how this works in an example, as shown in
+<a href="#banyaneg">Figure 6</a>, where the self-routing header contains the
+output port number encoded in binary. The switch elements in the first
+column look at the most significant bit of the output port number and
+route packets to the top if that bit is a 0 or the bottom if it is a 1.
+Switch elements in the second column look at the second bit in the
+header, and those in the last column look at the least significant bit.
+You can see from this example that the packets are routed to the correct
+destination port without collisions. Notice how the top outputs from the
+first column of switches all lead to the top half of the network, thus
+getting packets with port numbers 0 to 3 into the right half of the
+network. The next column gets packets to the right quarter of the
+network, and the final column gets them to the right output port. The
+clever part is the way switches are arranged to avoid collisions. Part
+of the arrangement includes the &quot;perfect shuffle&quot; wiring pattern at the
+start of the network. To build a complete switch fabric around a banyan
+network would require additional components to sort packets before they
+are presented to the banyan. The Batcher-banyan switch design is a
+notable example of such an approach. The Batcher network, which is also
+built from a regular interconnection of 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 2 switching elements,
+sorts packets into descending order. On leaving the Batcher network, the
+packets are then ready to be directed to the correct output, with no
+risk of collisions, by the banyan network.</p>
+<p>One of the interesting things about switch design is the wide range of
+different types of switches that can be built using the same basic
+technology. For example, Ethernet switches, ATM switches, and Internet
+routers, discussed below, have all been built using designs such as
+those outlined in this section.</p>
+<h2 id="router-implementation">Router Implementation</h2>
+<p>We have now seen a variety of ways to build a switch, ranging from a
+general-purpose processor with a suitable number of network interfaces
+to some sophisticated hardware designs. In general, the same range of
+options is available for building routers, many of which look something
+like <a href="#router-imp">Figure 7</a>. The control processor is
+responsible for running the routing protocols discussed above, among
+other things, and generally acts as the central point of control of
+the router. The switching fabric transfers packets from one port to
+another, just as in a switch; and the ports provide a range of
+functionality to allow the router to interface to links of various
+types (e.g., Ethernet, SONET).</p>
+<figure class="line">
+    <a id="router-imp"></a>
+    <img src="figures/f03-43-9780123850591.png" width="500px">
+    <figcaption>Block diagram of a router.</figcaption>
+</figure>
+
+<p> A few points are worth noting about router design and how it differs
+from switch design. First, routers must be designed to handle
+variable-length packets, a constraint that does not apply to ATM
+switches but is certainly applicable to Ethernet or Frame Relay
+switches. It turns out that many high-performance routers are designed
+using a switching fabric that is cell based. In such cases, the ports
+must be able to convert variable-length packets into cells and back
+again. This is known as <em>segmentation and re-assembly</em> (SAR), a problem
+also faced by network adaptors for ATM networks.</p>
+<p>Another consequence of the variable length of IP datagrams is that it
+can be harder to characterize the performance of a router than a switch
+that forwards only cells. Routers can usually forward a certain number
+of packets per second, and this implies that the total throughput in
+<em>bits</em> per second depends on packet size. Router designers generally
+have to make a choice as to what packet length they will support at
+<em>line rate</em>. That is, if &apos;pps&apos; (packets per second) is the rate at which
+packets arriving on a particular port can be forwarded, and &apos;linerate&apos;
+is the physical speed of the port in bits per second, then there will be
+some &apos;packetsize&apos; in bits such that:</p>
+<div class="ba-center"><p>packetsize x pps = linerate</p></div>
+
+<p>This is the packet size at which the router can forward at line rate; it
+is likely to be able to sustain line rate for longer packets but not for
+shorter packets. Sometimes a designer might decide that the right packet
+size to support is 40 bytes, since that is the minimum size of an IP
+packet that has a TCP header attached. Another choice might be the
+expected <em>average</em> packet size, which can be determined by studying
+traces of network traffic. For example, measurements of the Internet
+backbone suggest that the average IP packet is around 300 bytes long.
+However, such a router would fall behind and perhaps start dropping
+packets when faced with a long sequence of short packets, which is
+statistically likely from time to time and also very possible if the
+router is subject to an active attack. Design decisions of this type
+depend heavily on cost considerations and the intended application of
+the router.</p>
+<p>When it comes to the task of forwarding IP packets, routers can be
+broadly characterized as having either a <em>centralized</em> or <em>distributed</em>
+forwarding model. In the centralized model, the IP forwarding algorithm,
+outlined earlier in this chapter, is done in a single processing engine
+that handles the traffic from all ports. In the distributed model, there
+are several processing engines, perhaps one per port, or more often one
+per line card, where a line card may serve one or more physical ports.
+Each model has advantages and disadvantages. All things being equal, a
+distributed forwarding model should be able to forward more packets per
+second through the router as a whole, because there is more processing
+power in total. But a distributed model also complicates the software
+architecture, because each forwarding engine typically needs its own
+copy of the forwarding table, and thus it is necessary for the control
+processor to ensure that the forwarding tables are updated consistently
+and in a timely manner.</p>
+<p>Another aspect of router implementation that is significantly different
+from that of switches is the IP forwarding algorithm itself. In bridges
+and most ATM switches, the forwarding algorithm simply involves looking
+up a fixed-length identifier (MAC address or VCI) in a table, finding
+the correct output port in the table, and sending the packet to that
+port. We have already seen that the IP forwarding algorithm is a little
+more complicated than that, in part because the relevant number of bits
+that need to be examined when forwarding a packet is not fixed but
+variable, typically ranging from 8 bits to 32 bits.</p>
+<p>Because of the relatively high complexity of the IP forwarding
+algorithm, there have been periods of time when it seemed IP routers
+might be running up against fundamental upper limits of performance.
+However, as we discuss in the Further Reading section of this chapter,
+there have been many innovative approaches to IP forwarding developed
+over the years, and at the time of writing there are commercial routers
+that can forward 40 Gbps of IP traffic <em>per interface</em>. By combining
+many such high-performance IP forwarding engines with the sort of very
+scalable switch fabrics, it has now become possible to build routers
+with many terabits of total throughput. That is more than enough to see
+us through the next few years of growth in Internet traffic.</p>
+<p>Another technology of interest in the field of router implementation is
+the <em>network processor</em>. A network processor is intended to be a device
+that is just about as programmable as a standard PC processor, but that
+is more highly optimized for networking tasks. For example, a network
+processor might have instructions that are particularly well suited to
+performing lookups on IP addresses, or calculating checksums on IP
+datagrams. Such devices could be used in routers and other networking
+devices (e.g., firewalls).</p>
+<p>One of the interesting and ongoing debates about network processors is
+whether they can do a better job than the alternatives. For example,
+given the continuous and remarkable improvements in performance of
+conventional processors, and the huge industry that drives those
+improvements, can network processors keep up? And can a device that
+strives for generality do as good a job as a custom-designed
+application-specific integrated circuit (ASIC) that does nothing except,
+say, IP forwarding? Part of the answer to questions like these depends
+on what you mean by &quot;do a better job.&quot; For example, there will always be
+tradeoffs to be made between cost of hardware, time to market,
+performance, power consumption, and flexibility&#x2014;the ability to change
+the features supported by a router after it is built. We will see in
+later chapters just how diverse the requirements for router
+functionality can be. It is safe to assume that a wide range of router
+designs will exist for the foreseeable future and that network
+processors will have some role to play.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="routing.html" class="navigation navigation-prev " aria-label="Previous page: 3.3 Routing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="summary.html" class="navigation navigation-next " aria-label="Next page: 3.5 Summary">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"next":{"title":"3.5 Summary","level":"1.4.5","depth":2,"path":"internetworking/summary.md","ref":"internetworking/summary.md","articles":[]},"previous":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"livereload":{},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/impl.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-17T18:23:38.784Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
