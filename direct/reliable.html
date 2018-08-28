@@ -226,7 +226,7 @@
                 <a href="perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="access.html">
+            
+                <a href="access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="summary.html">
             
                 <a href="summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -968,17 +981,18 @@ should be provided is a matter of some debate and depends on many
 factors. We describe the basics of reliable delivery here, since the
 principles are common across layers, but you should be aware that we&apos;re
 not just talking about a link-layer function.</p>
-<p>This is usually accomplished using a combination of two fundamental
-mechanisms&#x2014;<em>acknowledgments</em> and <em>timeouts</em>. An acknowledgment (ACK
-for short) is a small control frame that a protocol sends back to its
-peer saying that it has received an earlier frame. By control frame we
-mean a header without any data, although a protocol can <em>piggyback</em> an
-ACK on a data frame it just happens to be sending in the opposite
-direction. The receipt of an acknowledgment indicates to the sender of
-the original frame that its frame was successfully delivered. If the
-sender does not receive an acknowledgment after a reasonable amount of
-time, then it <em>retransmits</em> the original frame. This action of waiting a
-reasonable amount of time is called a <em>timeout</em>.</p>
+<p>Reliable delivery is usually accomplished using a combination of two
+fundamental mechanisms&#x2014;<em>acknowledgments</em> and <em>timeouts</em>. An
+acknowledgment (ACK for short) is a small control frame that a
+protocol sends back to its peer saying that it has received an earlier
+frame. By control frame we mean a header without any data, although a
+protocol can <em>piggyback</em> an ACK on a data frame it just happens to be
+sending in the opposite direction. The receipt of an acknowledgment
+indicates to the sender of the original frame that its frame was
+successfully delivered. If the sender does not receive an
+acknowledgment after a reasonable amount of time, then it
+<em>retransmits</em> the original frame. This action of waiting a reasonable
+amount of time is called a <em>timeout</em>.</p>
 <p>The general strategy of using acknowledgments and timeouts to implement
 reliable delivery is sometimes called <em>automatic repeat request</em>
 (abbreviated ARQ). This section describes three different ARQ algorithms
@@ -1050,7 +1064,7 @@ this may be far below the link&apos;s capacity. Consider, for example, a
 delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product of 67.5 Kb, or approximately 8 KB.
 Since the sender can send only one frame per RTT, and assuming a frame
 size of 1 KB, this implies a maximum sending rate of</p>
-<div class="ba-center"><p>Bits-Per-Frame  / Time-Per-Frame = 1024</p></div>
+<div class="ba-center"><p>Bits-Per-Frame  / Time-Per-Frame = 1024 x 8 / 0.045 = 182 kbps</p></div>
 
 <p>or about one-eighth of the link&apos;s capacity. To use the link fully, then,
 we&apos;d like the sender to be able to transmit up to eight frames before
@@ -1140,8 +1154,8 @@ receiver acknowledges frame 8, bumps <code>LFR</code> to 8, and sets
 occurred at the sender, causing it to retransmit frame 6.</p>
 <blockquote>
 <p>It&apos;s unlikely that a packet could be delayed on a 
-point-to-point link, but later on we will see this same algorithm 
-used on more complex networks where such delays are possible. </p>
+point-to-point link, this same algorithm is used
+on multi-hop connections where such delays are possible. </p>
 </blockquote>
 <p>We observe that when a timeout occurs, the amount of data in transit
 decreases, since the sender is unable to advance its window until
@@ -1187,7 +1201,7 @@ larger than the number of outstanding frames allowed. For example,
 stop-and-wait allowed one outstanding frame at a time and had two
 distinct sequence numbers.</p>
 <p>Suppose we have one more number in our space of sequence numbers than we
-have potentially outstanding frames; that is, <code>SWS &lt;= MaxSeqNum - 1</code>),
+have potentially outstanding frames; that is, <code>SWS &lt;= MaxSeqNum - 1</code>,
 where <code>MaxSeqNum</code> is the number of
 available sequence numbers. Is this sufficient? The answer depends on
 <code>RWS</code>. If <code>RWS =  1</code>, then <code>MaxSeqNum &gt;= SWS + 1</code> is sufficient.
@@ -1196,7 +1210,7 @@ than the sending window size is not good enough. To see this, consider the
 situation in which we have the eight sequence numbers 0 through 7, and
 <code>SWS = RWS = 7</code>. Suppose the sender transmits
 frames 0..6, they are successfully received, but the ACKs are
-lost. The receiver is now expecting frames $7, 0..5, but the sender
+lost. The receiver is now expecting frames 7, 0..5, but the sender
 times out and sends frames 0..6. Unfortunately, the receiver is
 expecting the second incarnation of frames 0..5 but gets the first
 incarnation of these frames. This is exactly the situation we wanted to
@@ -1464,12 +1478,9 @@ window algorithm described in this section does preserve frame order,
 although we could imagine a variation in which the receiver passes
 frames to the next protocol without waiting for all earlier frames to be
 delivered. A question we should ask ourselves is whether we really need
-the sliding window protocol to keep the frames in order, or whether,
-instead, this is unnecessary functionality at the link level.
-Unfortunately, we have not yet seen enough of the network architecture
-to answer this question; we first need to understand how a sequence of
-point-to-point links is connected by switches to form an end-to-end
-path.</p>
+the sliding window protocol to keep the frames in order at the link
+level, or whether, instead, this functionality should be implemented
+by a protocol higher in the stack.</p>
 <p>The third role that the sliding window algorithm sometimes plays is to
 support <em>flow control</em>&#x2014;a feedback mechanism by which the receiver is
 able to throttle the sender. Such a mechanism is used to keep the sender
@@ -1560,7 +1571,7 @@ frames on the link when <code>RWS = SWS</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"next":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"previous":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/reliable.md","mtime":"2018-08-26T19:45:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"next":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"previous":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/reliable.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

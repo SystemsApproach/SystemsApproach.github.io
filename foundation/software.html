@@ -226,7 +226,7 @@
                 <a href="../direct/perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="../direct/access.html">
+            
+                <a href="../direct/access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../direct/summary.html">
             
                 <a href="../direct/summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -956,7 +969,7 @@ but a good blueprint is not enough to explain the phenomenal success of
 the Internet: The number of computers connected to the Internet has
 grown exponentially for almost 3 decades (although precise numbers are
 now hard to come by). The number of users of the Internet was estimated
-to be around 1.8 billion in 2009&#x2014;an impressive percentage of the
+to be around 4.1 billion by the end of 2017&#x2014;roughly half of the
 world&apos;s population.</p>
 <p>What explains the success of the Internet? There are certainly many
 contributing factors (including a good architecture), but one thing that
@@ -964,19 +977,16 @@ has made the Internet such a runaway success is the fact that so much of
 its functionality is provided by software running in general-purpose
 computers. The significance of this is that new functionality can be
 added readily with &quot;just a small matter of programming.&quot; As a result,
-new and services&#x2014;electronic commerce, videoconferencing, and IP
-telephony, to name a few&#x2014;have been showing up at an incredible pace.</p>
+new applications and services have been showing up at an incredible
+pace.</p>
 <p>A related factor is the massive increase in computing power available in
 commodity machines. Although computer networks have always been capable
 in principle of transporting any kind of information, such as digital
 voice samples, digitized images, and so on, this potential was not
 particularly interesting if the computers sending and receiving that
 data were too slow to do anything useful with the information. Virtually
-all of today&apos;s computers are capable of playing back digitized voice at
-full speed and can display video at a speed and resolution that are
-useful for some (but by no means all) applications. Thus, today&apos;s
-networks are increasingly used to carry multimedia, and their support
-for it will only improve as computing hardware becomes faster.</p>
+all of today&apos;s computers are capable of playing back digitized audio
+and video at a speed and resolution that are quite useable.</p>
 <p>In the years since the first edition of this book appeared, the writing
 of networked applications has become a much more mainstream activity and
 less a job just for a few specialists. Many factors have played into
@@ -1007,10 +1017,17 @@ supported; that is, they have been ported to operating systems other
 than their native system. This is what has happened with the <em>socket
 interface</em> originally provided by the Berkeley distribution of Unix,
 which is now supported in virtually all popular operating systems, and
-is the foundation of language-specific interfaces, such as the Java
-socket library. The advantages of industry-wide support for a single API
-are that applications can be easily ported from one OS to another and
-developers can easily write applications for multiple operating systems.</p>
+is the foundation of language-specific interfaces, such as the Java or
+Python socket library. The advantages of industry-wide support for a
+single API are that applications can be easily ported from one OS to
+another and developers can easily write applications for multiple
+operating systems.</p>
+<blockquote>
+<p>Not wanting to pick sides in a Java-v-Python-v-Go debate, and
+because it remains the language of choice for network internals, all
+of the code examples given in this book are written in C and directly
+use OS-level interfaces.</p>
+</blockquote>
 <p>Before describing the socket interface, it is important to keep two
 concerns separate in your mind. Each protocol provides a certain set of
 <em>services</em>, and the API provides a <em>syntax</em> by which those services can
@@ -1287,7 +1304,7 @@ prints out the characters that arrive on the connection.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.4 Software","level":"1.2.4","depth":2,"next":{"title":"1.5 Performance","level":"1.2.5","depth":2,"path":"foundation/performance.md","ref":"foundation/performance.md","articles":[]},"previous":{"title":"1.3 Architecture","level":"1.2.3","depth":2,"path":"foundation/architecture.md","ref":"foundation/architecture.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/software.md","mtime":"2018-08-15T20:29:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.4 Software","level":"1.2.4","depth":2,"next":{"title":"1.5 Performance","level":"1.2.5","depth":2,"path":"foundation/performance.md","ref":"foundation/performance.md","articles":[]},"previous":{"title":"1.3 Architecture","level":"1.2.3","depth":2,"path":"foundation/architecture.md","ref":"foundation/architecture.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/software.md","mtime":"2018-08-27T23:22:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

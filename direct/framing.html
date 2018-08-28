@@ -226,7 +226,7 @@
                 <a href="perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="access.html">
+            
+                <a href="access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="summary.html">
             
                 <a href="summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -974,7 +987,7 @@ and ends&#x2014;is the central challenge faced by the adaptor.</p>
 several different protocols to illustrate the various points in the
 design space. Note that while we discuss framing in the context of
 point-to-point links, the problem is a fundamental one that must also be
-addressed in multiple-access networks like Ethernet and token rings.</p>
+addressed in multiple-access networks like Ethernet and Wi-Fi.</p>
 <h2 id="byte-oriented-protocols-bisync-ppp-ddcmp">Byte-Oriented Protocols (BISYNC, PPP, DDCMP)</h2>
 <p>One of the oldest approaches to framing&#x2014;it has its roots in connecting
 terminals to mainframes&#x2014;is to view each frame as a collection of bytes
@@ -1074,7 +1087,7 @@ will then wait until it sees the next SYN character to start collecting
 the bytes that make up the next frame. It is therefore possible that a
 framing error will cause back-to-back frames to be incorrectly received.</p>
 <h2 id="bit-oriented-protocols-hdlc">Bit-Oriented Protocols (HDLC)</h2>
-<p>Unlike these byte-oriented protocols, a bit-oriented protocol is not
+<p>Unlike byte-oriented protocols, a bit-oriented protocol is not
 concerned with byte boundaries&#x2014;it simply views the frame as a
 collection of bits. These bits might come from some character set, such
 as ASCII; they might be pixel values in an image; or they could be
@@ -1144,8 +1157,8 @@ standard. Also, SONET addresses both the framing problem and the
 encoding problem. It also addresses a problem that is very important for
 phone companies&#x2014;the multiplexing of several low-speed links onto one
 high-speed link. (In fact, much of SONET&apos;s design reflects the fact that
-phone companies have to be concerned with multiplexing large numbers of
-the 64-kbps channels that traditionally are used for telephone calls.)
+phone companies have to be concerned with multiplexing large numbers
+of the 64-kbps channels that traditionally are used for telephone calls.)
 We begin with SONET&apos;s approach to framing and discuss the other issues
 following.</p>
 <p>As with the previously discussed framing schemes, a SONET frame has some
@@ -1195,15 +1208,25 @@ bit pattern, which is 127 bits long, has plenty of transitions from 1 to
 signal with enough transitions to enable clock recovery.</p>
 <p>SONET supports the multiplexing of multiple low-speed links in the
 following way. A given SONET link runs at one of a finite set of
-possible rates, ranging from 51.84 Mbps (STS-1) to 2488.32 Mbps
-(STS-48), and beyond. Note that all of these rates are integer multiples
-of STS-1. The significance for framing is that a single SONET frame can
-contain subframes for multiple lower-rate channels. A second related
-feature is that each frame is 125 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s long. This means that at STS-1
+possible rates, ranging from 51.84 Mbps (STS-1) to 39,813,120 Mbps
+(STS-786). Note that all of these rates are integer multiples of STS-1.
+The significance for framing is that a single SONET frame can contain
+subframes for multiple lower-rate channels. A second related feature
+is that each frame is 125 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s long. This means that at STS-1
 rates, a SONET frame is 810 bytes long, while at STS-3 rates, each SONET
 frame is 2430 bytes long. Notice the synergy between these two features:
-3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 810 = 2430, meaning that three STS-1 frames fit exactly in a
-single STS-3 frame.</p>
+3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 810 = 2430, meaning that three STS-1 frames fit exactly
+in a single STS-3 frame.</p>
+<blockquote>
+<p>STS stands for <em>Synchronous Transport Signal</em>, which is how SONET 
+talks about frames. There is a parallel term&#x2014;<em>Optical Carrier</em>
+(OC)&#x2014;that is used to talk about the underlying optical signal that
+carries SONET frames. We say these two terms are parallel because
+STS-3 and OC-3, to use a concrete example, both imply a transmission
+rate of 155.52 Mbps. Since we&apos;re focused on framing here, we will
+stick with STS, but it is more likely that you will hear someone
+refer to an optical link by its &quot;OC&quot; name.</p>
+</blockquote>
 <p>Intuitively, the STS-N frame can be thought of as consisting of N
 STS-1 frames, where the bytes from these frames are interleaved; that
 is, a byte from the first frame is transmitted, then a byte from the
@@ -1290,7 +1313,7 @@ that carriers spend a lot of their time worrying about.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.3 Framing","level":"1.3.3","depth":2,"next":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"previous":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/framing.md","mtime":"2018-08-26T19:45:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3 Framing","level":"1.3.3","depth":2,"next":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"previous":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/framing.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

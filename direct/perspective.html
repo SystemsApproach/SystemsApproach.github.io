@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.1 Perspective on Connecting · Computer Networks: A Systems Approach</title>
+        <title>2.1 Technology Landscape · Computer Networks: A Systems Approach</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -226,7 +226,7 @@
                 <a href="perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="access.html">
+            
+                <a href="access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="summary.html">
             
                 <a href="summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -935,7 +948,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.1 Perspective on Connecting</a>
+        <a href=".." >2.1 Technology Landscape</a>
     </h1>
 </div>
 
@@ -950,71 +963,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="21-perspective-on-connecting">2.1 Perspective on Connecting</h1>
-<p>As we saw in Chapter 1, networks are constructed from two classes of
-hardware building blocks: <em>nodes</em> and <em>links</em>. In this chapter, we focus
-on what it takes to make a useful link, so that large, reliable networks
-containing millions of links can be built.</p>
+                                <h1 id="21-technology-landscape">2.1 Technology Landscape</h1>
+<p>Before diving into the challenges outlined in the problem statement at
+the beginning of this chapter, it is helpful to first get a lay of the
+land, which includes a wide array of link technologies. This is due,
+in part, to the diverse circumstances under which users are trying to
+connect their devices.</p>
+<p>At one end of the spectrum, network operators that build global
+networks must deal with links that span hundreds or thousands of
+kilometers connecting refrigerator-sized routers. At the other end of
+the spectrum, a typical user encounters links mostly as a way to
+connect a computer to the existing Internet. Sometimes this link will
+be a wireless (Wi-Fi) link in a coffee shop; sometimes it&apos;s an Ethernet
+link in an office building or university; sometimes it is a smartphone
+connected to a celluar network; for an increasingly large slice of the
+population it is a fiber optic link provided by an ISP; and many
+others use some sort of copper wire or cable to connect. Fortunately,
+there are many common strategies used on these seemingly disparate
+types of links so that they can all be made reliable and useful to
+higher layers in the protocol stack. This chapter examines those
+strategies.</p>
 <figure class="line">
     <a id="isp-access"></a>
     <img src="figures/f02-01-9780123850591.png" width="650px">
     <figcaption>An end-user&apos;s view of the  Internet.</figcaption>
 </figure>
 
-<p>While the operators of large networks deal with links that span hundreds
-or thousands of kilometers connecting refrigerator-sized routers, the
-typical user of a network encounters links mostly as a way to connect a
-computer to the global Internet. Sometimes this link will be a wireless
-(Wi-Fi) link in a coffee shop; sometimes it is an Ethernet link in a
-office building or university; for an increasingly large (and fortunate)
-slice of the population, it is a fiber optic link provided by a
-telecommunications company or ISP; and many others use some sort of
-copper wire or cable to connect. Fortunately, there are many common
-strategies used on these seemingly disparate types of links so that they
-can all be made reliable and useful to higher layers in the protocol
-stack. This chapter will examine those strategies.</p>
 <p><a href="#isp-access">Figure 1</a> illustrates various types of links as
-seen by a typical end-user of today&apos;s Internet. On the left, we see a
-variety of end-user devices ranging from mobile phones to PDAs to
-full-fledged computers connected by various means to an Internet
-Service Provider. While those links might be of any type mentioned
-above, or some other type, they all look the same in this picture&#x2014;a
-straight line connecting a device to a router. Also, there are some
-links that connect routers together inside the ISP and a link that
-connects the ISP to the &quot;rest of the Internet,&quot; which consists of lots
-of other ISPs and the hosts to which they connect. These links all
-look alike not just because we&apos;re not very good artists but because
-part of the role of a network architecture is to provide a common
-abstraction of something as complex and diverse as a link. The idea is
-that your laptop or smartphone doesn&apos;t have to care what sort of link
-it is connected to&#x2014;the only thing that matters is that it has a link
-to the Internet. Similarly, a router doesn&apos;t have to care what sort of
-link connects it to other routers&#x2014;it can send a packet on the link
-with a pretty good expectation that the packet will reach the other
-end of the link.</p>
+that might be found in today&apos;s Internet. On the left, we see a
+variety of end-user devices ranging from smartphones to tablets to
+full-fledged computers connected by various means to an ISP. While
+those links might use different technologies, they all look the same
+in this picture&#x2014;a straight line connecting a device to a router. There
+are links that connect routers together inside the ISP, as well as
+links that connect the ISP to the &quot;rest of the Internet,&quot; which
+consists of lots of other ISPs and the hosts to which they connect.</p>
+<p>These links all look alike not just because we&apos;re not very good
+artists but because part of the role of a network architecture is to
+provide a common abstraction of something as complex and diverse as a
+link. The idea is that your laptop or smartphone doesn&apos;t have to care
+what sort of link it is connected to&#x2014;the only thing that matters is
+that it has a link to the Internet. Similarly, a router doesn&apos;t have
+to care what sort of link connects it to other routers&#x2014;it can send a
+packet on the link with a pretty good expectation that the packet will
+reach the other end of the link.</p>
 <p>How do we make all these different types of link look sufficiently alike
 to end users and routers? Essentially, we have to deal with all the
 physical limitations and shortcomings of links that exist in the real
 world. We sketched out some of these issues in the opening problem
-statement for this chapter. The first issue is that links are made of
-some physical material that can propagate signals (such as radio waves
-or other sorts of electromagnetic radiation), but what we really want to
-do is send <em>bits</em>. In later sections of this chapter, we&apos;ll look at how
-to encode bits for transmission on a physical medium, followed by the
-other issues mentioned above. By the end of this chapter, we&apos;ll
-understand how to send complete packets over just about any sort of
-link, no matter what physical medium is involved.</p>
-<h2 id="classes-of-links">Classes of Links</h2>
-<p>While most readers of this book have probably encountered at least a few
-different types of links, it will help to understand some of the broad
-classes of links that exist and their general properties. For a start,
-all practical links rely on some sort of electromagnetic radiation
-propagating through a medium or, in some cases, through free space. One
-way to characterize links, then, is by the medium they use&#x2014;typically
-copper wire in some form, as in Digital Subscriber Line (DSL) and
-coaxial cable; optical fiber, as in both commercial fiber-to-the-home
-services and many long-distance links in the Internet&apos;s backbone; or
-air/free space for wireless links.</p>
+statement for this chapter, but before we can discuss these, we need
+to first introduce some simple physics. All of these links are made of
+some physical material that can propagate signals, such as radio waves
+or other sorts of electromagnetic radiation), but what we really want
+to do is send {\em bits}. In the later sections of this chapter, we&apos;ll
+look at how to encode bits for transmission on a physical medium,
+followed by the other issues mentioned above. By the end of this
+chapter, we&apos;ll understand how to send complete packets over just about
+any sort of link, no matter what physical medium is involved.</p>
+<p>One way to characterize links, then, is by the medium they use&#x2014;typically,
+copper wire in some form, such as twisted pair (phone) and coaxial (cable);
+optical fiber, which is used for both fiber-to-the-home and many
+long-distance links in the Internet&apos;s backbone; or air/free space for
+wireless links.</p>
 <p>Another important link characteristic is the <em>frequency</em>, measured in
 hertz, with which the electromagnetic waves oscillate. The distance
 between a pair of adjacent maxima or minima of a wave, typically
@@ -1035,9 +1045,9 @@ through copper would have a wavelength of</p>
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">6</span><span class="mord mathrm">6</span><span class="mord mathrm">7</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit">m</span></span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">s</span></span></span></span></span></p>
 <p>Generally, electromagnetic waves span a much wider range of frequencies,
 ranging from radio waves, to infrared light, to visible light, to x-rays
-and gamma rays. <a href="#spectrum">Figure 2</a> depicts the
-electromagnetic spectrum and shows which media are commonly used to
-carry which frequency bands.</p>
+and gamma rays. <a href="#spectrum">Figure 2</a> depicts the electromagnetic
+spectrum and shows which media are commonly used to carry which
+frequency bands.</p>
 <figure class="line">
     <a id="spectrum"></a>
     <img src="figures/f02-02-9780123850591.png" width="600px">
@@ -1066,70 +1076,68 @@ discusses such encodings.</p>
 economic and deployment issues tend to influence where different link
 types are found. Most consumers interact with the Internet either
 through wireless networks (which they encounter in coffee shops,
-airports, universities, etc.) or through so-called &quot;last mile&quot; links
-provided by Internet Service Providers, as illustrated in an earlier
-<a href="#isp-access">Figure</a>. These link types are summarized in
-<a href="#home">Table 1</a>. They typically are chosen because they are cost-
-effective ways of reaching millions of consumers; DSL, for example,
-was deployed over the existing twisted pair copper wires that already
-existed for plain old telephone services. Most of these technologies
-are not sufficient for building a complete network from scratch&#x2014;for
-example, you&apos;ll likely need some long-distance, very high-speed links
-to interconnect cities in a large network.</p>
+airports, universities, etc.) or through so-called <em>last-mile</em> links
+(or alterntively, <em>access networks</em>) provided by an ISP, as
+illustrated in <a href="#isp-access">Figure 1</a>. These link types are summarized
+in <a href="#home">Table 1</a>. They typically are chosen because they are
+cost-effective ways of reaching millions of consumers. DSL
+(Digital Subscriber Line), for example, is an older technology that was
+deployed over the existing twisted pair copper wires that already
+existed for plain old telephone services; G.Fast is a copper-based
+technology typically used within multi-dwelling apartment buildings,
+and PON (Passive Optical Network) is a newer technology that is
+commonly used to connect homes and businesses over recently deployed
+fiber.</p>
 <p><a id="home"></a></p>
 <table>
 <thead>
 <tr>
-<th>Service</th>
-<th>Bandwidth (typical)</th>
+<th style="text-align:center">Service</th>
+<th style="text-align:center">Bandwidth</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Dial-up</td>
-<td>28-56 kbps</td>
+<td style="text-align:center">DSL (copper)</td>
+<td style="text-align:center">up to 100 Mbps</td>
 </tr>
 <tr>
-<td>ISDN</td>
-<td>64-128 kbps</td>
+<td style="text-align:center">G.Fast (copper)</td>
+<td style="text-align:center">up to 1 Gbps</td>
 </tr>
 <tr>
-<td>DSL</td>
-<td>128 kbps-100 Mbps</td>
-</tr>
-<tr>
-<td>CATV (cable TV)</td>
-<td>1-40 Mbps</td>
-</tr>
-<tr>
-<td>FTTH (fiber to the home)</td>
-<td>50 Mbps-1 Gbps</td>
+<td style="text-align:center">PON (optical)</td>
+<td style="text-align:center">up to 10 Gbps</td>
 </tr>
 </tbody>
 </table>
-<div class="ba-center"><p><em>Table 1. Common services available to connect your
-home.</em></p></div>
+<div class="ba-center"><p><em>Table 1. Common services available for the last-mile
+connection to your home.</em></p></div>
 
-<p>Modern long-distance links are almost exclusively fiber today, with
-coaxial cables having been largely replaced over the last couple of
-decades. These links typically use a technology called SONET
-(Synchronous Optical Network), which was developed to meet the demanding
-management requirements of telephone carriers. We&apos;ll take a closer look
-at SONET in a later section.</p>
-<p>Finally, in addition to last-mile and backbone links, there are the
-links that you find inside a building or a campus&#x2014;generally referred
-to as <em>local area networks</em> (LANs). Ethernet, described in a later section.
-has for some time been the dominant technology in this space, having
-displaced token ring technologies after many years. While Ethernet
-continues to be popular, it is now mostly seen alongside wireless
-technologies based around the 802.11 standards, which we will discuss
-in a later section.</p>
-<p>This survey of link types is by no means exhaustive but should have
+<p>And of course there is also the <em>mobile</em> or <em>cellular</em> network (also 
+referred to as 4G, but which is rapidly evolving into 5G) that 
+connects our mobile devices to the Internet. This technology can also 
+serve as the sole Internet connection into our homes or offices, but 
+comes with the added benefit of allowing us to maintain Internet 
+connectivity while moving from place to place. </p>
+<p>These example technologies are common options for the last-mile
+connection to your home or business, but they are not sufficient for
+building a complete network from scratch. To do that, you&apos;ll also need
+some long-distance <em>backbone</em>  links to interconnect cities. Modern
+backbone links are almost exclusively fiber today, and they typically
+use a technology called SONET (Synchronous Optical Network), which was
+originally developed to meet the demanding management requirements of
+telephone carriers.</p>
+<p>Finally, in addition to last-mile, backbone, and mobile links, there
+are the links that you find inside a building or a campus&#x2014;generally
+referred to as <em>local area networks</em> (LANs). Ethernet, and its
+wireless cousin Wi-Fi, are the dominant technologies in this space.</p>
+<p>This survey of link types is by no means exhaustive, but it should have
 given you a taste of the diversity of link types that exist and some of
 the reasons for that diversity. In the coming sections, we will see how
 networking protocols can take advantage of that diversity and present a
 consistent view of the network to higher layers in spite of all the
-low-level complexity.</p>
+low-level complexity and economic factors.</p>
 
                                 
                                 </section>
@@ -1173,7 +1181,7 @@ low-level complexity.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.1 Perspective on Connecting","level":"1.3.1","depth":2,"next":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"previous":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"path":"direct/problem.md","ref":"direct/problem.md","articles":[{"title":"2.1 Perspective on Connecting","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},{"title":"2.8 Summary","level":"1.3.8","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/perspective.md","mtime":"2018-08-26T19:45:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"next":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"previous":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"path":"direct/problem.md","ref":"direct/problem.md","articles":[{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/perspective.md","mtime":"2018-08-28T16:48:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

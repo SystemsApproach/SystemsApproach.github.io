@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="summary.html" />
+    <link rel="next" href="access.html" />
     
     
     <link rel="prev" href="ethernet.html" />
@@ -226,7 +226,7 @@
                 <a href="perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="access.html">
+            
+                <a href="access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="summary.html">
             
                 <a href="summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -976,10 +989,10 @@ to categorize the different technologies is by the data rates they
 provide and how far apart communicating nodes can be. Other important
 differences include which part of the electromagnetic spectrum they use
 (including whether it requires a license) and how much power they
-consume. In this section, we discuss three prominent wireless
+consume. In this section, we discuss two prominent wireless
 technologies: Wi-Fi (more formally known as 802.11),
-Bluetooth, and the third-generation or &quot;3G&quot; family of
-cellular wireless standards. <a href="#wirelessTechnologiesTable">Table 1</a>
+and Bluetooth. The next secton discusses celluar networks in the
+context of ISP access services. <a href="#wirelessTechnologiesTable">Table 1</a>
 gives an overview of these technologies and how they compare to
 each other.</p>
 <p><a id="wirelessTechnologiesTable"></a></p>
@@ -989,7 +1002,7 @@ each other.</p>
 <th></th>
 <th>Bluetooth (802.15.1)</th>
 <th>Wi-Fi (802.11)</th>
-<th>3G Cellular</th>
+<th>4G Cellular</th>
 </tr>
 </thead>
 <tbody>
@@ -1003,7 +1016,7 @@ each other.</p>
 <td>Typical data rate</td>
 <td>2 Mbps (shared)</td>
 <td>54 Mbps (shared)</td>
-<td>Hundreds of kbps  (per connection)</td>
+<td>1-5 Mbps  (per connection)</td>
 </tr>
 <tr>
 <td>Typical use</td>
@@ -1015,7 +1028,7 @@ each other.</p>
 <td>Wired technology analogy</td>
 <td>USB</td>
 <td>Ethernet</td>
-<td>DSL</td>
+<td>PON</td>
 </tr>
 </tbody>
 </table>
@@ -1024,10 +1037,11 @@ each other.</p>
 <p>You may recall that bandwidth sometimes means the
 width of a frequency band in hertz and sometimes the data rate of a
 link. Because both these concepts come up in discussions of wireless
-networks, we`re going to use <em>bandwidth</em> here in its stricter
+networks, we&apos;re going to use <em>bandwidth</em> here in its stricter
 sense&#x2014;width of a frequency band&#x2014;and use the term <em>data rate</em> to
 describe the number of bits per second that can be sent over the link,
 as in <a href="#wirelessTechnologiesTable">Table 1</a>.</p>
+<h2 id="basic-issues">Basic Issues</h2>
 <p>Because wireless links all share the same medium, the challenge is to
 share that medium efficiently, without unduly interfering with each
 other. Most of this sharing is accomplished by dividing it up along the
@@ -1147,13 +1161,12 @@ with incremental costs. On the other hand, a mesh network requires
 non-base nodes to have a certain level of sophistication in their
 hardware and software, potentially increasing per-unit costs and power
 consumption, a critical consideration for battery-powered devices.
-Wireless mesh networks are of considerable research interest (see the
-further reading section for some references), but they are still in
-their relative infancy compared to networks with base stations. Wireless
-sensor networks, another hot emerging technology, often form wireless
-meshes.</p>
+Wireless mesh networks are of considerable research interest, but they
+are still in their relative infancy compared to networks with base
+stations. Wireless sensor networks, another hot emerging technology,
+often form wireless meshes.</p>
 <p>Now that we have covered some of the common wireless issues, let&apos;s take
-a look at the details of a few common wireless technologies.</p>
+a look at the details of two common wireless technologies.</p>
 <h2 id="80211wi-fi">802.11/Wi-Fi</h2>
 <p>Most readers will have used a wireless network based on the IEEE 802.11
 standards, often referred to as <em>Wi-Fi</em>. Wi-Fi is technically a
@@ -1207,15 +1220,15 @@ of lowering the effective data rate (since more of the transmitted bits
 are redundant).</p>
 <p>The systems try to pick an optimal bit rate based on the noise
 environment in which they find themselves; the algorithms for bit rate
-selection can be quite complex (see the Further Reading section for an
-example). Interestingly, the 802.11 standards do not specify a
-particular approach but leave the algorithms to the various vendors. The
-basic approach to picking a bit rate is to estimate the bit error rate
-either by directly measuring the signal-to-noise ratio (SNR) at the
-physical layer or by estimating the SNR by measuring how often packets
-are successfully transmitted and acknowledged. In some approaches, a
-sender will occasionally probe a higher bit rate by sending one or more
-packets at that rate to see if it succeeds.</p>
+selection can be quite complex. Interestingly, the 802.11 standards do
+not specify a particular approach but leave the algorithms to the
+various vendors. The basic approach to picking a bit rate is to
+estimate the bit error rate either by directly measuring the
+signal-to-noise ratio (SNR) at the physical layer or by estimating the
+SNR by measuring how often packets are successfully transmitted and
+acknowledged. In some approaches, a sender will occasionally probe a
+higher bit rate by sending one or more packets at that rate to see if
+it succeeds.</p>
 <h3 id="collision-avoidance">Collision Avoidance</h3>
 <p>At first glance, it might seem that a wireless protocol would follow the
 same algorithm as the Ethernet&#x2014;wait until the link becomes idle before
@@ -1455,16 +1468,15 @@ hardware and software can be simpler and cheaper.</p>
 </figure>
 
 <p>Since Bluetooth operates in an license-exempt band, it is required to
-use a spread spectrum technique (as discussed at the start of this
-section) to deal with possible interference in the band. It uses
-frequency-hopping with 79 <em>channels</em> (frequencies), using each for
-625 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s at a time. This provides a natural time slot for Bluetooth
-to use for synchronous time division multiplexing. A frame takes up 1,
-3, or 5 consecutive time slots. Only the master can start to transmit in
-odd-numbered slots. A slave can start to transmit in an even-numbered
-slot&#x2014;but only in response to a request from the master during the
-previous slot, thereby preventing any contention between the slave
-devices.</p>
+use a spread spectrum technique to deal with possible interference in
+the band. It uses frequency-hopping with 79 <em>channels</em> (frequencies),
+using each for 625 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s at a time. This provides a natural time
+slot for Bluetooth to use for synchronous time division
+multiplexing. A frame takes up 1, 3, or 5 consecutive time slots. Only
+the master can start to transmit in odd-numbered slots. A slave can
+start to transmit in an even-numbered slot&#x2014;but only in response to a
+request from the master during the previous slot, thereby preventing
+any contention between the slave devices.</p>
 <p>A slave device can be <em>parked</em>; that is, it is set to an inactive,
 low-power state. A parked device cannot communicate on the piconet; it
 can only be reactivated by the master. A piconet can have up to 255
@@ -1480,102 +1492,6 @@ are becoming an increasingly important class of networked device, as
 technology advances to the point where very cheap small devices can be
 deployed in large quantities to monitor things like temperature,
 humidity, and energy consumption in a building.</p>
-<h2 id="cell-phone-technologies">Cell Phone Technologies</h2>
-<p>While cellular telephone technology had its beginnings around voice
-communication, data services based on cellular standards have become
-increasingly popular (thanks in part to the increasing capabilities of
-mobile phones or <em>smartphones</em>). One drawback compared to the
-technologies just described has tended to be the cost to users, due in
-part to cellular&apos;s use of licensed spectrum (which has historically been
-sold off to cellular phone operators for astronomical sums). The
-frequency bands that are used for cellular telephones (and now for
-cellular data) vary around the world. In Europe, for example, the main
-bands for cellular phones are at 900 MHz and 1800 MHz. In North America,
-850-MHz and 1900-MHz bands are used. This global variation in spectrum
-usage creates problems for users who want to travel from one part of the
-world to another and has created a market for phones that can operate at
-multiple frequencies (e.g., a tri-band phone can operate at three of the
-four frequency bands mentioned above). That problem, however, pales in
-comparison to the proliferation of incompatible standards that have
-plagued the cellular communication business. Only recently have some
-signs of convergence on a small set of standards appeared. And, finally,
-there is the problem that, because most cellular technology was designed
-for voice communication, high-bandwidth data communication has been a
-relatively recent addition to the standards.</p>
-<p>Like 802.11 and WiMAX, cellular technology relies on the use of base
-stations that are part of a wired network. The geographic area served by
-a base station&apos;s antenna is called a <em>cell</em>. A base station could serve
-a single cell or use multiple directional antennas to serve multiple
-cells. Cells don&apos;t have crisp boundaries, and they overlap. Where they
-overlap, a mobile phone could potentially communicate with multiple base
-stations. This is somewhat similar to the 802.11 picture shown in
-<a href="#wireless2">Figure 6</a>. At any time, however, the phone is in
-communication with, and under the control of, just one base station. As
-the phone begins to leave a cell, it moves into an area of overlap with
-one or more other cells. The current base station senses the weakening
-signal from the phone and gives control of the phone to whichever base
-station is receiving the strongest signal from it. If the phone is
-involved in a call at the time, the call must be transferred to the new
-base station in what is called a <em>handoff</em>.</p>
-<p>As we noted above, there is not one unique standard for cellular, but
-rather a collection of competing technologies that support data traffic
-in different ways and deliver different speeds. These technologies are
-loosely categorized by <em>generation.</em> The first generation (1G) was
-analog, and thus of limited interest from a data communications
-perspective. Second-generation standards moved to digital and introduced
-wireless data services, while third generation (3G) allowed greater
-bandwidths and simultaneous voice and data transmission. Most of the
-widely deployed mobile phone networks today support some sort of 3G,
-with 4G starting to appear. Because each of the generations encompasses
-a family of standards and technologies, it&apos;s often a matter of some
-debate (and marketing interest) as to whether a particular network is 3G
-or some other generation.</p>
-<p>The concept of a third generation was established before there was any
-implementation of 3G technologies, with the aim of shaping a single
-international standard that would provide much higher data bandwidth
-than 2G. Unfortunately, a single standard did not emerge, and this trend
-seems likely to continue with 4G. Interestingly, however, most of the 3G
-standards are based on variants of CDMA (Code Division Multiple Access).</p>
-<p>CDMA uses a form of spread spectrum to multiplex the traffic from
-multiple devices into a common wireless channel. Each transmitter uses a
-pseudorandom chipping code at a frequency that is high relative to the
-data rate and sends the exclusive OR of the data with the chipping code.
-Each transmitter&apos;s code follows a sequence that is known to the intended
-receiver&#x2014;for example, a base station in a cellular network assigns a
-unique code sequence to each mobile device with which it is currently
-associated. When a large number of devices broadcast their signals in
-the same cell and frequency band, the sum of all the transmissions looks
-like random noise. However, a receiver who knows the code being used by
-a given transmitter can extract that transmitter&apos;s data from the
-apparent noise.</p>
-<p>Compared to other multiplexing techniques, CDMA has some good properties
-for bursty data. There is no hard limit on how many users can share a
-piece of spectrum&#x2014;you just need to make sure they all have unique
-chipping codes. The bit error rate does however go up with increasing
-numbers of concurrent transmitters. This makes it very well suited for
-applications where many users exist but at any given instant many of
-them are not transmitting&#x2014;which pretty well describes many data
-applications such as web surfing. And, in practical systems when it is
-hard to achieve very tight synchronization among all the mobile
-handsets, CDMA achieves better spectral efficiency (i.e., it gets closer
-to the theoretical limits of the Shannon-Hartley theorem) than other
-multiplexing schemes like TDMA.</p>
-<h2 id="security-of-wireless-links">Security of Wireless Links</h2>
-<p>One of the fairly obvious problems of wireless links compared to wires
-or fibers is that you can&apos;t be too sure where your data has gone. You
-can probably figure out if it was received by the intended receiver, but
-there is no telling how many other receivers might have also picked up
-your transmission. So, if you are concerned about the privacy of your
-data, wireless networks present a challenge.</p>
-<p>Even if you are not concerned about data privacy&#x2014;or perhaps have taken
-care of it in some other way&#x2014;you may be concerned about an
-unauthorized user injecting data into your network. If nothing else,
-such a user might be able to consume resources that you would prefer
-to consume yourself, such as the finite bandwidth between your house
-and your ISP.</p>
-<p>For these reasons, wireless networks typically come with some sort of
-mechanism to control access to both the link itself and the transmitted
-data. These mechanisms are often categorized as <em>wireless security.</em></p>
 
                                 
                                 </section>
@@ -1608,7 +1524,7 @@ data. These mechanisms are often categorized as <em>wireless security.</em></p>
                 </a>
                 
                 
-                <a href="summary.html" class="navigation navigation-next " aria-label="Next page: 2.8 Summary">
+                <a href="access.html" class="navigation navigation-next " aria-label="Next page: 2.8 Access Networks">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1619,7 +1535,7 @@ data. These mechanisms are often categorized as <em>wireless security.</em></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"next":{"title":"2.8 Summary","level":"1.3.8","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"previous":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/wireless.md","mtime":"2018-08-26T19:45:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"next":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},"previous":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/wireless.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

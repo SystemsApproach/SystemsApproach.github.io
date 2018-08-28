@@ -226,7 +226,7 @@
                 <a href="../direct/perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="../direct/access.html">
+            
+                <a href="../direct/access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../direct/summary.html">
             
                 <a href="../direct/summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -1021,13 +1034,13 @@ physical medium, such as a coaxial cable or an optical fiber. We call
 such a physical medium a <em>link</em>, and we often refer to the computers it
 connects as <em>nodes</em>. (Sometimes a node is a more specialized piece of
 hardware rather than a computer, but we overlook that distinction for
-the purposes of this discussion.) As illustrated in in
+the purposes of this discussion.) As illustrated in
 <a href="#direct">Figure 1</a>, physical links are sometimes limited to a
 pair of nodes (such a link is said to be <em>point-to-point</em>), while in
 other cases more than two nodes may share a single physical link (such
 a link is said to be <em>multiple-access</em>). Wireless links, such as those
-provided by cellular networks and Wi-Fi networks, are an increasingly
-important class of multiple-access links.  It is often the case
+provided by cellular networks and Wi-Fi networks, are an
+important class of multiple-access links.  It is always the case
 that multiple-access links are limited in size, in terms of both
 the geographical distance they can cover and the number of nodes
 they can connect.</p>
@@ -1084,7 +1097,7 @@ efficiency, discussed in the next subsection.</p>
 the nodes on the inside that <em>implement</em> the network (they are commonly
 called <em>switches</em>, and their primary function is to store and forward
 packets) and the nodes on the outside of the cloud that <em>use</em> the
-network (they are commonly called <em>hosts</em>, and they support users and
+network (they are traditionally called <em>hosts</em>, and they support users and
 run application programs). Also note that the cloud in is one of the
 most important icons of computer networking. In general, we use a
 cloud to denote any type of network, whether it is a single
@@ -1272,7 +1285,7 @@ certain flows receive a particular share of the link&apos;s bandwidth or
 that they never have their packets delayed in the switch for more than
 a certain length of time. A network that attempts to allocate
 bandwidth to particular flows is sometimes said to support
-<em>quality of service</em> (QoS), a topic that we return to in Chapter 6.</p>
+<em>quality of service</em> (QoS).</p>
 <p>Also, notice in <a href="#mux">Figure 4</a>
 that since the switch has to multiplex three incoming
 packet streams onto one outgoing link, it is possible that the switch
@@ -1292,7 +1305,7 @@ per-packet basis. Fairly allocating link capacity to different flows and
 dealing with congestion when it occurs are the key challenges of
 statistical multiplexing.</p>
 <h2 id="support-for-common-services">Support for Common Services</h2>
-<p>The previous section outlined the challenges involved in providing
+<p>The previous discussion focused on the challenges involved in providing
 cost-effective connectivity among a group of hosts, but it is overly
 simplistic to view a computer network as simply delivering packets among
 a collection of computers. It is more accurate to think of a network as
@@ -1373,7 +1386,7 @@ library of computer science literature at</p>
 <p>This library has a wide range of searching and browsing features to help
 users find the articles they want, but ultimately much of what it does
 is respond to user requests for files, such as electronic copies of
-journal articles, much like an FTP server.</p>
+journal articles.</p>
 <p>Using file access, a digital library, and the two video applications
 described in the introduction (videoconferencing and video on demand) as
 a representative sample, we might decide to provide the following two
@@ -1558,7 +1571,7 @@ current research, if not <em>the</em> central challenge in networking today.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2 Requirements","level":"1.2.2","depth":2,"next":{"title":"1.3 Architecture","level":"1.2.3","depth":2,"path":"foundation/architecture.md","ref":"foundation/architecture.md","articles":[]},"previous":{"title":"1.1 Applications","level":"1.2.1","depth":2,"path":"foundation/applications.md","ref":"foundation/applications.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/requirements.md","mtime":"2018-08-24T13:08:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2 Requirements","level":"1.2.2","depth":2,"next":{"title":"1.3 Architecture","level":"1.2.3","depth":2,"path":"foundation/architecture.md","ref":"foundation/architecture.md","articles":[]},"previous":{"title":"1.1 Applications","level":"1.2.1","depth":2,"path":"foundation/applications.md","ref":"foundation/applications.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/requirements.md","mtime":"2018-08-27T23:22:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

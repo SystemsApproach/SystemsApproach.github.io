@@ -226,7 +226,7 @@
                 <a href="perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="access.html">
+            
+                <a href="access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="summary.html">
             
                 <a href="summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -976,22 +989,19 @@ idea in both Aloha and the Ethernet is an algorithm that controls when
 each node can transmit.</p>
 <p>Interestingly, modern Ethernet links are now largely point to point;
 that is, they connect one host to an Ethernet <em>switch</em>, or they
-interconnect switches. Hence, &quot;multiple access&quot; techniques are not used
-much in today&apos;s Ethernets. At the same time, wireless networks have
-become enormously popular, so the multiple access technologies that
-started in Aloha are today again mostly used in wireless networks such
-as 802.11 (Wi-Fi) networks. These networks will be discussed in a
-later section.</p>
-<p>We will discuss Ethernet switches in the next chapter. For now, we&apos;ll
-focus on how a single Ethernet link works. And even though multi-access
-Ethernet is becoming a bit of a historical curiosity, the principles of
-multi-access networks continue to be important enough to warrant some
-further discussion, which we provide below.</p>
+interconnect switches. As a consequence, the &quot;multiple access&quot;
+algorithm is not used much in today&apos;s wired Ethernets, but it is
+now used in wireless networks, such as 802.11 networks (also known
+as Wi-Fi). Due to the enormous influence of Ethernet, we chose
+to describe its classic algorithm here, and then explain how it has been
+adapted to Wi-Fi in the next section. We will also discuss Ethernet
+switches elsewhere. For now, we&apos;ll focus on how a single Ethernet link
+works.</p>
 <p>Digital Equipment Corporation and Intel Corporation joined Xerox to
 define a 10-Mbps Ethernet standard in 1978. This standard then formed
 the basis for IEEE standard 802.3, which additionally defines a much
 wider collection of physical media over which an Ethernet can operate,
-including 100-Mbps, 1-Gbps, and 10-Gbps versions.</p>
+including 100-Mbps, 1-Gbps, 10-Gbps, 40-Gbps, and 100-Gbps versions.</p>
 <h2 id="physical-properties">Physical Properties</h2>
 <p>Ethernet segments were originally implemented using coaxial cable of
 length up to 500 m. (Modern Ethernets use twisted copper pairs, usually
@@ -1011,8 +1021,8 @@ plugged into the host. This configuration is shown in <a href="#tap">Figure 1</a
 
 <p>Multiple Ethernet segments can be joined together by <em>repeaters</em>. A
 repeater is a device that forwards digital signals, much like an
-amplifier forwards analog signals. Repeaters understand only bits, not
-frames; however, no more than four repeaters could be positioned between
+amplifier forwards analog signals; repeaters do not understand bits
+or frames. No more than four repeaters could be positioned between
 any pair of hosts, meaning that a classical Ethernet had a total reach
 of only 2500 m. For example, using just two repeaters between any pair
 of hosts supports a configuration similar to the one illustrated
@@ -1025,8 +1035,12 @@ the spine of a building with a segment on each floor.</p>
 </figure>
 
 <p>It&apos;s also possible to create a multiway repeater, sometimes called a
-<em>hub</em>, as illustrated in <a href="#hub">Figure 3</a>. A hub just repeats whatever
-it hears on one port out all its other ports.</p>
+<em>hub</em>, as illustrated in <a href="#hub">Figure 3</a>. Like a repeater, a hub just
+repeats whatever signals it hears on one port out all its other ports.
+The important thing about hubs is that they can be used to connect
+node to a shared Ethernet without using a tap, meaning the link can
+be implemented in fiber or twisted pair copper, and not a coax cable.
+This is necessary to achieve the higher Ethernet performance levels.</p>
 <p>Any signal placed on the Ethernet by a host is broadcast over the entire
 network; that is, the signal is propagated in both directions, and
 repeaters and hubs forward the signal on all outgoing segments.
@@ -1235,7 +1249,7 @@ or 51.2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><m
 0, 51.2, 102.4, or 153.6 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s (selected randomly) before trying
 again; this is k <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 51.2 for k=0..3. After the third
 collision, it waits k<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span>51.2 for k=0.2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>-1, again selected
-at random. In general, the algorithm randomly selects a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> between 0
+at random. In general, the algorithm randomly selects a k between 0
 and 2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.664392em;"></span><span class="strut bottom" style="height:0.664392em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>-1 and waits k<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span>51.2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s, where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> is
 the number of collisions experienced so far. The adaptor gives up
 after a given number of tries and reports a transmit error to the
@@ -1256,24 +1270,23 @@ fewer than the maximum of 1024. Similarly, most Ethernets were far
 shorter than 2500 m, with a round-trip delay of closer to 5 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s than
 51.2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s. Another factor that made Ethernets practical is that, even
 though Ethernet adaptors do not implement link-level flow control, the
-hosts typically provide an end-to-end flow-control mechanism, as we will
-see later. As a result, it is rare to find situations in which any one
-host is continuously pumping frames onto the network.</p>
+hosts typically provide an end-to-end flow-control mechanism.
+As a result, it is rare to find situations in which any one host is
+continuously pumping frames onto the network.</p>
 <p>Finally, it is worth saying a few words about why Ethernets have been so
 successful, so that we can understand the properties we should emulate
-with any LAN technology that tries to replace it. First, an Ethernet is
-extremely easy to administer and maintain: There were no switches in the
-original Ethernets, no routing or configuration tables to be kept
-up-to-date, and it is easy to add a new host to the network. It is hard
-to imagine a simpler network to administer. Second, it is inexpensive:
-Cable is cheap, and the only other cost is the network adaptor on each
-host. Ethernet became deeply entrenched for these reasons, and any
-switch-based approach that aspired to displace it required additional
-investment in infrastructure (the switches), on top of the cost of each
-adaptor. As we will see in the next chapter, a switch-based technology
-did eventually succeed in replacing multi-access Ethernet: switched
-Ethernet. Retaining the simplicity of administration (and familiarity)
-was a key reason for this success.</p>
+with any technology that tries to replace it. First, an Ethernet is
+extremely easy to administer and maintain: There is no routing or
+configuration tables to be kept up-to-date, and it is easy to add a
+new host to the network. It is hard to imagine a simpler network to
+administer. Second, it is inexpensive: Cable is cheap, and the only
+other cost is the network adaptor on each host. Ethernet became deeply
+entrenched for these reasons, and any switch-based approach that
+aspired to displace it required additional investment in
+infrastructure (the switches), on top of the cost of each adaptor. A
+switch-based technology did eventually succeed in replacing
+multi-access Ethernet, but retaining the simplicity of administration
+was a key reason for switched Ethernet&apos;s success.</p>
 
                                 
                                 </section>
@@ -1317,7 +1330,7 @@ was a key reason for this success.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"next":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"previous":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/ethernet.md","mtime":"2018-08-26T19:45:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"next":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"previous":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/ethernet.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

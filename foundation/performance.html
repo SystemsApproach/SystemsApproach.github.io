@@ -226,7 +226,7 @@
                 <a href="../direct/perspective.html">
             
                     
-                    2.1 Perspective on Connecting
+                    2.1 Technology Landscape
             
                 </a>
             
@@ -312,12 +312,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="../direct/summary.html">
+        <li class="chapter " data-level="1.3.8" data-path="../direct/access.html">
+            
+                <a href="../direct/access.html">
+            
+                    
+                    2.8 Access Networks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../direct/summary.html">
             
                 <a href="../direct/summary.html">
             
                     
-                    2.8 Summary
+                    2.9 Summary
             
                 </a>
             
@@ -956,10 +969,10 @@ network. Like any computer system, however, computer networks are also
 expected to perform well. This is because the effectiveness of
 computations distributed over the network often depends directly on the
 efficiency with which the network delivers the computation&apos;s data. While
-the old programming adage &quot;first get it right and then make it fast&quot; is
-valid in many settings, in networking it is usually necessary to &quot;design
-for performance.&quot; It is therefore important to understand the various
-factors that impact network performance.</p>
+the old programming adage &quot;first get it right and then make it fast&quot; remains
+true, in networking it is often necessary to &quot;design for performance.&quot;
+It is therefore important to understand the various factors that
+impact network performance.</p>
 <h2 id="bandwidth-and-latency">Bandwidth and Latency</h2>
 <p>Network performance is measured in two fundamental ways: <em>bandwidth</em>
 (also called <em>throughput</em>) and <em>latency</em> (also called <em>delay</em>). The
@@ -972,8 +985,8 @@ each bit of data. On a 10-Mbps network, for example, it takes 0.1
 microsecond (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s) to transmit each bit.</p>
 <p>Bandwidth and throughput are subtly different terms. First of all,
 bandwidth is literally a measure of the width of a frequency band. For
-example, a voice-grade telephone line supports a frequency band
-ranging from 300 to 3300 Hz; it is said to have a bandwidth of
+example, legacy voice-grade telephone lines supported a frequency band
+ranging from 300 to 3300 Hz; it was said to have a bandwidth of
 3300 Hz - 300 Hz = 3000 Hz. If you see the word <em>bandwidth</em> used in
 a situation in which it is being measured in hertz, then it probably
 refers to the range of signals that can be accommodated.</p>
@@ -993,7 +1006,7 @@ to the other host at 2 Mbps.</p>
 application. This is the number of bits per second that it needs to
 transmit over the network to perform acceptably. For some applications,
 this might be &quot;whatever I can get&quot;; for others, it might be some fixed
-number (preferably no more than the available link bandwidth); and for
+number (preferably not more than the available link bandwidth); and for
 others, it might be a number that varies with time. We will provide more
 on this topic later in this section.</p>
 <p>While you can talk about the bandwidth of the network as a whole,
@@ -1106,11 +1119,11 @@ referring to the one-way latency or the round-trip time.</p>
 <p>As an aside, computers are becoming so fast that when we connect them to
 networks, it is sometimes useful to think, at least figuratively, in
 terms of <em>instructions per mile</em>. Consider what happens when a computer
-that is able to execute 1 billion instructions per second sends a
+that is able to execute 100 billion instructions per second sends a
 message out on a channel with a 100-ms RTT. (To make the math easier,
 assume that the message covers a distance of 5000 miles.) If that
 computer sits idle the full 100 ms waiting for a reply message, then it
-has forfeited the ability to execute 100 million instructions, or 20,000
+has forfeited the ability to execute 10 billion instructions, or 2 million
 instructions per mile. It had better have been worth going over the
 network to justify this waste.</p>
 <h2 id="delay-x-bandwidth-product">Delay x Bandwidth Product</h2>
@@ -1151,12 +1164,12 @@ transmitting it might receive up to one RTT <span class="katex"><span class="kat
 worth of data before the sender manages to respond. In our example
 above, that amount corresponds to 5.5 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 10<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> bits
 (671 KB) of data. On the other hand, if the sender does not fill the
-pipe&#x2014;sends a whole RTT <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product&apos;s worth of data
-before it stops to wait for a signal&#x2014;the sender will not fully utilize
-the network.</p>
+pipe&#x2014;i.e., does not send a whole RTT <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product&apos;s
+worth of data before it stops to wait for a signal&#x2014;the sender will not
+fully utilize the network.</p>
 <p>Note that most of the time we are interested in the RTT scenario, which
 we simply refer to as the delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product, without
-explicitly saying that &quot;delay&quot; is the RTT (i.e., the one-way delay by
+explicitly saying that &quot;delay&quot; is the RTT (i.e., multiply the one-way delay by
 two). Usually, whether the &quot;delay&quot; in delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth means
 one-way latency or RTT is made clear by the context.
 <a href="#delay-bw">Table 1</a> shows some examples of  RTT <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth
@@ -1174,13 +1187,6 @@ products for some typical network links.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dial-up</td>
-<td style="text-align:center">56 kbps</td>
-<td style="text-align:center">10 km</td>
-<td style="text-align:center">87 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s</td>
-<td style="text-align:center">5 bits</td>
-</tr>
-<tr>
 <td style="text-align:center">Wireless LAN</td>
 <td style="text-align:center">54 Mbps</td>
 <td style="text-align:center">50 m</td>
@@ -1189,10 +1195,10 @@ products for some typical network links.</p>
 </tr>
 <tr>
 <td style="text-align:center">Satellite</td>
-<td style="text-align:center">45 Mbps</td>
+<td style="text-align:center">1 Gbps</td>
 <td style="text-align:center">35,000 km</td>
 <td style="text-align:center">230 ms</td>
-<td style="text-align:center">10 Mb</td>
+<td style="text-align:center">230 Mb</td>
 </tr>
 <tr>
 <td style="text-align:center">Cross-country fiber</td>
@@ -1206,11 +1212,10 @@ products for some typical network links.</p>
 <div class="ba-center"><p><em>Table 1. Example delay x bandwidth products.</em></p></div>
 
 <h2 id="high-speed-networks">High-Speed Networks</h2>
-<p>The bandwidths available on today&apos;s networks are increasing at a
-dramatic rate, and there is eternal optimism that network bandwidth will
-continue to improve. This causes network designers to start thinking
-about what happens in the limit or, stated another way, what is the
-impact on network design of having infinite bandwidth available.</p>
+<p>The seeming continual increase in bandwdith causes network designers
+to start thinking about what happens in the limit or, stated another
+way, what is the impact on network design of having infinite bandwidth
+available.</p>
 <p>Although high-speed networks bring a dramatic change in the bandwidth
 available to applications, in many respects their impact on how we think
 about networking comes in what does <em>not</em> change as bandwidth increases:
@@ -1280,9 +1285,9 @@ performance; that is, we have talked in terms of what a given link or
 channel will support. The unstated assumption has been that application
 programs have simple needs&#x2014;they want as much bandwidth as the network
 can provide. This is certainly true of the aforementioned digital
-library program that is retrieving a 25-MB image; the more bandwidth
-that is available, the faster the program will be able to return the
-image to the user.</p>
+library program that is retrieving a 250-MB image; the more
+bandwidth that is available, the faster the program will be able to
+return the image to the user.</p>
 <p>However, some applications are able to state an upper limit on how much
 bandwidth they need. Video applications are a prime example. Suppose one
 wants to stream a video that is one quarter the size of a standard TV
@@ -1410,7 +1415,7 @@ a buffer.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5 Performance","level":"1.2.5","depth":2,"next":{"title":"1.6 Summary","level":"1.2.6","depth":2,"path":"foundation/summary.md","ref":"foundation/summary.md","articles":[]},"previous":{"title":"1.4 Software","level":"1.2.4","depth":2,"path":"foundation/software.md","ref":"foundation/software.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/performance.md","mtime":"2018-08-24T05:20:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-26T19:46:45.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.5 Performance","level":"1.2.5","depth":2,"next":{"title":"1.6 Summary","level":"1.2.6","depth":2,"path":"foundation/summary.md","ref":"foundation/summary.md","articles":[]},"previous":{"title":"1.4 Software","level":"1.2.4","depth":2,"path":"foundation/software.md","ref":"foundation/software.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/performance.md","mtime":"2018-08-28T17:05:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
