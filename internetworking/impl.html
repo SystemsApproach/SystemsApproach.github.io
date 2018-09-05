@@ -966,15 +966,12 @@
                                 <h1 id="34-implementation">3.4 Implementation</h1>
 <p>So far, we have talked about what switches and routers must do without
 discussing how to do it. There is a very simple way to build a switch or
-router: Buy a general-purpose processor and equip it with a number of
+router: Buy a general-purpose processor and equip it with multiple
 network interfaces. Such a device, running suitable software, can
 receive packets on one of its interfaces, perform any of the switching
-or forwarding functions described above, and send packets out another of
-its interfaces. This is, in fact, a popular way to build experimental
-routers and switches when you want to be able to do things like develop
-new routing protocols because it offers extreme flexibility and a
-familiar programming environment. It is also not too far removed from
-the architecture of many commercial mid- to low-end routers.</p>
+or forwarding functions described in this chapter, and send packets
+out another of its interfaces. This is, in fact, not too far removed
+from the architecture of many commercial mid- to low-end routers.</p>
 <h2 id="switch-basics">Switch Basics</h2>
 <p>Switches and routers use similar implementation techniques, so we&apos;ll
 start this section by looking at those common techniques, then move on
@@ -1009,36 +1006,35 @@ crosses the I/O bus twice and is written to and read from main memory
 once. The upper bound on aggregate throughput of such a device (the
 total sustainable data rate summed over all inputs) is, thus, either
 half the main memory bandwidth or half the I/O bus bandwidth, whichever
-is less. (Usually, it&apos;s the I/O bus bandwidth.) For example, a machine
-with a 133-MHz, 64-bit-wide I/O bus can transmit data at a peak rate of
-a little over 8 Gbps. Since forwarding a packet involves crossing the
-bus twice, the actual limit is 4 Gbps&#x2014;enough to build a switch with a
-fair number of 100-Mbps Ethernet ports, for example, but hardly enough
-for a high-end router in the core of the Internet.</p>
-<p>Moreover, this upper bound also assumes that moving data is the only
+is less. For example, a machine limited by a 133-MHz, 64-bit-wide bus
+can transmit data at a peak rate of a little over 8 Gbps. Since
+forwarding a packet involves crossing the bus twice, the actual limit
+is 4 Gbps&#x2014;enough to build a switch with a handful of 1-Gbps Ethernet
+ports, for example, but hardly enough for a high-end router in the
+core of the Internet.</p>
+<p>Moreover, this upper bound assumes that moving data is the only
 problem&#x2014;a fair approximation for long packets but a bad one when
 packets are short. In the latter case, the cost of processing each
 packet&#x2014;parsing its header and deciding which output link to transmit
 it on&#x2014;is likely to dominate. Suppose, for example, that a processor
-can perform all the necessary processing to switch 2 million packets
+can perform all the necessary processing to switch 4 million packets
 each second. This is sometimes called the packet per second (pps) rate.
-(This number is representative of what is achievable on an inexpensive
-PC.) If the average packet is short, say, 64 bytes, this would imply</p>
+If the average packet is short, say, 64 bytes, this would imply</p>
 <div class="ba-center"><p>Throughput = pps x BitsPerPacket</p></div>
 
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>2</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>&#xD7;</mo><mn>6</mn><mn>4</mn><mo>&#xD7;</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
-= 2 \times 10^6 \times 64 \times 8
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#xD7;</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">8</span></span></span></span></span></p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>1</mn><mn>0</mn><mn>2</mn><mn>4</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">
-= 1024 \times 10^6
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
-<p>that is, a throughput of about 1 Gbps&#x2014;substantially below the range
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>4</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>&#xD7;</mo><mn>6</mn><mn>4</mn><mo>&#xD7;</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
+= 4 \times 10^6 \times 64 \times 8
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#xD7;</span><span class="mord mathrm">6</span><span class="mord mathrm">4</span><span class="mbin">&#xD7;</span><span class="mord mathrm">8</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>2</mn><mn>0</mn><mn>4</mn><mn>8</mn><mo>&#xD7;</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">
+= 2048 \times 10^6
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:0.9474379999999999em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">6</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></p>
+<p>that is, a throughput of about 2 Gbps&#x2014;substantially below the range
 that users are demanding from their networks today. Bear in mind that
-this 1 Gbps would be shared by all users connected to the switch, just
+this 2 Gbps would be shared by all users connected to the switch, just
 as the bandwidth of a single (unswitched) Ethernet segment is shared
 among all users connected to the shared medium. Thus, for example, a
 20-port switch with this aggregate throughput would only be able to cope
-with an average data rate of about 50 Mbps on each port.</p>
+with an average data rate of about 100 Mbps on each port.</p>
 <p>To address this problem, hardware designers have come up with a large
 array of switch designs that reduce the amount of contention and provide
 high aggregate throughput. Note that some contention is unavoidable: If
@@ -1282,27 +1278,27 @@ types (e.g., Ethernet, SONET).</p>
     <figcaption>Block diagram of a router.</figcaption>
 </figure>
 
-<p> A few points are worth noting about router design and how it differs
+<p>A few points are worth noting about router design and how it differs
 from switch design. First, routers must be designed to handle
 variable-length packets, a constraint that does not apply to ATM
-switches but is certainly applicable to Ethernet or Frame Relay
-switches. It turns out that many high-performance routers are designed
+switches but is certainly applicable to Ethernet switches.
+It turns out that many high-performance routers are designed
 using a switching fabric that is cell based. In such cases, the ports
 must be able to convert variable-length packets into cells and back
-again. This is known as <em>segmentation and re-assembly</em> (SAR), a problem
-also faced by network adaptors for ATM networks.</p>
+again. This is known as <em>segmentation and re-assembly</em> (SAR), a
+problem also faced by network adaptors for ATM networks.</p>
 <p>Another consequence of the variable length of IP datagrams is that it
 can be harder to characterize the performance of a router than a switch
 that forwards only cells. Routers can usually forward a certain number
 of packets per second, and this implies that the total throughput in
 <em>bits</em> per second depends on packet size. Router designers generally
 have to make a choice as to what packet length they will support at
-<em>line rate</em>. That is, if &apos;pps&apos; (packets per second) is the rate at which
-packets arriving on a particular port can be forwarded, and &apos;linerate&apos;
+<em>line rate</em>. That is, if <code>pps</code> (packets per second) is the rate at which
+packets arriving on a particular port can be forwarded, and <code>LineRate</code>
 is the physical speed of the port in bits per second, then there will be
-some &apos;packetsize&apos; in bits such that:</p>
-<div class="ba-center"><p>packetsize x pps = linerate</p></div>
-
+some <code>PacketSize</code> in bits such that:</p>
+<pre><code class="lang-pseudocode">Packetsize x pps = LineRate
+</code></pre>
 <p>This is the packet size at which the router can forward at line rate; it
 is likely to be able to sustain line rate for longer packets but not for
 shorter packets. Sometimes a designer might decide that the right packet
@@ -1419,7 +1415,7 @@ processors will have some role to play.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"next":{"title":"3.5 Summary","level":"1.4.5","depth":2,"path":"internetworking/summary.md","ref":"internetworking/summary.md","articles":[]},"previous":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/impl.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"next":{"title":"3.5 Summary","level":"1.4.5","depth":2,"path":"internetworking/summary.md","ref":"internetworking/summary.md","articles":[]},"previous":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/impl.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -968,9 +968,8 @@
 interconnect links to form a larger network. A switch is a multi-input,
 multi-output device that transfers packets from an input to one or more
 outputs. Thus, a switch adds the star topology (see <a href="#star">Figure 1</a>)
-to the point-to-point link, bus (Ethernet), and ring topologies
-established in the last chapter. A star topology has several attractive
-properties:</p>
+to the set of possible network structures. A star topology has several
+attractive properties:</p>
 <ul>
 <li><p>Even though a switch has a fixed number of inputs and outputs, which
   limits the number of hosts that can be connected to a single switch,
@@ -1009,7 +1008,8 @@ the other end of the link. A switch&apos;s primary job is to receive incoming
 packets on one of its links and to transmit them on some other link.
 This function is sometimes referred to as either <em>switching</em> or
 <em>forwarding,</em> and in terms of the Open Systems Interconnection (OSI)
-architecture, it is the main function of the network layer.</p>
+architecture, it is the main function of the network layer, otherwise
+known as <em>Layer 2</em>.</p>
 <p>The question, then, is how does the switch decide which output link to
 place each packet on? The general answer is that it looks at the header
 of the packet for an identifier that it uses to make the decision. The
@@ -1020,12 +1020,12 @@ third approach, <em>source routing</em>, is less common than these other two,
 but it does have some useful applications.</p>
 <p>One thing that is common to all networks is that we need to have a way
 to identify the end nodes. Such identifiers are usually called
-<em>addresses</em>. We have already seen examples of addresses in the previous
-chapter, such as the 48-bit address used for Ethernet. The only
-requirement for Ethernet addresses is that no two nodes on a network
-have the same address. This is accomplished by making sure that all
-Ethernet cards are assigned a <em>globally unique</em> identifier. For the
-following discussions, we assume that each host has a globally unique
+<em>addresses</em>. We have already seen examples of addresses, such as the
+48-bit address used for Ethernet. The only requirement for Ethernet
+addresses is that no two nodes on a network have the same
+address. This is accomplished by making sure that all Ethernet cards
+are assigned a <em>globally unique</em> identifier. For the following
+discussions, we assume that each host has a globally unique
 address. Later on, we consider other useful properties that an address
 might have, but global uniqueness is adequate to get us started.</p>
 <p>Another assumption that we need to make is that there is some way to
@@ -1049,7 +1049,7 @@ could imagine a network operator configuring the tables statically. It
 is a lot harder to create the forwarding tables in large, complex
 networks with dynamically changing topologies and multiple paths between
 destinations. That harder problem is known as <em>routing</em> and is the topic
-of a later Section. We can think of routing as a process
+of a later section. We can think of routing as a process
 that takes place in the background so that, when a data packet turns up,
 we will have the right information in the forwarding table to be able to
 forward, or switch, the packet.</p>
@@ -1431,7 +1431,7 @@ buffer space. If there are no free buffers, the incoming packet must be
 discarded. We observe, however, that even in a datagram-based network a
 source host often sends a sequence of packets to the same destination
 host. It is possible for each switch to distinguish among the set of
-packets it currently has queued, based on the source/ destination pair,
+packets it currently has queued, based on the source/destination pair,
 and thus for the switch to ensure that the packets belonging to each
 source/destination pair are receiving a fair share of the switch&apos;s
 buffers.</p>
@@ -1458,9 +1458,9 @@ supported using Internet-based technologies today.</p>
 circuit-based networking technology, although it is now somewhat past
 its peak in terms of deployment. ATM became an important technology in
 the 1980s and early 1990s for a variety of reasons, not the least of
-which is that it was embraced by the telephone industry, which had
-historically been less than active in data communications (other than as
-a supplier of links from which other people built networks). ATM also
+which is that it was embraced by the telephone industry, which at that
+point in time been less than active in data communications (other than
+as a supplier of links from which other people built networks). ATM also
 happened to be in the right place at the right time, as a high-speed
 switching technology that appeared on the scene just when shared media
 like Ethernet and token rings were starting to look a bit too slow for
@@ -1473,7 +1473,8 @@ competitor to IP as well.</p>
     <figcaption>ATM cell format at the UNI.</figcaption>
 </figure>
 
-<p>There are a few aspects of ATM that are worth examining. The picture of
+<p>The approach ATM takes has some interesting properties, which
+makes it worth examining a bit further. The picture of
 the ATM packet format&#x2014;more commonly called an ATM <em>cell</em>&#x2014;in
 <a href="#atmcell">Figure 6</a> will illustrate the main points. We&apos;ll skip the
 generic flow control (GFC) bits, which never saw much use, and start
@@ -1494,7 +1495,7 @@ only. Protecting the cell header is particularly important because an
 error in the <code>VCI</code> will cause the cell to be misdelivered.</p>
 <p>Probably the most significant thing to notice about the ATM cell, and
 the reason it is called a cell and not a packet, is that it comes in
-only one size: 53 bytes. What was the reason for this? A big reason was
+only one size: 53 bytes. What was the reason for this? One big reason was
 to facilitate the implementation of hardware switches. When ATM was
 being created in the mid- and late 1980s, 10-Mbps Ethernet was the
 cutting-edge technology in terms of speed. To go much faster, most
@@ -1523,6 +1524,18 @@ ATM standards were being defined. As it turns out, this same principle
 is still applied in many switches and routers today, even if they deal
 in variable length packets&#x2014;they cut those packets into some sort of
 cell in order to switch them, as we&apos;ll see in a later section.</p>
+<p>There is another good argument in favor of small ATM cells, having
+to do with end-to-end latency. ATM was designed to carry
+both voice phone calls (the dominate use case at the time) and data.
+Because voice is low-bandwidth but has strict delay requirements,
+the last thing you want is for a small voice packet queued behind a
+large data packet at a switch. If you force all packets to be small (i.e.,
+cell-sized), then large data packets can still be supported by
+reassembling a set of cells into a packet, and you get the benefit of
+being able to interleave the forwarding of voice cells and data cells
+at every switch along the path from source to destination. This idea
+of using small cells to improve end-to-end latency is alive and well
+today in the cellular network.</p>
 <p>Having decided to use small, fixed-length packets, the next question is
 what is the right length to fix them at? If you make them too short,
 then the amount of header information that needs to be carried around
@@ -1544,7 +1557,7 @@ cells did actually lead to some noticeable inefficiency in ATM networks
 that some detractors called the <em>cell tax</em>.</p>
 <p>As it turns out, 48 bytes was picked for the ATM cell payload as a
 compromise. There were good arguments for both larger and smaller cells,
-but 48 made almost no one happy&#x2014;a power of two would certainly have
+and 48 made almost no one happy&#x2014;a power of two would certainly have
 been better for computers to work with.</p>
 <h2 id="source-routing">Source Routing</h2>
 <p>A third approach to switching that uses neither virtual circuits nor
@@ -1559,15 +1572,89 @@ For each packet that arrives on an input, the switch would read the port
 number in the header and transmit the packet on that output. However,
 since there will in general be more than one switch in the path between
 the sending and the receiving host, the header for the packet needs to
-contain enough information to allow every switch in the path to</p>
-<h2 id="bridges-and-lan-switches">Bridges and LAN Switches</h2>
+contain enough information to allow every switch in the path to
+determine which output the packet needs to be placed
+on. One way to do this would be to put an ordered list of switch ports
+in the header and to rotate the list so that the next switch in the
+path is always at the front of the list. <a href="#source-route">Figure 7</a>
+illustrates this idea.</p>
+<figure class="line">
+    <a id="source-route"></a>
+    <img src="figures/f03-07-9780123850591.png" width="500px">
+    <figcaption>Source routing in a switched network (where the switch
+    reads the rightmost number).</figcaption>
+</figure>
+
+<p>In this example, the packet needs to traverse three switches to get
+from host A to host B. At switch 1, it needs to exit on port 1, at the
+next switch it needs to exit at port 0, and at the third switch it
+needs to exit at port 3. Thus, the original header when the packet
+leaves host A contains the list of ports (3, 0, 1), where we assume that
+each switch reads the rightmost element of the list. To make sure
+that the next switch gets the appropriate information, each switch
+rotates the list after it has read its own entry. Thus, the packet
+header as it leaves switch 1 enroute to switch 2 is now (1, 3, 0);
+switch 2 performs another rotation and sends out a packet with (0, 1, 3)
+in the header.  Although not shown, switch 3 performs yet another
+rotation, restoring the header to what it was when host A sent it.</p>
+<p>There are several things to note about this approach. First, it
+assumes that host A knows enough about the topology of the network to
+form a header that has all the right directions in it for every switch
+in the path. This is somewhat analogous to the problem of building the
+forwarding tables in a datagram network or figuring out where to send
+a setup packet in a virtual circuit network. Second, observe that we
+cannot predict how big the header needs to be, since it must be able
+to hold one word of information for every switch on the path. This
+implies that headers are probably of variable length with no upper
+bound, unless we can predict with absolute certainty the maximum
+number of switches through which a packet will ever need to
+pass. Third, there are some variations on this approach. For example,
+rather than rotate the header, each switch could just strip the first
+element as it uses it.  Rotation has an advantage over stripping,
+however: Host B gets a copy of the complete header, which may help it
+figure out how to get back to host A.  Yet another alternative is to
+have the header carry a pointer to the current &quot;next port&quot; entry, so
+that each switch just updates the pointer rather than rotating the
+header; this may be more efficient to implement. We show these three
+approaches in <a href="#sroute-app">Figure 8</a>.  In each case, the entry that
+this switch needs to read is <code>A</code>, and the entry that the next
+switch needs to read is <code>B</code>.</p>
+<figure class="line">
+    <a id="sroute-apps"></a>
+    <img src="figures/f03-08-9780123850591.png" width="550px">
+    <figcaption>Three ways to handle headers for source routing:
+    (a) rotation; (b) stripping; (c) pointer. The labels are read
+    right to left.</figcaption>
+</figure>
+
+<p>Source routing can be used in both datagram networks and virtual
+circuit networks. For example, the Internet Protocol, which is a
+datagram protocol, includes a source route option that allows selected
+packets to be source routed, while the majority are switched as
+conventional datagrams. Source routing is also used in some virtual
+circuit networks as the means to get the initial setup request along
+the path from source to destination.</p>
+<p>Source routes are sometimes categorized as <em>strict</em> or <em>loose</em>. In a
+strict source route, every node along the path must be specified,
+whereas a loose source route only specifies a set of nodes to be
+traversed, without saying exactly how to get from one node to the
+next. A loose source route can be thought of as a set of waypoints
+rather than a completely specified route. The loose option can be
+helpful to limit the amount of 
+information that a source must obtain to create a source route. In any
+reasonably large network, it is likely to be hard for a host
+to get the complete path information it needs to construct correct
+a strict source route to any destination. But both types of source
+routes do find application in certain scenarios, as we will see in later
+chapters.</p>
+<h2 id="bridges-and-l2-switches">Bridges and L2 Switches</h2>
 <p>Having discussed some of the basic ideas behind switching, we now focus
 more closely on some specific switching technologies. We begin by
 considering a class of switch that is used to forward packets between
 LANs (local area networks) such as Ethernets. Such switches are
-sometimes known by the obvious name of LAN switches; historically, they
-have also been referred to as <em>bridges</em>, and they are very widely used
-in campus and enterprise networks.</p>
+today known as L2 switches; historically, they have also been referred
+to as <em>bridges</em>, and they are very widely used in campus and
+enterprise networks.</p>
 <p>Suppose you have a pair of Ethernets that you want to interconnect. One
 approach you might try is to put a repeater between them.
 This would not be a workable solution,
@@ -1604,7 +1691,7 @@ number of ports (inputs and outputs) on the bridge.</p>
 <h3 id="learning-bridges">Learning Bridges</h3>
 <p>The first optimization we can make to a bridge is to observe that it
 need not forward all frames that it receives. Consider the bridge in
-<a href="#elan2">Figure 7</a>. Whenever a frame from host A that is addressed to
+<a href="#elan2">Figure 9</a>. Whenever a frame from host A that is addressed to
 host B arrives on port 1, there is no need for the bridge to forward the
 frame out over port 2. The question, then, is how does a bridge come to
 learn on which port the various hosts reside?</p>
@@ -1759,7 +1846,7 @@ entry.</p>
 <p>The preceding strategy works just fine until the extended LAN has a loop
 in it, in which case it fails in a horrible way&#x2014;frames potentially
 loop through the extended LAN forever. This is easy to see in the
-example depicted in <a href="#elan3">Figure 8</a>, where, for example, bridges B1,
+example depicted in <a href="#elan3">Figure 10</a>, where, for example, bridges B1,
 B4, and B6 form a loop. Suppose that a packet enters bridge B4 from
 Ethernet J and that the destination address is one not yet in any
 bridge&apos;s forwarding table: B4 sends a copy of the packet out to
@@ -1785,7 +1872,7 @@ by a graph that possibly has loops (cycles), then a spanning tree is a
 subgraph of this graph that covers (spans) all the vertices but contains
 no cycles. That is, a spanning tree keeps all of the vertices of the
 original graph but throws out some of the edges. For example,
-<a href="#graphs">Figure 9</a> shows a cyclic graph on the left and one of
+<a href="#graphs">Figure 11</a> shows a cyclic graph on the left and one of
 possibly many spanning trees on the right.</p>
 <figure class="line">
     <a id="graphs"></a>
@@ -1850,16 +1937,16 @@ forwards frames over those ports for which it is the designated bridge.</p>
     <figcaption>Spanning tree with some ports not selected.</figcaption>
 </figure>
 
-<p><a href="#elan4">Figure 10</a> shows the spanning tree that corresponds to the
-extended LAN shown in <a href="#elan3">Figure 8</a>. In this example, B1 is the
+<p><a href="#elan4">Figure 12</a> shows the spanning tree that corresponds to the
+extended LAN shown in <a href="#elan3">Figure 10</a>. In this example, B1 is the
 root bridge, since it has the smallest ID. Notice that both B3 and B5
 are connected to LAN A, but B5 is the designated bridge since it is
 closer to the root. Similarly, both B5 and B7 are connected to LAN B,
 but in this case B5 is the designated bridge since it has the smaller
 ID; both are an equal distance from B1.</p>
 <p>While it is possible for a human to look at the extended LAN given in
-<a href="#elan3">Figure 8</a> and to compute the spanning tree given in
-the <a href="#elan4">Figure 10</a> according to the rules given above, the bridges in
+<a href="#elan3">Figure 10</a> and to compute the spanning tree given in
+the <a href="#elan4">Figure 12</a> according to the rules given above, the bridges in
 an extended LAN do not have the luxury of being able to see the topology
 of the entire network, let alone peek inside other bridges to see their
 ID. Instead, the bridges have to exchange configuration messages with
@@ -1918,7 +2005,7 @@ spanning tree has been built, and all the bridges are in agreement on
 which ports are in use for the spanning tree. Only those ports may be
 used for forwarding data packets in the extended LAN.</p>
 <p>Let&apos;s see how this works with an example. Consider what would happen in
-<a href="#elan4">Figure 10</a> if the power had just been restored to the building
+<a href="#elan4">Figure 12</a> if the power had just been restored to the building
 housing this network, so that all the bridges boot at about the same
 time. All the bridges would start off by claiming to be the root. We
 denote a configuration message from node X in which it claims to be
@@ -1943,7 +2030,7 @@ at node B3, a sequence of events would unfold as follows:</p>
 </li>
 </ol>
 <p>This leaves B3 with both ports not selected, as shown in
-<a href="#elan4">Figure 10</a>.</p>
+<a href="#elan4">Figure 12</a>.</p>
 <p>Even after the system has stabilized, the root bridge continues to send
 configuration messages periodically, and the other bridges continue to
 forward these messages as described in the previous paragraph. Should a
@@ -1971,7 +2058,7 @@ the LANs in an extended LAN necessarily have a host that is a member of
 a particular multicast group, it is possible to do better. Specifically,
 the spanning tree algorithm can be extended to prune networks over which
 multicast frames need not be forwarded. Consider a frame sent to group M
-by a host on LAN A in <a href="#elan4">Figure 10</a>. If there is no host on LAN J
+by a host on LAN A in <a href="#elan4">Figure 12</a>. If there is no host on LAN J
 that belongs to group M, then there is no need for bridge B4 to forward
 the frames over that network. On the other hand, not having a host on
 LAN H that belongs to group M does not necessarily mean that bridge B1
@@ -2018,7 +2105,7 @@ extended LAN that will receive any given broadcast packet.</p>
     <figcaption>Two virtual LANs share a common backbone.</figcaption>
 </figure>
 
-<p>We can see how VLANs work with an example. <a href="#vlan">Figure 11</a> shows four
+<p>We can see how VLANs work with an example. <a href="#vlan">Figure 13</a> shows four
 hosts on four different LAN segments. In the absence of VLANs, any
 broadcast packet from any host will reach all the other hosts. Now let&apos;s
 suppose that we define the segments connected to hosts W and X as being
@@ -2118,7 +2205,7 @@ Ethernet segment. Bridges happen.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"next":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"previous":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Summary","level":"1.4.5","depth":2,"path":"internetworking/summary.md","ref":"internetworking/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/switching.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"next":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"previous":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Summary","level":"1.4.5","depth":2,"path":"internetworking/summary.md","ref":"internetworking/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/switching.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

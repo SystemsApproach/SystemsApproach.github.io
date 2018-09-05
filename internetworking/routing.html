@@ -2078,13 +2078,13 @@ drawbacks, however. First, it does not distinguish between links on a
 latency basis. Thus, a satellite link with 250-ms latency looks just as
 attractive to the routing protocol as a terrestrial link with 1-ms
 latency. Second, it does not distinguish between routes on a capacity
-basis, making a 9.6-kbps link look just as good as a 45-Mbps link.
+basis, making a 1-Mbps link look just as good as a 10-Gbps link.
 Finally, it does not distinguish between links based on their current
 load, making it impossible to route around overloaded links. It turns
 out that this last problem is the hardest because you are trying to
 capture the complex and dynamic characteristics of a link in a single
 scalar cost.</p>
-<p>The ARPANET was the testing ground for a number of different app-roaches
+<p>The ARPANET was the testing ground for a number of different approaches
 to link-cost calculation. (It was also the place where the superior
 stability of link-state over distance-vector routing was demonstrated;
 the original mechanism used distance vector while the later version used
@@ -2102,8 +2102,8 @@ familiar to those of us who hop from line to line at the grocery store.
 Stated more precisely, the original ARPANET routing mechanism suffered
 from the fact that it did not take either the bandwidth or the latency
 of the link into consideration.</p>
-<p>A second version of the ARPANET routing algorithm, sometimes called the
-<em>new routing mechanism</em>, took both link bandwidth and latency into
+<p>A second version of the ARPANET routing algorithm
+took both link bandwidth and latency into
 consideration and used delay, rather than just queue length, as a
 measure of load. This was done as follows. First, each incoming packet
 was timestamped with its time of arrival at the router (<code>ArrivalTime</code>);
@@ -2123,8 +2123,8 @@ more frequent the retransmission of packets, the less reliable the link,
 and the more we want to avoid it. Finally, the weight assigned to each
 link was derived from the average delay experienced by the packets
 recently sent over that link.</p>
-<p>Although an improvement over the original mechanism, this approach also
-had a lot of problems. Under light load, it worked reasonably well,
+<p>Although an improvement over the original mechanism, this approach
+also had a lot of problems. Under light load, it worked reasonably well,
 since the two static factors of delay dominated the cost. Under heavy
 load, however, a congested link would start to advertise a very high
 cost. This caused all the traffic to move off that link, leaving it
@@ -2134,7 +2134,8 @@ heavy load, many links would in fact spend a great deal of time being
 idle, which is the last thing you want under heavy load.</p>
 <p>Another problem was that the range of link values was much too large.
 For example, a heavily loaded 9.6-kbps link could look 127 times more
-costly than a lightly loaded 56-kbps link. This means that the routing
+costly than a lightly loaded 56-kbps link. (Keep in mind, we&apos;re
+talking about the ARPANET cira 1975.) This means that the routing
 algorithm would choose a path with 126 hops of lightly loaded 56-kbps
 links in preference to a 1-hop 9.6-kbps path. While shedding some
 traffic from an overloaded line is a good idea, making it look so
@@ -2144,10 +2145,9 @@ satellite links were unduly penalized, so that an idle 56-kbps satellite
 link looked considerably more costly than an idle 9.6-kbps terrestrial
 link, even though the former would give better performance for
 high-bandwidth applications.</p>
-<p>A third approach, called the &quot;revised ARPANET routing metric,&quot; addressed
-these problems. The major changes were to compress the dynamic range of
-the metric considerably, to account for the link type, and to smooth the
-variation of the metric with time.</p>
+<p>A third approach addressed these problems. The major changes were to
+compress the dynamic range of the metric considerably, to account for
+the link type, and to smooth the variation of the metric with time.</p>
 <p>The smoothing was achieved by several mechanisms. First, the delay
 measurement was transformed to a link utilization, and this number was
 averaged with the last reported utilization to suppress sudden changes.
@@ -2186,16 +2186,31 @@ make the link unattractive for some paths while letting it remain the
 best choice for others. The slopes, offsets, and breakpoints for the
 curves in <a href="#metric">Figure 9</a> were arrived at by a great deal of trial
 and error, and they were carefully tuned to provide good performance.</p>
-<p>We end our discussion of routing metrics with a dose of reality. In the
-majority of real-world network deployments at the time of writing,
-metrics change rarely if at all and only under the control of a network
-administrator, not automatically as was described above. The reason for
-this is partly that conventional wisdom now holds that dynamically
-changing metrics are too unstable, even though this probably need not be
-true. Perhaps more significantly, many networks today lack the great
-disparity of link speeds and latencies that prevailed in the ARPANET.
-Thus, static metrics are the norm. One common approach to setting
-metrics is to use a constant multiplied by (1/link_bandwidth).</p>
+<p>Despite all these improvements, it turns out that in the majority of
+real-world network deployments, metrics change rarely if at all and
+only under the control of a network administrator, not automatically
+as was described above. The reason for this is partly that
+conventional wisdom now holds that dynamically changing metrics
+are too unstable, even though this probably need not be true. Perhaps
+more significantly, many networks today lack the great disparity of
+link speeds and latencies that prevailed in the ARPANET. Thus, static
+metrics are the norm. One common approach to setting metrics is to use
+a constant multiplied by (1/link_bandwidth).</p>
+<p>So why do we still tell the story about a decades old algorithm that&apos;s
+no longer is use? Because it perfectly illustrates two valuable lessons.
+The first is that computer systems are often <em>designed iteratively,
+based on experience.</em> We seldom get it right the first time, so it&apos;s
+important to deploy a simple solution sooner rather than later, and
+expect to improve it over time. Staying stuck in the design phase
+indefinitely is usually not a good approach. The second is the
+well-know KISS principle: <em>Keep it Simple, Stupid.</em> When building a
+complex system, less is often more. Opportunities to invent
+sophisticated optimizations are plentiful, and it&apos;s a tempting
+challenge to tackle. While such optimations sometimes have
+short-term value, it is shocking how often a simple approach proves
+best over time. This is because when a system has many moving parts,
+as the Internet most certainly does, keeping each part as simple as
+possible is usually the best bet.</p>
 
                                 
                                 </section>
@@ -2239,7 +2254,7 @@ metrics is to use a constant multiplied by (1/link_bandwidth).</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

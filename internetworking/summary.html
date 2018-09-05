@@ -967,8 +967,8 @@
 <p>This chapter has begun to look at some of the issues involved in
 building scalable and heterogeneous networks by using switches and
 routers to interconnect links and networks. The most common use of
-switching is the interconnection of LANs, especially Ethernet segments.
-LAN switches, or bridges, use techniques such as source address learning
+switching is to interconnection Ethernet segments. These L2 switches,
+often called bridges, use techniques such as source address learning
 to improve forwarding efficiency and spanning tree algorithms to avoid
 looping. These switches are extensively used in data centers, campuses,
 and corporate networks.</p>
@@ -983,14 +983,14 @@ service model is simple enough to be supported by any known networking
 technology, and the ARP mechanism is used to translate global IP
 addresses into local link-layer addresses.</p>
 <p>A crucial aspect of the operation of an internetwork is the
-determination of efficient routes to any destination in the internet.
+determination of efficient routes to any destination.
 Internet routing algorithms solve this problem in a distributed fashion;
 this chapter introduced the two major classes of algorithms&#x2014;link-state
 and distance-vector&#x2014;along with examples of their application (RIP and
 OSPF).</p>
 <p>Both switches and routers need to forward packets from inputs to outputs
 at a high rate and, in some circumstances, grow to a large size to
-accommodate hundreds or thousands of ports. Building switches that both
+accommodate hundreds of ports. Building switches that both
 scale and offer high performance at acceptable cost is complicated by
 the problem of contention; as a consequence, switches and routers often
 employ special-purpose hardware rather than being built from
@@ -1062,7 +1062,7 @@ packets.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.5 Summary","level":"1.4.5","depth":2,"next":{"title":"Chapter 4: Advanced Internetworking","level":"1.5","depth":1,"path":"scaling/problem.md","ref":"scaling/problem.md","articles":[{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},{"title":"4.5 Summary","level":"1.5.5","depth":2,"path":"scaling/summary.md","ref":"scaling/summary.md","articles":[]}]},"previous":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/summary.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.5 Summary","level":"1.4.5","depth":2,"next":{"title":"Chapter 4: Advanced Internetworking","level":"1.5","depth":1,"path":"scaling/problem.md","ref":"scaling/problem.md","articles":[{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},{"title":"4.5 Summary","level":"1.5.5","depth":2,"path":"scaling/summary.md","ref":"scaling/summary.md","articles":[]}]},"previous":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/summary.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1031,14 +1031,13 @@ function as a single logical internetwork. For example,
 connected by the internet in <a href="#inet">Figure 1</a>, including
 the protocol graph running on each node. Note that higher-level
 protocols, such as TCP and UDP, typically run on top of IP on the hosts.</p>
-<p>Most of the rest of this chapter is about various aspects of IP. While
-it is certainly possible to build an internetwork that does not use
-IP&#x2014;for example, Novell created an internetworking protocol called IPX,
-which was in turn based on the XNS internet designed by Xerox&#x2014;IP is
-the most interesting case to study simply because of the size of the
-Internet. Said another way, it is only the IP Internet that has really
-faced the issue of scale. Thus, it provides the best case study of a
-scalable internetworking protocol.</p>
+<p>The rest of this and the next chapter are about various aspects of IP.
+While it is certainly possible to build an internetwork that does not use
+IP&#x2014;and in fact, in the early days of the Internet there were
+alternative solutions&#x2014;IP is the most interesting case to study simply
+because of the size of the Internet. Said another way, it is only the
+IP Internet that has really faced the issue of scale. Thus, it
+provides the best case study of a scalable internetworking protocol.</p>
 <h2 id="service-model">Service Model</h2>
 <p>A good place to start when you build an internetwork is to define its
 <em>service model</em>, that is, the host-to-host services you want to provide.
@@ -1165,8 +1164,7 @@ are values defined for the TCP (Transmission Control Protocol&#x2014;6), UDP
 above IP in the protocol graph.</p>
 <p>The <code>Checksum</code> is calculated by considering the entire IP header as a
 sequence of 16-bit words, adding them up using ones complement
-arithmetic, and taking the ones complement of the result. This is the IP
-checksum algorithm described in a later section. Thus, if any
+arithmetic, and taking the ones complement of the result. TSsourhus, if any
 bit in the header is corrupted in transit, the checksum will not contain
 the correct value upon receipt of the packet. Since a corrupted header
 may contain an error in the destination address&#x2014;and, as a result, may
@@ -1174,7 +1172,8 @@ have been misdelivered&#x2014;it makes sense to discard any packet that fails
 the checksum. It should be noted that this type of checksum does not
 have the same strong error detection properties as a CRC, but it is much
 easier to calculate in software.</p>
-<p>The last two required fields in the header are the &apos;sourceAddr<code>and the</code>DestinationAddr` for the packet. The latter is the key to datagram
+<p>The last two required fields in the header are the <code>sourceAddr</code> and the
+<code>DestinationAddr</code> for the packet. The latter is the key to datagram
 delivery: Every packet contains a full address for its intended
 destination so that forwarding decisions can be made at each router. The
 source address is required to allow recipients to decide if they want to
@@ -1191,8 +1190,8 @@ IP implementation must handle them all.</p>
 <p>One of the problems of providing a uniform host-to-host service model
 over a heterogeneous collection of networks is that each network
 technology tends to have its own idea of how large a packet can be. For
-example, an Ethernet can accept packets up to 1500 bytes long, while
-FDDI (Fiber Distributed Data Interface) packets may be 4500 bytes long.
+example, classic Ethernet can accept packets up to 1500 bytes long,
+but modern-day variants can deliver larger (jumbo) packets.
 This leaves two choices for the IP service model: Make sure that all IP
 datagrams are small enough to fit inside one packet on any network
 technology, or provide a means by which packets can be fragmented and
@@ -1202,10 +1201,7 @@ the fact that new network technologies are always turning up, and IP
 needs to run over all of them; this would make it hard to pick a
 suitably small bound on datagram size. This also means that a host will
 not send needlessly small packets, which wastes bandwidth and consumes
-processing resources by requiring more headers per byte of data sent.
-For example, two hosts connected to FDDI networks that are
-interconnected by a point-to-point link would not need to send packets
-small enough to fit on an Ethernet.</p>
+processing resources by requiring more headers per byte of data sent.</p>
 <p>The central idea here is that every network type has a <em>maximum
 transmission unit</em> (MTU), which is the largest IP datagram that it can
 carry in a frame. Note that this value is smaller than the largest
@@ -1611,7 +1607,7 @@ numbers that are assigned. The idea is to take a single IP network
 number and allocate the IP addresses with that network number to several
 physical networks, which are now referred to as <em>subnets</em>. Several
 things need to be done to make this work. First, the subnets should be
-close to each other. This is because at a distant point in the Internet,
+close to each other. This is because from a distant point in the Internet,
 they will all look like a single network, having only one network number
 between them. This means that a router will only be able to select one
 route to reach any of the subnets, so they had better all be in the same
@@ -1725,7 +1721,7 @@ for each forwarding table entry (SubnetNumber, SubnetMask, NextHop)
 </code></pre>
 <p>Although not shown in this example, a default route would usually be
 included in the table and would be used if no explicit matches were
-found. We note in passing that a naive implementation of this
+found. Note that a naive implementation of this
 algorithm&#x2014;one involving repeated ANDing of the destination address
 with a subnet mask that may not be different every time, and a linear
 table search&#x2014;would be very inefficient.</p>
@@ -1744,7 +1740,7 @@ shows how aggregation can be taken to another level.</p>
 <p>Subnetting has a counterpart, sometimes called <em>supernetting</em>, but more
 often called <em>Classless Interdomain Routing</em> or CIDR, pronounced
 &quot;cider.&quot; CIDR takes the subnetting idea to its logical conclusion by
-essentially doing away with address classes altogether. Why isn`t
+essentially doing away with address classes altogether. Why isn&apos;t
 subnetting alone sufficient? In essence, subnetting only allows us to
 split a classful address among multiple subnets, while CIDR allows us to
 coalesce several classful addresses into a single &quot;supernet.&quot; This
@@ -1854,8 +1850,7 @@ the other hand, a packet destined to 171.69.20.5 would match 171.69 and
 routing table 171.69 would be the longest match.</p>
 <p>The task of efficiently finding the longest match between an IP address
 and the variable-length prefixes in a forwarding table has been a
-fruitful field of research in recent years, and the Further Reading
-section of this chapter provides some references. The most well-known
+fruitful field of research for many years. The most well-known
 algorithm uses an approach known as a <em>PATRICIA tree</em>, which was
 actually developed well in advance of CIDR.</p>
 <h2 id="address-translation-arp">Address Translation (ARP)</h2>
@@ -2325,7 +2320,7 @@ correctly handled by the routing protocols.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"next":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"previous":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/basic-ip.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"next":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"previous":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/basic-ip.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

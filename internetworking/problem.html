@@ -969,23 +969,24 @@
 <em>&#x2014;Rudolph Lotze</em></p>
 </blockquote>
 <h2 id="problem-not-all-networks-are-directly-connected">Problem: Not All Networks are Directly Connected</h2>
-<p>In the previous chapter, we saw how to connect one node to another or to
-an existing network. Many technologies can be used to build &quot;last-mile&quot;
-links or to connect a modest number of nodes together, but how do we
-build networks of global scale? A single Ethernet can interconnect no
-more than 1024 hosts; a point-to-point link connects only two. Wireless
-networks are limited by the ranges of their radios. To build a global
-network, we need a way to interconnect these different types of links
-and networks. The concept of interconnecting different types of networks
-to build a large, global network is the core idea of the Internet and is
-often referred to as <em>internetworking</em>.</p>
+<p>As we have seen, there are many technologies that can be used to build
+last-mile links or to connect a modest number of nodes together, but
+how do we build networks of global scale? A single Ethernet can
+interconnect no more than 1024 hosts; a point-to-point link connects
+only two. Wireless networks are limited by the ranges of their
+radios. To build a global network, we need a way to interconnect these
+different types of links and multi-access networks. The concept of
+interconnecting different types of networks to build a large, global
+network is the core idea of the Internet and is often referred to as
+<em>internetworking</em>.</p>
 <p>We can divide the internetworking problem up into a few subproblems.
 First of all, we need a way to interconnect links. Devices that
-interconnect links of the same type are often called <em>switches</em>, and
-these devices are the first topic of this chapter. A particularly
-important class of switches today are those used to interconnect
-Ethernet segments; these switches are also sometimes called <em>bridges</em>.
-The core job of a switch is to take packets that arrive on an input and
+interconnect links of the same type are often called <em>switches</em>, or
+sometimes <em>Layer 2</em> (L2) switches. These devices are the first topic
+of this chapter. A particularly important class of L2 switches in use
+today are those used to interconnect Ethernet segments. These switches
+are also sometimes called <em>bridges</em>.</p>
+<p>The core job of a switch is to take packets that arrive on an input and
 <em>forward</em> (or <em>switch</em>) them to the right output so that they will reach
 their appropriate destination. There are a variety of ways that the
 switch can determine the &quot;right&quot; output for a packet, which can be
@@ -995,9 +996,10 @@ areas over the years.</p>
 <p>Given the enormous diversity of network types, we also need a way to
 interconnect disparate networks and links (i.e., deal with
 <em>heterogeneity</em>). Devices that perform this task, once called
-<em>gateways</em>, are now mostly known as <em>routers</em>. The protocol that was
-invented to deal with interconnection of disparate network types, the
-Internet Protocol (IP), is the topic of our second section.</p>
+<em>gateways</em>, are now mostly known as <em>routers</em>, or alternatively,
+<em>Layer 3</em> (L3) switches. The protocol that was invented to deal with
+interconnection of disparate network types, the Internet Protocol
+(IP), is the topic of our second section.</p>
 <p>Once we interconnect a whole lot of links and networks with switches and
 routers, there are likely to be many different possible ways to get from
 one point to another. Finding a suitable path or <em>route</em> through a
@@ -1009,12 +1011,13 @@ Our third section looks at some of the algorithms and protocols that
 have been developed to address these issues.</p>
 <p>Once we understand the problems of switching and routing, we need some
 devices to perform those functions. This chapter concludes with some
-discussion of the ways switches and routers are built. While many packet
-switches and routers are quite similar to a general-purpose computer,
-there are many situations where more specialized designs are used. This
-is particularly the case at the high end, where there seems to be a
-never-ending need for bigger and faster routers to handle the
-ever-increasing traffic load in the Internet&apos;s core.</p>
+discussion of the ways switches and routers are implemented. While
+many packet switches and routers are quite similar to a
+general-purpose computer, there are many situations where more
+specialized designs are used. This is particularly the case at the
+high end, where there seems to be a never-ending need for more
+switching capacity that can handle the ever-increasing traffic load in
+the Internet&apos;s core.</p>
 
                                 
                                 </section>
@@ -1058,7 +1061,7 @@ ever-increasing traffic load in the Internet&apos;s core.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"next":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},"previous":{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/problem.md","mtime":"2018-08-15T22:06:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"next":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},"previous":{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/problem.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

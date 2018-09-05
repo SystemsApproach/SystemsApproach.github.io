@@ -975,8 +975,7 @@ nodes together. We also introduced the &quot;cloud&quot; abstraction to represen
 a network without revealing all of its internal complexities. So we also
 need to address the similar problem of connecting a host to a cloud.
 This, in effect, is the problem every Internet Service Provider (ISP) faces
-when it wants to connect a new customer to the network: how to connect
-one more nodes to the ISP&apos;s cloud?</p>
+when it wants to connect a new customer to its network.</p>
 <p>Whether we want to construct a trivial two-node network with one link or
 connect the one-billionth host to an existing network like the Internet,
 we need to address a common set of issues. First, we need some physical
@@ -987,7 +986,9 @@ transmitted. It may cover a small area (e.g., an office building) or a
 wide area (e.g., transcontinental).</p>
 <p>Connecting two nodes with a suitable medium is only the first step,
 however. Five additional problems must be addressed before the nodes can
-successfully exchange packets.</p>
+successfully exchange packets, and once addressed, we will have
+provided <em>Layer 2</em> (L2) connectivity (using terminology from the
+OSI architecture).</p>
 <p>The first is <em>encoding</em> bits onto the transmission medium so that they
 can be understood by a receiving node. Second is the matter of
 delineating the sequence of bits transmitted over the link into complete
@@ -1012,7 +1013,7 @@ example); wireless networks (for which 802.11 is the most
 widespread standard); fiber-to-the home (for which PON is the dominant
 standard); and mobile wireless (where 4G is rapidly morphing into 5G).</p>
 <p>The goal of this chapter is simultaneously to survey the available
-network technology and to explore these five fundamental issues. We
+link-level technology and to explore these five fundamental issues. We
 will examine what it takes to make a wide variety of different
 physical media and link technologies useful as building blocks for the
 construction of robust, scalable networks.</p>
@@ -1059,7 +1060,7 @@ construction of robust, scalable networks.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"next":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},"previous":{"title":"1.6 Summary","level":"1.2.6","depth":2,"path":"foundation/summary.md","ref":"foundation/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/problem.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-28T17:17:09.677Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"next":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},"previous":{"title":"1.6 Summary","level":"1.2.6","depth":2,"path":"foundation/summary.md","ref":"foundation/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/problem.md","mtime":"2018-08-29T18:39:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
