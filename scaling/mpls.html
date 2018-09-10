@@ -1076,7 +1076,7 @@ forwarding table.</p>
 match to exact match, the routing algorithm can be any standard IP
 routing algorithm (e.g., OSPF). The path that a packet will follow in
 this environment is the exact same path that it would have followed if
-MPLS were not involved&#x2014;the path chosen by the IP routing algorithms.
+MPLS were not involved: the path chosen by the IP routing algorithms.
 All that has changed is the forwarding algorithm.</p>
 <p>An important fundamental concept of MPLS is illustrated by this example.
 Every MPLS label is associated with a <em>forwarding equivalence class</em>
@@ -1171,14 +1171,15 @@ ATM switch can often be converted to an MPLS LSR by upgrading only its
 software. Furthermore, an MPLS LSR might continue to support standard
 ATM capabilities at the same time as it runs the MPLS control protocols,
 in what is referred to as &quot;ships in the night&quot; mode.</p>
-<p>More recently, the idea of running IP control protocols on devices that
-are unable to forward IP packets natively has been extended to optical
-switches and STDM devices such as SONET multiplexors. This is known as
-<em>Generalized MPLS</em> (GMPLS). Part of the motivation for GMPLS was to
-provide routers with topological knowledge of an optical network, just
-as in the ATM case. Even more important was the fact that there were no
-standard protocols for controlling optical devices, so MPLS seemed like
-a natural fit for that job.</p>
+<p>The idea of running IP control protocols on devices that
+are unable to forward IP packets natively has been extended to
+Wavelength Division Multiplexing (WDM) and Time Division Multiplexing
+(TDM) networks (e.g., SONET). This is known as <em>Generalized MPLS</em>
+(GMPLS). Part of the motivation for GMPLS was to provide routers with
+topological knowledge of an optical network, just as in the ATM
+case. Even more important was the fact that there were no standard
+protocols for controlling optical devices, so MPLS proved to be a
+natural fit for that job.</p>
 <h2 id="explicit-routing">Explicit Routing</h2>
 <p>IP has a source routing option, but it is not widely used for several
 reasons, including the fact that only a limited number of hops can be
@@ -1446,7 +1447,7 @@ routing and the support of a range of VPN services.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"next":{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},"previous":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/mpls.md","mtime":"2018-08-15T22:08:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-05T22:39:29.282Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"next":{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},"previous":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/mpls.md","mtime":"2018-09-10T22:00:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:04:53.604Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
