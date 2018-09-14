@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5.4 Transport for Real-Time Applications (RTP) · Computer Networks: A Systems Approach</title>
+        <title>5.4 Transport for Real-Time (RTP) · Computer Networks: A Systems Approach</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -569,7 +569,7 @@
                 <a href="rtp.html">
             
                     
-                    5.4 Transport for Real-Time Applications (RTP)
+                    5.4 Transport for Real-Time (RTP)
             
                 </a>
             
@@ -948,7 +948,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >5.4 Transport for Real-Time Applications (RTP)</a>
+        <a href=".." >5.4 Transport for Real-Time (RTP)</a>
     </h1>
 </div>
 
@@ -963,15 +963,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="54-transport-for-real-time-applications-rtp">5.4 Transport for Real-Time Applications (RTP)</h1>
+                                <h1 id="54-transport-for-real-time-rtp">5.4 Transport for Real-Time (RTP)</h1>
 <p>In the early days of packet switching, most applications were concerned
 with the movement of data: accessing remote computing resources,
 transferring files, sending email, etc. However, at least as early as
 1981, experiments were under way to carry real-time traffic, such as
 digitized voice samples, over packet networks. We call an application
 &quot;real-time&quot; when it has strong requirements for the timely delivery of
-information. Internet telephony, or Voice over IP (VoIP), is a classic
-example of a real-time application, because you can&apos;t easily carry on a
+information. Voice over IP (VoIP) is a classic
+example of a real-time application because you can&apos;t easily carry on a
 conversation with someone if it takes more than a fraction of a second
 to get a response. As we will see shortly, real-time applications place
 some specific demands on the transport protocol that are not well met
@@ -988,15 +988,23 @@ applications and <em>streaming</em> applications. An early and at one time
 popular example of the interactive class is <code>vat</code>, a multiparty
 audioconferencing tool that is often used over networks supporting IP
 multicast. The control panel for a typical <code>vat</code> conference is shown
-in <a href="#vat">Figure 1</a>. Internet telephony is also a class of interactive
-application and probably the most widely used one at the time of
-writing. Internet-based multimedia conferencing applications
-are another example. Modern instant messaging applications also use
-real-time audio and video. These are the sort of applications with the
-most stringent real-time requirements.</p>
+in <a href="#vat">Figure 1</a>. VoIP is also a class of interactive application
+and probably the most widely used today. Internet-based multimedia
+conferencing applications, like the commercial products WebEx and
+GoToMeeting are another example. These are the sort of applications
+with the most stringent real-time requirements.</p>
+<blockquote>
+<p>Even though it&apos;s been overtaken by a plethora of commercial
+products, we use <code>vat</code> as a running example in this section
+precisely because it is not a commercial product, and so is easy
+for us to describe. The principles remain the same, which makes
+since when you consider that <code>vat</code> was the application that
+introduced interactive real-time functionality into the Internet in
+the first place.</p>
+</blockquote>
 <p>Streaming applications typically deliver audio or video streams from a
 server to a client and are typified by such commercial products as
-RealAudio. Streaming video, typified by YouTube, has become
+Spotify. Streaming video, typified by YouTube and Netflix, has become
 one of the dominant forms of traffic on the Internet. Because streaming
 applications lack human-to-human interaction, they place somewhat less
 stringent real-time requirements on the underlying protocols. Timeliness
@@ -1509,7 +1517,7 @@ majority of real-time multimedia communications over the Internet today.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.4 Transport for Real-Time Applications (RTP)","level":"1.6.4","depth":2,"next":{"title":"5.5 Summary","level":"1.6.5","depth":2,"path":"e2e/summary.md","ref":"e2e/summary.md","articles":[]},"previous":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"path":"e2e/rpc.md","ref":"e2e/rpc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rtp.md","mtime":"2018-08-15T22:09:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:04:53.604Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"next":{"title":"5.5 Summary","level":"1.6.5","depth":2,"path":"e2e/summary.md","ref":"e2e/summary.md","articles":[]},"previous":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"path":"e2e/rpc.md","ref":"e2e/rpc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rtp.md","mtime":"2018-09-14T21:45:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

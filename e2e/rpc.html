@@ -569,7 +569,7 @@
                 <a href="rtp.html">
             
                     
-                    5.4 Transport for Real-Time Applications (RTP)
+                    5.4 Transport for Real-Time (RTP)
             
                 </a>
             
@@ -984,8 +984,8 @@ identifying processes on remote hosts and correlating requests with
 responses. It may also need to overcome some or all of the limitations
 of the underlying network outlined in the problem statement at the
 beginning of this chapter. While TCP overcomes these limitations by
-providing a reliable byte-stream service, it doesn&apos;t match the
-request/reply paradigm very well either&#x2014;going to the trouble to
+providing a reliable byte-stream service, it doesn&apos;t perfectly match the
+request/reply paradigm either&#x2014;going to the trouble to
 establish a TCP connection just to exchange a pair of messages seems
 like overkill. This section describes a third category of transport
 protocol, called <em>Remote Procedure Call</em> (RPC), that more closely
@@ -1067,13 +1067,13 @@ we will talk more about alternative design choices than previously.</p>
 </li>
 </ul>
 <p>The first problem has some similarities to the problem of identifying
-nodes in a network, something that we saw in previous chapters (IP
-addresses, for example). One of the design choices when identifying
-things is whether to make this name space flat or hierarchical. A flat
-name space would simply assign a unique, unstructured identifier (e.g.,
-an integer) to each procedure, and this number would be carried in a
-single field in an RPC request message. This would require some kind of
-central coordination to avoid assigning the same procedure number to two
+nodes in a network, something IP addresses do, for example). One of
+the design choices when identifying things is whether to make this
+name space flat or hierarchical. A flat name space would simply assign
+a unique, unstructured identifier (e.g., an integer) to each
+procedure, and this number would be carried in a single field in an
+RPC request message. This would require some kind of central
+coordination to avoid assigning the same procedure number to two
 different procedures. Alternatively, the protocol could implement a
 hierarchical name space, analogous to that used for file pathnames,
 which requires only that a file&apos;s &quot;basename&quot; be unique within its
@@ -1088,7 +1088,7 @@ reply message had its message ID field set to the same value as the
 request message. When the client RPC module receives the reply, it uses
 the message ID to search for the corresponding outstanding request. To
 make the RPC transaction appear like a local procedure call to the
-caller, the caller is blocked (e.g., by using a semaphore) until the
+caller, the caller is blocked until the
 reply message is received. When the reply is received, the blocked
 caller is identified based on the request number in the reply, the
 remote procedure&apos;s return value is obtained from the reply, and the
@@ -1096,10 +1096,10 @@ caller is unblocked so that it can return with that return value.</p>
 <p>One of the recurrent challenges in RPC is dealing with unexpected
 responses, and we see this with message IDs. For example, consider the
 following pathological (but realistic) situation. A client machine sends
-a request message with a message ID of $0$, then crashes and reboots,
-and then sends an unrelated request message, also with a message ID of
-$0$. The server may not have been aware that the client crashed and
-rebooted and, upon seeing a request message with a message ID of $0$,
+a request message with a message ID of 0, then crashes and reboots,
+and then sends an unrelated request message, also with a message ID
+of 0. The server may not have been aware that the client crashed and
+rebooted and, upon seeing a request message with a message ID of 0,
 acknowledges it and discards it as a duplicate. The client never gets a
 response to the request.</p>
 <p>One way to eliminate this problem is to use a <em>boot ID</em>. A machine&apos;s
@@ -1119,15 +1119,17 @@ that networks are not perfect channels. Two such functions are:</p>
 <li><p>Support large message sizes through fragmentation and reassembly</p>
 </li>
 </ul>
-<p>An RPC protocol might implement reliability because the underlying
-protocols (e.g., UDP/IP) do not provide it, or perhaps to recover more
-quickly or efficiently from failures that otherwise would eventually be
-repaired by underlying protocols. An RPC protocol can implement
-reliability using acknowledgments and timeouts, similarly to TCP. The
-basic algorithm is straightforward, as illustrated by the timeline given
-in <a href="#chan-timeline1">Figure 3</a>. The client sends a request message and
-the server acknowledges it. Then, after executing the procedure, the
-server sends a reply message and the client acknowledges the reply.</p>
+<p>An RPC protocol might &quot;define this problem away&quot; by choosing to run
+on top of a reliable protocol like TCP, but in many cases, the RCP
+protocol implements its own reliable message delivery layer on top
+of an unreliable substrate (e.g., UDP/IP). Such an RPC protocol would
+likely implement reliability using acknowledgments and timeouts,
+similarly to TCP.</p>
+<p>The basic algorithm is straightforward, as
+illustrated by the timeline given in <a href="#chan-timeline1">Figure 3</a>. The
+client sends a request message and the server acknowledges it. Then,
+after executing the procedure, the server sends a reply message and
+the client acknowledges the reply.</p>
 <figure class="line">
     <a id="chan-timeline1"></a>
     <img src="figures/f05-15-9780123850591.png" width="200px">
@@ -1529,7 +1531,7 @@ environments at the cost of greater complexity.</p>
                 </a>
                 
                 
-                <a href="rtp.html" class="navigation navigation-next " aria-label="Next page: 5.4 Transport for Real-Time Applications (RTP)">
+                <a href="rtp.html" class="navigation navigation-next " aria-label="Next page: 5.4 Transport for Real-Time (RTP)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1540,7 +1542,7 @@ environments at the cost of greater complexity.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"next":{"title":"5.4 Transport for Real-Time Applications (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},"previous":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rpc.md","mtime":"2018-08-15T22:09:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:04:53.604Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"next":{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},"previous":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rpc.md","mtime":"2018-09-14T21:45:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

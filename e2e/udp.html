@@ -569,7 +569,7 @@
                 <a href="rtp.html">
             
                     
-                    5.4 Transport for Real-Time Applications (RTP)
+                    5.4 Transport for Real-Time (RTP)
             
                 </a>
             
@@ -971,7 +971,7 @@ processes running on any given host, so the protocol needs to add a
 level of demultiplexing, thereby allowing multiple application processes
 on each host to share the network. Aside from this requirement, the
 transport protocol adds no other functionality to the best-effort
-service provided by the underlying network. The Internet&apos;s User Datagram
+service provideaird by the underlying network. The Internet&apos;s User Datagram
 Protocol is an example of such a transport protocol.</p>
 <p>The only interesting issue in such a protocol is the form of the address
 used to identify the target process. Although it is possible for
@@ -991,9 +991,9 @@ that the UDP port field is only 16 bits long. This means that there are
 up to 64K possible ports, clearly not enough to identify all the
 processes on all the hosts in the Internet. Fortunately, ports are not
 interpreted across the entire Internet, but only on a single host. That
-is, a process is really identified by a port on some particular host&#x2014;a
-(port, host) pair. In fact, this pair constitutes the demultiplexing key
-for the UDP protocol.</p>
+is, a process is really identified by a port on some particular host: a
+(port, host) pair. This pair constitutes the demultiplexing key for
+the UDP protocol.</p>
 <p>The next issue is how a process learns the port for the process to which
 it wants to send a message. Typically, a client process initiates a
 message exchange with a server process. Once a client has contacted a
@@ -1106,7 +1106,7 @@ the UDP checksum.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.6.1","depth":2,"next":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"previous":{"title":"Chapter 5: End-to-End Protocols","level":"1.6","depth":1,"path":"e2e/problem.md","ref":"e2e/problem.md","articles":[{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.6.1","depth":2,"path":"e2e/udp.md","ref":"e2e/udp.md","articles":[]},{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"path":"e2e/rpc.md","ref":"e2e/rpc.md","articles":[]},{"title":"5.4 Transport for Real-Time Applications (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},{"title":"5.5 Summary","level":"1.6.5","depth":2,"path":"e2e/summary.md","ref":"e2e/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/udp.md","mtime":"2018-08-15T22:09:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:04:53.604Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.6.1","depth":2,"next":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"previous":{"title":"Chapter 5: End-to-End Protocols","level":"1.6","depth":1,"path":"e2e/problem.md","ref":"e2e/problem.md","articles":[{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.6.1","depth":2,"path":"e2e/udp.md","ref":"e2e/udp.md","articles":[]},{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"path":"e2e/rpc.md","ref":"e2e/rpc.md","articles":[]},{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},{"title":"5.5 Summary","level":"1.6.5","depth":2,"path":"e2e/summary.md","ref":"e2e/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/udp.md","mtime":"2018-09-14T21:45:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

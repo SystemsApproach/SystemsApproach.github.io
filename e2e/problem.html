@@ -569,7 +569,7 @@
                 <a href="rtp.html">
             
                     
-                    5.4 Transport for Real-Time Applications (RTP)
+                    5.4 Transport for Real-Time (RTP)
             
                 </a>
             
@@ -969,11 +969,11 @@
 stem without which it could never have blossomed. <em>&#x2014;Winston Churchill</em></p>
 </blockquote>
 <h2 id="problem-getting-processes-to-communicate">Problem: Getting Processes to Communicate</h2>
-<p>The previous three chapters have described various technologies that can
-be used to connect together a collection of computers, ranging from
-simple Ethernets and wireless networks to global-scale internetworks.
-The next problem is to turn this host-to-host packet delivery service
-into a process-to-process communication channel. This is the role played
+<p>Many technologies that can be used to connect together a collection of
+computers, ranging from simple Ethernets and wireless networks to
+global-scale internetworks. Once interconnect, the next problem is to
+turn this host-to-host packet delivery service into a
+process-to-process communication channel. This is the role played
 by the <em>transport</em> level of the network architecture, which, because it
 supports communication between application programs running in end
 nodes, is sometimes called the <em>end-to-end</em> protocol.</p>
@@ -1019,11 +1019,11 @@ Some of the more typical limitations of the network are that it may</p>
 <p>Such a network is said to provide a <em>best-effort</em> level of service, as
 exemplified by the Internet.</p>
 <p>The challenge, therefore, is to develop algorithms that turn the
-less-than-desirable properties of the underlying network into the high
+less-than-perfect properties of the underlying network into the high
 level of service required by application programs. Different transport
 protocols employ different combinations of these algorithms. This
 chapter looks at these algorithms in the context of four representative
-services---a simple asynchronous demultiplexing service, a reliable
+services&#x2014;a simple asynchronous demultiplexing service, a reliable
 byte-stream service, a request/reply service, and a service for
 real-time applications.</p>
 <p>In the case of the demultiplexing and byte-stream services, we use the
@@ -1031,8 +1031,9 @@ Internet&apos;s User Datagram Protocol (UDP) and Transmission Control
 Protocol (TCP), respectively, to illustrate how these services are
 provided in practice. In the case of a request/reply service, we discuss
 the role it plays in a Remote Procedure Call (RPC) service and what
-features that entails. This discussion is capped off with a description
-of two widely used RPC protocols: SunRPC and DCE-RPC.</p>
+features that entails. The Internet does not have a single RPC
+protocol, so we cap this discussion off with a description of two
+widely used RPC protocols: SunRPC and DCE-RPC.</p>
 <p>Finally, real-time applications make particular demands on the transport
 protocol, such as the need to carry timing information that allows audio
 or video samples to be played back at the appropriate point in time. We
@@ -1081,7 +1082,7 @@ the most widely used example, the Real-Time Transport Protocol (RTP).</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 5: End-to-End Protocols","level":"1.6","depth":1,"next":{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.6.1","depth":2,"path":"e2e/udp.md","ref":"e2e/udp.md","articles":[]},"previous":{"title":"4.5 Summary","level":"1.5.5","depth":2,"path":"scaling/summary.md","ref":"scaling/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/problem.md","mtime":"2018-08-15T22:09:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T22:04:53.604Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chapter 5: End-to-End Protocols","level":"1.6","depth":1,"next":{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.6.1","depth":2,"path":"e2e/udp.md","ref":"e2e/udp.md","articles":[]},"previous":{"title":"4.5 Summary","level":"1.5.5","depth":2,"path":"scaling/summary.md","ref":"scaling/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/problem.md","mtime":"2018-09-14T21:45:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
