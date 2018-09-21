@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Chapter 6: Congestion Control and Resource Allocation · Computer Networks: A Systems Approach</title>
+        <title>Chapter 6: Congestion Control · Computer Networks: A Systems Approach</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -600,7 +600,7 @@
                 <a href="problem.html">
             
                     
-                    Chapter 6: Congestion Control and Resource Allocation
+                    Chapter 6: Congestion Control
             
                 </a>
             
@@ -653,7 +653,7 @@
                 <a href="avoidance.html">
             
                     
-                    6.4 Congestion-Avoidance Mechanisms
+                    6.4 Congestion-Avoidance
             
                 </a>
             
@@ -948,7 +948,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Chapter 6: Congestion Control and Resource Allocation</a>
+        <a href=".." >Chapter 6: Congestion Control</a>
     </h1>
 </div>
 
@@ -963,7 +963,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="chapter-6-congestion-control-and-resource-allocation">Chapter 6: Congestion Control and Resource Allocation</h1>
+                                <h1 id="chapter-6-congestion-control">Chapter 6: Congestion Control</h1>
 <blockquote>
 <p>The hand that hath made you fair hath made you good. <em>&#x2014;William
 Shakespeare</em></p>
@@ -978,8 +978,10 @@ bandwidth of the links and the buffers on the routers or switches where
 packets are queued awaiting transmission. Packets <em>contend</em> at a router
 for the use of a link, with each contending packet placed in a queue
 waiting its turn to be transmitted over the link. When too many packets
-are contending for the same link, the queue overflows and packets have
-to be dropped. When such drops become common events, the network is said
+are contending for the same link, the queue fills and two undesirable
+things happen: packets experience increased end-to-end delay, and in
+the worst case, the queue overflows and packets have to be dropped.
+When long queues persist and drops become common, the network is said
 to be <em>congested</em>. Most networks provide a <em>congestion-control</em>
 mechanism to deal with just such a situation.</p>
 <p>Congestion control and resource allocation are two sides of the same
@@ -1064,7 +1066,7 @@ these resources and the network can meet the requests.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 6: Congestion Control and Resource Allocation","level":"1.7","depth":1,"next":{"title":"6.1 Issues in Resource Allocation","level":"1.7.1","depth":2,"path":"congestion/issues.md","ref":"congestion/issues.md","articles":[]},"previous":{"title":"5.5 Summary","level":"1.6.5","depth":2,"path":"e2e/summary.md","ref":"e2e/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/problem.md","mtime":"2018-08-15T22:10:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chapter 6: Congestion Control","level":"1.7","depth":1,"next":{"title":"6.1 Issues in Resource Allocation","level":"1.7.1","depth":2,"path":"congestion/issues.md","ref":"congestion/issues.md","articles":[]},"previous":{"title":"5.5 Summary","level":"1.6.5","depth":2,"path":"e2e/summary.md","ref":"e2e/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/problem.md","mtime":"2018-09-21T19:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

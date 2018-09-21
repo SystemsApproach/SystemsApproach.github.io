@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>6.4 Congestion-Avoidance Mechanisms · Computer Networks: A Systems Approach</title>
+        <title>6.4 Congestion-Avoidance · Computer Networks: A Systems Approach</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -600,7 +600,7 @@
                 <a href="problem.html">
             
                     
-                    Chapter 6: Congestion Control and Resource Allocation
+                    Chapter 6: Congestion Control
             
                 </a>
             
@@ -653,7 +653,7 @@
                 <a href="avoidance.html">
             
                     
-                    6.4 Congestion-Avoidance Mechanisms
+                    6.4 Congestion-Avoidance
             
                 </a>
             
@@ -948,7 +948,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >6.4 Congestion-Avoidance Mechanisms</a>
+        <a href=".." >6.4 Congestion-Avoidance</a>
     </h1>
 </div>
 
@@ -963,18 +963,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="64-congestion-avoidance-mechanisms">6.4 Congestion-Avoidance Mechanisms</h1>
+                                <h1 id="64-congestion-avoidance">6.4 Congestion-Avoidance</h1>
 <p>It is important to understand that TCP&apos;s strategy is to control
 congestion once it happens, as opposed to trying to avoid congestion in
 the first place. In fact, TCP repeatedly increases the load it imposes
 on the network in an effort to find the point at which congestion
 occurs, and then it backs off from this point. Said another way, TCP
 <em>needs</em> to create losses to find the available bandwidth of the
-connection. An appealing alternative, but one that has not yet been
-widely adopted, is to predict when congestion is about to happen and
-then to reduce the rate at which hosts send data just before packets
-start being discarded. We call such a strategy <em>congestion avoidance</em>,
-to distinguish it from <em>congestion control</em>.</p>
+connection. An appealing alternative is to predict when congestion is
+about to happen and then to reduce the rate at which hosts send data
+just before packets start being discarded. We call such a strategy
+<em>congestion avoidance</em> to distinguish it from <em>congestion control</em>,
+but it&apos;s probably most accurate to think of &quot;avoidance&quot; as a subset
+of &quot;control.&quot;</p>
 <p>This section describes three different congestion-avoidance mechanisms.
 The first two take a similar approach: They put a small amount of
 additional functionality into the router to assist the end node in the
@@ -1047,10 +1048,18 @@ would have to, so as to notify the source that it should decrease its
 congestion window sooner than it would normally have. In other words,
 the router drops a few packets before it has exhausted its buffer space
 completely, so as to cause the source to slow down, with the hope that
-this will mean it does not have to drop lots of packets later on. Note
-that RED could easily be adapted to work with an explicit feedback
-scheme simply by <em>marking</em> a packet instead of <em>dropping</em> it, as
-discussed in the sidebar on Explicit Congestion Notification.</p>
+this will mean it does not have to drop lots of packets later on.</p>
+<p>Note that RED is also sometimes used with an explicit feedback
+scheme simply by <em>marking</em> a packet instead of <em>dropping</em> it.
+This feedback mechanism is implemented by treating two bits
+in the IP <code>TOS</code> field as Explicit Congestion Notification (ECN) bits.
+One bit is set by the source to indicate that it is ECN-capable,
+that is, able to react to a congestion notification. The other bit
+is set by routers along the end-to-end path when congestion is
+encountered, as indicated by the RED algorithm. The latter bit is
+also echoed back to the source by the destination host. TCP running
+on the source responds to the ECN bit set in exactly the same way it
+responds to a dropped packet.</p>
 <p>The second difference between RED and DECbit is in the details of how
 RED decides when to drop a packet and what packet it decides to drop. To
 understand the basic idea, consider a simple FIFO queue. Rather than
@@ -1231,23 +1240,22 @@ that changes in queue length over time scales much less than 100 ms are
 filtered out.</p>
 <p>Since RED works by sending signals to TCP flows to tell them to slow
 down, you might wonder what would happen if those signals are ignored.
-This is often called the <em>unresponsive flow</em> problem, and it has been a
-matter of some concern for several years. Unresponsive flows use more
-than their fair share of network resources and could cause congestive
-collapse if there were enough of them, just as in the days before TCP
-congestion control. Some of the techniques described in the next section
-can help with this problem by isolating certain classes of traffic from
-others. There is also the possibility that a variant of RED could drop
-more heavily from flows that are unresponsive to the initial hints that
-it sends; this continues to be an area of active research.</p>
+This is often called the <em>unresponsive flow</em> problem. Unresponsive
+flows use more than their fair share of network resources and could
+cause congestive collapse if there were enough of them, just as in the
+days before TCP congestion control. Some of the techniques described
+in the next section can help with this problem by isolating certain
+classes of traffic from others. There is also the possibility that a
+variant of RED could drop more heavily from flows that are
+unresponsive to the initial hints that it sends.</p>
 <h2 id="source-based-congestion-avoidance">Source-Based Congestion Avoidance</h2>
-<p>Unlike the two previous congestion-avoidance schemes, which depended on
-new mechanisms in the routers, we now describe a strategy for detecting
+<p>Unlike the two previous congestion-avoidance schemes, which depended
+on cooperation from routers, we now describe a strategy for detecting
 the incipient stages of congestion&#x2014;before losses occur&#x2014;from the end
 hosts. We first give a brief overview of a collection of related
 mechanisms that use different information to detect the early stages of
 congestion, and then we describe a specific mechanism in some detail.</p>
-<p>The general idea of these techniques is to watch for some sign from the
+<p>The general idea of these techniques is to watch for a sign from the
 network that some router&apos;s queue is building up and that congestion will
 happen soon if nothing is done about it. For example, the source might
 notice that as packet queues build up in the network&apos;s routers, there is
@@ -1283,7 +1291,8 @@ However, it differs from the third algorithm in the way it calculates
 throughput, and instead of looking for a change in the slope of the
 throughput it compares the measured throughput rate with an expected
 throughput rate. The algorithm, TCP Vegas, is not widely deployed in the
-Internet, but the strategy it takes continues to be studied.</p>
+Internet, but the strategy it uses has been adopted by other
+implementations that are now being deployed.</p>
 <p>The intuition behind the Vegas algorithm can be seen in the trace of
 standard TCP given in <a href="#trace3">Figure 5</a>. The top graph shown in
 <a href="#trace3">Figure 5</a> traces the connection&apos;s congestion window; it shows
@@ -1455,7 +1464,7 @@ dropped.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.4 Congestion-Avoidance Mechanisms","level":"1.7.4","depth":2,"next":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"path":"congestion/qos.md","ref":"congestion/qos.md","articles":[]},"previous":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/avoidance.md","mtime":"2018-08-15T22:10:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.4 Congestion-Avoidance","level":"1.7.4","depth":2,"next":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"path":"congestion/qos.md","ref":"congestion/qos.md","articles":[]},"previous":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/avoidance.md","mtime":"2018-09-21T19:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -600,7 +600,7 @@
                 <a href="problem.html">
             
                     
-                    Chapter 6: Congestion Control and Resource Allocation
+                    Chapter 6: Congestion Control
             
                 </a>
             
@@ -653,7 +653,7 @@
                 <a href="avoidance.html">
             
                     
-                    6.4 Congestion-Avoidance Mechanisms
+                    6.4 Congestion-Avoidance
             
                 </a>
             
@@ -1148,8 +1148,8 @@ once.</p>
 <p>There are actually two different situations in which slow start runs.
 The first is at the very beginning of a connection, at which time the
 source has no idea how many packets it is going to be able to have in
-transit at a given time. (Keep in mind that TCP runs over everything
-from 9600-bps links to 2.4-Gbps links, so there is no way for the source
+transit at a given time. (Keep in mind that today TCP runs over everything
+from 1-Mbps links to 40-Gbps links, so there is no way for the source
 to know the network&apos;s capacity.) In this situation, slow start continues
 to double <code>CongestionWindow</code> each RTT until there is a loss, at which
 time a timeout causes multiplicative decrease to divide
@@ -1199,7 +1199,7 @@ following code fragment:</p>
 defines an upper bound on how large the congestion window is allowed to
 grow.</p>
 <p><a href="#trace1">Figure 4</a> traces how TCP&apos;s <code>CongestionWindow</code> increases and
-decr- eases over time and serves to illustrate the interplay of slow
+decreases over time and serves to illustrate the interplay of slow
 start and additive increase/multiplicative decrease. This trace was
 taken from an actual TCP connection and shows the current value of
 <code>CongestionWindow</code>&#x2014;the colored line&#x2014;over time.</p>
@@ -1207,7 +1207,7 @@ taken from an actual TCP connection and shows the current value of
     <a id="trace1"></a>
     <img src="figures/f06-11-9780123850591.png" width="600px">
     <figcaption>Behavior of TCP congestion control. Colored line = value
-    of `CongestionWindow` over time; solid bullets at top of graph
+    of CongestionWindow over time; solid bullets at top of graph
     = timeouts; hash marks at top of graph = time when each packet is
     transmitted; vertical bars = time when a packet that was
     eventually retransmitted was first transmitted.</figcaption>
@@ -1268,29 +1268,29 @@ to support 16 packets from this source. The likely result is that 16 of
 the 32 packets sent under the new congestion window will be dropped by
 the network; actually, this is the worst-case outcome, since some of the
 packets will be buffered in some router. This problem will become
-increasingly severe as the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>e</mi><mi>l</mi><mi>a</mi><mi>y</mi><mo>&#xD7;</mo><mi>b</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">delay \times bandwidth</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">&#xD7;</span><span class="mord mathit">b</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span> product
-of networks increases. For example, a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>e</mi><mi>l</mi><mi>a</mi><mi>y</mi><mo>&#xD7;</mo><mi>b</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">delay \times bandwidth</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">&#xD7;</span><span class="mord mathit">b</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span>
+increasingly severe as the delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product
+of networks increases. For example, a delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth
 product of 500 KB means that each
 connection has the potential to lose up to 500 KB of data at the
 beginning of each connection. Of course, this assumes that both the
 source and the destination implement the &quot;big windows&quot; extension.</p>
-<p>Some protocol designers have proposed alternatives to slow start,
-whereby the source tries to estimate the available bandwidth by more
-sophisticated means. A recent example is the <em>quick-start</em> mechanism
-undergoing standardization at the IETF. The basic idea is that a TCP
-sender can ask for an initial sending rate greater than slow start would
-allow by putting a requested rate in its SYN packet as an IP option.
-Routers along the path can examine the option, evaluate the current
-level of congestion on the outgoing link for this flow, and decide if
-that rate is acceptable, if a lower rate would be acceptable, or if
-standard slow start should be used. By the time the SYN reaches the
-receiver, it will contain either a rate that was acceptable to all
-routers on the path or an indication that one or more routers on the
-path could not support the quick-start request. In the former case, the
-TCP sender uses that rate to begin transmission; in the latter case, it
-falls back to standard slow start. If TCP is allowed to start off
-sending at a higher rate, a session could more quickly reach the point
-of filling the pipe, rather than taking many round-trip times to do so.</p>
+<p>Alternatives to slow start, whereby the source tries to estimate the
+available bandwidth by more sophisticated means, have also been
+explored. One example is called <em>quick-start</em>. The basic
+idea is that a TCP sender can ask for an initial sending rate greater
+than slow start would allow by putting a requested rate in its SYN
+packet as an IP option. Routers along the path can examine the option,
+evaluate the current level of congestion on the outgoing link for this
+flow, and decide if that rate is acceptable, if a lower rate would be
+acceptable, or if standard slow start should be used. By the time the
+SYN reaches the receiver, it will contain either a rate that was
+acceptable to all routers on the path or an indication that one or
+more routers on the path could not support the quick-start request. In
+the former case, the TCP sender uses that rate to begin transmission;
+in the latter case, it falls back to standard slow start. If TCP is
+allowed to start off sending at a higher rate, a session could more
+quickly reach the point of filling the pipe, rather than taking many
+round-trip times to do so.</p>
 <p>Clearly one of the challenges to this sort of enhancement to TCP is that
 it requires substantially more cooperation from the routers than
 standard TCP does. If a single router in the path does not support
@@ -1343,7 +1343,7 @@ everything up to and including packet 6 back to the source.</p>
     <a id="trace2"></a>
     <img src="figures/f06-13-9780123850591.png" width="600px">
     <figcaption>Trace of TCP with fast retransmit. Colored line
-    =`CongestionWindow`; solid bullet = timeout; hash marks = time
+    = CongestionWindow; solid bullet = timeout; hash marks = time
     when each packet is transmitted; vertical bars = time when a
     packet that was eventually retransmitted was first
     transmitted.</figcaption>
@@ -1362,9 +1362,9 @@ coarse-grained timeouts. This is because for a small window size there
 will not be enough packets in transit to cause enough duplicate ACKs to
 be delivered. Given enough lost packets&#x2014;for example, as happens during
 the initial slow start phase&#x2014;the sliding window algorithm eventually
-blocks the sender until a timeout occurs. Given the current 64-KB
-maximum advertised window size, TCP&apos;s fast retransmit mechanism is able
-to detect up to three dropped packets per window in practice.</p>
+blocks the sender until a timeout occurs. In practice, TCP&apos;s fast
+retransmit mechanism can detect up to three dropped packets per
+window.</p>
 <p>Finally, there is one last improvement we can make. When the fast
 retransmit mechanism signals congestion, rather than drop the congestion
 window all the way back to one packet and run slow start, it is possible
@@ -1411,7 +1411,7 @@ decrease pattern.</p>
                 </a>
                 
                 
-                <a href="avoidance.html" class="navigation navigation-next " aria-label="Next page: 6.4 Congestion-Avoidance Mechanisms">
+                <a href="avoidance.html" class="navigation navigation-next " aria-label="Next page: 6.4 Congestion-Avoidance">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1422,7 +1422,7 @@ decrease pattern.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"next":{"title":"6.4 Congestion-Avoidance Mechanisms","level":"1.7.4","depth":2,"path":"congestion/avoidance.md","ref":"congestion/avoidance.md","articles":[]},"previous":{"title":"6.2 Queuing Disciplines","level":"1.7.2","depth":2,"path":"congestion/queuing.md","ref":"congestion/queuing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/tcpcc.md","mtime":"2018-08-15T22:10:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"next":{"title":"6.4 Congestion-Avoidance","level":"1.7.4","depth":2,"path":"congestion/avoidance.md","ref":"congestion/avoidance.md","articles":[]},"previous":{"title":"6.2 Queuing Disciplines","level":"1.7.2","depth":2,"path":"congestion/queuing.md","ref":"congestion/queuing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/tcpcc.md","mtime":"2018-09-21T19:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

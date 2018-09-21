@@ -600,7 +600,7 @@
                 <a href="problem.html">
             
                     
-                    Chapter 6: Congestion Control and Resource Allocation
+                    Chapter 6: Congestion Control
             
                 </a>
             
@@ -653,7 +653,7 @@
                 <a href="avoidance.html">
             
                     
-                    6.4 Congestion-Avoidance Mechanisms
+                    6.4 Congestion-Avoidance
             
                 </a>
             
@@ -964,27 +964,25 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="65-quality-of-service">6.5 Quality of Service</h1>
-<p>For many years, packet-switched networks have offered the promise of
-supporting multimedia applications that combine audio, video, and data.
-After all, once digitized, audio and video information becomes like any
-other form of data&#x2014;a stream of bits to be transmitted. One obstacle to
-the fulfillment of this promise has been the need for higher-bandwidth
-links. Recently, however, improvements in coding have reduced the
-bandwidth needs of audio and video applications, while at the same time
-link speeds have increased.</p>
-<p>There is more to transmitting audio and video over a network than just
-providing sufficient bandwidth, however. Participants in a telephone
-conversation, for example, expect to be able to converse in such a way
-that one person can respond to something said by the other and be heard
-almost immediately. Thus, the timeliness of delivery can be very
-important. We refer to applications that are sensitive to the timeliness
-of data as <em>real-time applications</em>. Voice and video applications tend
-to be the canonical examples, but there are others such as industrial
-control&#x2014;you would like a command sent to a robot arm to reach it
-before the arm crashes into something. Even file transfer applications
-can have timeliness constraints, such as a requirement that a database
-update complete overnight before the business that needs the data
-resumes on the next day.</p>
+<p>The promise of general-purpose packet-switched networks is that they
+support all kinds of applications and data, including multimedia
+applications that transmit digitized audio and video streams. In the
+early days, one obstacle to the fulfillment of this promise was the
+need for higher-bandwidth links. That is no longer an issue, but
+there is more to transmitting audio and video over a network than just
+providing sufficient bandwidth.</p>
+<p>Participants in a telephone conversation, for example, expect to be
+able to converse in such a way that one person can respond to
+something said by the other and be heard almost immediately. Thus, the
+timeliness of delivery can be very important. We refer to applications
+that are sensitive to the timeliness of data as <em>real-time
+applications</em>. Voice and video applications tend to be the canonical
+examples, but there are others such as industrial control&#x2014;you would
+like a command sent to a robot arm to reach it before the arm crashes
+into something. Even file transfer applications can have timeliness
+constraints, such as a requirement that a database update complete
+overnight before the business that needs the data resumes on the next
+day.</p>
 <p>The distinguishing characteristic of real-time applications is that they
 need some sort of assurance <em>from the network</em> that data is likely to
 arrive on time (for some definition of &quot;on time&quot;). Whereas a
@@ -1000,23 +998,13 @@ is a new service model, in which applications that need higher
 assurances can ask the network for them. The network may then respond by
 providing an assurance that it will do better or perhaps by saying that
 it cannot promise anything better at the moment. Note that such a
-service model is a superset of the current model: Applications that are
+service model is a superset of the original model: Applications that are
 happy with best-effort service should be able to use the new service
 model; their requirements are just less stringent. This implies that the
 network will treat some packets differently from others&#x2014;something that
 is not done in the best-effort model. A network that can provide these
 different levels of service is often said to support quality of
 service (QoS).</p>
-<p>At this point, you might be thinking &quot;Hold on. Doesn&apos;t the Internet
-already support real-time applications?&quot; Most of us have tried some sort
-of Internet telephony application such as Skype at this point, and it
-seems to work OK. The reason for this, in part, is because best-effort
-service is often quite good. (Skype in particular also does a number of
-clever things to try to deal with lack of QoS in the Internet.) The key
-word here is &quot;often.&quot; If you want a service that is <em>reliably</em> good
-enough for your real-time applications, then best-effort&#x2014;which by
-definition makes no assurances&#x2014;won&apos;t be sufficient. We&apos;ll return later
-to the topic of just how necessary QoS really is.</p>
 <h2 id="application-requirements">Application Requirements</h2>
 <p>Before looking at the various protocols and mechanisms that may be used
 to provide quality of service to applications, we should try to
@@ -1024,16 +1012,16 @@ understand what the needs of those applications are. To begin, we can
 divide applications into two types: real-time and non-real-time. The
 latter are sometimes called <em>traditional data</em> applications, since they
 have traditionally been the major applications found on data networks.
-They include most popular applications like telnet, FTP, email, web
-browsing, and so on. All of these applications can work without
+They include most popular applications like SSH, file transfer, email,
+web browsing, and so on. All of these applications can work without
 guarantees of timely delivery of data. Another term for this
 non-real-time class of applications is <em>elastic</em>, since they are able to
 stretch gracefully in the face of increased delay. Note that these
 applications can benefit from shorter-length delays, but they do not
 become unusable as delays increase. Also note that their delay
-requirements vary from the interactive applications like telnet to more
-asynchronous ones like email, with interactive bulk transfers like FTP
-in the middle.</p>
+requirements vary from the interactive applications like SSH to more
+asynchronous ones like email, with interactive bulk transfers like file
+transfer in the middle.</p>
 <figure class="line">
     <a id="audio"></a>
     <img src="figures/f06-20-9780123850591.png" width="600px">
@@ -1059,7 +1047,7 @@ retransmitted, it is essentially useless. It is the complete
 worthlessness of late data that characterizes real-time applications. In
 elastic applications, it might be nice if data turns up on time, but we
 can still use it when it does not.</p>
-<p>One way to make our voice application work would be to make sure that
+<p>One way to make our voice application work would be to make sure
 all samples take exactly the same amount of time to traverse the
 network. Then, since samples are injected at a rate of one per
 125 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s, they will appear at the receiver at the same rate, ready to
@@ -1151,8 +1139,9 @@ arm to stop is unacceptable. Thus, we can categorize real-time
 applications as <em>tolerant</em> or <em>intolerant</em> depending on whether they can
 tolerate occasional loss. (As an aside, note that many real-time
 applications are more tolerant of occasional loss than non-real-time
-applications; for example, compare our audio application to FTP, where
-the uncorrected loss of one bit might render a file completely useless.)</p>
+applications; for example, compare our audio application to file
+transfer, where the uncorrected loss of one bit might render a file
+completely useless.)</p>
 <p>A second way to characterize real-time applications is by their
 adaptability. For example, an audio application might be able to adapt
 to the amount of delay that packets experience as they traverse the
@@ -1206,10 +1195,9 @@ service. These can be divided into two broad categories:</p>
 </ul>
 <p>In the first category, we find <em>Integrated Services</em>, a QoS architecture
 developed in the IETF and often associated with the Resource Reservation
-Protocol (RSVP); ATM&apos;s approach to QoS was also in this category. In the
-second category lies <em>Differentiated Services</em>, which is probably the
-most widely deployed QoS mechanism at the time of writing. We discuss
-these in turn in the next two subsections.</p>
+Protocol (RSVP). In the second category lies <em>Differentiated
+Services</em>, which is probably the most widely deployed QoS mechanism
+today. We discuss these in turn in the next two subsections.</p>
 <p>Finally, as we suggested at the start of this section, adding QoS
 support to the network isn&apos;t necessarily the entire story about
 supporting real-time applications. We conclude our discussion by
@@ -1363,7 +1351,7 @@ average rate, flow B can be described by a token bucket with a rate of
 least 1 MB, so that it can store up tokens while it sends at less than
 1 MBps to be used when it sends at 2 MBps. For the first 2 seconds in
 this example, it receives tokens at a rate of 1 MBps but spends them at
-only 0.5 MBps, so it can save up <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">2\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord">&#xD7;</span></span></span></span> 0.5 = 1 MB of tokens, which
+only 0.5 MBps, so it can save up 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 0.5 = 1 MB of tokens, which
 it then spends in the third second (along with the new tokens that
 continue to accrue in that second) to send data at 2 MBps. At the end of
 the third second, having spent the excess tokens, it starts to save them
@@ -1618,10 +1606,10 @@ with the telephony model of billing for each phone call. This is not
 the only way to push back, and per-call billing is believed to be 
 one of the major costs of operating the phone network. </p>
 </blockquote>
-<p>These scalability concerns have, at the time of writing, prevented the
-widespread deployment of IntServ. Because of these concerns, other
-approaches that do not require so much &quot;per-flow&quot; state have been
-developed. The next section discusses a number of such approaches.</p>
+<p>These scalability concerns have limited widespread deployment of
+IntServ. Because of these concerns, other approaches that do not
+require so much &quot;per-flow&quot; state have been developed. The next section
+discusses a number of such approaches.</p>
 <h2 id="differentiated-services-ef-af">Differentiated Services (EF, AF)</h2>
 <p>Whereas the Integrated Services architecture allocates resources to
 individual flows, the Differentiated Services model (often called
@@ -1812,7 +1800,7 @@ timeout events. One of the strengths of this approach is that it does
 not require cooperation from the network&apos;s routers; it is a purely
 host-based strategy. Such a strategy complements the QoS mechanisms
 we&apos;ve been considering, because (1) applications can use host-based
-solutions today, before QoS mechanisms are widely deployed, and (2) even
+solutions without depending on router support, and (2) even
 with DiffServ fully deployed, it is still possible for a router queue to
 be oversubscribed, and we would like real-time applications to react in
 a reasonable way should this happen.</p>
@@ -1892,7 +1880,7 @@ applications are quite adaptable.</p>
 
             
                 
-                <a href="avoidance.html" class="navigation navigation-prev " aria-label="Previous page: 6.4 Congestion-Avoidance Mechanisms">
+                <a href="avoidance.html" class="navigation navigation-prev " aria-label="Previous page: 6.4 Congestion-Avoidance">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1908,7 +1896,7 @@ applications are quite adaptable.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"next":{"title":"6.6 Summary","level":"1.7.6","depth":2,"path":"congestion/summary.md","ref":"congestion/summary.md","articles":[]},"previous":{"title":"6.4 Congestion-Avoidance Mechanisms","level":"1.7.4","depth":2,"path":"congestion/avoidance.md","ref":"congestion/avoidance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/qos.md","mtime":"2018-08-15T22:10:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T21:50:39.001Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"next":{"title":"6.6 Summary","level":"1.7.6","depth":2,"path":"congestion/summary.md","ref":"congestion/summary.md","articles":[]},"previous":{"title":"6.4 Congestion-Avoidance","level":"1.7.4","depth":2,"path":"congestion/avoidance.md","ref":"congestion/avoidance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/qos.md","mtime":"2018-09-21T19:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
