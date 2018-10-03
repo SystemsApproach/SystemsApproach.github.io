@@ -1108,10 +1108,10 @@ to find the right one, giving 2<span class="katex"><span class="katex-mathml"><m
 keys. That may sound like a lot, but such a search is highly parallelizable,
 so it&apos;s possible to throw as many computers at the task as you can get your
 hands on&#x2014;and these days it&apos;s easy to lay your hands on thousands of
-computers (Amazon.com will rent them to you for a few cents an hour, for
-example). By the late 1990s, it was already possible to recover a DES
-key after a few hours. Consequently, NIST updated the DES standard in
-1999 to indicate that DES should only be used for legacy systems.</p>
+computers. (Amazon will rent them to you for a few cents an hour.) By
+the late 1990s, it was already possible to recover a DES key after a
+few hours. Consequently, NIST updated the DES standard in 1999 to
+indicate that DES should only be used for legacy systems.</p>
 <p>NIST also standardized the cipher <em>Triple DES</em> (3DES), which leverages
 the cryptanalysis resistance of DES while in effect increasing the key
 size. A 3DES key has 168 (= 3 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 56)
@@ -1121,7 +1121,6 @@ performed by first DES encrypting the block using DES-key1, then DES
 <em>de</em>crypting the result using DES-key2, and finally DES encrypting that
 result using DES-key3. Decryption involves decrypting using DES-key3,
 then encrypting using DES-key2, then decrypting using DES-key1.</p>
-<blockquote>
 <p>The reason 3DES encryption uses DES <em>de</em>cryption with DES-key2 is 
 to interoperate with legacy DES systems. If a legacy DES system uses 
 a single key, then a 3DES system can perform the same encryption 
@@ -1129,22 +1128,21 @@ function by using that key for each of DES-key1, DES-key2, and
 DES-key3; in the first two steps, we encrypt and then decrypt with 
 the same key, producing the original plaintext, which we then 
 encrypt again.</p>
-</blockquote>
 <p>Although 3DES solves DES&apos;s key-length problem, it inherits some other
 shortcomings. Software implementations of DES/3DES are slow because it
 was originally designed, by IBM, for implementation in hardware. Also,
 DES/3DES uses a 64-bit block size; a larger block size is more efficient
 and more secure.</p>
-<p>3DES is being superseded by the <em>Advanced Encryption Standard</em> (AES)
-standard issued by NIST in 2001. The cipher selected to become that
-standard (with a few minor modifications) was originally named Rijndael
-(pronounced roughly like &quot;Rhine dahl&quot;) based on the names of its
-inventors, Daemen and Rijmen. AES supports key lengths of 128, 192, or
-256 bits, and the block length is 128 bits. AES permits fast
-implementations in both software and hardware. It doesn&apos;t require much
-memory, which makes it suitable for small mobile devices. AES has some
-mathematically proven security properties and, as of the time of
-writing, has not suffered from any significant successful attacks.</p>
+<p>3DES is now being superseded by the <em>Advanced Encryption Standard</em> (AES)
+standard issued by NIST. The cipher underlying AES (with a few minor
+modifications) was originally named Rijndael (pronounced roughly like
+&quot;Rhine dahl&quot;) based on the names of its inventors, Daemen and
+Rijmen. AES supports key lengths of 128, 192, or 256 bits, and the
+block length is 128 bits. AES permits fast implementations in both
+software and hardware. It doesn&apos;t require much memory, which makes it
+suitable for small mobile devices. AES has some mathematically proven
+security properties and, as of the time of writing, has not suffered
+from any significant successful attacks.</p>
 <blockquote>
 <p>Since anything that can recover the plaintext with less 
 computational effort than sheer brute force is technically 
@@ -1182,8 +1180,8 @@ channels. A key for a symmetric-key cipher provides a channel that is
 two-way between two participants&#x2014;each participant holds the same
 (symmetric) key that either one can use to encrypt or decrypt messages
 in either direction. A public/private key pair, in contrast, provides a
-channel that is one way and many to one from everyone who has the public
-key to the (unique) owner of the private key, as illustrated in
+channel that is one way and many-to-one: from everyone who has the public
+key to the unique owner of the private key, as illustrated in
 <a href="#public">Figure 3</a>.</p>
 <p>An important additional property of public-key ciphers is that the
 private &quot;decryption&quot; key can be used with the encryption algorithm to
@@ -1253,19 +1251,19 @@ that can be used to verify simultaneously the authenticity and the data
 integrity of a message. We will see how authenticators can be used in
 protocols. For now, we focus on the algorithms that produce
 authenticators.</p>
-<p>You should recall that in earlier chapters we looked at checksums and
-cyclic redundancy checks (CRCs)&#x2014;added pieces of information sent with
-the original message&#x2014;as ways of detecting when a message has been
-inadvertently modified by bit errors. A similar concept applies to
-authenticators, with the added challenge that the corruption of the
-message is likely to be deliberately performed by someone who wants the
-corruption to go undetected. To support authentication, an authenticator
-includes some proof that whoever created the authenticator knows a
-secret that is known only to the alleged sender of the message; for
-example, the secret could be a key, and the proof could be some value
-encrypted using the key. There is a mutual dependency between the form
-of the redundant information and the form of the proof of secret
-knowledge. We discuss several workable combinations.</p>
+<p>You may recall that checksums and cyclic redundancy checks (CRCs) are
+pieces of information added to a message so the receiver detect when the
+message has been inadvertently modified by bit errors. A similar
+concept applies to authenticators, with the added challenge that the
+corruption of the message is likely to be deliberately performed by
+someone who wants the corruption to go undetected. To support
+authentication, an authenticator includes some proof that whoever
+created the authenticator knows a secret that is known only to the
+alleged sender of the message; for example, the secret could be a key,
+and the proof could be some value encrypted using the key. There is a
+mutual dependency between the form of the redundant information and
+the form of the proof of secret knowledge. We discuss several workable
+combinations.</p>
 <p>We initially assume that the original message need not be
 confidential&#x2014;that a transmitted message will consist of the plaintext
 of the original message plus an authenticator. Later we will consider
@@ -1429,7 +1427,7 @@ obtain keys in the first place.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"next":{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"path":"security/key-distro.md","ref":"security/key-distro.md","articles":[]},"previous":{"title":"Chapter 8: Network Security","level":"1.9","depth":1,"path":"security/problem.md","ref":"security/problem.md","articles":[{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"path":"security/key-distro.md","ref":"security/key-distro.md","articles":[]},{"title":"8.3 Authentication Protocols","level":"1.9.3","depth":2,"path":"security/authentication.md","ref":"security/authentication.md","articles":[]},{"title":"8.4 Example Systems","level":"1.9.4","depth":2,"path":"security/systems.md","ref":"security/systems.md","articles":[]},{"title":"8.5 Summary","level":"1.9.5","depth":2,"path":"security/summary.md","ref":"security/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/crypto.md","mtime":"2018-08-15T22:11:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"next":{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"path":"security/key-distro.md","ref":"security/key-distro.md","articles":[]},"previous":{"title":"Chapter 8: Network Security","level":"1.9","depth":1,"path":"security/problem.md","ref":"security/problem.md","articles":[{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"path":"security/key-distro.md","ref":"security/key-distro.md","articles":[]},{"title":"8.3 Authentication Protocols","level":"1.9.3","depth":2,"path":"security/authentication.md","ref":"security/authentication.md","articles":[]},{"title":"8.4 Example Systems","level":"1.9.4","depth":2,"path":"security/systems.md","ref":"security/systems.md","articles":[]},{"title":"8.5 Summary","level":"1.9.5","depth":2,"path":"security/summary.md","ref":"security/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/crypto.md","mtime":"2018-10-03T21:33:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -990,18 +990,20 @@ message.</p>
 <p>You might ask what makes this problem challenging enough to warrant a
 name like marshalling. One reason is that computers represent data in
 different ways. For example, some computers represent floating-point
-numbers in IEEE standard 754 format, while other machines still use
+numbers in IEEE standard 754 format, while some older machines still use
 their own nonstandard format. Even for something as simple as integers,
 different architectures use different sizes (e.g., 16-bit, 32-bit,
 64-bit). To make matters worse, on some machines integers are
 represented in <em>big-endian</em> form (the most significant bit of a word is
 in the byte with the highest address), while on other machines integers
 are represented in <em>little-endian</em> form (the most significant bit is in
-the byte with the lowest address). The MIPS and
-PowerPC processors are examples of big-endian machines,
-and the Intel x86 family is an example of a little-endian
-architecture. The big-endian and little-endian representations of the
-integer 34,677,374 are given in <a href="#endian">Figure 2</a>.</p>
+the byte with the lowest address). For example, PowerPC processors are
+big-endian machines, and the Intel x86 family is a little-endian
+architecture. Today, many architectures support both representations
+(and so are called <em>bi-endian</em>), but the point is that you can never be
+sure how the host you are communicating with stores integers. The
+big-endian and little-endian representations of the integer 34,677,374
+are given in <a href="#endian">Figure 2</a>.</p>
 <figure class="line">
     <a id="endian"></a>
     <img src="figures/f07-02-9780123850591.png" width="500px">
@@ -1020,13 +1022,12 @@ same architecture and the program was written in the same language,
 because the compiler on the destination machine might align the fields
 in the structure differently.</p>
 <h2 id="taxonomy">Taxonomy</h2>
-<p>Although anyone who has worked on argument marshalling would tell you
-that no rocket science is involved&#x2014;it is a small matter of bit
-twiddling&#x2014;there are a surprising number of design choices that you
-must address. We begin by giving a simple taxonomy for argument
-marshalling systems. The following is by no means the only viable
-taxonomy, but it is sufficient to cover most of the interesting
-alternatives.</p>
+<p>Although argument marshalling is not rocket science is involved&#x2014;it is
+a small matter of bit twiddling&#x2014;there are a surprising number of
+design choices that you must address. We begin by giving a simple
+taxonomy for argument marshalling systems. The following is by no
+means the only viable taxonomy, but it is sufficient to cover most of
+the interesting alternatives.</p>
 <h3 id="data-types">Data Types</h3>
 <p>The first question is what data types the system is going to support. In
 general, we can classify the types supported by an argument marshalling
@@ -1101,7 +1102,7 @@ its own representation and a single other representation&#x2014;the external
 one.</p>
 <p>Using a common external format is clearly the correct thing to do,
 right? This has certainly been the conventional wisdom in the networking
-community for the past 25 years. The answer is not cut and dried,
+community for over 30 years. The answer is not cut and dried,
 however. It turns out that there are not that many different
 representations for the various base classes, or, said another way, N
 is not that large. In addition, the most common case is for two machines
@@ -1326,14 +1327,13 @@ and a multibyte <code>length</code>.</p>
 
 <h3 id="ndr">NDR</h3>
 <p>Network Data Representation (NDR) is the data-encoding standard used in
-the Distributed Computing Environment (DCE, which we introduced in an
-earlier chapter). Unlike XDR and ASN.1, NDR uses receiver-makes-right. It
-does this by inserting an architecture tag at the front of each message;
-individual data items are untagged. NDR uses a compiler to generate
-stubs. This compiler takes a description of a program written in the
-Interface Definition Language (IDL) and generates the necessary stubs.
-IDL looks pretty much like C, and so essentially supports the C-type
-system.</p>
+the Distributed Computing Environment (DCE). Unlike XDR and ASN.1, NDR
+uses receiver-makes-right. It does this by inserting an architecture
+tag at the front of each message; individual data items are
+untagged. NDR uses a compiler to generate stubs. This compiler takes a
+description of a program written in the Interface Definition Language
+(IDL) and generates the necessary stubs. IDL looks pretty much like C,
+and so essentially supports the C-type system.</p>
 <figure class="line">
     <a id="ndr"></a>
     <img src="figures/f07-10-9780123850591.png" width="600px">
@@ -1364,21 +1364,22 @@ screen? In this specific case, the answer is the HyperText Markup
 Language (HTML), which indicates that certain character strings should
 be displayed in bold or italics, what font type and size should be used,
 and where images should be positioned.</p>
-<p>The enormous popularity of the Web and the availability of all sorts of
-applications and data on it have also created a situation in which
-different Web applications need to communicate with each other and
-understand each other&apos;s data. For example, an e-commerce website might
-need to talk to a shipping company&apos;s website to allow a customer to
-track a package without ever leaving the e-commerce website. This in
-fact starts to look a lot more like RPC, and the approach taken in the
-Web today to enable such communication among web servers is based on the
-<em>Extensible Markup Language</em> (XML).</p>
+<p>The availability of all sorts of Web applications and data have
+also created a situation in which different Web applications need to
+communicate with each other and understand each other&apos;s data. For
+example, an e-commerce website might need to talk to a shipping
+company&apos;s website to allow a customer to track a package without ever
+leaving the e-commerce website. This quickly starts to look a lot
+like RPC, and the approach taken in the Web today to enable such
+communication among web servers is based on the <em>Extensible Markup
+Language</em> (XML)&#x2014;a way to describe the data being exchanged between
+Web apps.</p>
 <p>Markup languages, of which HTML and XML are both examples, take the
 tagged data approach to the extreme. Data is represented as text, and
 text tags known as <em>markup</em> are intermingled with the data text to
-express information about the data. In the case of HTML, markup merely
-indicates how the text should be displayed; other markup languages like
-XML can express the type and structure of the data.</p>
+express information about the data. In the case of HTML, markup
+indicates how the text should be displayed; other markup languages
+like XML can express the type and structure of the data.</p>
 <p>XML is actually a framework for defining different markup languages for
 different kinds of data. For example, XML has been used to define a
 markup language that is roughly equivalent to HTML called <em>Extensible
@@ -1389,10 +1390,10 @@ refer to individual XML-based languages simply as XML, but we will
 emphasize the distinction in this introductory material.</p>
 <p>XML syntax looks much like HTML. For example, an employee record in a
 hypothetical XML-based language might look like the following XML
-<em>document</em>, which might be stored in a file named . The first line
-indicates the version of XML being used, and the remaining lines
-represent four fields that make up the employee record, the last of
-which (<code>hiredate</code>) contains three subfields. In other words, XML
+<em>document</em>, which might be stored in a file named <code>employee.xml</code>. The
+first line indicates the version of XML being used, and the remaining
+lines represent four fields that make up the employee record, the last
+of which (<code>hiredate</code>) contains three subfields. In other words, XML
 syntax provides for a nested structure of tag/value pairs, which is
 equivalent to a tree structure for the represented data (with
 <code>employee</code> as the root). This is similar to XDR, ASN.1, and NDR&apos;s
@@ -1428,7 +1429,7 @@ none-too-surprising name <em>XML Schema</em>. An individual schema defined
 using XML Schema is known as an <em>XML Schema Document</em> (XSD). The
 following is an XSD for the example; in other words, it defines the
 language to which the example document conforms. It might be stored in a
-file named .</p>
+file named <code>employee.xsd</code>.</p>
 <pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span></span>
 <span class="hljs-tag">&lt;<span class="hljs-name">schema</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">element</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;employee&quot;</span>&gt;</span>
@@ -1451,22 +1452,22 @@ file named .</p>
   <span class="hljs-tag">&lt;/<span class="hljs-name">element</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">schema</span>&gt;</span>
 </code></pre>
-<p>This XSD looks superficially similar to our example document , but only
-because XML Schema is itself an XML-based language. There is an obvious
-relationship between this XSD and the document defined above. For
-example,</p>
+<p>This XSD looks superficially similar to our example document
+<code>employee.xml</code>, and for good reason: XML Schema is itself an XML-based
+language. There is an obvious relationship between this XSD and the
+document defined above. For example,</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">element</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;title&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;string&quot;</span>/&gt;</span>
 </code></pre>
 <p>indicates that the value bracketed by the markup <code>title</code> is to be
 interpreted as a string. The sequence and nesting of that line in the
 XSD indicate that a <code>title</code> field must be the second item in an
 employee record.</p>
-<p>Unlike some schema languages, XML Schema provides datatypes such as
-string, integer, decimal, and Boolean. It allows the datatypes to be
-combined in sequences or nested, as in , to create compound data types.
-So an XSD defines more than a syntax; it defines its own abstract data
-model. A document that conforms to the XSD represents a collection of
-data that conforms to the data model.</p>
+<p>Unlike some schema languages, XML Schema provides datatypes such
+as string, integer, decimal, and Boolean. It allows the datatypes to be
+combined in sequences or nested, as in <code>employee.xsd</code>, to create
+compound data types. So an XSD defines more than a syntax; it defines
+its own abstract data model. A document that conforms to the XSD
+represents a collection of data that conforms to the data model.</p>
 <p>The significance of an XSD defining an abstract data model and not just
 a syntax is that there can be other ways besides XML of representing
 data that conforms to the model. And XML does, after all, have some
@@ -1511,17 +1512,16 @@ identifies the namespace. For example, the following line assigns
 <code>emp</code> as the namespace prefix for the employee namespace:</p>
 <pre><code class="lang-xml">xmlns:emp=&quot;http://www.example.com/employee&quot;
 </code></pre>
-<p>Any markup from that namespace would be qualified by prefixing it with ,
-as is <code>title</code> in the following line:</p>
+<p>Any markup from that namespace would be qualified by prefixing it with
+<code>emp:</code> , as is <code>title</code> in the following line:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">emp:title</span>&gt;</span>Head Bottle Washer<span class="hljs-tag">&lt;/<span class="hljs-name">emp:title</span>&gt;</span>
 </code></pre>
-<p>is a qualified name, which will not clash with the name <code>title</code> from
-some other namespace.</p>
+<p>In other words, <code>emp:title</code> is a qualified name, which will not clash
+with the name <code>title</code> from some other namespace.</p>
 <p>It is remarkable how widely XML is now used in applications that range
 from RPC-style communication among Web-based services to office
-productivity tools to instant messaging. We will see some more of its
-uses in a later chapter. It is certainly one of the core protocols on
-which the upper layers of the Internet now depend.</p>
+productivity tools to instant messaging. It is certainly one of the
+core protocols on which the upper layers of the Internet now depend.</p>
 
                                 
                                 </section>
@@ -1565,7 +1565,7 @@ which the upper layers of the Internet now depend.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"next":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},"previous":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"path":"data/problem.md","ref":"data/problem.md","articles":[{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/presentation.md","mtime":"2018-08-17T18:18:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"next":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},"previous":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"path":"data/problem.md","ref":"data/problem.md","articles":[{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/presentation.md","mtime":"2018-09-29T15:18:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -974,15 +974,15 @@ each other. Each of these messages is just an uninterpreted string of
 bytes. From the application&apos;s perspective, however, these messages
 contain various kinds of <em>data</em>&#x2014;arrays of integers, video frames,
 lines of text, digital images, and so on. In other words, these bytes
-have meaning. We now consider the prob-lem of how best to encode the
+have meaning. We now consider the problem of how best to encode the
 different kinds of data that application programs want to exchange into
 byte strings. In many respects, this is similar to the problem of
 encoding byte strings into electromagnetic signals that we saw in an
 earlier chapter.</p>
-<p>Thinking back to our discussion of encoding, there were essentially two
-concerns. The first was that the receiver be able to extract the same
-message from the sig-nal as the transmitter sent; this was the framing
-problem. The second was making the encoding as efficient as possible.
+<p>Thinking back to our discussion of encoding, there are essentially two
+concerns. The first is that the receiver be able to extract the same
+message from the signal as the transmitter sent; this is the framing
+problem. The second is making the encoding as efficient as possible.
 Both of these concerns are also present when encoding application data
 into network messages.</p>
 <p>In order for the receiver to extract the message sent by the
@@ -1021,7 +1021,7 @@ senses and brains process visual and auditory signals. We don&apos;t hear
 high frequencies as well as lower ones, and we don&apos;t notice fine detail
 as much as the bigger picture in an image, especially if the image is
 moving.</p>
-<p>Compression is important to the designers of networks for a wealth of
+<p>Compression is important to the designers of networks for many
 reasons, not just because we rarely find ourselves with an abundance of
 bandwidth everywhere in the network. For example, the way we design a
 compression algorithm affects our sensitivity to lost or delayed data
@@ -1038,8 +1038,8 @@ manipulation</em> functions. This is in contrast to most of the protocols we
 have seen up to this point, which process a message without ever looking
 at its contents. Because of this need to read, compute on, and write
 every byte of data in a message, data manipulations affect end-to-end
-throughput over the network. In fact, these manipulations can be the
-limiting factor.</p>
+throughput over the network. In some cases, these manipulations can be
+the limiting factor.</p>
 
                                 
                                 </section>
@@ -1083,7 +1083,7 @@ limiting factor.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"next":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},"previous":{"title":"6.6 Summary","level":"1.7.6","depth":2,"path":"congestion/summary.md","ref":"congestion/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/problem.md","mtime":"2018-08-15T22:10:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"next":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},"previous":{"title":"6.6 Summary","level":"1.7.6","depth":2,"path":"congestion/summary.md","ref":"congestion/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/problem.md","mtime":"2018-09-29T15:18:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

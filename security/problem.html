@@ -975,14 +975,13 @@ particularly widely shared, being used by competing businesses, mutually
 antagonistic governments, and opportunistic criminals. Unless security
 measures are taken, a network conversation or a distributed application
 may be compromised by an adversary.</p>
-<p>Consider some threats to secure use of, for example, the World Wide Web.
+<p>Consider, for example, some threats to secure use of the web.
 Suppose you are a customer using a credit card to order an item from a
 website. An obvious threat is that an adversary would eavesdrop on your
 network communication, reading your messages to obtain your credit card
 information. How might that eavesdropping be accomplished? It is trivial
-on a broadcast network such as an Ethernet, where any node can be
-configured to receive all the message traffic on that network. Wireless
-communication can be monitored without any physical connection. More
+on a broadcast network such as an Ethernet or Wi-Fi, where any node can be
+configured to receive all the message traffic on that network. More
 elaborate approaches include wiretapping and planting spy software on
 any of the chain of nodes involved. Only in the most extreme cases
 (e.g.,national security) are serious measures taken to prevent such
@@ -999,18 +998,8 @@ customer. An adversary who can&apos;t read the contents of your encrypted
 message might still be able to change a few bits in it, resulting in a
 valid order for, say, a completely different item or perhaps 1000 units
 of the item. There are techniques to detect, if not prevent, such
-tampering. A protocol that detects such message tampering provides <em>data
-integrity</em>. The adversary could alternatively transmit an extra copy of
-your message in a <em>replay attack</em>. To the website, it would appear as
-though you had simply ordered another of the same item you ordered the
-first time. A protocol that detects replays provides <em>originality</em>.
-Originality would not, however, preclude the adversary intercepting your
-order, waiting a while, then transmitting it&#x2014;in effect, delaying your
-order. The adversary could thereby arrange for the item to arrive on
-your doorstep while you are away on vacation, when it can be easily
-snatched. A protocol that detects such delaying tactics is said to
-provide <em>timeliness</em>. Data integrity, originality, and timeliness are
-considered aspects of the more general property of <em>integrity</em>.</p>
+tampering. A protocol that detects such message tampering is said to
+provide <em>integrity</em>.</p>
 <p>Another threat to the customer is unknowingly being directed to a false
 website. This can result from a Domain Name System (DNS) attack, in
 which false information is entered in a DNS server or the name service
@@ -1029,13 +1018,13 @@ attacks, during which would-be customers are unable to access the
 website because it is being overwhelmed by bogus requests. Ensuring a
 degree of access is called <em>availability</em>.</p>
 <p>In addition to these issues, the Internet has notably been used as a
-means for deploying malicious code that exploits vulnerabilities in end
-systems. <em>Worms</em>, pieces of self-replicating code that spread over
-networks, have been known for several decades and continue to cause
-problems, as do their relatives, <em>viruses</em>, which are spread by the
-transmission of infected files. Infected machines can then be arranged
-into <em>botnets</em>, which can be used to inflict further harm, such as
-launching DoS attacks.</p>
+means for deploying malicious code, generally called <em>malware</em>, that
+exploits vulnerabilities in end systems. <em>Worms</em>, pieces of
+self-replicating code that spread over networks, have been known for
+several decades and continue to cause problems, as do their relatives,
+<em>viruses</em>, which are spread by the transmission of infected
+files. Infected machines can then be arranged into <em>botnets</em>, which
+can be used to inflict further harm, such as launching DoS attacks.</p>
 <p>Although the Internet was designed with the redundancy to survive
 problems such as the disruption of a link or router, it was not
 originally designed to provide the kind of security we have been
@@ -1045,7 +1034,7 @@ integrating security would likely be the foremost driving factor. That
 possibility makes this chapter all the more pertinent.</p>
 <p>There are many tools today for securing networked systems, ranging from
 various forms of cryptography to specialized devices such as firewalls.
-This chapter will provide an introduction to these tools with a
+This chapter introduces these tools with a
 particular focus on the use of cryptographic methods to improve network
 security. Improving the security of networks continues to be a field of
 rapid change and considerable research effort.</p>
@@ -1092,7 +1081,7 @@ rapid change and considerable research effort.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 8: Network Security","level":"1.9","depth":1,"next":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},"previous":{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/problem.md","mtime":"2018-08-15T22:11:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chapter 8: Network Security","level":"1.9","depth":1,"next":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},"previous":{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/problem.md","mtime":"2018-10-03T21:33:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

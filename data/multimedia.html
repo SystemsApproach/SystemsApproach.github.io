@@ -965,19 +965,17 @@
                                 
                                 <h1 id="72-multimedia-data">7.2 Multimedia Data</h1>
 <p>Multimedia data, comprised of audio, video, and still images, now makes
-up the majority of traffic on the Internet by many estimates. This is a
-relatively recent development&#x2014;it may be hard to believe now, but there
-was no YouTube before 2005. Part of what has made the widespread
-transmission of multimedia across networks possible is advances in
-compression technology. Because multimedia data is consumed mostly by
-humans using their senses&#x2014;vision and hearing&#x2014;and processed by the
-human brain, there are unique challenges to compressing it. You want to
-try to keep the information that is most important to a human, while
-getting rid of anything that doesn&apos;t improve the human&apos;s perception of
-the visual or auditory experience. Hence, both computer science and the
-study of human perception come into play. In this section, we&apos;ll look at
-some of the major efforts in representing and compressing multimedia
-data.</p>
+up the majority of traffic on the Internet. Part of what has made the
+widespread transmission of multimedia across networks possible is
+advances in compression technology. Because multimedia data is
+consumed mostly by humans using their senses&#x2014;vision and hearing&#x2014;and
+processed by the human brain, there are unique challenges to
+compressing it. You want to try to keep the information that is most
+important to a human, while getting rid of anything that doesn&apos;t
+improve the human&apos;s perception of the visual or auditory experience.
+Hence, both computer science and the study of human perception come
+into play. In this section, we&apos;ll look at some of the major efforts in
+representing and compressing multimedia data.</p>
 <p>The uses of compression are not limited to multimedia data of
 course&#x2014;for example, you may well have used a utility like <code>zip</code> or
 <code>compress</code> to compress files before sending them over a network, or to
@@ -1002,7 +1000,7 @@ has 24 bits of color information, so each frame is</p>
 1080 \times 1920 \times 24 = 50\ Mb
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">8</span><span class="mord mathrm">0</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord mathrm">9</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mbin">&#xD7;</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span><span class="mrel">=</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span><span class="mord mathit">b</span></span></span></span></span></p>
 <p>so if you want to send 24 frames per second, that would be over 1 Gbps.
-That&apos;s a lot more than most Internet users can get access to, by a good
+That&apos;s a lot more than most Internet users have access to, by a good
 margin. By contrast, modern compression techniques can get a reasonably
 high-quality HDTV signal down to the range of 10 Mbps, a two order of
 magnitude reduction and well within the reach of many broadband users.
@@ -1044,8 +1042,9 @@ encoding only the changes. For images that have large homogeneous
 regions, this technique is quite effective. For example, it is not
 uncommon that RLE can achieve compression ratios on the order of 8-to-1
 for scanned text images. RLE works well on such files because they often
-contain a large amount of white space that can be removed. In fact, RLE
-is the key compression algorithm used to transmit faxes. However, for
+contain a large amount of white space that can be removed. For those
+old enough to remember the technology, RLE was the key compression
+algorithm used to transmit faxes. However, for
 images with even a small degree of local variation, it is not uncommon
 for compression to actually increase the image byte size, since it takes
 2 bytes to represent a single symbol when that symbol is not repeated.</p>
@@ -1108,13 +1107,12 @@ on the contents of the data being compressed. In this case, however, the
 dictionary constructed during compression has to be sent along with the
 data so that the decompression half of the algorithm can do its job.
 Exactly how you build an adaptive dictionary has been a subject of
-extensive research; we discuss important papers on the subject at the
-end of this chapter.</p>
+extensive research.</p>
 <h2 id="image-representation-and-compression-gif-jpeg">Image Representation and Compression (GIF, JPEG)</h2>
-<p>Given the increase in the use of digital imagery in recent years&#x2014;this
+<p>Given the ubiquitous use of digital imagery&#x2014;this
 use was spawned by the invention of graphical displays, not high-speed
 networks&#x2014;the need for standard representation formats and compression
-algorithms for digital imagery data has grown more and more critical. In
+algorithms for digital imagery data has become essential. In
 response to this need, the ISO defined a digital image format known as
 <em>JPEG</em>, named after the Joint Photographic Experts Group that designed
 it. (The &quot;Joint&quot; in JPEG stands for a joint ISO/ITU effort.) JPEG is the
@@ -1127,7 +1125,7 @@ Moving Picture Experts Group.</p>
 a few steps to get from a digital image to a compressed representation
 of that image that can be transmitted, decompressed, and displayed
 correctly by a receiver. You probably know that digital images are made
-up of pixels (hence, the megapixels quoted in digital camera
+up of pixels (hence, the megapixels quoted in smartphone camera
 advertisements). Each pixel represents one location in the
 two-dimensional grid that makes up the image, and for color images each
 pixel has some numerical value representing a color. There are lots of
@@ -1194,7 +1192,8 @@ used to represent digital images, the equations are:</p>
 U = (B-Y) x 0.565
 V =  (R-Y) x 0.713
 </code></pre>
-<p>constants here are not important, as long as the encoder and decoder
+<p>The exact values of the
+constants here are not important, as long as the encoder and decoder
 agree on what they are. (The decoder will have to apply the inverse
 transformations to recover the RGB components needed to drive a
 display.) The constants are, however, carefully chosen based on the
@@ -1640,25 +1639,28 @@ is done in software. In recent years, processors have become fast enough
 to keep pace with 30-frames-per-second video rates when decoding MPEG
 streams purely in software&#x2014;modern processors can even decode MPEG
 streams of high definition video (HDTV).</p>
-<h3 id="other-video-encoding-standards">Other Video Encoding Standards</h3>
-<p>We conclude by noting that MPEG is not by any means the only standard
-available for encoding video. For example, the ITU-T has also defined
-the <em>H series</em> for encoding real-time multimedia data. Generally, the H
-series includes standards for video, audio, control, and multiplexing
-(e.g., mixing audio, video, and data onto a single bit stream). Within
-the series, H.261 and H.263 are the first- and second-generation video
-encoding standards. Unlike early versions of MPEG, which is targeted at
-bit rates on the order of 1.5 Mbps, H.261 and H.263 are targeted at
-lower speeds. Designed for the Integrated Services Digital Network
-(ISDN) standards, they support video over links with bandwidth available
-in 64-kbps increments. In principle, both H.261 and H.263 look a lot
-like MPEG: They use DCT, quantization, and interframe compression. The
-differences between H.261/H.263 and MPEG are in the details. In fact,
-the newer H.264 standard is also part of the MPEG-4 standard. As video
-become supported on more and more devices ranging from small-screen
-devices connected over low-bandwidth cellular wireless links to large
-TVs connected to high-bandwidth fiber links, there is likely to be more
-demand for innovation and new standards in this space.</p>
+<h3 id="video-encoding-standards">Video Encoding Standards</h3>
+<p>We conclude by noting that MPEG is an evolving standard of significant
+complexity. This complexity comes from a desire to give the encoding
+algorithm every possible degree of freedom in how it encodes a given
+video stream, resulting in different video transmission rates. It also
+comes from the evolution of the standard over time, with the Moving
+Picture Experts Group working hard to retain backwards compatibility
+(e.g., MPEG-1, MPEG-2, MPEG-4). What we describe in this book is the
+essential ideas underlying MPEG-based compression, but certainly not
+all the intricacies involved in an international standard.</p>
+<p>What&apos;s more, MPEG is not the only standard available for encoding
+video. For example, the ITU-T has also defined the <em>H series</em>
+for encoding real-time multimedia data. Generally, the H series
+includes standards for video, audio, control, and multiplexing (e.g.,
+mixing audio, video, and data onto a single bit stream). Within the
+series, H.261 and H.263 were the first- and second-generation video
+encoding standards. In principle, both H.261 and H.263 look a lot 
+like MPEG: They use DCT, quantization, and interframe compression. The 
+differences between H.261/H.263 and MPEG are in the details.</p>
+<p>Today, a partnership between the ITU-T and the MPEG group has lead to
+the joint H.264/MPEG-4 standard, which is used for both Blu-ray Discs
+and by many popular streaming sources (e.g., YouTube, Vimeo).</p>
 <h2 id="transmitting-mpeg-over-a-network">Transmitting MPEG over a Network</h2>
 <p>As we&apos;ve noted, MPEG and JPEG are not just compression standards but
 also definitions of the format of video and images, respectively.
@@ -1666,24 +1668,19 @@ Focusing on MPEG, the first thing to keep in mind is that it defines the
 format of a video <em>stream</em>; it does not specify how this stream is
 broken into network packets. Thus, MPEG can be used for videos stored on
 disk, as well as videos transmitted over a stream-oriented network
-connection, like that provided by TCP. More on how you might packetize
-an MPEG stream in a moment.</p>
-<p>The MPEG format is one of the most complicated of any protocols
-discussed in this book. This complication comes from a desire to give
-the encoding algorithm every possible degree of freedom in how it
-encodes a given video stream. It also comes from the evolution of the
-standard over time (i.e., MPEG-1, MPEG-2, MPEG-4). What we describe
-below is called the <em>main profile</em> of an MPEG-2 video stream. You can
-think of an MPEG profile as being analogous to a &quot;version,&quot; except the
-profile is not explicitly specified in an MPEG header; the receiver has
-to deduce the profile from the combination of header fields it sees.</p>
+connection, like that provided by TCP.</p>
+<p>What we describe below is called the <em>main profile</em> of an MPEG video
+stream that is being sent over a network. You can think of an MPEG
+profile as being analogous to a &quot;version,&quot; except the profile is not
+explicitly specified in an MPEG header; the receiver has to deduce the
+profile from the combination of header fields it sees.</p>
 <figure class="line">
     <a id="nested"></a>
     <img src="figures/f07-16-9780123850591.png" width="500px">
     <figcaption>Format of an MPEG-compressed video stream.</figcaption>
 </figure>
 
-<p>A main profile MPEG-2 stream has a nested structure, as illustrated in
+<p>A main profile MPEG stream has a nested structure, as illustrated in
 <a href="#nested">Figure 6</a>. (Keep in mind that this figure hides a <em>lot</em> of
 messy details.) At the outermost level, the video contains a sequence of
 groups of pictures (GOP) separated by a <code>SeqHdr</code>. The sequence is
@@ -1750,7 +1747,7 @@ not be acceptable in a real-time videoconference. One solution to this
 problem would be to use the Differentiated Services techniques described
 in the previous chapter to mark the packets containing I frames with a
 lower drop probability than other packets.</p>
-<p>1One final observation is that how you choose to encode video depends on
+<p>One final observation is that how you choose to encode video depends on
 more than just the available network bandwidth. It also depends on the
 application&apos;s latency constraints. Once again, an interactive
 application like videoconferencing needs small latencies. The critical
@@ -1775,6 +1772,46 @@ prior frames rather than later frames is not a problem. Thus, a GOP of</p>
 <div class="ba-center"><p>I P P P P I</p></div>
 
 <p>would work just fine for interactive videoconferencing.</p>
+<h3 id="adaptive-video">Adaptive Video</h3>
+<p>Because encoding schemes like MPEG allow for a trade-off between the
+bandwidth consumed and the quality of the image, there is an
+opportunity to adapt a video stream to match the available network
+bandwidth. This is effectively what video streaming services like
+Netflix do today.</p>
+<p>For starters, let&apos;s assume that we have some way to measure the amount
+of free capacity and level of congestion along a path, for example, by
+observing the rate at which packets are successfully arriving at the
+destination. As the available bandwidth fluctuates, we can feed that
+information back to the codec so that it adjusts its coding parameters
+to back off during congestion and to send more aggressively (with a
+higher picture quality) when the network is idle. This is analogous to
+the behavior of TCP, except in the video case we are actually
+modifying the total amount of data sent rather than how long we take
+to send a fixed amount of data, since we don&apos;t want to introduce delay
+into a video application.</p>
+<p>In the case of video-on-demand services like Netflix, we don&apos;t adapt
+the encoding on the fly, but instead we encode a handful of video
+quality levels ahead of time, and save them to files named accordingly.
+The receiver simply changes the file name it requests to match the
+quality its measurements indicate the network will be able to deliver.
+The receiver watches its playback queue, and asks for a higher
+quality encoding when the queue becomes too full and a lower quality
+encoding when the queue becomes too empty.</p>
+<p>How does this approach know where in the movie to jump to should
+the requested quality change? In effect, the receiver never asks the
+sender to stream the whole movie, but instead it requests a sequence
+of short movie segments, typically a few seconds long (and always on
+GOP boundary). Each segment is an opportunity to change the quality
+level to match what the network is able to deliver. (It turns out that
+requesting movie chunks also makes it easier to implement <em>trick
+play</em>, jumping around from one place to another in the movie.) In
+other words, a movie is typically stored as a set of N <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> M
+chunks (files): N quality levels for each of M segments.</p>
+<p>There&apos;s one last detail. Since the receiver is effectively requesting a
+sequence of discrete video chunks by name, the most common approach
+for issuing these requests is to use HTTP. Each chuck is a separate HTTP
+GET request with the URL identifying the specific chunk the receiver
+wants next. This general approach is called <em>HTTP adaptive streaming</em>.</p>
 <h2 id="audio-compression-mp3">Audio Compression (MP3)</h2>
 <p>Not only does MPEG define how video is compressed, but it also defines a
 standard for compressing audio. This standard can be used to compress
@@ -1792,8 +1829,7 @@ rate of</p>
 2 \times 44.1 \times 1000 \times 16 = 1.41\ Mbps
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">2</span><span class="mbin">&#xD7;</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">.</span><span class="mord mathrm">1</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mbin">&#xD7;</span><span class="mord mathrm">1</span><span class="mord mathrm">6</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">.</span><span class="mord mathrm">4</span><span class="mord mathrm">1</span><span class="mord mathit"><span class="mspace">&#xA0;</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span><span class="mord mathit">b</span><span class="mord mathit">p</span><span class="mord mathit">s</span></span></span></span></span></p>
 <p>By comparison, telephone-quality voice is sampled at a rate of 8 KHz,
-with 8-bit samples, resulting in a bit rate of 64 kbps, which is not
-coincidentally the speed of an ISDN link.</p>
+with 8-bit samples, resulting in a bit rate of 64 kbps.</p>
 <p>Clearly, some amount of compression is going to be required to transmit
 CD-quality audio over, say, the 128-kbps capacity of an ISDN data/voice
 line pair. To make matters worse, synchronization and error correction
@@ -1906,7 +1942,7 @@ since users are better able to tolerate bad video than bad audio.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"next":{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]},"previous":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/multimedia.md","mtime":"2018-08-21T22:44:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"next":{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]},"previous":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/multimedia.md","mtime":"2018-09-29T18:28:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

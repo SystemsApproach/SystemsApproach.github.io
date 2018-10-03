@@ -1036,18 +1036,19 @@ append a cryptographic hash of it that has been encrypted using his
 private key.) Since you trust Bob to tell the truth, you would now know
 that Alice&apos;s key is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>, even though you had never met her or exchanged
 a single message with her. Using digital signatures, Bob wouldn&apos;t even
-have to send you a he could simply create and publish a digitally signed
-statement that Alice&apos;s key is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>. Such a digitally signed statement of
-a public key binding is called a <em>public key certificate</em>, or simply a
-certificate. Bob could send Alice a copy of the certificate, or post it
-on a website. If and when someone needs to verify Alice&apos;s public key,
-they could do so by getting a copy of the certificate, perhaps directly
-from Alice&#x2014;as long as they trust Bob and know his public key. You can
-see how starting from a very small number of keys (in this case, just
-Bob&apos;s) you could build up a large set of trusted keys over time. Bob in
-this case is playing the role often referred to as a <em>certification
-authority</em> (CA), and much of today&apos;s Internet security depends on CAs.
-VeriSign is one well-known commercial CA. We return to this topic below.</p>
+have to send you a message; he could simply create and publish a
+digitally signed statement that Alice&apos;s key is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>. Such a digitally
+signed statement of a public key binding is called a <em>public key
+certificate</em>, or simply a certificate. Bob could send Alice a copy of
+the certificate, or post it on a website. If and when someone needs to
+verify Alice&apos;s public key, they could do so by getting a copy of the
+certificate, perhaps directly from Alice&#x2014;as long as they trust Bob and
+know his public key. You can see how starting from a very small number
+of keys (in this case, just Bob&apos;s) you could build up a large set of
+trusted keys over time. Bob in this case is playing the role often
+referred to as a <em>certification authority</em> (CA), and much of today&apos;s
+Internet security depends on CAs. VeriSign is one well-known
+commercial CA. We return to this topic below.</p>
 <p>One of the major standards for certificates is known as X.509. This
 standard leaves a lot of details open, but specifies a basic structure.
 A certificate clearly must include:</p>
@@ -1154,8 +1155,8 @@ all willing to trust in a single hierarchical structure of CAs. To quote
 Phil Zimmerman, the developer of PGP, &quot;PGP is for people who prefer to
 pack their own parachutes.&quot;</p>
 <p>PGP has become quite popular in the networking community, and PGP
-key-signing parties are a regular feature of IETF meetings. At these
-gatherings, an individual can</p>
+key-signing parties are a regular feature of various networking
+events, such as IETF meetings. At these gatherings, an individual can</p>
 <ul>
 <li><p>Collect public keys from others whose identity he knows.</p>
 </li>
@@ -1270,7 +1271,7 @@ system based on this approach.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"next":{"title":"8.3 Authentication Protocols","level":"1.9.3","depth":2,"path":"security/authentication.md","ref":"security/authentication.md","articles":[]},"previous":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/key-distro.md","mtime":"2018-08-15T22:11:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T19:43:25.216Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"next":{"title":"8.3 Authentication Protocols","level":"1.9.3","depth":2,"path":"security/authentication.md","ref":"security/authentication.md","articles":[]},"previous":{"title":"8.1 Cryptographic Building Blocks","level":"1.9.1","depth":2,"path":"security/crypto.md","ref":"security/crypto.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/key-distro.md","mtime":"2018-10-03T21:33:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
