@@ -964,8 +964,8 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="92-multimedia-applications">9.2 Multimedia Applications</h1>
-<p>Just like the traditional applications described earlier in this
-chapter, multimedia applications such as telephony and videoconferencing
+<p>Just like the traditional applications described in the previous section,
+multimedia applications such as telephony and videoconferencing
 need their own protocols. Much of the initial experience in designing
 protocols for multimedia applications came from the MBone
 tools&#x2014;applications such as <code>vat</code> and <code>vic</code> that were developed for
@@ -1197,11 +1197,12 @@ behalf of callers. We can see how proxies work best through an example.</p>
 </figure>
 
 <p>Consider the two users in <a href="#sipproxy">Figure 2</a>. The first thing to
-notice is that each user has a name in the format , very much like an
-email address. When user Bruce wants to initiate a session with Larry,
-he sends his initial SIP message to the local proxy for his domain, .
-Among other things, this initial message contains a <em>SIP URI</em>&#x2014;these
-are a form of uniform resource identifier which look like this:</p>
+notice is that each user has a name in the format <code>user@domain</code>, very
+much like an email address. When user Bruce wants to initiate a
+session with Larry, he sends his initial SIP message to the local
+proxy for his domain, <code>cisco.com</code>. Among other things, this initial
+message contains a <em>SIP URI</em>&#x2014;these are a form of uniform resource
+identifier which look like this:</p>
 <pre><code class="lang-pseudo">SIP:larry@princeton.edu
 </code></pre>
 <p>A SIP URI provides complete identification of a user, but (unlike a URL)
@@ -1229,8 +1230,9 @@ Content-Type: application/sdp
 Content-Length: 142
 </code></pre>
 <p>The first line identifies the type of function to be performed
-(<code>invite</code>); the resource on which to perform it, the called party ( );
-and the protocol version (2.0). The subsequent header lines probably
+(<code>invite</code>); the resource on which to perform it, the called party
+(<code>sip:larry@princeton.edu</code> ); and the protocol version (2.0). The
+subsequent header lines probably
 look somewhat familiar because of their resemblance to the header lines
 in an email message. SIP defines a large number of header fields, only
 some of which we describe here. Note that the header in this example
@@ -1243,60 +1245,66 @@ other properties of the session such as codec types that he supports.
 Note that the field in SIP provides the capability to use any protocol
 for this purpose, although SDP is the most common.</p>
 <p>Returning to the example, when the <code>invite</code> message arrives at the
-proxy, not only does the proxy forward the message on toward , but it
-also responds to the sender of the <code>invite</code>. Just as in HTTP, all
-responses have a response code, and the organization of codes is similar
-to that for HTTP. In <a href="#sipeg">Figure 3</a> we can see a sequence of SIP
-messages and responses.</p>
+proxy, not only does the proxy forward the message on toward
+<code>princeton.edu</code>, but it also responds to the sender of the
+<code>invite</code>. Just as in HTTP, all responses have a response code, and the
+organization of codes is similar to that for HTTP. In
+<a href="#sipeg">Figure 3</a> we can see a sequence of SIP messages and
+responses.</p>
 <figure class="line">
     <a id="sipeg"></a>
     <img src="figures/f09-09-9780123850591.png" width="650px">
     <figcaption>Message flow for a basic SIP session.</figcaption>
 </figure>
 
-<p>The first response message in this figure is the provisional response ,
-which indicates that the message was received without error by the
-caller&apos;s proxy. Once the <code>invite</code> is delivered to Larry&apos;s phone, it
-alerts Larry and responds with a message. The arrival of this message at
-Bruce&apos;s computer is a sign that it can generate a &quot;ringtone.&quot; Assuming
-Larry is willing and able to communicate with Bruce, he could pick up
-his phone, causing the message to be sent. Bruce&apos;s computer responds
-with an <code>ACK</code>, and media (e.g., an RTP-encapsulated audio stream) can
-now begin to flow between the two parties. Note that at this point the
-parties know each others&apos; addresses, so the <code>ACK</code> can be sent
-directly, bypassing the proxies. The proxies are now no longer involved
-in the call. Note that the media will therefore typically take a
-different path through the network than the original signalling
-messages. Furthermore, even if one or both of the proxies were to crash
-at this point, the call could continue on normally. Finally, when one
-party wishes to end the session, it sends a <code>BYE</code> message, which
-elicits a response under normal circumstances.</p>
+<p>The first response message in this figure is the provisional response
+<code>100 trying</code>, which indicates that the message was received without
+error by the caller&apos;s proxy. Once the <code>invite</code> is delivered to Larry&apos;s
+phone, it alerts Larry and responds with a <code>180 ringing</code> message. The
+arrival of this message at Bruce&apos;s computer is a sign that it can
+generate a &quot;ringtone.&quot; Assuming Larry is willing and able to
+communicate with Bruce, he could pick up his phone, causing the
+message <code>200 OK</code> to be sent. Bruce&apos;s computer responds with an <code>ACK</code>,
+and media (e.g., an RTP-encapsulated audio stream) can now begin to
+flow between the two parties. Note that at this point the parties know
+each others&apos; addresses, so the <code>ACK</code> can be sent directly, bypassing
+the proxies. The proxies are now no longer involved in the call. Note
+that the media will therefore typically take a different path through the
+network than the original signalling messages. Furthermore, even if
+one or both of the proxies were to crash at this point, the call could
+continue on normally. Finally, when one party wishes to end the
+session, it sends a <code>BYE</code> message, which elicits a <code>200 OK</code> response
+under normal circumstances.</p>
 <p>There are a few details that we have glossed over. One is the
 negotiation of session characteristics. Perhaps Bruce would have liked
 to communicate using both audio and video but Larry&apos;s phone only
 supports audio. Thus, Larry&apos;s phone would send an SDP message in its
-describing the properties of the session that will be acceptable to
-Larry and the device, considering the options that were proposed in
-Bruce&apos;s <code>invite</code>. In this way, mutually acceptable session parameters
-are agreed to before the media flow starts.</p>
+<code>200 OK</code> describing the properties of the session that will be
+acceptable to Larry and the device, considering the options that were
+proposed in Bruce&apos;s <code>invite</code>. In this way, mutually acceptable session
+parameters are agreed to before the media flow starts.</p>
 <p>The other big issue we have glossed over is that of locating the correct
 device for Larry. First, Bruce&apos;s computer had to send its <code>invite</code> to
-the proxy. This could have been a configured piece of information in the
-computer, or it could have been learned by DHCP. Then the proxy had to
-find the proxy. This could be done using a special sort of DNS lookup
-that would return the IP address of the SIP proxy for the domain. (We&apos;ll
-discuss how DNS can do this in the next section.) Finally, the proxy had
-to find a device on which Larry could be contacted. Typically, a proxy
-server has access to a location database that can be populated in
-several ways. Manual configuration is one option, but a more flexible
-option is to use the <em>registration</em> capabilities of SIP.</p>
+the <code>cisco.com</code> proxy. This could have been a configured piece of
+information in the computer, or it could have been learned by
+DHCP. Then the <code>cisco.com</code> proxy had to find the <code>princeton.ed</code>
+proxy. This could be done using a special sort of DNS lookup that
+would return the IP address of the SIP proxy for the domain. (We&apos;ll
+discuss how DNS can do this in the next section.) Finally, the
+<code>princeton.ed</code> proxy had to find a device on which Larry could be
+contacted. Typically, a proxy server has access to a location database
+that can be populated in several ways. Manual configuration is one
+option, but a more flexible option is to use the <em>registration</em>
+capabilities of SIP.</p>
 <p>A user can register with a location service by sending a SIP
 <code>register</code> message to the &quot;registrar&quot; for his domain. This message
 creates a binding between an &quot;address of record&quot; and a &quot;contact
 address.&quot; An &quot;address of record&quot; is likely to be a SIP URI that is the
-well-known address for the user (e.g., ) and the &quot;contact address&quot; will
-be the address at which the user can currently be found (e.g., ). This
-is exactly the binding that was needed by the proxy in our example.</p>
+well-known address for the user (e.g., <code>sip:larry@princeton.edu</code>) and
+the &quot;contact address&quot; will be the address at which the user can
+currently be found (e.g., <code>sip:larry@llp-ph.cs.princeton.edu</code>). This
+is exactly the binding that was needed by the proxy <code>princeton.edu</code> in
+our example.</p>
 <p>Note that a user may register at several locations and that multiple
 users may register at a single device. For example, one can imagine a
 group of people walking into a conference room that is equipped with an
@@ -1308,7 +1316,7 @@ nothing to do with telephony. For example, SIP supports operations that
 enable a call to be routed to a &quot;music-on-hold&quot; server or a voicemail
 server. It is also easy to see how it could be used for applications
 like instant messaging, and standardization of SIP extensions for such
-purposes is ongoing at the time of writing.</p>
+purposes is ongoing.</p>
 <h3 id="h323">H.323</h3>
 <p>The International Telecommunication Union (ITU) has also been very
 active in the call control area, which is not surprising given its
@@ -1598,7 +1606,7 @@ isolation from the other parts of the system.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"next":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},"previous":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/multimedia.md","mtime":"2018-08-15T22:11:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"next":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},"previous":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/multimedia.md","mtime":"2018-10-04T22:41:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -972,12 +972,12 @@ servers, which then respond accordingly. We refer to these as
 that have existed since the early days of computer networks (although
 the Web is a lot newer than email but has its roots in file transfers
 that predated it). By contrast, later sections will look at a class of
-applications that have become feasible only relatively recently:
-streaming applications (e.g., multimedia applications like video and
-audio) and various overlay-based applications. (Note that there is a bit
-of a blurring between these classes, as you can of course get access to
-streaming multimedia data over the Web, but for now we&apos;ll focus on the
-general usage of the Web to request pages, images, etc.)</p>
+applications that have become popular more recently: streaming
+applications (e.g., multimedia applications like video and audio) and
+various overlay-based applications. (Note that there is a bit
+of a blurring between these classes, as you can of course get access
+to streaming multimedia data over the Web, but for now we&apos;ll focus on
+the general usage of the Web to request pages, images, etc.)</p>
 <p>Before taking a close look at each of these applications, there are
 three general points that we need to make. The first is that it is
 important to distinguish between application <em>programs</em> and application
@@ -1001,9 +1001,17 @@ protocols:</p>
  web browsers and web servers.</p>
 </li>
 </ul>
-<p>We&apos;ll also look at how custom application protocols are defined in the
-<em>Web Services</em> architecture.</p>
-<p>The second point is that, since the application protocols described in
+<p>Second, we observe that many application layer protocols, including 
+HTTP and SMTP, have a companion protocol that specifies the format of 
+the data that can be exchanged. This is one reason WHY these protocols 
+are relatively simple: Much of the complexity is managed in this 
+companion standard. For example, SMTP is a protocol for exchanging 
+electronic mail messages, but RFC 822 and Multipurpose Internet Mail 
+Extensions (MIME) define the format of email messages. Similarly, HTTP 
+is a protocol for fetching Web pages, but HyperText Markup Language 
+(HTML) is a companion specification that defines the basic form of those 
+pages. </p>
+<p>Finally, since the application protocols described in
 this section follow the same request/reply communication pattern, you
 might expect that they would be built on top of a Remote Procedure Call
 (RPC) transport protocol. This is not the case, however, as they are
@@ -1012,29 +1020,23 @@ simple RPC-like mechanism on top of a reliable transport protocol (TCP).
 We say &quot;simple&quot; because each protocol is not designed to support
 arbitrary remote procedure calls of the sort discussed in an earlier
 chapter, but is instead designed to send and respond to a specific set
-of request messages.</p>
-<p>Finally, we observe that many application layer protocols, including
-HTTP and SMTP, have a companion protocol that specifies the format of
-the data that can be exchanged. This is one reason WHY these protocols
-are relatively simple: Much of the complexity is managed in this
-companion document. For example, SMTP is a protocol for exchanging
-electronic mail messages, but RFC 822 and Multipurpose Internet Mail
-Extensions (MIME) define the format of email messages. Similarly, HTTP
-is a protocol for fetching Web pages, but HyperText Markup Language
-(HTML) is a companion specification that defines the basic form of those
-pages.</p>
+of request messages. Interestingly, the approach taken by HTTP has
+proven quite powerful, which has led to it being adopted widely by
+the <em>Web Services</em> architecture. More on this topic at the end of this
+section.</p>
 <h2 id="electronic-mail-smtp-mime-imap">Electronic Mail (SMTP, MIME, IMAP)</h2>
 <p>Email is one of the oldest network applications. After all, what could
 be more natural than wanting to send a message to the user at the other
-end of a cross-country link you just managed to get running?
+end of a cross-country link you just managed to get running? It&apos;s the
+20th century&apos;s version of &quot;<em>Mr. Watson, come here... I want to see you.</em>&quot;
 Surprisingly, the pioneers of the ARPANET had not really envisioned
 email as a key application when the network was created&#x2014;remote access
 to computing resources was the main design goal&#x2014;but it turned out to
-be a useful application that continues to be extremely popular.</p>
+be the Internet&apos;s original killer app.</p>
 <p>As noted above, it is important (1) to distinguish the user interface
 (i.e., your mail reader) from the underlying message transfer protocols
 (such as SMTP or IMAP), and (2) to distinguish between this transfer
-protocol and a companion protocol (RFC 822 and MIME) that defines the
+protocol and a companion standard (RFC 822 and MIME) that defines the
 format of the messages being exchanged. We start by looking at the
 message format.</p>
 <h3 id="message-format">Message Format</h3>
@@ -1045,7 +1047,7 @@ been augmented by MIME to allow the message body to carry all sorts of
 data. This data is still represented as ASCII text, but because it may
 be an encoded version of, say, a JPEG image, it&apos;s not necessarily
 readable by human users. More on MIME in a moment.</p>
-<p>The message header is a series of <crlf>-terminated lines. (<crlf>
+<p>The message header is a series of <code>&lt;CRLF&gt;</code>-terminated lines. (<code>&lt;CRLF&gt;</code>
 stands for carriage-return plus line-feed, which are a pair of ASCII
 control characters often used to indicate the end of a line of text.)
 The header is separated from the message body by a blank line. Each
@@ -1057,7 +1059,7 @@ the purpose of the message. Other headers are filled in by the
 underlying mail delivery system. Examples include (when the message
 was transmitted), (what user sent the message), and (each mail server
 that handled this message). There are, of course, many other header
-lines; the interested reader is referred to RFC 822.</crlf></crlf></p>
+lines; the interested reader is referred to RFC 822.</p>
 <p>RFC 822 was extended in 1993 (and updated quite a few times since then)
 to allow email messages to carry many different types of data: audio,
 video, images, PDF documents, and so on. MIME consists of three basic
@@ -1196,12 +1198,13 @@ recipient does not want to include the specific host on which he or she
 reads email in his or her address. Another is scale: In large
 organizations, it&apos;s often the case that a number of different machines
 hold the <em>mailboxes</em> for the organization. For example, mail delivered
-to is first sent to a mail gateway in the CS Department at Princeton
-(that is, to the host named ), and then forwarded&#x2014;involving a second
+to <code>bob@cs.princeton.edu</code> is first sent to a mail gateway in the CS
+Department at Princeton (that is, to the host named
+<code>cs.princeton.edu</code>), and then forwarded&#x2014;involving a second
 connection&#x2014;to the specific machine on which Bob has a mailbox. The
-forwarding gateway maintains a database that maps users into the machine
-on which their mailbox resides; the sender need not be aware of this
-specific name. (The list of header lines in the message will help you
+forwarding gateway maintains a database that maps users into the
+machine on which their mailbox resides; the sender need not be aware
+of this specific name. (The list of header lines in the message will help you
 trace the mail gateways that a given message traversed.) Yet another
 reason, particularly true in the early days of email, is that the
 machine that hosts any given user&apos;s mailbox may not always be up or
@@ -1217,11 +1220,10 @@ the base representation, it should come as no surprise to learn that
 SMTP is also ASCII based. This means it is possible for a human at a
 keyboard to pretend to be an SMTP client program.</p>
 <p>SMTP is best understood by a simple example. The following is an
-exchange between sending host and receiving host . In this case, user
-Bob at Princeton is trying to send mail to users Alice and Tom at Cisco.
-The lines sent by are shown in black and the lines sent by are shown in
-teal. Extra blank lines have been added to make the dialog more
-readable.</p>
+exchange between sending host <code>cs.princeton.edu</code> and receiving host
+<code>cisco.com</code> . In this case, user Bob at Princeton is trying to send
+mail to users Alice and Tom at Cisco. Extra blank lines have been
+added to make the dialog more readable.</p>
 <pre><code class="lang-shell">HELO cs.princeton.edu
 250 Hello daemon@mail.cs.princeton.edu [128.12.169.24]
 
@@ -1266,7 +1268,8 @@ As another example, the client can issue a <code>VRFY</code> operation to verify
 a user&apos;s email address, but without actually sending a message to the
 user.</p>
 <p>The only other point of interest is the arguments to the <code>MAIL</code> and
-<code>RCPT</code> operations; for example, and , respectively. These look a lot
+<code>RCPT</code> operations; for example, <code>FROM:&lt;Bob@cs.princeton.edu&gt;</code> and
+<code>TO:&lt;Alice@cisco.com&gt;</code>, respectively. These look a lot
 like 822 header fields, and in some sense they are. What actually
 happens is that the mail daemon parses the message to extract the
 information it needs to run SMTP. The information it extracts is said to
@@ -1274,9 +1277,10 @@ form an <em>envelope</em> for the message. The SMTP client uses this envelope
 to parameterize its exchange with the SMTP server. One historical note:
 The reason <code>sendmail</code> became so popular is that no one wanted to
 reimplement this message parsing function. While today&apos;s email addresses
-look pretty tame (e.g., ), this was not always the case. In the days
-before everyone was connected to the Internet, it was not uncommon to
-see email addresses of the form .</p>
+look pretty tame (e.g., <code>Bob@cs.princeton.edu</code>), this was not always
+the case. In the days before everyone was connected to the Internet,
+it was not uncommon to see email addresses of the form
+<code>user%host@site!neighbor</code>.</p>
 <h3 id="mail-reader">Mail Reader</h3>
 <p>The final step is for the user to actually retrieve his or her messages
 from the mailbox, read them, reply to them, and possibly save a copy for
@@ -1292,12 +1296,12 @@ it is definitely within our scope to talk about the access protocol. We
 consider IMAP, in particular.</p>
 <p>IMAP is similar to SMTP in many ways. It is a client/server protocol
 running over TCP, where the client (running on the user&apos;s desktop
-machine) issues commands in the form of -terminated ASCII text lines and
-the mail server (running on the machine that maintains the user&apos;s
-mailbox) responds in kind. The exchange begins with the client
+machine) issues commands in the form of <code>&lt;CRLF&gt;</code>-terminated ASCII text
+lines and the mail server (running on the machine that maintains the
+user&apos;s mailbox) responds in kind. The exchange begins with the client
 authenticating him- or herself and identifying the mailbox he or she
 wants to access. This can be represented by the simple state transition
-diagram shown in <a href="#imap">Figure 2</a>. In this diagram, , and
+diagram shown in <a href="#imap">Figure 2</a>. In this diagram, <code>LOGIN</code> and
 <code>LOGOUT</code> are example commands that the client can issue, while <code>OK</code>
 is one possible server response. Other common commands include and
 <code>EXPUNGE</code>, with the obvious meanings. Additional server responses
@@ -1364,8 +1368,9 @@ objects on the Web to be located, and they look like the following:</p>
 <pre><code class="lang-html">http://www.cs.princeton.edu/index.html
 </code></pre>
 <p>If you opened that particular URL, your web browser would open a TCP
-connection to the web server at a machine called and immediately
-retrieve and display the file called . Most files on the Web contain
+connection to the web server at a machine called
+<code>www.cs.princeton.edu</code> and immediately retrieve and display the file
+called <code>index.html</code>. Most files on the Web contain
 images and text, and many have other objects such as audio and video
 clips, pieces of code, etc. They also frequently include URLs that point
 to other files that may be located on other machines, which is the core
@@ -1582,7 +1587,7 @@ strictly speaking they are not <em>locators</em> because they don&apos;t tell yo
 how to locate something; they just provide a globally unique identifier
 for the namespace. There is no requirement that you can retrieve
 anything at the URI given as the target namespace of an XML document.
-We&apos;ll see another example of a URI that is not a URL in a later section</p>
+We&apos;ll see another example of a URI that is not a URL in a later section.</p>
 <h3 id="tcp-connections">TCP Connections</h3>
 <p>The original version of HTTP (1.0) established a separate TCP connection
 for each data item retrieved from the server. It&apos;s not too hard to see
@@ -1640,8 +1645,8 @@ be one reason why persistent connections were not used from the outset,
 but today it is widely accepted that the benefits of persistent
 connections more than offset the drawbacks.</p>
 <h3 id="caching">Caching</h3>
-<p>One of the most active areas of research (and entrepreneurship) in the
-Internet today is how to effectively cache Web pages. Caching has many
+<p>An important implementation strategy that makes the web more usable
+is to cache Web pages. Caching has many
 benefits. From the client&apos;s perspective, a page that can be retrieved
 from a nearby cache can be displayed much more quickly than if it has to
 be fetched from across the world. From the server&apos;s perspective, having
@@ -1688,7 +1693,7 @@ whether or not a document can be cached, how long it can be cached, how
 fresh a document must be, and so on. We&apos;ll look at the related issue of
 CDNs&#x2014;which are effectively distributed caches&#x2014;in a later section.</p>
 <h2 id="web-services">Web Services</h2>
-<p>So far we have focused on interactions between a human and a machine.
+<p>So far we have focused on interactions between a human and a web server.
 For example, a human uses a web browser to interact with a server, and
 the interaction proceeds in response to input from the user (e.g., by
 clicking on links). However, there is increasing demand for direct
@@ -1744,8 +1749,8 @@ architectures are called <em>Web Services</em>, taking their name from the term
 for the individual applications that offer a remotely accessible service
 to client applications to form network applications. The terms used
 as informal shorthand to distinguish the two Web Services architectures
-are <em>SOAP</em> and <em>REST</em> (as in, &quot;the SOAP vs. REST debate&quot;). We will
-discuss the technical meanings of those terms shortly.</p>
+are <em>SOAP</em> and <em>REST</em>. We will discuss the technical meanings of those
+terms shortly.</p>
 <blockquote>
 <p>The name <em>Web Services</em> is unfortunately so generic sounding that 
 many mistakenly assume that it includes any sort of service 
@@ -1767,12 +1772,6 @@ procedural or operation-oriented style of invoking a remote service.
 REST advocates argue, however, that rich services can nonetheless be
 exposed using a more data-oriented or document-passing style for which
 HTTP is well suited.</p>
-<p>Although both architectures are being actively adopted, they are still
-new enough that we don&apos;t yet have much empirical data about their
-real-world use. One architecture may come to dominate, or they may merge
-in some way, or we may find that one architecture is better suited to
-certain kinds of applications while the other architecture is better for
-others.</p>
 <h3 id="custom-application-protocols-wsdl-soap">Custom Application Protocols (WSDL, SOAP)</h3>
 <p>The architecture informally referred to as SOAP is based on <em>Web
 Services Description Language</em> (WSDL) and <em>SOAP</em>. Both of these
@@ -1975,7 +1974,7 @@ conformance to <em>WS-Security</em> (Web Services Security). WS-Security
 specifies how to use various existing techniques such as X.509 public
 key certificatesand Kerberos to provide security features in SOAP
 protocols.</p>
-<p>2.5pt plus1pt minus1pt WS-Security is just the first of a growing suite
+<p>WS-Security is just the first of a growing suite
 of SOAP-level standards established by the industry consortium OASIS
 (Organization for the Advancement of Structured Information Standards).
 The standards known collectively as <em>WS-</em>* include WS-Reliability,
@@ -2102,7 +2101,7 @@ factors specific to Amazon.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"next":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"previous":{"title":"Chapter 9: Applications","level":"1.10","depth":1,"path":"applications/problem.md","ref":"applications/problem.md","articles":[{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},{"title":"9.5 Summary","level":"1.10.5","depth":2,"path":"applications/summary.md","ref":"applications/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/traditional.md","mtime":"2018-08-15T22:11:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"next":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"previous":{"title":"Chapter 9: Applications","level":"1.10","depth":1,"path":"applications/problem.md","ref":"applications/problem.md","articles":[{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},{"title":"9.5 Summary","level":"1.10.5","depth":2,"path":"applications/summary.md","ref":"applications/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/traditional.md","mtime":"2018-10-04T22:41:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1090,6 +1090,16 @@ other host. Abstractly, then, end system multicast solves the following
 problem: Starting with a fully connected graph representing the
 Internet, the goal is to find the embedded multicast tree that spans all
 the group members.</p>
+<blockquote>
+<p>There is a simpler version of this problem, enabled by the ready
+availability of cloud-hosted VMs around the world. The
+multicast-aware &quot;end systems&quot; can be VMs running at multiple
+sites. As these sites are well-known and relatively fixed, it&apos;s
+possible to construct a static multicast tree in the cloud, and have
+the actual end-hosts simply connect to the nearest cloud location.
+But for the sake of completeness, the following describes the
+approach in its full glory.</p>
+</blockquote>
 <figure class="line">
     <a id="topology"></a>
     <img src="figures/f09-21-9780123850591.png" width="400px">
@@ -1245,31 +1255,34 @@ much better job of monitoring the quality of every path you might use,
 thereby allowing you to select the best possible route at any moment in
 time.</p>
 <p>An experimental overlay, called the Resilient Overlay Network (RON),
-does exactly this. RON scales to only a few dozen nodes because it uses
+did exactly this. RON scaled to only a few dozen nodes because it used
 an <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&#xD7;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">&#xD7;</span><span class="mord mathit">n</span></span></span></span> strategy of closely monitoring (via active probes) three
 aspects of path quality&#x2014;latency, available bandwidth, and loss
-probability&#x2014;between every pair of sites. It is then able to both
+probability&#x2014;between every pair of sites. It was then able to both
 select the optimal route between any pair of nodes, and rapidly change
-routes should network conditions change. Experience shows that RON is
-able to deliver modest performance improvements to applications, but
-more importantly, it recovers from network failures much more quickly.
+routes should network conditions change. Experience showed that RON
+was able to deliver modest performance improvements to applications,
+but more importantly, it recoverd from network failures much more quickly.
 For example, during one 64-hour period in 2001, an instance of RON
 running on 12 nodes detected 32 outages lasting over 30 minutes, and it
 was able to recover from all of them in less than 20 seconds on average.
 This experiment also suggested that forwarding data through just one
 intermediate node is usually sufficient to recover from Internet
 failures.</p>
-<p>Since RON is not designed to be a scalable approach, it is not possible
+<p>Since RON was not designed to be a scalable approach, it is not possible
 to use RON to help random host A communicate with random host B; A and B
 have to know ahead of time that they are likely to communicate and then
 join the same RON. However, RON seems like a good idea in certain
 settings, such as when connecting a few dozen corporate sites spread
 across the Internet or allowing you and 50 of your friends to establish
-your own private overlay for the sake of running some application. The
+your own private overlay for the sake of running some
+application. (Today, this idea is put to practice with the marketing
+name <em>Software-Defined WAN</em>, or <em>SD-WAN</em>.) The
 real question, though, is what happens when everyone starts to run their
 own RON. Does the overhead of millions of RONs aggressively probing
-paths swamp the network, and does anyone see improved behavior when many
-RONs compete for the same paths? These questions are still unanswered.</p>
+paths swamp the network, and does anyone see improved behavior when
+many RONs compete for the same paths? These questions are still
+unanswered.</p>
 <p>All of these overlays illustrate a concept that is central to computer
 networks in general: <em>virtualization</em>. That is, it is possible to build
 a virtual network from abstract (logical) resources on top of a physical
@@ -1382,8 +1395,8 @@ object there are, the easier it should be to find a copy. Alternatively,
 one could develop a completely different strategy, which is the topic we
 consider next.</p>
 <h3 id="structured-overlays">Structured Overlays</h3>
-<p>At the same time file sharing systems have been fighting to fill the
-void left by Napster, the research community has been exploring an
+<p>At the same time file sharing systems started fighting to fill the
+void left by Napster, the research community began to explore an
 alternative design for peer-to-peer networks. We refer to these networks
 as <em>structured</em>, to contrast them with the essentially random
 (unstructured) way in which a Gnutella network evolves. Unstructured
@@ -1478,8 +1491,7 @@ the nodes in the network.</p>
 <p><a href="#locate">Figure 8</a> illustrates what happens for a simple 28-bit ID
 space. To keep the discussion as concrete as possible, we consider the
 approach used by a particular peer-to-peer network called <em>Pastry</em>.
-Other systems work in a similar manner. (See the papers cited at the end
-of the chapter for additional examples.)</p>
+Other systems work in a similar manner.</p>
 <p>Suppose you are at the node with id <code>65a1fc</code> (hex) and you are trying to
 locate the object with ID <code>d46a1c</code>. You realize that your ID shares
 nothing with the object&apos;s, but you know of a node that shares at least
@@ -1753,13 +1765,13 @@ devising a good one is an art.</p>
 retrieve pages from web servers. However, anyone who has waited an
 eternity for a Web page to return knows that the system is far from
 perfect. Considering that the backbone of the Internet is now
-constructed from OC-192 (10-Gbps) links, it&apos;s not obvious why this
+constructed from 40-Gbps links, it&apos;s not obvious why this
 should happen. It is generally agreed that when it comes to downloading
 Web pages there are four potential bottlenecks in the system:</p>
 <ul>
 <li><p><em>The first mile.</em> The Internet may have high-capacity links in it,
   but that doesn&apos;t help you download a Web page any faster when you&apos;re
-  connected by a 56-Kbps modem or a poorly performing 3G wireless
+  connected by a 1.5Mbps DSL line or a poorly performing wireless
   link.</p>
 </li>
 <li><p><em>The last mile.</em> The link that connects the server to the Internet
@@ -2025,7 +2037,7 @@ locality is a subject of ongoing research.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"next":{"title":"9.5 Summary","level":"1.10.5","depth":2,"path":"applications/summary.md","ref":"applications/summary.md","articles":[]},"previous":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/overlays.md","mtime":"2018-08-15T22:11:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T21:37:15.945Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"next":{"title":"9.5 Summary","level":"1.10.5","depth":2,"path":"applications/summary.md","ref":"applications/summary.md","articles":[]},"previous":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/overlays.md","mtime":"2018-10-04T22:41:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
