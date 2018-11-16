@@ -1816,7 +1816,7 @@ while (N != M)
     C(n) = MIN(C(n), C(w)+l(w,n))
 </code></pre>
 <p>Basically, the algorithm works as follows. We start with M containing
-this node s and then initialize the table of costs (the C(n)s) to
+this node s and then initialize the table of costs (the array <code>C(n)</code>) to
 other nodes using the known costs to directly connected nodes. We then
 look for the node that is reachable at the lowest cost (w) and add it
 to M. Finally, we update the table of costs by considering the cost of
@@ -1868,7 +1868,7 @@ where <code>NextHop</code> is the direction I go to reach <code>Next</code>.</p>
 <p>This will become a lot easier to understand when we look at an example.
 Consider the network depicted in <a href="#lsroute">Figure 6</a>. Note that,
 unlike our previous example, this network has a range of different edge
-costs. <a href="#ls-trace">Table</a> traces the steps for building the routing
+costs. <a href="#ls_trace">Table 6</a> traces the steps for building the routing
 table for node D. We denote the two outputs of D by using the names of
 the nodes to which they connect, B and C. Note the way the algorithm
 seems to head off on false leads (like the 11-unit cost path to B that
@@ -2196,17 +2196,17 @@ more significantly, many networks today lack the great disparity of
 link speeds and latencies that prevailed in the ARPANET. Thus, static
 metrics are the norm. One common approach to setting metrics is to use
 a constant multiplied by (1/link_bandwidth).</p>
-<p>So why do we still tell the story about a decades old algorithm that&apos;s
+<p>Why do we still tell the story about a decades old algorithm that&apos;s
 no longer is use? Because it perfectly illustrates two valuable lessons.
 The first is that computer systems are often <em>designed iteratively,
-based on experience.</em> We seldom get it right the first time, so it&apos;s
+based on experience.</em>  We seldom get it right the first time, so it&apos;s
 important to deploy a simple solution sooner rather than later, and
 expect to improve it over time. Staying stuck in the design phase
 indefinitely is usually not a good approach. The second is the
-well-know KISS principle: <em>Keep it Simple, Stupid.</em> When building a
+well-know KISS principle: <em>Keep it Simple, Stupid.</em>  When building a
 complex system, less is often more. Opportunities to invent
 sophisticated optimizations are plentiful, and it&apos;s a tempting
-challenge to tackle. While such optimations sometimes have
+opportunity to pursue. While such optimations sometimes have
 short-term value, it is shocking how often a simple approach proves
 best over time. This is because when a system has many moving parts,
 as the Internet most certainly does, keeping each part as simple as
@@ -2254,7 +2254,7 @@ possible is usually the best bet.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2018-09-05T21:50:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2018-11-02T21:57:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-16T21:52:47.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

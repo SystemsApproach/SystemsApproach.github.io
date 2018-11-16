@@ -988,68 +988,57 @@ several different protocols to illustrate the various points in the
 design space. Note that while we discuss framing in the context of
 point-to-point links, the problem is a fundamental one that must also be
 addressed in multiple-access networks like Ethernet and Wi-Fi.</p>
-<h2 id="byte-oriented-protocols-bisync-ppp-ddcmp">Byte-Oriented Protocols (BISYNC, PPP, DDCMP)</h2>
+<h2 id="byte-oriented-protocols-ppp">Byte-Oriented Protocols (PPP)</h2>
 <p>One of the oldest approaches to framing&#x2014;it has its roots in connecting
 terminals to mainframes&#x2014;is to view each frame as a collection of bytes
-(characters) rather than a collection of bits. Such a <em>byte-oriented</em>
-approach is exemplified by older protocols such as the Binary
-Synchronous Communication (BISYNC) protocol developed by IBM in the late
-1960s, and the Digital Data Communication Message Protocol (DDCMP) used
-in Digital Equipment Corporation&apos;s DECNET. The more recent and widely
-used Point-to-Point Protocol (PPP) provides another example of this
-approach.</p>
-<h3 id="sentinel-based-approaches">Sentinel-Based Approaches</h3>
-<p><a href="#bisync">Figure 2</a> illustrates the BISYNC protocol&apos;s frame format.
-This figure is the first of many that you will see in this book that are
-used to illustrate frame or packet formats, so a few words of
-explanation are in order. We show a packet as a sequence of labeled
-fields. Above each field is a number indicating the length of that field
-in bits. Note that the packets are transmitted beginning with the
-leftmost field.</p>
-<figure class="line">
-    <a id="bisyn"></a>
-    <img src="figures/f02-07-9780123850591.png" width="400px">
-    <figcaption>BISYNC frame format.</figcaption>
-</figure>
-
-<p>BISYNC uses special characters known as <em>sentinel characters</em> to
-indicate where frames start and end. The beginning of a frame is denoted
-by sending a special SYN (synchronization) character. The data portion
-of the frame is then contained between two more special characters: STX
-(start of text) and ETX (end of text). The SOH (start of header) field
-serves much the same purpose as the STX field. The problem with the
-sentinel approach, of course, is that the ETX character might appear in
-the data portion of the frame. BISYNC overcomes this problem by
-&quot;escaping&quot; the ETX character by preceding it with a DLE
-(data-link-escape) character whenever it appears in the body of a frame;
-the DLE character is also escaped (by preceding it with an extra DLE) in
-the frame body. (C programmers may notice that this is analogous to the
-way a quotation mark is escaped by the backslash when it occurs inside a
-string.) This approach is often called <em>character stuffing</em> because
-extra characters are inserted in the data portion of the frame.</p>
-<p>The frame format also includes a field labeled CRC (cyclic redundancy
-check), which is used to detect transmission errors; various algorithms
-for error detection are presented in a later section. Finally, the frame
-contains additional header fields that are used for, among other things,
-the link-level reliable delivery algorithm. Examples of these algorithms
-are given in a later section.</p>
-<p>The more recent Point-to-Point Protocol (PPP), which is commonly used to
+(characters) rather than a collection of bits. Early examples of such
+<em>byte-oriented</em> protocols are the Binary Synchronous Communication
+(BISYNC) protocol developed by IBM in the late 1960s, and the Digital
+Data Communication Message Protocol (DDCMP) used in Digital Equipment
+Corporation&apos;s DECNET. (Once upon a time, large computer companaies
+like IBM and DEC also built networks that their customers could join.)
+The widely used Point-to-Point Protocol (PPP) is a recent example of
+this approach.</p>
+<h3 id="sentinel-based-approach">Sentinel-Based Approach</h3>
+<p>One general approach adopted by byte-oriented framing protocols is to
+use special characters known as <em>sentinel characters</em> to indicate
+where frames start and end. The idea is to denote the beginning of a
+frame by sending a special SYN (synchronization) character. The data
+portion of the frame is then sometimes contained between two more
+special characters: STX (start of text) and ETX (end of text). The problem
+with the sentinel approach, of course, is that one of the special
+characters might appear in the data portion of the frame. The standard
+way to overcome this problem by &quot;escaping&quot; the character by preceding
+it with a DLE (data-link-escape) character whenever it appears in the
+body of a frame; the DLE character is also escaped (by preceding it
+with an extra DLE) in the frame body. (C programmers may notice that
+this is analogous to the way a quotation mark is escaped by the
+backslash when it occurs inside a string.) This approach is often
+called <em>character stuffing</em> because extra characters are inserted in
+the data portion of the frame.</p>
+<p>The Point-to-Point Protocol (PPP), which is commonly used to
 carry Internet Protocol packets over various sorts of point-to-point
-links, is similar to BISYNC in that it also uses sentinels and character
-stuffing. The format for a PPP frame is given in <a href="#ppp">Figure 3</a>. The
-special start-of-text character, denoted as the <code>Flag</code> field
-is <code>01111110</code>. The <code>Address</code> and <code>Control</code> fields
-usually contain default values and so are uninteresting. The (Protocol)
-field is used for demultiplexing; it identifies the high-level protocol
-such as IP or IPX (an IP-like protocol developed by Novell). The frame
-payload size can be negotiated, but it is 1500 bytes by default. The
-<code>Checksum</code> field is either 2 (by default) or 4 bytes long.</p>
+links, uses sentinels and character stuffing. The format for a PPP
+frame is given in <a href="#ppp">Figure 2</a>.</p>
 <figure class="line">
     <a id="ppp"></a>
     <img src="figures/f02-08-9780123850591.png" width="500px">
     <figcaption>PPP frame format.</figcaption>
 </figure>
 
+<p>This figure is the first of many that you will see in this book that are 
+used to illustrate frame or packet formats, so a few words of 
+explanation are in order. We show a packet as a sequence of labeled 
+fields. Above each field is a number indicating the length of that field 
+in bits. Note that the packets are transmitted beginning with the 
+leftmost field. </p>
+<p>The special start-of-text character, denoted as the <code>Flag</code> field
+is <code>01111110</code>. The <code>Address</code> and <code>Control</code> fields
+usually contain default values and so are uninteresting. The (Protocol)
+field is used for demultiplexing; it identifies the high-level protocol,
+such as IP. The frame payload size can be negotiated, but it is
+1500 bytes by default. The <code>Checksum</code> field is either 2 (by default)
+or 4 bytes long.</p>
 <p>The PPP frame format is unusual in that several of the field sizes are
 negotiated rather than fixed. This negotiation is conducted by a
 protocol called the Link Control Protocol (LCP). PPP and LCP work in
@@ -1066,8 +1055,8 @@ connects).</p>
 detecting the end of a file with a sentinel value is to include the
 number of items in the file at the beginning of the file. The same is
 true in framing&#x2014;the number of bytes contained in a frame can be
-included as a field in the frame header. The DECNET&apos;s DDCMP uses this
-approach, as illustrated in <a href="#ddcmp">Figure 4</a>. In this
+included as a field in the frame header. DDCMP used this
+approach, as illustrated in <a href="#ddcmp">Figure 3</a>. In this
 example, the <code>COUNT</code> field specifies how many bytes are contained in
 the frame&apos;s body.</p>
 <figure class="line">
@@ -1096,7 +1085,7 @@ Link Control (SDLC) protocol developed by IBM is an example of a
 bit-oriented protocol; SDLC was later standardized by the ISO as the
 High-Level Data Link Control (HDLC) protocol. In the following
 discussion, we use HDLC as an example; its frame format is given in
-<a href="#hdlc">Figure 5</a>.</p>
+<a href="#hdlc">Figure 4</a>.</p>
 <p>HDLC denotes both the beginning and the end of a frame with the
 distinguished bit sequence <code>01111110</code>. This sequence is also transmitted
 during any times that the link is idle so that the sender and receiver
@@ -1168,7 +1157,7 @@ bit stuffing is used, so that a frame&apos;s length does not depend on the
 data being sent. So the question to ask is &quot;How does the receiver know
 where each frame starts and ends?&quot; We consider this question for the
 lowest-speed SONET link, which is known as STS-1 and runs at 51.84 Mbps.
-An STS-1 frame is shown in <a href="#sonet-frame">Figure 6</a>. It is arranged as
+An STS-1 frame is shown in <a href="#sonet-frame">Figure 5</a>. It is arranged as
 9 rows of 90 bytes each, and the first 3 bytes of each row are overhead,
 with the rest being available for data that is being transmitted over
 the link. The first 2 bytes of the frame contain a special bit pattern,
@@ -1246,7 +1235,7 @@ smooth 51 Mbps, rather than all bunched up during one particular
 multiplex N STS-1 frames, the payload from these STS-1 frames can be
 linked together to form a larger STS-N payload; such a link is denoted
 STS-Nc (for <em>concatenated</em>). One of the fields in the overhead is used
-for this purpose. <a href="#sonet1">Figure 7</a> schematically depicts
+for this purpose. <a href="#sonet1">Figure 6</a> schematically depicts
 concatenation in the case of three STS-1 frames being concatenated into
 a single STS-3c frame. The significance of a SONET link being designated
 as STS-3c rather than STS-3 is that, in the former case, the user of the
@@ -1263,7 +1252,7 @@ it assumes that the payload for each frame is completely contained
 within the frame. (Why wouldn&apos;t it be?) In fact, we should view the
 STS-1 frame just described as simply a placeholder for the frame, where
 the actual payload may <em>float</em> across frame boundaries. This situation
-is illustrated in <a href="#sonet3">Figure 8</a>. Here we see both the STS-1
+is illustrated in <a href="#sonet3">Figure 7</a>. Here we see both the STS-1
 payload floating across two STS-1 frames and the payload shifted some
 number of bytes to the right and, therefore, wrapped around. One of the
 fields in the frame overhead points to the beginning of the payload. The
@@ -1313,7 +1302,7 @@ that carriers spend a lot of their time worrying about.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.3 Framing","level":"1.3.3","depth":2,"next":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"previous":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/framing.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3 Framing","level":"1.3.3","depth":2,"next":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"previous":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/framing.md","mtime":"2018-11-02T21:05:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-16T21:52:47.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

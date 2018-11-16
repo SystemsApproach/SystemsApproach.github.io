@@ -984,9 +984,9 @@ Aloha, developed at the University of Hawaii to support computer
 communication across the Hawaiian Islands. Like the Aloha network, the
 fundamental problem faced by the Ethernet is how to mediate access to a
 shared medium fairly and efficiently (in Aloha, the medium was the
-atmosphere, while in the Ethernet the medium is a coax cable). The core
-idea in both Aloha and the Ethernet is an algorithm that controls when
-each node can transmit.</p>
+atmosphere, while in the Ethernet the medium was originally a coax
+cable). The core idea in both Aloha and the Ethernet is an algorithm
+that controls when each node can transmit.</p>
 <p>Interestingly, modern Ethernet links are now largely point to point;
 that is, they connect one host to an Ethernet <em>switch</em>, or they
 interconnect switches. As a consequence, the &quot;multiple access&quot;
@@ -1205,7 +1205,7 @@ about an Ethernet: Why is its length limited to only 2500 m? Why not 10
 or 1000 km? The answer to both questions has to do with the fact that the
 farther apart two nodes are, the longer it takes for a frame sent by one
 to reach the other, and the network is vulnerable to a collision
-duringthis time.</p>
+during this time.</p>
 <figure class="line">
     <a id="worst"></a>
     <img src="figures/f02-26-9780123850591.png" width="350px">
@@ -1255,38 +1255,30 @@ the number of collisions experienced so far. The adaptor gives up
 after a given number of tries and reports a transmit error to the
 host. Adaptors typically retry up to 16 times, although the backoff
 algorithm caps <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> in the above formula at 10.</p>
-<h2 id="experience-with-ethernet">Experience with Ethernet</h2>
-<p>Because Ethernets have been around for so many years and are so popular,
-we have a great deal of experience in using them. One of the most
-important observations people have made about multi-access Ethernets is
-that they work best under lightly loaded conditions. This is because
-under heavy loads (typically, a utilization of over 30% is considered
-heavy on an Ethernet) too much of the network&apos;s capacity is wasted by
-collisions.</p>
-<p>To mitigate these concerns, multi-access Ethernets were typically used
-in a far more conservative way than the standard allows. For example,
-most Ethernets had fewer than 200 hosts connected to them, which is far
-fewer than the maximum of 1024. Similarly, most Ethernets were far
-shorter than 2500 m, with a round-trip delay of closer to 5 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s than
-51.2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s. Another factor that made Ethernets practical is that, even
-though Ethernet adaptors do not implement link-level flow control, the
-hosts typically provide an end-to-end flow-control mechanism.
-As a result, it is rare to find situations in which any one host is
-continuously pumping frames onto the network.</p>
-<p>Finally, it is worth saying a few words about why Ethernets have been so
-successful, so that we can understand the properties we should emulate
-with any technology that tries to replace it. First, an Ethernet is
-extremely easy to administer and maintain: There is no routing or
-configuration tables to be kept up-to-date, and it is easy to add a
-new host to the network. It is hard to imagine a simpler network to
-administer. Second, it is inexpensive: Cable is cheap, and the only
-other cost is the network adaptor on each host. Ethernet became deeply
-entrenched for these reasons, and any switch-based approach that
-aspired to displace it required additional investment in
-infrastructure (the switches), on top of the cost of each adaptor. A
-switch-based technology did eventually succeed in replacing
-multi-access Ethernet, but retaining the simplicity of administration
-was a key reason for switched Ethernet&apos;s success.</p>
+<h2 id="longevity-of-ethernet">Longevity of Ethernet</h2>
+<p>Ethernet has been the dominant local area network technology for over
+30 years. Today it is typically deployed point-to-point rather than
+tapping into a coax cable, it often runs at speeds of 1 or 10 Gbps
+rather than 10 Mbps, and it allow of jumbo packets with up to 9000
+bytes of data rather than 1500 bytes. But, it remains backwards
+compatible with the original standard. This makes it worth saying a
+few words about why Ethernets have been so successful, so that we can
+understand the properties we should emulate with any technology that
+tries to replace it.</p>
+<p>First, an Ethernet is extremely easy to administer and maintain: There
+is no routing or configuration tables to be kept up-to-date, and it is
+easy to add a new host to the network. It is hard to imagine a simpler
+network to administer. Second, it is inexpensive: cable/fiber is
+relatively cheap, and the only other cost is the network adaptor on
+each host. Ethernet became deeply entrenched for these reasons, and
+any switch-based approach that aspired to displace it required
+additional investment in infrastructure (the switches), on top of the
+cost of each adaptor. The switch-based variant of Ethernet did
+eventually succeed in replacing multi-access Ethernet, but this is in
+part because it could be delpoyed incrementally&#x2014;with some hosts
+connected by point-to-point links to switches while others remained
+tapped into coax&#x2014;all the while retaining the simplicity of network
+administration.</p>
 
                                 
                                 </section>
@@ -1330,7 +1322,7 @@ was a key reason for switched Ethernet&apos;s success.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"next":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"previous":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/ethernet.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"next":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"previous":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/ethernet.md","mtime":"2018-11-02T21:41:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-16T21:52:47.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

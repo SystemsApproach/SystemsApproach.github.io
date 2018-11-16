@@ -1000,9 +1000,27 @@ they are the optical variant of repeaters used in the classic Ethernet.
 Framing then happens at the source in the ISP&apos;s premises, in a device
 called an <em>Optical Line Terminal</em> (OLT), and at the end-points in
 individual homes, in a device called an <em>Optical Network Unit</em> (ONU).</p>
-<p>For this reason, PON has to implement some form of multi-access
-protocol. The approach it adopts can be summarized as follows.
-First, upstream and downstream traffic are transmitted on two
+<p><a href="#pon">Figure 1</a> shows an example PON, simplified to depict just one
+ONU and one OLT. In practice, a Central Office would include multiple
+OLTs connecting to thousands of customer homes. For completeness,
+<a href="#pon">Figure 1</a> also includes two other details about how the PON is
+connected to the ISP&apos;s backbone (and hence, to the rest of the
+Internet). The <em>Agg Switch</em> aggregates traffic from a set of OLTs, and
+the <em>BNG</em> (Broadband Network Gateway) is a piece of Telco equipment
+that, among many other things, meters Internet traffic for the sake
+of billing. As its name implies, the BNG is effectively the gateway
+between the access network (everything to the left of the BNG) and the
+Internet (everything to the right of the BNG).</p>
+<figure class="line">
+    <a id="pon"></a>
+    <img src="figures/access/Slide1.png" width="600px">
+    <figcaption>An example PON that connects OLTs in the Central Office 
+    to ONUs in homes and businesses.</figcaption>
+</figure>
+
+<p>Because the splitters are passive, PON has to implement some form of
+multi-access protocol. The approach it adopts can be summarized as
+follows. First, upstream and downstream traffic are transmitted on two
 diffrent optical wavelengths, so they are completely independent of
 each other. Downstream traffic starts at the OLT and the signal is
 propogated down every link in the PON. As a consequence, every frame
@@ -1012,9 +1030,9 @@ frame (if the identifier is for it) or drops it (if not). Encryption is
 used to keep ONUs from eavesdropping on their neighbors&apos; traffic.</p>
 <p>Upstream traffic is then time-division multiplexed on the upstream
 wavelength, with each ONU periodically getting a turn to transmit.
-Because the OLTs are distributed over a fairly wide area (measured
+Because the ONUs are distributed over a fairly wide area (measured
 in kilometers) and at different distances from the OLT, it is not
-practical for the them to transmit based on synchronized clocks, as in
+practical for them to transmit based on synchronized clocks, as in
 SONET. Instead, the ONT transmits <em>grants</em> to the individual ONUs,
 giving them a time interval during which they can transmit. In other
 words, the single OLT is responsible for centrally implementing the
@@ -1035,7 +1053,7 @@ bandwidths in the radio spectrum. Unlike Wi-Fi, which permits anyone
 to use a channel at either 2.4 or 5 GHz (all you have to do is set up a
 base station, as many of us do in our homes), exclusive use of various
 frequency bands have been auctioned off and licensed to service
-providers, who in turn sell mobile access service to their consumers.</p>
+providers, who in turn sell mobile access service to their subscribers.</p>
 <p>The frequency bands that are used for cellular networks vary around
 the world, and are complicated by the fact that ISPs often
 simultaneously support both old/legacy technologies and
@@ -1052,9 +1070,37 @@ setting up private cellular networks.</p>
 that are connected to a wired network. In the case of the cellular
 network, the base stations are often called <em>Broadband Base Units</em>
 (BBU), the mobile devices that connect to them are usually referred to
-as <em>User Equipment</em> (UE), and the set of BBUs anchored at a given
-Central Office and serving a particular region is collectively called
-a <em>Radio Access Network</em> (RAN).</p>
+as <em>User Equipment</em> (UE), and the set of BBUs are anchored at an <em>Evolved
+Packet Core</em> (EPC) hosted in a Central Office. The wireless network
+served by the EPC is often called a <em>Radio Access Network</em> (RAN).</p>
+<blockquote>
+<p>BBUs currently go by another name&#x2014;Evolved NodeB, often abbreviated
+eNodeB or eNB&#x2014;where NodeB is what the radio unit was called in an
+early incarnation of cellular networks (and has since evolved).
+Given that the cellular world continues to evolve at a rapid pace
+and there&apos;s good reason to believe eNB will be out-of-date before
+long, we have decided to use the more generic and less cryptic BBU.</p>
+</blockquote>
+<p><a href="#ran">Figure 2</a> depicts one possible configuration of the end-to-end
+scenario, with two additional bits of detail. The EPC has multiple
+subcomponents, including an MME (Mobility Management Entity)
+and an S/PGW (Session/Packet Gateway); the former tracks and manages
+the movement of UEs throughout the RAN, and the latter processes and
+forwards packets between the RAN and the Internet. We say &quot;one
+possible configuration&quot; because the celluar standards allow wide
+variability in how many S/PGWs a given MME is responsible for, making
+is possible for a single MME to manage mobility across a wide
+geographic area that is served by multiple Central Offices. Finally,
+while not explicitly spelled out in <a href="#ran">Figure 2</a>, it is sometimes
+the case that the ISP&apos;s PON network is used to connect the remote BBUs
+back to the Central Office.</p>
+<figure class="line">
+    <a id="ran"></a>
+    <img src="figures/access/Slide2.png" width="600px">
+    <figcaption>A Radio Access Network (RAN) connecting a set of cellular devices
+    (UEs) to an Evolved Packet Core (EPC) hosted in a Central Office.</figcaption>
+</figure>
+
 <p>The geographic area served by a BBU&apos;s antenna is called a <em>cell</em>.
 A BBU could serve a single cell or use multiple directional antennas
 to serve multiple cells. Cells don&apos;t have crisp boundaries, and they
@@ -1066,8 +1112,11 @@ cells. The current BBU senses the weakening signal from the phone and
 gives control of the device to whichever base station is receiving the
 strongest signal from it. If the device is involved in a call or other
 network session at the time, the session must be transferred to the
-new base station in what is called a <em>handoff</em>. Details about how
-handoffs are managed is beyond the scope of this book.</p>
+new base station in what is called a <em>handoff</em>. The decision making
+process for handoffs is under the purview of the MME, which has
+historically been a proprietary aspect of the cellular equipment
+vendors (although open source MME implementations are now starting
+to be available).</p>
 <p>There have been multiple generations of protocols implementing the
 cellular network, colloquially known as 1G, 2G, 3G, and so on. The first
 two generations supported only voice, with 3G defining the transition
@@ -1086,21 +1135,31 @@ of releases and generations is called LTE, which stands for <em>Long-Term
 Evolution</em>. The main takeaway is that while standards are published as
 a sequence of discrete releases, the industry as a whole is now on a
 fairly well-defined evolutionary path known as LTE.</p>
-<p>There are three highlights of LTE&apos;s air interface for 4G. First, it uses
-a different multiplexing scheme for downlink and uplink traffic.
-Second, for downlink traffic (from BBU to UE), LTE uses a hybrid
-multiplexing scheme called OFDMA (Orthogonal Frequency Division
-Multiple Access), which intuitively combines frequence-division
-multiplexing (carving the downlink frequency band into multiple
-overlapping sub-channels) and time-division multiplexing (allocating
-one or more sub-channels to a given UE for a certain slot of time).
-Giving the BBU two degrees of freedom improves its ability to squeeze
-the most capacity out of limited bandwidth allocated to it. Third, for
-uplink traffic (from UE to BBU), LTE uses SC-FDMA (Single Carrier,
-Frequence-Division Multiple Access). The main advantage of SC-FDMA
-over OFDMA is that it takes less power to transmit, which in the
-uplink direction, reduces the workload on the limited battery capacity
-in our cellphones.</p>
+<p>The main innovaition of LTE&apos;s air interface for 5G is the flexibility
+it provides. 5G uses a hybrid multiplexing scheme called OFDMA
+(Orthogonal Frequency Division Multiple Access), which intuitively
+combines frequence-division multiplexing (carving the frequency band
+into multiple overlapping sub-channels) and time-division multiplexing
+(allocating one or more sub-channels to a given UE for a certain slot
+of time). OFDMA also uses a coding scheme known as LDPC (Low Density
+Parity Check) that ensures the probability of inter-symbol
+interference for transimssions on adjacent sub-channels is zero.
+Another way of thinking about LDPC is that the way it encodes bits
+onto signals includes enough redundancy (i.e., a form of FEC) to
+ensure the receiver is able able recover the original data even when
+signals overlap. In addition, BBUs also have the ability to
+increase/decrease the power they use to transmit on a given
+sub-channel, effectively allowing them to dynamically change cell
+size. This makes it possible to move UEs from one cell to another on
+the fly.</p>
+<p>Taken all together, this gives the RAN three degrees of freedom, which
+improves its ability to squeeze the most capacity out of the
+limited spectrum. More importantly, this flexibility provides
+opportunities for ISPs to offer new services to their subscribers,
+supporting applications that range from bandwidth-hungry video and
+virutual/augmented reality to latency-sensitive autonomous cars and
+Internet-of-Things. The challenge of 5G is how to control and best
+take advantage of this flexibility.</p>
 
                                 
                                 </section>
@@ -1144,7 +1203,7 @@ in our cellphones.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"next":{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"previous":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/access.md","mtime":"2018-08-28T19:54:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"next":{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"previous":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/access.md","mtime":"2018-11-13T18:48:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-16T21:52:47.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

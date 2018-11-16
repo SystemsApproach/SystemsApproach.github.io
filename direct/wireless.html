@@ -1214,7 +1214,7 @@ rates as well; for example, 802.11a allows for bit rates of 6, 9, 12,
 transmitted signals in the presence of noise. Different modulation
 schemes are used to achieve the various bit rates; in addition, the
 amount of redundant informationin the form of error-correcting codes is
-varied. (See for an introduction to error-detecting codes.) More
+varied. More
 redundant information means higher resilience to bit errors at the cost
 of lowering the effective data rate (since more of the transmitted bits
 are redundant).</p>
@@ -1287,7 +1287,7 @@ for collision <em>avoidance</em>, in contrast to the collision <em>detection</em
 CSMA/CD used on Ethernets. There are a few pieces to make this work.</p>
 <p>The Carrier Sense part seems simple enough: Before sending a packet, the
 transmitter checks if it can hear any other transmissions; if not, it
-sends. However, because of the hidden terminal problem, just waiting for
+sends. However, because of the hidden node problem, just waiting for
 the absence of signals from other transmitters does not guarantee that a
 collision will not occur from the perspective of the receiver. For this
 reason, one part of CSMA/CA is an explicit ACK from the receiver to the
@@ -1296,10 +1296,10 @@ receiver, the receiver sends an ACK back to the sender.</p>
 <p>Note that if a collision does occur, it will render the entire packet
 useless. For this reason, 802.11 adds an optional mechanism called
 RTS-CTS (Ready to Send-Clear to Send). This goes some way toward
-addressing the hidden terminal problem. The sender sends an RTS&#x2014;a
+addressing the hidden node problem. The sender sends an RTS&#x2014;a
 short packet&#x2014;to the intended receiver, and if that packet is received
 successfully the receiver responds with another short packet, the CTS.
-Even though the RTS may not have been heard by a hidden terminal, the
+Even though the RTS may not have been heard by a hidden node, the
 CTS probably will be. This effectively tells the nodes within range of
 the receiver that they should not send anything for a while&#x2014;the amount
 of time of the intended transmission is included in the RTS and CTS
@@ -1535,7 +1535,7 @@ humidity, and energy consumption in a building.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"next":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},"previous":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/wireless.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"next":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},"previous":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/wireless.md","mtime":"2018-11-02T17:30:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-16T21:52:47.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

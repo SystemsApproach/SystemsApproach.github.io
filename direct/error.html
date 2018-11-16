@@ -991,12 +991,8 @@ on <em>error-correcting codes</em>, discussed below.</p>
 technique known as the <em>cyclic redundancy check</em> (CRC). It is used in
 nearly all the link-level protocols discussed in this chapter.
 This section outlines the basic CRC algorithm, but before discussing
-that approach, we consider two simpler schemes:
-<em>two-dimensional parity</em> and <em>checksums</em>. The former is used by the
-BISYNC protocol when it is transmitting ASCII characters (CRC is used as
-the error-detecting code when BISYNC is used to transmit EBCDIC, an
-alternative character encoding scheme used in the 1960s), and the
-latter is used by several Internet protocols.</p>
+that approach, we first describe the simpler <em>checksum</em> scheme used
+by several Internet protocols.</p>
 <p>The basic idea behind any error detection scheme is to add redundant
 information to a frame that can be used to determine if errors have been
 introduced. In the extreme, we could imagine transmitting two complete
@@ -1042,36 +1038,10 @@ form of error-detecting code, including CRCs. This can be confusing, so
 we urge you to use the word <em>checksum</em> only to apply to codes that
 actually do use addition and to use <em>error-detecting code</em> to refer to
 the general class of codes described in this section.</p>
-<h2 id="two-dimensional-parity">Two-Dimensional Parity</h2>
-<p>Two-dimensional parity is exactly what the name suggests. It is based on
-&quot;simple&quot; (one-dimensional) parity, which usually involves adding one
-extra bit to a 7-bit code to balance the number of 1s in the byte. For
-example, odd parity sets the eighth bit to 1 if needed to give an odd
-number of 1s in the byte, and even parity sets the eighth bit to 1 if
-needed to give an even number of 1s in the byte. Two-dimensional parity
-does a similar calculation for each bit position across each of the
-bytes contained in the frame. This results in an extra parity byte for
-the entire frame, in addition to a parity bit for each
-byte. <a href="#two-dparity">Figure 1</a> below illustrates how two-dimensional
-even parity works for an example frame containing 6 bytes of
-data. Notice that the third bit of the parity byte is 1 since there is
-an odd number of 1s in the third bit across the 6 bytes in the
-frame. It can be shown that two-dimensional parity catches all 1-, 2-,
-and 3-bit errors, and most 4-bit errors. In this case, we have added
-14 bits of redundant information to a 42-bit message, and yet we have
-stronger protection against common errors than the &quot;repetition code&quot;
-described above.</p>
-<figure class="line">
-    <a id="two-dparity"></a>
-    <img src="figures/f02-14-9780123850591.png" width="200px">
-    <figcaption>Two-dimensional parity.</figcaption>
-</figure>
-
 <h2 id="internet-checksum-algorithm">Internet Checksum Algorithm</h2>
-<p>A second approach to error detection is exemplified by the Internet
+<p>Our first approach to error detection is exemplified by the Internet
 checksum. Although it is not used at the link level, it nevertheless
-provides the same sort of functionality as CRCs and parity, so we
-discuss it here.</p>
+provides the same sort of functionality as CRCs, so we discuss it here.</p>
 <p>The idea behind the Internet checksum is very simple&#x2014;you add up all
 the words that are transmitted and then transmit the result of that sum.
 The result is the checksum. The receiver performs the same calculation
@@ -1237,7 +1207,7 @@ step 1. This part will become clearer with an example.</p>
 <p>Consider the message <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>7</mn></msup><mo>+</mo><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><msup><mi>x</mi><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">x^7 + x^4 + x^3 + x^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">7</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>, or 10011010. We begin by
 multiplying by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">x^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>, since our divisor polynomial is of degree 3. This
 gives 10011010000. We divide this by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">C(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>, which corresponds to 1101
-in this case. <a href="#crcalc">Figure 2</a> shows the polynomial long-division
+in this case. <a href="#crcalc">Figure 1</a> shows the polynomial long-division
 operation. Given the rules of polynomial arithmetic described above,
 the long-division operation proceeds much as it would if we were
 dividing integers. Thus, in the first step of our example, we see that
@@ -1250,7 +1220,7 @@ again (100) and continue until the calculation is complete. Note that
 the &quot;result&quot; of the long division, which appears at the top of the
 calculation, is not really of much interest&#x2014;it is the remainder at the
 end that matters.</p>
-<p>You can see from the very bottom of <a href="#crcalc">Figure 2</a> that the
+<p>You can see from the very bottom of <a href="#crcalc">Figure 1</a> that the
 remainder of the example calculation is 101. So we know that 10011010000
 minus 101 would be exactly divisible by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">C(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>, and this is what we
 send. The minus operation in polynomial arithmetic is the logical XOR
@@ -1336,7 +1306,7 @@ For example, Ethernet uses CRC-32, which is defined as follows:</p>
 <p>Finally, we note that the CRC algorithm, while seemingly complex, is
 easily implemented in hardware using a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>-bit shift register and XOR
 gates. The number of bits in the shift register equals the degree of the
-generator polynomial (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>). <a href="#crc-hard">Figure 3</a> shows the hardware
+generator polynomial (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>). <a href="#crc-hard">Figure 2</a> shows the hardware
 that would be used for the generator <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x^3 + x^2 + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> from our previous
 example. The message is shifted in from the left, beginning with the
 most significant bit and ending with the string of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> zeros that is
@@ -1397,7 +1367,7 @@ and 2 for the generator <span class="katex"><span class="katex-mathml"><math><se
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"next":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"previous":{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/error.md","mtime":"2018-08-27T23:23:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T22:46:12.462Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"next":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"previous":{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/error.md","mtime":"2018-11-02T21:08:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-16T21:52:47.169Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
