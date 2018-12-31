@@ -974,7 +974,7 @@ that connect our mobile devices. In both cases, the networks are
 multi-access (like Ethernet and Wi-Fi), but as we will see, their
 approach to mediating access is quite different.</p>
 <p>To set a little more context, ISPs (often a Telco or Cable company)
-typically operate a national backbone, and connected to the periphery
+often operate a national backbone, and connected to the periphery
 of that backbone are hundreds or thousands of edge sites, each of
 which serves a city or neighborhood. These edge sites are commonly
 called <em>Central Offices</em> in the Telco world and <em>Head Ends</em> in the
@@ -1061,7 +1061,7 @@ new/next-generation technologies, each of which occupies a different
 frequency band. The high-level summary is that traditional cellular
 technolgies range from 700-MHz to 2400-MHz, with new mid-spectrum
 allocations now happening at 6-GHz and millimeter-wave (mmWave)
-allocations openning in the 30 to 300-GHz band. One interesting
+allocations openning above 24-GHz. One interesting
 footnote is that there is also an unlicensed band at 3.5-GHz set aside
 in North America, called <em>Citizens Broadband Radio Service</em> (CBRS),
 that anyone with a cellular radio can use. This opens the door for
@@ -1082,18 +1082,20 @@ and there&apos;s good reason to believe eNB will be out-of-date before
 long, we have decided to use the more generic and less cryptic BBU.</p>
 </blockquote>
 <p><a href="#ran">Figure 2</a> depicts one possible configuration of the end-to-end
-scenario, with two additional bits of detail. The EPC has multiple
-subcomponents, including an MME (Mobility Management Entity)
-and an S/PGW (Session/Packet Gateway); the former tracks and manages
-the movement of UEs throughout the RAN, and the latter processes and
-forwards packets between the RAN and the Internet. We say &quot;one
-possible configuration&quot; because the celluar standards allow wide
-variability in how many S/PGWs a given MME is responsible for, making
-is possible for a single MME to manage mobility across a wide
-geographic area that is served by multiple Central Offices. Finally,
-while not explicitly spelled out in <a href="#ran">Figure 2</a>, it is sometimes
-the case that the ISP&apos;s PON network is used to connect the remote BBUs
-back to the Central Office.</p>
+scenario, with a few additional bits of detail. The EPC has multiple
+subcomponents, including an MME (Mobility Management Entity), an
+HSS (Home Subscriber Server), and an S/PGW (Session/Packet Gateway)
+pair; the first tracks and manages the movement of UEs throughout the
+RAN, the second is a database that contains subscriber-related
+information, and the Gateway pair processes and forwards packets
+between the RAN and the Internet (it forms the EPC&apos;s <em>user plane</em>).
+We say &quot;one possible configuration&quot; because the celluar standards
+allow wide variability in how many S/PGWs a given MME is responsible
+for, making is possible for a single MME to manage mobility across a
+wide geographic area that is served by multiple Central
+Offices. Finally, while not explicitly spelled out in
+<a href="#ran">Figure 2</a>, it is sometimes the case that the ISP&apos;s PON network
+is used to connect the remote BBUs back to the Central Office.</p>
 <figure class="line">
     <a id="ran"></a>
     <img src="figures/access/Slide2.png" width="600px">
@@ -1151,14 +1153,15 @@ signals overlap. In addition, BBUs also have the ability to
 increase/decrease the power they use to transmit, effectively allowing
 them to dynamically change cell size. This makes it possible to move
 UEs from one cell to another on the fly.</p>
-<p>Taken all together, this gives the RAN three degrees of freedom, which
-improves its ability to squeeze the most capacity out of the
-limited spectrum. More importantly, this flexibility provides
-opportunities for ISPs to offer new services to their subscribers,
-supporting applications that range from bandwidth-hungry video and
-virutual/augmented reality to latency-sensitive autonomous cars and
-Internet-of-Things. The challenge of 5G is how to control and best
-take advantage of this flexibility.</p>
+<p>Taken all together, this gives the RAN three degrees of freedom
+(frequency, time, power), which improves its ability to squeeze the
+most capacity out of the limited spectrum. More importantly, this
+flexibility provides opportunities for ISPs to offer new services to
+their subscribers, supporting applications that range from
+bandwidth-hungry video and virutual/augmented reality to
+latency-sensitive autonomous cars and Internet-of-Things. The
+challenge of 5G is how to control and best take advantage of this
+flexibility.</p>
 
                                 
                                 </section>
@@ -1202,7 +1205,7 @@ take advantage of this flexibility.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"next":{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"previous":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/access.md","mtime":"2018-11-30T20:33:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-30T20:44:28.688Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"next":{"title":"2.9 Summary","level":"1.3.9","depth":2,"path":"direct/summary.md","ref":"direct/summary.md","articles":[]},"previous":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/access.md","mtime":"2018-12-31T17:38:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T20:23:22.182Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1212,7 +1215,7 @@ take advantage of this flexibility.</p>
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
         
     
         
