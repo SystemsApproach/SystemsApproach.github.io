@@ -973,13 +973,12 @@ the data it wants to transmit from the representation it uses internally
 into a message that can be transmitted over the network; that is, the
 data is <em>encoded</em> in a message. On the receiving side, the application
 translates this arriving message into a representation that it can then
-process; that is, the message is <em>decoded</em>. Encoding is sometimes called
-<em>argument marshalling</em>, and decoding is sometimes called
-<em>unmarshalling</em>. This terminology comes from the Remote Procedure Call
-(RPC) world, where the client thinks it is invoking a procedure with a
-set of arguments, but these arguments are then &quot;brought together and
-ordered in an appropriate and effective way&quot; to form a network
-message.</p>
+process; that is, the message is <em>decoded</em>. This process is sometimes
+called <em>argument marshalling</em> or <em>serialization</em>. This terminology
+comes from the Remote Procedure Call (RPC) world, where the client
+thinks it is invoking a procedure with a set of arguments, but these
+arguments are then &quot;brought together and ordered in an appropriate and
+effective way&quot; to form a network message.</p>
 <figure class="line">
     <a id="marshal1"></a>
     <img src="figures/f07-01-9780123850591.png" width="400px">
@@ -987,8 +986,8 @@ message.</p>
     application data.</figcaption>
 </figure>
 
-<p>You might ask what makes this problem challenging enough to warrant a
-name like marshalling. One reason is that computers represent data in
+<p>You might ask what makes this problem challenging.
+One reason is that computers represent data in
 different ways. For example, some computers represent floating-point
 numbers in IEEE standard 754 format, while some older machines still use
 their own nonstandard format. Even for something as simple as integers,
@@ -1022,7 +1021,7 @@ same architecture and the program was written in the same language,
 because the compiler on the destination machine might align the fields
 in the structure differently.</p>
 <h2 id="taxonomy">Taxonomy</h2>
-<p>Although argument marshalling is not rocket science is involved&#x2014;it is
+<p>Although argument marshalling is not rocket science&#x2014;it is
 a small matter of bit twiddling&#x2014;there are a surprising number of
 design choices that you must address. We begin by giving a simple
 taxonomy for argument marshalling systems. The following is by no
@@ -1182,8 +1181,8 @@ flexible. Compiled stubs are more common in practice.</p>
     outputs client and server stubs.</figcaption>
 </figure>
 
-<h2 id="examples-xdr-asn1-ndr">Examples (XDR, ASN.1, NDR)</h2>
-<p>We now briefly describe three popular network data representations in
+<h2 id="examples-xdr-asn1-ndr-protobufs">Examples (XDR, ASN.1, NDR, ProtoBufs)</h2>
+<p>We now briefly describe four popular network data representations in
 terms of this taxonomy. We use the integer base type to illustrate how
 each system works.</p>
 <h3 id="xdr">XDR</h3>
@@ -1353,6 +1352,71 @@ used: 0 means IEEE 754, 1 means VAX, 2 means Cray, and 3 means IBM. The
 final 2 bytes are reserved for future use. Note that, in simple cases
 such as arrays of integers, NDR does the same amount of work as XDR, and
 so it is able to achieve the same performance.</p>
+<h3 id="protobufs">ProtoBufs</h3>
+<p>Protocol Buffers (Protobufs, for short) is a language-neutral and
+platform-neutral way of serializing structured data, commonly
+used with gRPC. It uses an tagged strategy with a canonical
+intermediate form, where the stub on both sides is generated from a
+shared <code>.proto</code> file. This specification uses a simple C-like syntax,
+as the following example illustrates:</p>
+<pre><code>message Person {
+    required string name = 1;
+    required int32 id = 2;
+    optional string email = 3;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message PhoneNumber {
+        required string number = 1;
+        optional PhoneType type = 2 [default = HOME];
+    }
+
+    required PhoneNumber phone = 4;
+}
+</code></pre><p>where <code>message</code> could roughly be interpreted as equivalent to <code>typedef
+struct</code> in C. The rest of the example is fairly intuitive, except that
+every field is given a numeric identifier to ensure uniqueness should
+the specification change over time, and each field can be annotated as
+being either <code>required</code> or <code>optional</code>.</p>
+<p>The way Protobufs encodes integers is novel. It uses a technique
+called <em>varints</em> (variable length integers) in which each 8-bit byte
+uses the most significant bit to indicate whether there are more bytes
+in the integer, and the lower seven bits to encode the two&apos;s
+complement representation of the next group of seven bits in the
+value. The least significant group is first in the serialization.</p>
+<p>This means a small integer (less than 128) can be encoded in a single
+byte (e.g., the inteter 2 is encoded as <code>0000 0010</code>), while for an integer
+bigger than 128, more bytes are needed. For example, 365 would be
+encoded as</p>
+<pre><code>1110 1101 0000 0010
+</code></pre><p>To see this, first drop the most significant bit from each byte, as
+it is there to tell us whether we&apos;ve reached the end of the integer.
+In this example, the <code>1</code> in the most significant bit of the first
+byte indicates there is more than one byte in the varint:</p>
+<pre><code>1110 1101 0000 0010
+&#x2192; 110 1101  000 0010
+</code></pre><p>Since varints store numbers with the least significant group first,
+you next reverse the two groups of seven bits. Then you concatenate
+them to get your final value:</p>
+<pre><code>000 0010  110 1101
+&#x2192;  000 0010 || 110 1101
+&#x2192;  101101101
+&#x2192;  256 + 64 + 32 + 8 + 4 + 1 = 365
+</code></pre><p>For the larger message specification, you can think of the serialized
+byte stream as a collection of key/value pairs, where the key (i.e.,
+tag) has two sub-parts: the unique identifier for the field (i.e.,
+those extra numbers in the example <code>.proto</code> file) and the <em>wire
+type</em>  of the value (e.g., <code>Varint</code> is the one example wire type we
+have seen so far). Other supported wire types include <code>32-bit</code> and
+<code>64-bit</code> (for fixed-length integers), and <code>length-delimited</code> (for
+strings and embedded messages). The latter tells you how many bytes
+long the embedded message (structure) is, but it&apos;s another <code>message</code>
+specification in the <code>.proto</code> file that tells you how to interpret
+those bytes.</p>
 <h2 id="markup-languages-xml">Markup Languages (XML)</h2>
 <p>Although we have been discussing the presentation formatting problem
 from the perspective of RPC&#x2014;that is, how does one encode primitive
@@ -1565,7 +1629,7 @@ core protocols on which the upper layers of the Internet now depend.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"next":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},"previous":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"path":"data/problem.md","ref":"data/problem.md","articles":[{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/presentation.md","mtime":"2018-09-29T15:18:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T20:17:28.066Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"next":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},"previous":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"path":"data/problem.md","ref":"data/problem.md","articles":[{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/presentation.md","mtime":"2019-02-10T23:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-10T23:41:33.483Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

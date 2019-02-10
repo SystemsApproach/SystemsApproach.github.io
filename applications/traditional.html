@@ -1022,8 +1022,9 @@ arbitrary remote procedure calls of the sort discussed in an earlier
 chapter, but is instead designed to send and respond to a specific set
 of request messages. Interestingly, the approach taken by HTTP has
 proven quite powerful, which has led to it being adopted widely by
-the <em>Web Services</em> architecture. More on this topic at the end of this
-section.</p>
+the <em>Web Services</em> architecture, with general RPC mechanisms built <em>on
+top of HTTP</em> rather than the other way around. More on this topic at
+the end of this section.</p>
 <h2 id="electronic-mail-smtp-mime-imap">Electronic Mail (SMTP, MIME, IMAP)</h2>
 <p>Email is one of the oldest network applications. After all, what could
 be more natural than wanting to send a message to the user at the other
@@ -1350,12 +1351,12 @@ between microfiche documents. </p>
 and servers, all of whom speak the same language: HTTP. Most people are
 exposed to the Web through a graphical client program or web browser
 like Safari, Chrome, Firefox, or Internet Explorer.
-<a href="#netscape">Figure 3</a> shows the Firefox browser in use, displaying a
+<a href="#netscape">Figure 3</a> shows the Safari browser in use, displaying a
 page of information from Princeton University.</p>
 <figure class="line">
     <a id="netscape"></a>
-    <img src="figures/f09-03-9780123850591.png" width="500px">
-    <figcaption>The Firefox web browser.</figcaption>
+    <img src="figures/browser-screenshot.png" width="600px">
+    <figcaption>The Safari web browser.</figcaption>
 </figure>
 
 <p>Clearly, if you want to organize information into a system of linked
@@ -1612,18 +1613,19 @@ establishment and termination.</p>
 </figure>
 
 <p>To overcome this situation, HTTP version 1.1 introduced <em>persistent
-connections</em>&#x2014;the client and server can exchange multiple request/
-response messages over the same TCP connection. Persistent connections
-have many advantages. First, they obviously eliminate the connection
-setup overhead, thereby reducing the load on the server, the load on the
-network caused by the additional TCP packets, and the delay perceived by
-the user. Second, because a client can send multiple request messages
-down a single TCP connection, TCP&apos;s congestion window mechanism is able
-to operate more efficiently. This is because it&apos;s not necessary to go
-through the slow start phase for each page. <a href="#persist">Figure 5</a> shows
-the transaction from <a href="#oldhttp">Figure 4</a> using a persistent connection
-in the case where the connection is already open (presumably due to some
-prior access of the same server).</p>
+connections</em>&#x2014;the client and server can exchange multiple
+request/response messages over the same TCP connection. Persistent
+connections have many advantages. First, they obviously eliminate the
+connection setup overhead, thereby reducing the load on the server,
+the load on the network caused by the additional TCP packets, and the
+delay perceived by the user. Second, because a client can send
+multiple request messages down a single TCP connection, TCP&apos;s
+congestion window mechanism is able to operate more efficiently. This
+is because it&apos;s not necessary to go through the slow start phase for
+each page. <a href="#persist">Figure 5</a> shows the transaction from
+<a href="#oldhttp">Figure 4</a> using a persistent connection in the case where
+the connection is already open (presumably due to some prior access of
+the same server).</p>
 <figure class="line">
     <a id="persist"></a>
     <img src="figures/f09-05-9780123850591.png" width="500px">
@@ -1644,6 +1646,33 @@ before it is fully terminated.) Concerns about this added complexity may
 be one reason why persistent connections were not used from the outset,
 but today it is widely accepted that the benefits of persistent
 connections more than offset the drawbacks.</p>
+<p>While 1.1 is still the most widely supported version of HTTP, a new
+version (2.0) was formally approved by the IETF in 2015. Known as
+HTTP/2, the new version is backwards compatible with 1.1 (i.e,. it
+adopts the same syntax for header fields, status codes, and URIs), but
+it adds two new features.</p>
+<p>The first is to make it easier for web servers to <em>minify</em> the information
+they send back to web browsers. If you look closely at the makeup of
+the HTML in a typical web page, you will find a plethora of references
+to other bits-and-pieces (e.g., images, scripts, style files) that the
+browser needs to render the page. Rather than force the client to
+request these bits-and-pieces (technically known as <em>resources</em>) in
+subsequent requests, HTTP/2 provides a means for the server to bundle
+the required resources and proactively <em>push</em> them to the client
+without incurring the round-trip delay of forcing the client to
+request them. This feature is coupled with a compression mechanism
+that reduces the number of bytes that need to be pushed. The whole
+goal is to minimize the latency an end-user experiences from the
+moment they click on a hyperlink until the selected page is fully rendered.</p>
+<p>The second big advance of HTTP/2 is to multiplex several requests
+on a single TCP connection. This goes beyond what version 1.1
+supports&#x2014;allowing a <em>sequence</em> of requests to reuse a TCP
+connection&#x2014;by permitting these requests to overlap with each
+other. The way HTTP/2 does this should sound familiar: it defines a
+<em>channel</em> abstraction (technically, the channels are called
+<em>streams</em>), permits multiple concurrent streams to be active at a
+given time (each labled with a unique <em>stream id</em>), and limits each
+stream to one active request/reply exchange at a time.</p>
 <h3 id="caching">Caching</h3>
 <p>An important implementation strategy that makes the web more usable
 is to cache Web pages. Caching has many
@@ -2058,6 +2087,31 @@ accessible via <em>both</em> of the Web Services architectures, and according
 to some reports a substantial majority of developers use the REST
 interface. Of course, this is just one data point and may well reflect
 factors specific to Amazon.</p>
+<h3 id="from-web-services-to-cloud-services">From Web Services to Cloud Services</h3>
+<p>If Web Services is what we call it when the web server that implements
+my application sends a request to the web server that implements your
+application, then what do we call it when we both put our applications in
+the cloud so that they can support scalable workloads? We can call both of
+them <em>Cloud Services</em> if we want to, but is that a distinction without
+a difference? It depends.</p>
+<p>Moving a server process from a physical machine running in my machine
+room into a virtual machine running in a cloud provider&apos;s datacenter
+shifts responsibility for keeping the machine running from my system
+admin to the cloud provider&apos;s operations team, but the application is
+still designed according to the Web Services architecture. On the
+other hand, if the application is designed from scratch to run on a
+scalable cloud platform, for example by adhering to the
+<em>micro-services architecture</em>, then we say the application is <em>cloud
+native</em>. So the important distinction is cloud native versus legacy web
+services deployed in the cloud.</p>
+<p>We briefly saw the micro-services architecture in Chapter 5 when
+describing gRPC, and although it&apos;s difficult to definitively declare
+micro-services superior to web services, the current trend in industry
+almost certainly favors the former. More interesting, perhaps, is the
+ongoing debate about REST+Json versus gRPC+Protbufs as the preferred
+RPC mechanism for implementing micro-services. Keeping in mind that
+both run on top of HTTP, we leave it as an exercise for the reader to
+pick a side and defend it.</p>
 
                                 
                                 </section>
@@ -2101,7 +2155,7 @@ factors specific to Amazon.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"next":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"previous":{"title":"Chapter 9: Applications","level":"1.10","depth":1,"path":"applications/problem.md","ref":"applications/problem.md","articles":[{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},{"title":"9.5 Summary","level":"1.10.5","depth":2,"path":"applications/summary.md","ref":"applications/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/traditional.md","mtime":"2018-10-04T22:41:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T20:17:28.066Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"next":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"previous":{"title":"Chapter 9: Applications","level":"1.10","depth":1,"path":"applications/problem.md","ref":"applications/problem.md","articles":[{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},{"title":"9.5 Summary","level":"1.10.5","depth":2,"path":"applications/summary.md","ref":"applications/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/traditional.md","mtime":"2019-02-10T23:38:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-10T23:41:33.483Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

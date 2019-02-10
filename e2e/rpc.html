@@ -964,13 +964,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="53-remote-procedure-call">5.3 Remote Procedure Call</h1>
-<p>As discussed in Chapter 1, one common pattern of communication used by
-application programs is the request/reply paradigm, also called <em>message
-transaction</em>: A client sends a request message to a server, and the
+<p>A common pattern of communication used by application programs
+structured as a <em>client/server</em> pair is the request/reply message
+transaction: A client sends a request message to a server, and the
 server responds with a reply message, with the client blocking
 (suspending execution) to wait for the reply. <a href="#rpc-timeline">Figure 1</a>
 illustrates the basic interaction between the client and server in such
-a message transaction.</p>
+an exchange.</p>
 <figure class="line">
     <a id="rpc-timeline"></a>
     <img src="figures/f05-13-9780123850591.png" width="300px">
@@ -985,24 +985,22 @@ responses. It may also need to overcome some or all of the limitations
 of the underlying network outlined in the problem statement at the
 beginning of this chapter. While TCP overcomes these limitations by
 providing a reliable byte-stream service, it doesn&apos;t perfectly match the
-request/reply paradigm either&#x2014;going to the trouble to
-establish a TCP connection just to exchange a pair of messages seems
-like overkill. This section describes a third category of transport
-protocol, called <em>Remote Procedure Call</em> (RPC), that more closely
-matches the needs of an application involved in a request/reply message
-exchange.</p>
+request/reply paradigm either. This section describes a third category
+of transport protocol, called <em>Remote Procedure Call</em> (RPC), that more
+closely matches the needs of an application involved in a
+request/reply message exchange.</p>
 <h2 id="rpc-fundamentals">RPC Fundamentals</h2>
-<p>RPC is actually more than just a protocol&#x2014;it is a popular mechanism
-for structuring distributed systems. RPC is popular because it is based
-on the semantics of a local procedure call&#x2014;the application program
-makes a call into a procedure without regard for whether it is local or
-remote and blocks until the call returns. An application developer can
-be largely unaware of whether the procedure is local or remote,
-simplifying his task considerably. When the procedures being called are
-actually methods of remote objects in an object-oriented language, RPC
-is known as <em>remote method invocation</em> (RMI). While the RPC concept is
-simple, there are two main problems that make it more complicated than
-local procedure calls:</p>
+<p>RPC is not technically a protocol&#x2014;it is better thought of as a general
+mechanism for structuring distributed systems. RPC is popular because
+it is based on the semantics of a local procedure call&#x2014;the application
+program makes a call into a procedure without regard for whether it is
+local or remote and blocks until the call returns. An application
+developer can be largely unaware of whether the procedure is local or
+remote, simplifying his task considerably. When the procedures being
+called are actually methods of remote objects in an object-oriented
+language, RPC is known as <em>remote method invocation</em> (RMI). While the
+RPC concept is simple, there are two main problems that make it more
+complicated than local procedure calls:</p>
 <ul>
 <li><p>The network between the calling process and the called process has
  much more complex properties than the backplane of a computer. For
@@ -1018,13 +1016,13 @@ local procedure calls:</p>
 <ol>
 <li><p>A protocol that manages the messages sent between the client and the
  server processes and that deals with the potentially undesirable
- properties of the underlying network</p>
+ properties of the underlying network.</p>
 </li>
 <li><p>Programming language and compiler support to package the arguments
  into a request message on the client machine and then to translate
  this message back into the arguments on the server machine, and
  likewise with the return value (this piece of the RPC mechanism is
- usually called a <em>stub compiler</em>)</p>
+ usually called a <em>stub compiler</em>).</p>
 </li>
 </ol>
 <p><a href="#rpc-stub">Figure 2</a> schematically depicts what happens when a client
@@ -1033,14 +1031,13 @@ procedure, passing it the arguments required by the procedure. This stub
 hides the fact that the procedure is remote by translating the arguments
 into a request message and then invoking an RPC protocol to send the
 request message to the server machine. At the server, the RPC protocol
-delivers the request message to the server stub (sometimes called a
-<em>skeleton</em>), which translates it into the arguments to the procedure and
-then calls the local procedure. After the server procedure completes, it
-returns the answer to the server stub, which packages this return value
-in a reply message that it hands off to the RPC protocol for
-transmission back to the client. The RPC protocol on the client passes
-this message up to the client stub, which translates it into a return
-value that it returns to the client program.</p>
+delivers the request message to the server stub, which translates it
+into the arguments to the procedure and then calls the local
+procedure. After the server procedure completes, it returns in a reply
+message that it hands off to the RPC protocol for transmission back to
+the client. The RPC protocol on the client passes this message up to
+the client stub, which translates it into a return value that it
+returns to the client program.</p>
 <figure class="line">
     <a id="rpc-stub"></a>
     <img src="figures/f05-14-9780123850591.png" width="500px">
@@ -1051,7 +1048,12 @@ value that it returns to the client program.</p>
 mechanism. That is, it ignores the stubs and focuses instead on the RPC
 protocol, sometimes referred to as a request/reply protocol, that
 transmits messages between client and server. The transformation of
-arguments into messages and <em>vice versa</em> is covered elsewhere.</p>
+arguments into messages and <em>vice versa</em> is covered elsewhere. It is
+also important to keep in mind that the client and server programs are
+written in some programming language, meaning that a given RPC
+mechanism might support Python stubs, Java stubs, GoLang stubs, and so
+on, each of which includes language-specific idioms for how procedures
+are invoked.</p>
 <p>The term <em>RPC</em> refers to a type of protocol rather than a specific
 standard like TCP, so specific RPC protocols vary in the functions they
 perform. And, unlike TCP, which is the dominant reliable byte-stream
@@ -1156,7 +1158,10 @@ performance.</p>
 <em>channel</em> abstraction. Within a given channel, request/reply
 transactions are sequential&#x2014;there can be only one transaction active
 on a given channel at any given time&#x2014;but there can be multiple
-channels. Each message includes a channel ID field to indicate which
+channels. Or said another way, the channel abstraction makes it
+possible to <em>multiplex</em> multiple RPC request/reply transactions
+between a client/server pair.</p>
+<p>Each message includes a channel ID field to indicate which
 channel the message belongs to. A request message in a given channel
 would implicitly acknowledge the previous reply in that channel, if it
 hadn&apos;t already been acknowledged. An application program can open
@@ -1166,7 +1171,7 @@ would need multiple threads). As illustrated in
 <a href="#implicitAckTimeline">Figure 4</a>, the reply message serves to
 acknowledge the request message, and a subsequent request acknowledges
 the preceding reply. Note that we saw a very similar approach&#x2014;called
-<em>concurrent logical channels</em>&#x2014;in a later section as a way to improve
+<em>concurrent logical channels</em>&#x2014;in an earlier section as a way to improve
 on the performance of a stop-and-wait reliability mechanism.</p>
 <figure class="line">
     <a id="implicitAckTimeline"></a>
@@ -1253,7 +1258,7 @@ the message it sent was received by its peer, but it also knows that the
 peer has returned an answer. Thus, synchronous protocols implement the
 request/reply abstraction, while asynchronous protocols are used if the
 sender wants to be able to transmit many messages without having to wait
-for a response. Using this definition, RPC protocols are obviously
+for a response. Using this definition, RPC protocols are usually
 synchronous protocols.</p>
 <p>Although we have not discussed them in this chapter, there are
 interesting points between these two extremes. For example, the
@@ -1262,7 +1267,7 @@ return) until the message has been successfully received at the remote
 machine, but returns before the sender&apos;s peer on that machine has
 actually processed and responded to it. This is sometimes called a
 <em>reliable datagram protocol</em>.</p>
-<h2 id="rpc-implementations-sunrpc-dce">RPC Implementations (SunRPC, DCE)</h2>
+<h2 id="rpc-implementations-sunrpc-dce-grpc">RPC Implementations (SunRPC, DCE, gRPC)</h2>
 <p>We now turn our discussion to some example implementations of RPC
 protocols. These will serve to highlight some of the different design
 decisions that protocol designers have made. Our first example is
@@ -1272,15 +1277,14 @@ part of the Distributed Computing Environment (DCE). DCE is a set of
 standards and software for building distributed systems that was defined
 by the Open Software Foundation (OSF), a consortium of computer
 companies that originally included IBM, Digital Equipment Corporation,
-and Hewlett-Packard; today, OSF goes by the name The Open Group. These
-two examples represent interesting alternative design choices in the RPC
-solution space.</p>
-<figure class="line">
-    <a id="sunrpc"></a>
-    <img src="figures/f05-17-9780123850591.png" width="100px">
-    <figcaption>Protocol graph for SunRPC on top of UDP.</figcaption>
-</figure>
-
+and Hewlett-Packard; today, OSF goes by the name The Open Group. Our
+third example is gRPC, a popular RPC mechanism that Google has open
+sourced, based on an RPC mechanism that they have been using internally
+to implement cloud services in their datacenters.</p>
+<p>These three examples represent interesting alternative design choices
+in the RPC solution space, but least you think they are the only options,
+we describe three other RPC-like mechanisms (WSDL, SOAP, an REST) in
+the context of web services in Chapter 9.</p>
 <h3 id="sunrpc">SunRPC</h3>
 <p>SunRPC became a <em>de facto</em> standard thanks to its wide distribution with
 Sun workstations and the central role it plays in Sun&apos;s popular Network
@@ -1295,6 +1299,12 @@ transport protocol since it appears &quot;above&quot; the transport layer.
 Pragmatically, the design decision to run RPC over an existing transport
 layer makes quite a lot of sense, as will be apparent in the following
 discussion.</p>
+<figure class="line">
+    <a id="sunrpc"></a>
+    <img src="figures/f05-17-9780123850591.png" width="100px">
+    <figcaption>Protocol graph for SunRPC on top of UDP.</figcaption>
+</figure>
+
 <p>SunRPC uses two-tier identifiers to identify remote procedures: a 32-bit
 program number and a 32-bit procedure number. (There is also a 32-bit
 version number, but we ignore that in the following discussion.) For
@@ -1499,6 +1509,219 @@ adds relatively little to the underlying transport beyond the essentials
 of locating the right procedure and identifying messages. DCE-RPC adds
 more functionality, with the possibility of improved performance in some
 environments at the cost of greater complexity.</p>
+<h3 id="grpc">gRPC</h3>
+<p>Despite its origins in Google, gRPC does not stand for Google RPC. The
+&quot;g&quot; stands for something different in each release. For version 1.10
+it stood for &quot;glamorous&quot; and for 1.18 it stood for &quot;goose&quot;. Googlers
+are wild and crazy people. Nonetheless, gRPC is popular because it
+makes available to everyone&#x2014;as open source&#x2014;a decade&apos;s worth of
+experience within Google using RPC to build scalable cloud services.</p>
+<p>Before getting into the details, there some major differences
+between gRPC and the other two examples we&apos;ve just covered. The
+biggest is that gRPC is designed for cloud services rather than the
+simpler client/server paradigm that preceeded it. The difference
+is essentially an extra level of indirection. In the client/server
+world, the client invokes a method on a specific server process
+running on a specific server machine. One server process is presumed
+to be enough to serve calls from all the client processes that might
+call it.</p>
+<p>With cloud services, the client invokes a method on a <em>service</em>, which
+in order to support calls from arbitrarily many clients at the same
+time, is implemented by a scalable number of server processes, each
+potentially running on a different server machine. This is where the
+cloud comes into play: datacenters make a seemingly infinite number of
+server machines available to scale up cloud services. When we use the
+term &quot;scalable&quot; we mean that the number of identical
+server processes you elect to create depends on the workload (i.e.,
+the number of clients that want service at any given time) and that
+number can be adjusted dynamically over time. One other detail is that
+cloud services don&apos;t typically create a new process, per se, but
+rather, they launch a new <em>container</em>, which is essentially a process
+encapsulated inside an isolated environment that includes all the
+software packages the process needs to run. Docker is today&apos;s
+canonical example of a container platform.</p>
+<figure class="line">
+    <a id="rpc-service"></a>
+    <img src="figures/rpc/Slide1.png" width="400px">
+    <figcaption>Using RPC to invoke a scalable cloud service.</figcaption>
+</figure>
+
+<p>Back to the claim that a service is essentially an extra level of
+indirection layered on top of a server, all this means is that
+the caller identifies the service it wants to invoke, and a <em>load
+balancer</em> directs that invocation to one of the many available server
+processes (containers) that implement that service, as shown in
+<a href="#rpc-service">Figure 9</a>. The load balancer in can be implemented in
+different ways, including a hardware device, but it is typically
+implemented by a proxy process that runs in a virtual machine
+(also hosted in the cloud) rather than as a physical appliance.</p>
+<p>There is a set of best practices for implementing the actual server
+code that eventually responds to that request, and some additional
+cloud machinery to create/destroy containers and load balance
+requests across those containers. Kubernetes is today&apos;s canonical
+example of such a container management system, and the <em>micro-services
+architecture</em> is what we call the best practices in building services
+in this cloud native manner. Both are interesting topics, but beyond
+the scope of this book.</p>
+<p>What we are interested in here is transport protocol at the core of
+gRPC. Here again, there is a major departure from the two previous
+example protocols, not in terms of fundamental problems that need to
+be addressed, but in terms of gRPC&apos;s approach to addressing them.
+In short, gRPC &quot;outsources&quot; many of the problems to other protocols,
+leaving gRPC to essentially package those capabilities in an
+easy-to-use form. Let&apos;s look at the details.</p>
+<p>First, gRPC runs on top of TCP instead of UDP, which means it
+outsources the problems of connection management and reliably
+transmitting request and reply messages of arbitrary size. Second,
+gRPC actually runs on top of a secured version of TCP called
+<em>Transport Layer Security</em> (TLS)&#x2014;a thin layer that sits above TCP in
+the protocol stack&#x2014;which means it outsources responsibility for
+securing the communication channel so adversaries can&apos;t eavesdrop or
+hijack the message exchange. Third, gRPC actually, actually runs on
+top of HTTP/2 (which is itself layered on top of TCP and TLS), meaning
+gRPC outsources yet two other problems: (1) efficiently
+encoding/compressing binary data into a message, (2) multiplexing
+multiple remote procedure calls onto a single TCP connection. In other
+words, gRPC encodes the identifier for the remote method as a URI, the
+request paremeters to the remote method as content in the HTTP
+message, and the return value from the remote method in ther HTTP
+response. The full gRPC stack is depicted in <a href="#grpc-stack">Figure 10</a>,
+which also includes the language-specific elements. (One strength of
+gRPC is the wide set of programming languages it supports, with only a
+small subset shown in <a href="#grpc-stack">Figure 10</a>.)</p>
+<figure class="line">
+    <a id="grpc-stack"></a>
+    <img src="figures/rpc/Slide2.png" width="400px">
+    <figcaption>gRPC core stacked on top of HTTP, TLS, and TCP and
+        supporting a collection of languages.</figcaption>
+</figure>
+
+<p>We discuss TLS in Chapter 8 (in the context of a broad range of
+security topics) and HTTP in Chapter 9 (in the context of what are
+traditionally viewed as application level protocols). But we find
+ourselves in an interesting dependency loop: RPC is a flavor of
+transport protocol used to implement distributed applications, HTTP is
+an example of an application-level protocol, and yet gRPC runs on top
+of HTTP rather than the other way around.</p>
+<p>The short explanation is that layering provides a convenient way for
+humans to wrap their heads around complex systems, but what we&apos;re
+really trying to do is solve a set of problem (e.g., reliably transfer
+messages of arbitrary size, idenfity senders and receipients, match
+requests messages with reply messages, and so on) and the way these
+solutions get bundled into protocols, and those protocols then layered
+on top of each other, is the consequence of incremental changes over
+time. You could argue it&apos;s an historical accident. Had the Internet
+started with an RPC mechanism as ubiquitous as TCP, HTTP might have
+been implemented on top of it (as might have almost all of the other
+application-level protocols described in Chapter 9) and Google would
+have spent their time improving <em>that</em> protocol rather than inventing
+one of their own (as they and others have been doing with TCP). What
+happened instead is that the web became the Internet&apos;s killer app, which
+meant that its application protocol (HTTP) became universally
+supported by the rest of the Internet&apos;s infrastructure: Firewalls,
+Load Balancers, Encryption, Authentication, Compression, and so on.
+Because all of these network elements have been designed to work well
+with HTTP, HTTP has effectively become the Internet&apos;s universal
+request/reply transport protocol.</p>
+<p>Returning to the unique characteristics of gRPC, the biggest value it
+brings to the table is to incorporate <em>streaming</em> into the RPC
+mechanism, which is to say, gRPC supports four different request/reply
+patterns:</p>
+<ol>
+<li><p>Simple RPC: The cient sends a single request message and the server
+ responds with a single reply message.</p>
+</li>
+<li><p>Server Streaming RPC: The client sends a single request message and 
+ the server responds with a stream of reply messages. The client
+ completes once it has all the server&#x2019;s responses.</p>
+</li>
+<li><p>Client Streaming RPC: The client sends a stream of
+ requests to the server, and the server sends back a single response,
+ typically (but not necessarily) after it has received all the
+ client&#x2019;s requests.</p>
+</li>
+<li><p>Bidirectional Streaming RPC: The call is initiated by the client,
+ but after that, the client and server can read and write requets
+ and responses in any order; the streams are completely
+ independent.</p>
+</li>
+</ol>
+<p>This extra freedom in how the client and server interact means the
+gRPC transport protocol needs to send additional metadata and control
+messages&#x2014;in addition to the actual request and reply messages&#x2014;between
+the two peers. Examples include <code>Error</code> and <code>Status</code> codes (to
+indicate success or why something failed), <code>Timeouts</code> (to indicate how
+long a client is willing to wait for a response), <code>PING</code> (a keep-alive
+notice to indicate that one side or the other is still running), <code>EOS</code>
+(end-of-stream notice to indicate that there are no more requests or
+responses), and <code>GOAWAY</code> (a notice from servers to clients to indicate
+that they will no longer accept any new streams). Unlike many other
+protocols in this book, where we show the protocol&apos;s header format,
+the way this control information gets passed between the two sides is
+largely dictated by the underlying transport protocol, in this case
+HTTP/2. For example, as we&apos;ll see in Chapter 9, HTTP already includes
+a set of header fields and reply codes that gRPC takes advantage of.</p>
+<p>You may want to peruse the HTTP discussion in Chapter 9 before
+continuing, but the following is fairly straightforward. A simple RPC
+request (with no streaming) might include the following HTTP message
+from the client to the server:</p>
+<pre><code>HEADERS (flags = END_HEADERS)
+:method = POST
+:scheme = http
+:path = /google.pubsub.v2.PublisherService/CreateTopic
+:authority = pubsub.googleapis.com
+grpc-timeout = 1S
+content-type = application/grpc+proto
+grpc-encoding = gzip
+authorization = Bearer y235.wef315yfh138vh31hv93hv8h3v
+DATA (flags = END_STREAM)
+&lt;Length-Prefixed Message&gt;
+</code></pre><p>leading to the following response message from the server back to the
+client:</p>
+<pre><code>HEADERS (flags = END_HEADERS)
+:status = 200
+grpc-encoding = gzip
+content-type = application/grpc+proto
+DATA
+&lt;Length-Prefixed Message&gt;
+HEADERS (flags = END_STREAM, END_HEADERS)
+grpc-status = 0 # OK
+trace-proto-bin = jher831yy13JHy3hc
+</code></pre><p>In this example, <code>HEADERS</code> and <code>DATA</code> are two standard HTTP control
+messages, which effectively deliniate between &quot;the message&apos;s header&quot;
+and &quot;the message&apos;s payload.&quot; Specifically, each line following
+<code>HEADERS</code> (but before <code>DATA</code>) is an <code>attribute = value</code> pair that
+makes up the header (think of each line as analogous to a header
+field); those pairs that start with colon (e.g., <code>:status = 200</code>) are
+part of the HTTP standard (e.g., status <code>200</code> indicates success); and
+those pairs that do not start with a colon are gRPC-specific
+customizations (e.g., <code>grpc-encoding = gzip</code> indicates that the data
+in the message that follows has been compressed using <code>gzip</code>, and
+<code>grpc-timeout = 1S</code> indicates that the client has set a one second
+timeout).</p>
+<p>There is one final piece to explain. The header line</p>
+<pre><code>content-type = application/grpc+proto
+</code></pre><p>indicates that the message body (as demarked by the <code>DATA</code> line) is
+meaningful only to the application program (i.e., the server method)
+that this client is requesting service from. More specifically,
+the <code>+proto</code> string specifies that the recipient will be able to
+interpret the bits in the message according to a <em>Protocol Buffer</em>
+(abbreviated <code>proto</code>) interface specification. Protocol Buffers are
+gRPC&apos;s way of specifiying how the parameters being passed to
+the server are encoded into a message, which is in turn used to
+generate the stubs that sit between the underlying RPC mechanism and
+the actual functions being called (see <a href="#rpc-stub">Figure 2</a>). This is
+a topic we&apos;ll take up in Chapter 7.</p>
+<p>The bottom line is that complex mechanisms like RPC, once packaged as
+a monolthic bundle of software (as with SunRPC and DCE-RPC), is nowdays
+built by assembling an assortment of smaller pieces, each of
+which solves a narrow problem. gRPC is both an example of that
+approach, and a tool that enables further adoption of the approach. 
+The micro-services architecture mentioned earlier in this subsection
+applies the &quot;built from small parts&quot; strategy to entire cloud
+applications (e.g., Uber, Lyft, Netflix, Yelp, Spotify), where gRPC is often
+the communication mechanism used by those small pieces to exchange
+messages with each other.</p>
 
                                 
                                 </section>
@@ -1542,7 +1765,7 @@ environments at the cost of greater complexity.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"next":{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},"previous":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rpc.md","mtime":"2018-09-14T21:45:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T20:17:28.066Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"next":{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},"previous":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rpc.md","mtime":"2019-02-10T23:37:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-10T23:41:33.483Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
