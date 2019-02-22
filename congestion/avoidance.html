@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>6.4 Congestion-Avoidance · Computer Networks: A Systems Approach</title>
+        <title>6.4 Advanced Congestion Control · Computer Networks: A Systems Approach</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -653,7 +653,7 @@
                 <a href="avoidance.html">
             
                     
-                    6.4 Congestion-Avoidance
+                    6.4 Advanced Congestion Control
             
                 </a>
             
@@ -948,7 +948,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >6.4 Congestion-Avoidance</a>
+        <a href=".." >6.4 Advanced Congestion Control</a>
     </h1>
 </div>
 
@@ -963,26 +963,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="64-congestion-avoidance">6.4 Congestion-Avoidance</h1>
-<p>It is important to understand that TCP&apos;s strategy is to control
-congestion once it happens, as opposed to trying to avoid congestion in
-the first place. In fact, TCP repeatedly increases the load it imposes
-on the network in an effort to find the point at which congestion
-occurs, and then it backs off from this point. Said another way, TCP
-<em>needs</em> to create losses to find the available bandwidth of the
-connection. An appealing alternative is to predict when congestion is
-about to happen and then to reduce the rate at which hosts send data
-just before packets start being discarded. We call such a strategy
+                                <h1 id="64-advanced-congestion-control">6.4 Advanced Congestion Control</h1>
+<p>This section explores congestion control more deeply. In doing so,
+it is important to understand that the standard TCP&apos;s strategy is to
+control congestion once it happens, as opposed to trying to avoid
+congestion in the first place. In fact, TCP repeatedly increases the
+load it imposes on the network in an effort to find the point at which
+congestion occurs, and then it backs off from this point. Said another
+way, TCP <em>needs</em> to create losses to find the available bandwidth of
+the connection. An appealing alternative is to predict when congestion
+is about to happen and then to reduce the rate at which hosts send
+data just before packets start being discarded. We call such a strategy
 <em>congestion avoidance</em> to distinguish it from <em>congestion control</em>,
 but it&apos;s probably most accurate to think of &quot;avoidance&quot; as a subset
 of &quot;control.&quot;</p>
-<p>This section describes three different congestion-avoidance mechanisms.
-The first two take a similar approach: They put a small amount of
-additional functionality into the router to assist the end node in the
-anticipation of congestion. The third mechanism is very different from
-the first two: It attempts to avoid congestion purely from the end
-nodes.</p>
-<h2 id="decbit">DECbit</h2>
+<p>We describe two different approaches to congestion-avoidance.
+The first puts a small amount of additional functionality into the
+router to assist the end node in the anticipation of congestion. This
+approach is often referred to as <em>Active Queue Management</em>  (AQM).
+The second approach attempts to avoid congestion purely from the end
+hosts. This approach is implemented in TCP, making it variant of
+the congestion control mechainsms described in the previous section.</p>
+<h2 id="active-queue-management-decbit-red-ecn">Active Queue Management (DECbit, RED, ECN)</h2>
+<p>The first approach requires changes to routers, which has never been
+the Internet&apos;s preferred way of introducing new features, but
+nonetheless, has been a constant source of consternation over the last
+20 years. The problem is that while it&apos;s generally agreed that routers
+are in an ideal position to detect the onset of congestion&#x2014;i.e., their
+queues start to fill up&#x2014;there has not been a consensus on exactly what
+the best algorithm is. The following describes two of the classic
+mechanisms, and concludes with a brief discussion of where things
+stand today.</p>
+<h3 id="decbit">DECbit</h3>
 <p>The first mechanism was developed for use on the Digital Network
 Architecture (DNA), a connectionless network with a connection-oriented
 transport protocol. This mechanism could, therefore, also be applied to
@@ -1028,7 +1040,7 @@ threshold based on analysis that showed it to correspond to the peak of
 the power curve. The &quot;increase by 1, decrease by 0.875&quot; rule was
 selected because additive increase/multiplicative decrease makes the
 mechanism stable.</p>
-<h2 id="random-early-detection-red">Random Early Detection (RED)</h2>
+<h3 id="random-early-detection">Random Early Detection</h3>
 <p>A second mechanism, called <em>random early detection</em> (RED), is similar to
 the DECbit scheme in that each router is programmed to monitor its own
 queue length and, when it detects that congestion is imminent, to notify
@@ -1049,17 +1061,6 @@ congestion window sooner than it would normally have. In other words,
 the router drops a few packets before it has exhausted its buffer space
 completely, so as to cause the source to slow down, with the hope that
 this will mean it does not have to drop lots of packets later on.</p>
-<p>Note that RED is also sometimes used with an explicit feedback
-scheme simply by <em>marking</em> a packet instead of <em>dropping</em> it.
-This feedback mechanism is implemented by treating two bits
-in the IP <code>TOS</code> field as Explicit Congestion Notification (ECN) bits.
-One bit is set by the source to indicate that it is ECN-capable,
-that is, able to react to a congestion notification. The other bit
-is set by routers along the end-to-end path when congestion is
-encountered, as indicated by the RED algorithm. The latter bit is
-also echoed back to the source by the destination host. TCP running
-on the source responds to the ECN bit set in exactly the same way it
-responds to a dropped packet.</p>
 <p>The second difference between RED and DECbit is in the details of how
 RED decides when to drop a packet and what packet it decides to drop. To
 understand the basic idea, consider a simple FIFO queue. Rather than
@@ -1248,13 +1249,51 @@ in the next section can help with this problem by isolating certain
 classes of traffic from others. There is also the possibility that a
 variant of RED could drop more heavily from flows that are
 unresponsive to the initial hints that it sends.</p>
-<h2 id="source-based-congestion-avoidance">Source-Based Congestion Avoidance</h2>
-<p>Unlike the two previous congestion-avoidance schemes, which depended
+<h3 id="explicit-congestion-notification">Explicit Congestion Notification</h3>
+<p>RED is the most extensively studied AQM mechanism, but it has not been
+widely deployed, due in part to the fact that it does not result in
+ideal behavior in all circumstances. It is, however, the benchmark for
+understanding AQM behavior. The other thing that came out of RED is
+the recognition that TCP could do a better job if routers were to send
+a more explicit congestion signal.</p>
+<p>That is, instead of <em>dropping</em> a packet and assuming TCP will
+eventually notice (e.g., due to the arrival of a a duplicate ACK), RED
+(or any AQM algorithm for that matter) can do a better job if it
+instead <em>marks</em> the packet and continues to send it along its way to
+the destination. This idea was codified in changes to the IP and TCP
+headers known as <em>Explicit Congestion Notification</em> (ECN).</p>
+<p>Specifically, this feedback is implemented by treating two bits 
+in the IP <code>TOS</code> field as ECN bits. One bit is set by the source to
+indicate that it is ECN-capable, that is, able to react to a
+congestion notification. This is called the <code>ECT</code> bit (ECN-Capable
+Transport). The other bit is set by routers along the
+end-to-end path when congestion is encountered, as computed by
+whatever AQM algorithm it is running. This is called the <code>CE</code> bit
+(Congestion Encountered).</p>
+<p>In addition to these two bits in the IP header (which are
+transport-agnostic), ECN also includes the addition of two optional
+flags to the TCP header. The first, <code>ECE</code> (ECN-Echo), communicates
+from the receiver to the sender that it has received a packet with the
+<code>CE</code> bit set. The second, <code>CWR</code> (Congestion Window Reduced)
+communicates from the sender to the receiver that it has reduced the
+congestion window.</p>
+<p>While ECN is now the standard interpretation of two of the eight bits
+in the <code>TOS</code> field of the IP header and support for ECN is highly
+recommended, it is not required. Moreover, there is no single
+recommended AQM algorithm, but instead, there is a list of
+requirements a good AQM algorithm should meet. Like TCP congestion
+control algorithms, every AQM algorithm has its advantages and
+disadvantages, and so we need a lot of them. There is one particular
+scenario, however, where the TCP congestion control algorithm
+and AQM algorithm are designed to work in concert: the datacenter.
+We return to this use case at the end of this section.</p>
+<h2 id="source-based-approaches-vegas-bbr-dctcp">Source-Based Approaches (Vegas, BBR, DCTCP)</h2>
+<p>Unlike the previous congestion-avoidance schemes, which depended
 on cooperation from routers, we now describe a strategy for detecting
 the incipient stages of congestion&#x2014;before losses occur&#x2014;from the end
 hosts. We first give a brief overview of a collection of related
 mechanisms that use different information to detect the early stages of
-congestion, and then we describe a specific mechanism in some detail.</p>
+congestion, and then we describe two specific mechanisms in more detail.</p>
 <p>The general idea of these techniques is to watch for a sign from the
 network that some router&apos;s queue is building up and that congestion will
 happen soon if nothing is done about it. For example, the source might
@@ -1284,14 +1323,15 @@ when only one packet was in transit&#x2014;as was the case at the beginning
 of the connection&#x2014;the algorithm decreases the window by one packet.
 This scheme calculates the throughput by dividing the number of bytes
 outstanding in the network by the RTT.</p>
-<p>A fourth mechanism, the one we are going to describe in more detail, is
-similar to this last algorithm in that it looks at changes in the
-throughput rate or, more specifically, changes in the sending rate.
-However, it differs from the third algorithm in the way it calculates
-throughput, and instead of looking for a change in the slope of the
-throughput it compares the measured throughput rate with an expected
-throughput rate. The algorithm, TCP Vegas, is not widely deployed in the
-Internet, but the strategy it uses has been adopted by other
+<h3 id="tcp-vegas">TCP Vegas</h3>
+<p>The mechanism we are going to describe in more detail is similar to
+the last algorithm in that it looks at changes in the throughput rate
+or, more specifically, changes in the sending rate. However, it
+differs from the previous algorithm in the way it calculates throughput,
+and instead of looking for a change in the slope of the throughput it
+compares the measured throughput rate with an expected throughput
+rate. The algorithm, TCP Vegas, is not widely deployed in the
+Internet today, but the strategy it uses has been adopted by other
 implementations that are now being deployed.</p>
 <p>The intuition behind the Vegas algorithm can be seen in the trace of
 standard TCP given in <a href="#trace3">Figure 5</a>. The top graph shown in
@@ -1421,6 +1461,82 @@ Vegas does use multiplicative decrease when a timeout occurs; the linear
 decrease just described is an <em>early</em> decrease in the congestion window
 that should happen before congestion occurs and packets start being
 dropped.</p>
+<h3 id="tcp-bbr">TCP BBR</h3>
+<p>BBR (Bottleneck Bandwidth and RTT) is a new TCP congestion control
+algorithm developed by researchers at Google. Like Vegas, BBR is delay
+based, which means it tries to detect buffer growth so as to avoid
+congestion and packet loss. Both BBR and Vegas use the minimum RTT and
+maximum RTT, as calculated over some time interval, as their main
+control signals.</p>
+<p>BBR also introduces new mechanisms to improve performance, including
+packet pacing, bandwidth probing, and RTT probing. Packet pacing
+spaces the packets based on the estimate of the available
+bandwidth. This eliminates bursts and unnecessary queueing, which
+results in a better feedback signal. BBR also periodically increases
+its rate, thereby probing the available bandwidth. Similarly, BBR
+periodically decreases its rate, thereby probing for a new minimum
+RTT. The RTT probing mechanism attempts to be self-synchronizing,
+which is to say, when there are multiple BBR flows, their respective
+RTT probes happen at the same time. This gives a more accurate view of
+the actual uncongested path RTT, which solves one of the major issues
+with delay-based congestion control mechanisms: having accurate
+knowledge of the uncongested path RTT.</p>
+<p>BBR is actively being worked on and rapidly evolving. One major
+focus is fairness. For example, some experiments show CUBIC flows get
+100x less bandwidth when competing with BBR flows, and other
+experiments show that unfairness among BBR flows is even
+possible. Another major focus is avoiding high retransmission rates,
+where in some cases as many as 10% of packets are retransmitted.</p>
+<h3 id="dctcp">DCTCP</h3>
+<p>We conclude with an example of a situation where a variant of the TCP
+congestion control algorithm has been designed to work in concert with
+ECN: in cloud datacenters. The combination is
+called DCTCP, which stands for <em>Data Center TCP</em>. The situation is
+unique in that a datacenter is self-contained, and so it is possible
+to deploy a tailor-made version of TCP that does not need to worry
+about treating other TCP flows fairly. Datacenters are also unique in
+that they are built using low-cost white-box switches, and because
+there is no need to worry about long-fat pipes spanning a continent,
+the switches are typically provisioned without an excess of buffers.</p>
+<p>The idea is straightforward. DCTCP adapts ECN by estimating the
+fraction of bytes that encounter congestion rather than simply
+detecting that some congestion is about to occur. At the end hosts,
+DCTCP then scales the congestion window based on this estimate.
+The standard TCP algorithm still kicks in should a packet actually be
+lost. The approach is designed to achieve high-burst tolerance, low
+latency, and high throughput with shallow-buffered switches. </p>
+<p>The key challenge DCTCP faces is to estimate the fraction of bytes
+encountering congestion. Each switch is simple. If a packet arrives
+and the switch sees the queue length (K) is above some threshold; e.g.,</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="sans-serif">K</mi></mrow><mo>&gt;</mo><mo>(</mo><mrow><mi mathvariant="sans-serif">R</mi><mi mathvariant="sans-serif">T</mi><mi mathvariant="sans-serif">T</mi></mrow><mo>&#xD7;</mo><mrow><mi mathvariant="sans-serif">C</mi></mrow><mo>)</mo><mi mathvariant="normal">/</mi><mn>7</mn></mrow><annotation encoding="application/x-tex">
+\mathsf{K} &gt; (\mathsf{RTT} \times \mathsf{C})/7
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"><span class="mord mathsf">K</span></span><span class="mrel">&gt;</span><span class="mopen">(</span><span class="mord displaystyle textstyle uncramped"><span class="mord mathsf">R</span><span class="mord mathsf">T</span><span class="mord mathsf">T</span></span><span class="mbin">&#xD7;</span><span class="mord displaystyle textstyle uncramped"><span class="mord mathsf">C</span></span><span class="mclose">)</span><span class="mord mathrm">/</span><span class="mord mathrm">7</span></span></span></span></span></p>
+<p>where C is the link rate in packets per second, then the switch
+sets the CE bit in the IP header. The complexity of RED is not required.</p>
+<p>The receiver then maintains a boolean variable for every flow,
+which we&apos;ll denote <code>SeenCE</code>, and implements the following state
+machine in response to every received packet:</p>
+<ul>
+<li><p>If the CE bit is set and <code>SeenCE=False</code>, set <code>SeenCE</code> to True and
+send an immediate ACK.</p>
+</li>
+<li><p>If the CE bit is not set and <code>SeenCE=True</code>, set <code>SeenCE</code> to False
+and send an immediate ACK.</p>
+</li>
+<li><p>Otherwise, ignore the CE bit.</p>
+</li>
+</ul>
+<p>The non-obvious consequence of the &quot;otherwise&quot; case is that the
+receiver continues to send delayed ACKs once every <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> packets,
+whether or not the CE bit is set. This has proven important
+to maintaining high performance.</p>
+<p>Finally, the sender computes the fraction of bytes that encountered
+congestion during the previous observation window (usually chosen to
+be approximately the RTT), as the ratio of the total bytes transmitted
+and the bytes acknowledged with the ECE flag set. DCTCP grows the
+congestion window in exactly the same way as the standard algorithm,
+but it reduces the window in propotion to how many bytes encountered
+congestion during the last observation window.</p>
 
                                 
                                 </section>
@@ -1464,7 +1580,7 @@ dropped.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.4 Congestion-Avoidance","level":"1.7.4","depth":2,"next":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"path":"congestion/qos.md","ref":"congestion/qos.md","articles":[]},"previous":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/avoidance.md","mtime":"2018-09-21T19:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-10T23:41:33.483Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.4 Advanced Congestion Control","level":"1.7.4","depth":2,"next":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"path":"congestion/qos.md","ref":"congestion/qos.md","articles":[]},"previous":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/avoidance.md","mtime":"2019-02-22T22:03:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-22T22:09:11.257Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
