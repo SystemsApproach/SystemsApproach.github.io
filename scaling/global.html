@@ -1033,7 +1033,7 @@ provided by Classless Interdomain Routing (CIDR) and subnetting, can
 improve the scalability of routing. In the next two sections, we&apos;ll see
 further uses of hierarchy (and its partner, aggregation) to provide
 greater scalability, first in a single domain and then between domains.
-Our final subsection looks at the emerging standards for IP version 6,
+Our final subsection looks at IP version 6,
 the invention of which was largely the result of scalability concerns.</p>
 <h2 id="routing-areas">Routing Areas</h2>
 <p>As a first example of using hierarchy to scale up the routing system,
@@ -1183,7 +1183,7 @@ illustrated in <a href="#inet-tree">Figure 1</a>, and did not allow for the
 topology to become more general. Note that in this simple treelike
 structure there is a single backbone, and autonomous systems are
 connected only as parents and children and not as peers.</p>
-<p>The replacement for EGP is the Border Gateway Protocol (BGP), which has
+<p>The replacement for EGP was the Border Gateway Protocol (BGP), which has
 iterated through four versions (BGP-4). BGP is often regarded as one
 of the more complex parts of the Internet. We&apos;ll cover some of its
 high points here.</p>
@@ -1191,9 +1191,10 @@ high points here.</p>
 autonomous systems are interconnected&#x2014;they form an arbitrary graph.
 This model is clearly general enough to accommodate non-tree-structured
 internetworks, like the simplified picture of a multi-provider Internet
-shown in . (It turns out there is still some sort of structure to the
-Internet, as we&apos;ll see below, but it&apos;s nothing like as simple as a tree,
-and BGP makes no assumptions about such structure.)</p>
+shown in <a href="#inet-1995">Figure 4</a>. (It turns out there is still some
+sort of structure to the Internet, as we&apos;ll see below, but it&apos;s
+nothing like as simple as a tree, and BGP makes no assumptions about
+such structure.)</p>
 <figure class="line">
     <a id="inet-1995"></a>
     <img src="figures/f04-04-9780123850591.png" width="600px">
@@ -1990,7 +1991,7 @@ larger addresses.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"next":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},"previous":{"title":"Chapter 4: Advanced Internetworking","level":"1.5","depth":1,"path":"scaling/problem.md","ref":"scaling/problem.md","articles":[{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},{"title":"4.5 Summary","level":"1.5.5","depth":2,"path":"scaling/summary.md","ref":"scaling/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/global.md","mtime":"2018-09-10T22:00:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-22T22:09:11.257Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"next":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},"previous":{"title":"Chapter 4: Advanced Internetworking","level":"1.5","depth":1,"path":"scaling/problem.md","ref":"scaling/problem.md","articles":[{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},{"title":"4.5 Summary","level":"1.5.5","depth":2,"path":"scaling/summary.md","ref":"scaling/summary.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/global.md","mtime":"2019-02-23T14:26:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-25T22:55:52.565Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

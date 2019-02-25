@@ -1123,13 +1123,6 @@ circuit identifier (VCI) and virtual path identifier (VPI) fields.</p>
     a frame-encapsulated packet.</figcaption>
 </figure>
 
-<figure class="line">
-    <a id="overlay"></a>
-    <img src="figures/f04-21-9780123850591.png" width="400px">
-    <figcaption>(a) Routers connect to each other using an overlay of
-    virtual circuits. (b) Routers peer directly with LSRs.</figcaption>
-</figure>
-
 <p>Having now devised a scheme by which an ATM switch can function as an
 LSR, what have we gained? One thing to note is that we could now build a
 network that uses a mixture of conventional IP routers, label edge
@@ -1146,6 +1139,13 @@ exist because of the significant installed base of ATM switches in
 network backbones, which in turn is partly a result of ATM&apos;s ability to
 support a range of capabilities such as circuit emulation and virtual
 circuit services.</p>
+<figure class="line">
+    <a id="overlay"></a>
+    <img src="figures/f04-21-9780123850591.png" width="400px">
+    <figcaption>(a) Routers connect to each other using an overlay of 
+    virtual circuits. (b) Routers peer directly with LSRs.</figcaption>
+</figure>
+
 <p>In an overlay network, each router would potentially be connected to
 each of the other routers by a virtual circuit, but in this case for
 clarity we have just shown the circuits from R1 to all of its peer
@@ -1447,7 +1447,7 @@ routing and the support of a range of VPN services.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"next":{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},"previous":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/mpls.md","mtime":"2018-09-10T22:00:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-22T22:09:11.257Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"next":{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},"previous":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/mpls.md","mtime":"2019-02-23T14:23:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-25T22:55:52.565Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
