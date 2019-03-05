@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>8.3 Authentication Protocols · Computer Networks: A Systems Approach</title>
+        <title>8.4 Authentication Protocols · Computer Networks: A Systems Approach</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -764,12 +764,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="crypto.html">
+        <li class="chapter " data-level="1.9.1" data-path="trust.html">
+            
+                <a href="trust.html">
+            
+                    
+                    8.1 Trust and Threats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="crypto.html">
             
                 <a href="crypto.html">
             
                     
-                    8.1 Cryptographic Building Blocks
+                    8.2 Cryptographic Building Blocks
             
                 </a>
             
@@ -777,12 +790,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="key-distro.html">
+        <li class="chapter " data-level="1.9.3" data-path="key-distro.html">
             
                 <a href="key-distro.html">
             
                     
-                    8.2 Key Predistribution
+                    8.3 Key Predistribution
             
                 </a>
             
@@ -790,12 +803,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="authentication.html">
+        <li class="chapter active" data-level="1.9.4" data-path="authentication.html">
             
                 <a href="authentication.html">
             
                     
-                    8.3 Authentication Protocols
+                    8.4 Authentication Protocols
             
                 </a>
             
@@ -803,12 +816,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="systems.html">
+        <li class="chapter " data-level="1.9.5" data-path="systems.html">
             
                 <a href="systems.html">
             
                     
-                    8.4 Example Systems
+                    8.5 Example Systems
             
                 </a>
             
@@ -816,12 +829,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.5" data-path="summary.html">
+        <li class="chapter " data-level="1.9.6" data-path="summary.html">
             
                 <a href="summary.html">
             
                     
-                    8.5 Summary
+                    8.6 Summary
             
                 </a>
             
@@ -948,7 +961,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >8.3 Authentication Protocols</a>
+        <a href=".." >8.4 Authentication Protocols</a>
     </h1>
 </div>
 
@@ -963,12 +976,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="83-authentication-protocols">8.3 Authentication Protocols</h1>
-<p>We described how to encrypt messages and build authenticators in the
-first section and how to predistribute the necessary keys in the second
-section. It might seem as if all we have to do to make a protocol secure
-is append an authenticator to every message and, if we want
-confidentiality, encrypt the message.</p>
+                                <h1 id="84-authentication-protocols">8.4 Authentication Protocols</h1>
+<p>So far we described how to encrypt messages, build authenticators,
+predistribute the necessary keys. It might seem as if all we have to
+do to make a protocol secure is append an authenticator to every
+message and, if we want confidentiality, encrypt the message.</p>
 <p>There are two main reasons why it&apos;s not that simple. First, there is the
 problem of a <em>replay attack</em>: an adversary retransmitting a copy of a
 message that was previously sent. If the message was an order you had
@@ -977,7 +989,8 @@ to the website as though you had ordered more of the same. Even though
 it wasn&apos;t the original incarnation of the message, its authenticator
 would still be valid; after all, the message was created by you, and it
 wasn&apos;t modified. Clearly, we need the solution that ensures
-<em>originality</em>.  In a variation of this attack called a
+<em>originality</em>.</p>
+<p>In a variation of this attack called a
 <em>suppress-replay attack</em>, an adversary might merely delay your message
 (by intercepting and later replaying it), so that it is received at a
 time when it is no longer appropriate. For example, an adversary could
@@ -987,7 +1000,7 @@ sense be the original, it wouldn&apos;t be timely. So we also need to ensure
 <em>timeliness</em>. Originality and timeliness may be considered aspects of
 integrity. Ensuring them will in most cases require a nontrivial,
 back-and-forth protocol.</p>
-<p>The other problem we have not yet solved is how to establish a session
+<p>The second problem we have not yet solved is how to establish a session
 key. A session key is a symmetric-key cipher key generated on the fly
 and used for just one session. This too involves a nontrivial protocol.</p>
 <p>What these two issues have in common is authentication. If a message is
@@ -1306,12 +1319,12 @@ credit card number to the web server.</p>
 
             
                 
-                <a href="key-distro.html" class="navigation navigation-prev " aria-label="Previous page: 8.2 Key Predistribution">
+                <a href="key-distro.html" class="navigation navigation-prev " aria-label="Previous page: 8.3 Key Predistribution">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="systems.html" class="navigation navigation-next " aria-label="Next page: 8.4 Example Systems">
+                <a href="systems.html" class="navigation navigation-next " aria-label="Next page: 8.5 Example Systems">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1322,7 +1335,7 @@ credit card number to the web server.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.3 Authentication Protocols","level":"1.9.3","depth":2,"next":{"title":"8.4 Example Systems","level":"1.9.4","depth":2,"path":"security/systems.md","ref":"security/systems.md","articles":[]},"previous":{"title":"8.2 Key Predistribution","level":"1.9.2","depth":2,"path":"security/key-distro.md","ref":"security/key-distro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/authentication.md","mtime":"2018-10-03T21:33:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-25T22:55:52.565Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.4 Authentication Protocols","level":"1.9.4","depth":2,"next":{"title":"8.5 Example Systems","level":"1.9.5","depth":2,"path":"security/systems.md","ref":"security/systems.md","articles":[]},"previous":{"title":"8.3 Key Predistribution","level":"1.9.3","depth":2,"path":"security/key-distro.md","ref":"security/key-distro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"security/authentication.md","mtime":"2019-03-04T23:47:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-05T22:14:08.489Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

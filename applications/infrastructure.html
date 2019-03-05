@@ -764,12 +764,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../security/crypto.html">
+        <li class="chapter " data-level="1.9.1" data-path="../security/trust.html">
+            
+                <a href="../security/trust.html">
+            
+                    
+                    8.1 Trust and Threats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../security/crypto.html">
             
                 <a href="../security/crypto.html">
             
                     
-                    8.1 Cryptographic Building Blocks
+                    8.2 Cryptographic Building Blocks
             
                 </a>
             
@@ -777,12 +790,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../security/key-distro.html">
+        <li class="chapter " data-level="1.9.3" data-path="../security/key-distro.html">
             
                 <a href="../security/key-distro.html">
             
                     
-                    8.2 Key Predistribution
+                    8.3 Key Predistribution
             
                 </a>
             
@@ -790,12 +803,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="../security/authentication.html">
+        <li class="chapter " data-level="1.9.4" data-path="../security/authentication.html">
             
                 <a href="../security/authentication.html">
             
                     
-                    8.3 Authentication Protocols
+                    8.4 Authentication Protocols
             
                 </a>
             
@@ -803,12 +816,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="../security/systems.html">
+        <li class="chapter " data-level="1.9.5" data-path="../security/systems.html">
             
                 <a href="../security/systems.html">
             
                     
-                    8.4 Example Systems
+                    8.5 Example Systems
             
                 </a>
             
@@ -816,12 +829,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.5" data-path="../security/summary.html">
+        <li class="chapter " data-level="1.9.6" data-path="../security/summary.html">
             
                 <a href="../security/summary.html">
             
                     
-                    8.5 Summary
+                    8.6 Summary
             
                 </a>
             
@@ -974,11 +987,11 @@ application allows the users of other applications to refer to remote
 hosts by name rather than by address. In other words, a name service is
 usually used by other applications, rather than by humans.</p>
 <p>A second critical function is network management, which although not so
-familiar to the average user, is the operation performed most often by
-system administrators. Network management is widely considered one of
-the hard problems of networking and continues to be the focus of much
-research. We&apos;ll look at some of the issues and approaches to the problem
-below.</p>
+familiar to the average user, is performed most often by the people
+that operate the network on behalf of users. Network management is
+widely considered one of the hard problems of networking and continues
+to be the focus of much innovation. We&apos;ll look at some of the issues and
+approaches to the problem below.</p>
 <h2 id="name-service-dns">Name Service (DNS)</h2>
 <p>In most of this book, we have been using addresses to identify hosts.
 While perfectly suited for processing by routers, addresses are not
@@ -1301,7 +1314,7 @@ names before sending out a query.</p>
 <figure class="line">
     <a id="resolution"></a>
     <img src="figures/f09-18-9780123850591.png" width="600px">
-    <figcaption>Name resolution in practice, where the numbers 1 to 10
+    <figcaption>Name resolution in practice, where the numbers 1 to 10 
     show the sequence of steps in the process.</figcaption>
 </figure>
 
@@ -1323,7 +1336,7 @@ the next hop IP address into the physical address for that machine; the
 next hop might be the ultimate destination or it might be an
 intermediate router. Frames sent over the physical network have these
 physical addresses in their headers.</p>
-<h2 id="network-management-snmp">Network Management (SNMP)</h2>
+<h2 id="network-management-snmp-openconfig">Network Management (SNMP, OpenConfig)</h2>
 <p>A network is a complex system, both in terms of the number of nodes that
 are involved and in terms of the suite of protocols that can be running
 on any one node. Even if you restrict yourself to worrying about the
@@ -1332,7 +1345,7 @@ might be dozens of routers and hundreds&#x2014;or even thousands&#x2014;of hosts
 to keep track of. If you think about all the state that is maintained
 and manipulated on any one of those nodes&#x2014;address translation tables,
 routing tables, TCP connection state, and so on&#x2014;then it is easy to
-become depressed about the prospect of having to manage all of this
+become overwhelmed by the prospect of having to manage all of this
 information.</p>
 <p>It is easy to imagine wanting to know about the state of various
 protocols on different nodes. For example, you might want to monitor the
@@ -1347,37 +1360,22 @@ evidence of faulty hardware and misbehaving software.</p>
 issue that pervades the entire network architecture. Since the nodes we
 want to keep track of are distributed, our only real option is to use
 the network to manage the network. This means we need a protocol that
-allows us to read, and possibly write, various pieces of state
-information on different network nodes. A widely used protocol
-for this purpose is the Simple Network Management Protocol (SNMP).</p>
-<blockquote>
-<p>While it is true that SNMP is widely used, and was historically
-&quot;the&quot; management protocol for switches and
-routers, system admins also have to administer servers, client
-desktop machines, and laptops. And to complicate matters even
-more, virtualization technology has led to the proliferation of
-virtual machines (VM), which now outnumber physical machines; admins
-have to administer these VMs too. New management tools are being
-invented every day to help address this challenge, but they typically
-leverage standard protocols like HTTP to retrieve monitoring data.
-This is a positive development in that it takes us out of the
-business of creating new protocols and puts us in the business of
-creating smarter and smarter management tools, many of which now
-starting to take advantage of Artificial Intelligence to determine
-if something is amiss. Today, SNMP is one of many sources of data
-being used by network automation and orchestration tools.</p>
-</blockquote>
-<p>SNMP is essentially a specialized request/reply protocol that supports
-two kinds of request messages: <code>GET</code> and <code>SET</code>. The former is used
-to retrieve a piece of state from some node, and the latter is used to
-store a new piece of state in some node. (SNMP also supports a third
-operation, , which we explain below.) The following discussion focuses
-on the <code>GET</code> operation, since it is the one most frequently used.</p>
-<p>SNMP is used in the obvious way. A system administrator interacts with a
+allows us to read and write various pieces of state information on
+different network nodes. The following describes two approaches.</p>
+<h3 id="snmp">SNMP</h3>
+<p>A widely used protocol for network management is SNMP (<em>Simple Network
+Management Protocol</em>). SNMP is essentially a specialized request/reply
+protocol that supports two kinds of request messages: <code>GET</code> and
+<code>SET</code>. The former is used to retrieve a piece of state from some node,
+and the latter is used to store a new piece of state in some node.
+ (SNMP also supports a third operation, <code>GET-NEXT</code>, which we explain
+ below.) The following discussion focuses on the <code>GET</code> operation, since
+it is the one most frequently used.</p>
+<p>SNMP is used in the obvious way. An operator interacts with a
 client program that displays information about the network. This client
 program usually has a graphical interface. You can think of this
 interface as playing the same role as a web browser. Whenever the
-administrator selects a certain piece of information that he or she
+operator selects a certain piece of information that he or she
 wants to see, the client program uses SNMP to request that information
 from the node in question. (SNMP runs on top of UDP.) An SNMP server
 running on that node receives the request, locates the appropriate piece
@@ -1390,7 +1388,7 @@ memory to read to satisfy the request? The answer is that SNMP depends
 on a companion specification called the <em>management information base</em>
 (MIB). The MIB defines the specific pieces of information&#x2014;the MIB
 <em>variables</em>&#x2014;that you can retrieve from a network node.</p>
-<p>The current version of MIB, called MIB-II, organizes variables into 10
+<p>The current version of MIB, called MIB-II, organizes variables into
 different <em>groups</em>. You will recognize that most of the groups
 correspond to one of the protocols described in this book, and nearly
 all of the variables defined for each group should look familiar. For
@@ -1423,9 +1421,8 @@ example:</p>
  UDP datagrams that have been sent and received.</p>
 </li>
 </ul>
-<p>There are also groups for Internet Control Message Protocol (ICMP),
-Exterior Gateway Protocol (EGP), and SNMP itself. The tenth group is
-used by different media.</p>
+<p>There are also groups for Internet Control Message Protocol (ICMP)
+and SNMP itself.</p>
 <p>Returning to the issue of the client stating exactly what information it
 wants to retrieve from a node, having a list of MIB variables is only
 half the battle. Two problems remain. First, we need a precise syntax
@@ -1457,11 +1454,120 @@ value held in this variable, and uses ASN.1/BER to encode the value it
 sends back to the client.</p>
 <p>There is one final detail. Many of the MIB variables are either tables
 or structures. Such compound variables explain the reason for the SNMP
-operation. This operation, when applied to a particular variable ID,
-returns the value of that variable plus the ID of the next variable, for
-example, the next item in the table or the next field in the structure.
-This aids the client in &quot;walking through&quot; the elements of a table or
-structure.</p>
+<code>GET-NEXT</code> operation. This operation, when applied to a particular
+variable ID, returns the value of that variable plus the ID of the
+next variable, for example, the next item in the table or the next
+field in the structure. This aids the client in &quot;walking through&quot; the
+elements of a table or structure.</p>
+<h3 id="openconfig">OpenConfig</h3>
+<p>SNMP is still widely used and has historically been &quot;the&quot; management
+protocol for switches and routers, but there has recently been growing
+attention paid to more flexible and powerful ways to manage networks.
+There isn&apos;t yet complete agreement on an industry-wide standard, but a
+conensus about the general approach is starting to emerge. We describe
+one example, called <em>OpenConfig</em>, that is both getting a lot of
+traction and illustrates many of the key idea that the are being pursued.</p>
+<p>The general strategy is to automate network management as much as
+possible, with the goal of getting the error-prone human out of the
+loop. This is sometimes called <em>zero-touch</em> operation, and it
+implies two things have to happen. First, whereas historically
+operators used tools like SNMP to <em>monitor</em> the network, but had
+to log into any mishaving network device and use a command line
+interface (CLI) to fix the problem, zero-touch operation implies that
+we also need to <em>configure</em> the network programatically. In other
+words, network management is equal parts reading status information
+and writing configuation information. The goal is to build a closed
+control loop, although there will always be scenarios where the
+operator has to be alerted that manual intervention is required.</p>
+<p>Second, whereas historically the operator had to configure each
+network device individually, all the devices have to be configured in
+a consistent way if they are going to function correctly as a network.
+As a consequence, zero-touch also implies that the operator should be
+able to declare their network-wide <em>intent</em>, with the mangement tool
+being smart enough to issue the necessary per-device configuration
+directives in a globally consistent way.</p>
+<figure class="line">
+    <a id="mgmt"></a>
+    <img src="figures/apps/Slide1.png" width="400px">
+    <figcaption>Operator manages a network through a configuration and
+    managment tool, which in turn programmatically interacts with the
+    underlying network devices (e.g., using gNMI as the transport
+    protocol and YANG to specify the schema for the data being
+    exchanged).</figcaption>
+</figure>
+
+<p><a href="#mgmt">Figure 6</a> gives a high-level depiction of this idealized
+approach to network management. We say &quot;idealized&quot; because achieving
+true zero-touch operation is still more aspirational than reality. But
+progress is being made. For example, new management tools are starting
+to leverage standard protocols like HTTP to monitor and configure
+network devices. This is a positive step because it gets us out of the
+business of creating yet another request/reply protocol and let&apos;s us
+focus on creating smarter management tools, perhaps by taking
+advantage of Machine Learning algorithms to determine if something is
+amiss.</p>
+<p>In the same way HTTP is starting to replace SNMP as the protocol
+for talking to network devices, there is a parallel effort to replace
+the MIB with a new standard for what status information various
+types of devices can report, <em>plus</em> what configuration information
+those same devices are able to respond to. Agreeing to a single
+standard for configuration is inherently challenging because every
+vendor claims their device is a unicorn, unlike any of the devices
+their competitors sell. (That is to say, the challenge is not entirely
+technical.)</p>
+<p>The general approach is to allow each device manufacturer to publish a
+<em>data model</em> that specifies the configuration knobs (and available
+monitoring data) for its product, and limit standardization to the
+modeling language. The leading candidate is YANG, which stands for
+<em>Yet Another Next Generation</em>, a name chosen to poke fun at how often
+a do-over proves necessary. YANG can be viewed as a restricted version
+of XSD, which you may recall is a language for defining a schema
+(model) for XML. That is, YANG defines the structure of the data. But
+unlike XSD, YANG is not XML-specific. It can instead be used in
+conjunction with different over-the-wire message formats, including
+XML, but also ProtoBufs and JSON.</p>
+<p>What&apos;s important about going in this direction is that the data model
+that defines the semantics of the variables available to be read and
+written in a programatic form (i.e., it&apos;s not just text in a standards
+specification). It&apos;s not a free-for-all with each vendor defining a
+unique model since the network operators that buy network hardware
+have a strong incentive to drive the models for similar devices
+towards convergence. YANG makes the process of creating, using, and
+modifying models more programmable, and hence, adaptable to this
+process.</p>
+<p>This is where OpenConfig comes in. It uses YANG as its modeling
+language, but has also established a process for driving the industry
+towards common models. OpenConfig is officially agnostic as to the
+RPC mechanism used to communicate with network devices, but one
+approach it is actively pursuing is called gNMI (<em>gRPC Network
+Management Interface</em>). As you might guess from its name, gNMI
+uses gRPC, which you may recall, runs on top of HTTP. This means
+gNMI also adopts ProtoBufs as the way it specifies the data actually
+communicated over the HTTP connection. Thus,  as depicted in
+<a href="#mgmt">Figure 6</a>, gNMI is intended as a standard management interface
+for network devices. What&apos;s not standardized is the richness of the
+management tool&apos;s ability to automate, or the exact form of the
+operator-facing interface. Like any application that is trying to
+serve a need and support more features than the alternatives, there is
+still much room for innovation in tools for network management.</p>
+<blockquote>
+<p>For completeness, we note that NETCONF is another of the post-SNMP
+protocols for communicating configuation information to network
+devices. OpenConfig works with NETCONF, but our reading of the
+tea leaves points to gNMI as the future.</p>
+</blockquote>
+<p>We conclude by emphasizing that a seachange is underway. While
+listing SNMP and OpenConfig in the title to this section suggests
+they are equivalent, its more accurate to say that each is &quot;what we
+call&quot; these two approaches, but the approaches are quite different.
+On the one hand, SNMP is really just a transport protocol, analogous
+to gNMI in the OpenConfig world. It historically enabled monitoring
+devices, but had virtually nothing to say about configuring devices.
+(The latter has historically required manual intervention.) On the
+other hand, OpenConfig is primarily an effort to define a common set
+of data models for network devices, roughly similar to the role MIB
+plays in the SNMP world, except OpenConfig is (1) model-based, using
+YANG, and (2) equally focused on monitoring and configuation.</p>
 
                                 
                                 </section>
@@ -1505,7 +1611,7 @@ structure.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"next":{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},"previous":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/infrastructure.md","mtime":"2018-10-04T22:41:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-25T22:55:52.565Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"next":{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},"previous":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/infrastructure.md","mtime":"2019-03-05T18:27:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-05T22:14:08.489Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -764,12 +764,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../security/crypto.html">
+        <li class="chapter " data-level="1.9.1" data-path="../security/trust.html">
+            
+                <a href="../security/trust.html">
+            
+                    
+                    8.1 Trust and Threats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../security/crypto.html">
             
                 <a href="../security/crypto.html">
             
                     
-                    8.1 Cryptographic Building Blocks
+                    8.2 Cryptographic Building Blocks
             
                 </a>
             
@@ -777,12 +790,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../security/key-distro.html">
+        <li class="chapter " data-level="1.9.3" data-path="../security/key-distro.html">
             
                 <a href="../security/key-distro.html">
             
                     
-                    8.2 Key Predistribution
+                    8.3 Key Predistribution
             
                 </a>
             
@@ -790,12 +803,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="../security/authentication.html">
+        <li class="chapter " data-level="1.9.4" data-path="../security/authentication.html">
             
                 <a href="../security/authentication.html">
             
                     
-                    8.3 Authentication Protocols
+                    8.4 Authentication Protocols
             
                 </a>
             
@@ -803,12 +816,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="../security/systems.html">
+        <li class="chapter " data-level="1.9.5" data-path="../security/systems.html">
             
                 <a href="../security/systems.html">
             
                     
-                    8.4 Example Systems
+                    8.5 Example Systems
             
                 </a>
             
@@ -816,12 +829,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.5" data-path="../security/summary.html">
+        <li class="chapter " data-level="1.9.6" data-path="../security/summary.html">
             
                 <a href="../security/summary.html">
             
                     
-                    8.5 Summary
+                    8.6 Summary
             
                 </a>
             
@@ -1772,7 +1785,7 @@ prior frames rather than later frames is not a problem. Thus, a GOP of</p>
 <div class="ba-center"><p>I P P P P I</p></div>
 
 <p>would work just fine for interactive videoconferencing.</p>
-<h3 id="adaptive-video">Adaptive Video</h3>
+<h3 id="adaptive-streaming">Adaptive Streaming</h3>
 <p>Because encoding schemes like MPEG allow for a trade-off between the
 bandwidth consumed and the quality of the image, there is an
 opportunity to adapt a video stream to match the available network
@@ -1811,7 +1824,14 @@ chunks (files): N quality levels for each of M segments.</p>
 sequence of discrete video chunks by name, the most common approach
 for issuing these requests is to use HTTP. Each chuck is a separate HTTP
 GET request with the URL identifying the specific chunk the receiver
-wants next. This general approach is called <em>HTTP adaptive streaming</em>.</p>
+wants next. When you start downloading a movie, your video player first
+downloads a <em>manifest</em> file that contains nothing more than the URLs
+for the N <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> M chunks in the movie, and then it issues a
+sequence of HTTP requests using the appropriate URL for the
+situation. This general approach is called <em>HTTP adaptive streaming</em>,
+although it has been standardized in slightly different ways by various
+organizations, most notably MPEG&apos;s DASH (<em>Dynamic Adaptive Streaming
+over HTTP</em>) and Apple&apos;s HLS (<em>HTTP Live Streaming</em>).</p>
 <h2 id="audio-compression-mp3">Audio Compression (MP3)</h2>
 <p>Not only does MPEG define how video is compressed, but it also defines a
 standard for compressing audio. This standard can be used to compress
@@ -1942,7 +1962,7 @@ since users are better able to tolerate bad video than bad audio.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"next":{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]},"previous":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/multimedia.md","mtime":"2018-11-16T22:18:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-25T22:55:52.565Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"next":{"title":"7.3 Summary","level":"1.8.3","depth":2,"path":"data/summary.md","ref":"data/summary.md","articles":[]},"previous":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/multimedia.md","mtime":"2019-03-01T22:41:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-05T22:14:08.489Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
