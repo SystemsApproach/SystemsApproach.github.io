@@ -25,6 +25,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
                 
             
@@ -189,12 +193,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/trend.html">
             
-                <a href="../foundation/summary.html">
+                <a href="../foundation/trend.html">
             
                     
-                    1.6 Summary
+                    1.6 Broader Perspective
             
                 </a>
             
@@ -325,12 +329,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="../direct/summary.html">
+        <li class="chapter " data-level="1.3.9" data-path="../direct/trend.html">
             
-                <a href="../direct/summary.html">
+                <a href="../direct/trend.html">
             
                     
-                    2.9 Summary
+                    2.9 Broader Perspective
             
                 </a>
             
@@ -409,12 +413,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="summary.html">
+        <li class="chapter " data-level="1.4.5" data-path="trend.html">
             
-                <a href="summary.html">
+                <a href="trend.html">
             
                     
-                    3.5 Summary
+                    3.5 Broader Perspective
             
                 </a>
             
@@ -493,12 +497,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/trend.html">
             
-                <a href="../scaling/summary.html">
+                <a href="../scaling/trend.html">
             
                     
-                    4.5 Summary
+                    4.5 Broader Perspective 
             
                 </a>
             
@@ -577,12 +581,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/trend.html">
             
-                <a href="../e2e/summary.html">
+                <a href="../e2e/trend.html">
             
                     
-                    5.5 Summary
+                    5.5 Broader Perspective
             
                 </a>
             
@@ -674,12 +678,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.6" data-path="../congestion/summary.html">
+        <li class="chapter " data-level="1.7.6" data-path="../congestion/trend.html">
             
-                <a href="../congestion/summary.html">
+                <a href="../congestion/trend.html">
             
                     
-                    6.6 Summary
+                    6.6 Broader Perspective
             
                 </a>
             
@@ -732,12 +736,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+        <li class="chapter " data-level="1.8.3" data-path="../data/trend.html">
             
-                <a href="../data/summary.html">
+                <a href="../data/trend.html">
             
                     
-                    7.3 Summary
+                    7.3 Broader Perspective 
             
                 </a>
             
@@ -829,12 +833,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.6" data-path="../security/summary.html">
+        <li class="chapter " data-level="1.9.6" data-path="../security/trend.html">
             
-                <a href="../security/summary.html">
+                <a href="../security/trend.html">
             
                     
-                    8.6 Summary
+                    8.6 Broader Perspective
             
                 </a>
             
@@ -913,12 +917,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+        <li class="chapter " data-level="1.10.5" data-path="../applications/trend.html">
             
-                <a href="../applications/summary.html">
+                <a href="../applications/trend.html">
             
                     
-                    9.5 Summary
+                    9.5 Broader Perspective
             
                 </a>
             
@@ -989,7 +993,9 @@ the best choice to get a packet to that address. As we saw in an earlier
 section, the switch makes this decision by consulting a forwarding
 table. The fundamental problem of routing is how switches and routers
 acquire the information in their forwarding tables.</p>
-<p>We restate an important distinction, which is often neglected, between
+<blockquote>
+<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+We restate an important distinction, which is often neglected, between
 <em>forwarding</em> and <em>routing</em>. Forwarding consists of taking a packet,
 looking at its destination address, consulting a table, and sending the
 packet in a direction determined by that table. We saw several examples
@@ -998,6 +1004,7 @@ forwarding tables are built. We also note that forwarding is a
 relatively simple and well-defined process performed locally at a node,
 whereas routing depends on complex distributed algorithms that have
 continued to evolve throughout the history of networking.</p>
+</blockquote>
 <p>While the terms <em>forwarding table</em> and <em>routing table</em> are sometimes 
 used interchangeably, we will make a distinction between them here. The
 forwarding table is used when a packet is being forwarded and so must
@@ -1953,12 +1960,15 @@ problems of routing and is an instance of the more general problem of
 scalability. Some solutions to both the specific problem (the amount of
 storage potentially required at each node) and the general problem
 (scalability) will be discussed in the next section.</p>
-<p>The difference between the distance-vector and link-state algorithms
+<blockquote>
+<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+The difference between the distance-vector and link-state algorithms
 can be summarized as follows. In distance-vector, each node talks only
 to its directly connected neighbors, but it tells them everything it
 has learned (i.e., distance to all nodes). In link-state, each node
 talks to all other nodes, but it tells them only what it knows for
 sure (i.e., only the state of its directly connected links).</p>
+</blockquote>
 <h3 id="the-open-shortest-path-first-protocol-ospf">The Open Shortest Path First Protocol (OSPF)</h3>
 <p>One of the most widely used link-state routing protocols is OSPF. The
 first word, &quot;Open,&quot; refers to the fact that it is an open,
@@ -2209,7 +2219,9 @@ more significantly, many networks today lack the great disparity of
 link speeds and latencies that prevailed in the ARPANET. Thus, static
 metrics are the norm. One common approach to setting metrics is to use
 a constant multiplied by (1/link_bandwidth).</p>
-<p>Why do we still tell the story about a decades old algorithm that&apos;s
+<blockquote>
+<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+Why do we still tell the story about a decades old algorithm that&apos;s
 no longer is use? Because it perfectly illustrates two valuable lessons.
 The first is that computer systems are often <em>designed iteratively,
 based on experience.</em>  We seldom get it right the first time, so it&apos;s
@@ -2224,6 +2236,7 @@ short-term value, it is shocking how often a simple approach proves
 best over time. This is because when a system has many moving parts,
 as the Internet most certainly does, keeping each part as simple as
 possible is usually the best bet.</p>
+</blockquote>
 
                                 
                                 </section>
@@ -2267,7 +2280,7 @@ possible is usually the best bet.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2018-11-02T21:57:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-14T18:19:15.443Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2019-03-26T17:21:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-27T20:44:27.274Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -2282,6 +2295,10 @@ possible is usually the best bet.</p>
     
         
         <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
         
     
         

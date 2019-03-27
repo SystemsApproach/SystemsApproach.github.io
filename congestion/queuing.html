@@ -25,6 +25,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
                 
             
@@ -189,12 +193,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/trend.html">
             
-                <a href="../foundation/summary.html">
+                <a href="../foundation/trend.html">
             
                     
-                    1.6 Summary
+                    1.6 Broader Perspective
             
                 </a>
             
@@ -325,12 +329,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="../direct/summary.html">
+        <li class="chapter " data-level="1.3.9" data-path="../direct/trend.html">
             
-                <a href="../direct/summary.html">
+                <a href="../direct/trend.html">
             
                     
-                    2.9 Summary
+                    2.9 Broader Perspective
             
                 </a>
             
@@ -409,12 +413,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../internetworking/summary.html">
+        <li class="chapter " data-level="1.4.5" data-path="../internetworking/trend.html">
             
-                <a href="../internetworking/summary.html">
+                <a href="../internetworking/trend.html">
             
                     
-                    3.5 Summary
+                    3.5 Broader Perspective
             
                 </a>
             
@@ -493,12 +497,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/trend.html">
             
-                <a href="../scaling/summary.html">
+                <a href="../scaling/trend.html">
             
                     
-                    4.5 Summary
+                    4.5 Broader Perspective 
             
                 </a>
             
@@ -577,12 +581,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/trend.html">
             
-                <a href="../e2e/summary.html">
+                <a href="../e2e/trend.html">
             
                     
-                    5.5 Summary
+                    5.5 Broader Perspective
             
                 </a>
             
@@ -674,12 +678,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.6" data-path="summary.html">
+        <li class="chapter " data-level="1.7.6" data-path="trend.html">
             
-                <a href="summary.html">
+                <a href="trend.html">
             
                     
-                    6.6 Summary
+                    6.6 Broader Perspective
             
                 </a>
             
@@ -732,12 +736,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+        <li class="chapter " data-level="1.8.3" data-path="../data/trend.html">
             
-                <a href="../data/summary.html">
+                <a href="../data/trend.html">
             
                     
-                    7.3 Summary
+                    7.3 Broader Perspective 
             
                 </a>
             
@@ -829,12 +833,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.6" data-path="../security/summary.html">
+        <li class="chapter " data-level="1.9.6" data-path="../security/trend.html">
             
-                <a href="../security/summary.html">
+                <a href="../security/trend.html">
             
                     
-                    8.6 Summary
+                    8.6 Broader Perspective
             
                 </a>
             
@@ -913,12 +917,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+        <li class="chapter " data-level="1.10.5" data-path="../applications/trend.html">
             
-                <a href="../applications/summary.html">
+                <a href="../applications/trend.html">
             
                     
-                    9.5 Summary
+                    9.5 Broader Perspective
             
                 </a>
             
@@ -1235,7 +1239,9 @@ bandwidth available to a flow also depends, for example, on how many
 other flows are sharing the link.) We will see in a later section how
 WFQ can be used as a component of a reservation-based resource
 allocation mechanism.</p>
-<p>Finally, we observe that this whole discussion of queue management
+<blockquote>
+<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+Finally, we observe that this whole discussion of queue management
 illustrates an important system design principle known as <em>separating
 policy and mechanism</em>. The idea is to view each mechanism as a black box
 that provides a multifaceted service that can be controlled by a set of
@@ -1245,6 +1251,7 @@ the mechanism in question is the queuing discipline, and the policy is a
 particular setting of which flow gets what level of service (e.g.,
 priority or weight). We discuss some policies that can be used with the
 WFQ mechanism in a later section.</p>
+</blockquote>
 
                                 
                                 </section>
@@ -1288,7 +1295,7 @@ WFQ mechanism in a later section.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.2 Queuing Disciplines","level":"1.7.2","depth":2,"next":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"previous":{"title":"6.1 Issues in Resource Allocation","level":"1.7.1","depth":2,"path":"congestion/issues.md","ref":"congestion/issues.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/queuing.md","mtime":"2018-09-21T19:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-14T18:19:15.443Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.2 Queuing Disciplines","level":"1.7.2","depth":2,"next":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"previous":{"title":"6.1 Issues in Resource Allocation","level":"1.7.1","depth":2,"path":"congestion/issues.md","ref":"congestion/issues.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/queuing.md","mtime":"2019-03-26T17:19:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-27T20:44:27.274Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1303,6 +1310,10 @@ WFQ mechanism in a later section.</p>
     
         
         <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
         
     
         

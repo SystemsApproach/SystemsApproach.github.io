@@ -25,6 +25,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
                 
             
@@ -189,12 +193,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../foundation/summary.html">
+        <li class="chapter " data-level="1.2.6" data-path="../foundation/trend.html">
             
-                <a href="../foundation/summary.html">
+                <a href="../foundation/trend.html">
             
                     
-                    1.6 Summary
+                    1.6 Broader Perspective
             
                 </a>
             
@@ -325,12 +329,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="summary.html">
+        <li class="chapter " data-level="1.3.9" data-path="trend.html">
             
-                <a href="summary.html">
+                <a href="trend.html">
             
                     
-                    2.9 Summary
+                    2.9 Broader Perspective
             
                 </a>
             
@@ -409,12 +413,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../internetworking/summary.html">
+        <li class="chapter " data-level="1.4.5" data-path="../internetworking/trend.html">
             
-                <a href="../internetworking/summary.html">
+                <a href="../internetworking/trend.html">
             
                     
-                    3.5 Summary
+                    3.5 Broader Perspective
             
                 </a>
             
@@ -493,12 +497,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../scaling/summary.html">
+        <li class="chapter " data-level="1.5.5" data-path="../scaling/trend.html">
             
-                <a href="../scaling/summary.html">
+                <a href="../scaling/trend.html">
             
                     
-                    4.5 Summary
+                    4.5 Broader Perspective 
             
                 </a>
             
@@ -577,12 +581,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="../e2e/summary.html">
+        <li class="chapter " data-level="1.6.5" data-path="../e2e/trend.html">
             
-                <a href="../e2e/summary.html">
+                <a href="../e2e/trend.html">
             
                     
-                    5.5 Summary
+                    5.5 Broader Perspective
             
                 </a>
             
@@ -674,12 +678,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.6" data-path="../congestion/summary.html">
+        <li class="chapter " data-level="1.7.6" data-path="../congestion/trend.html">
             
-                <a href="../congestion/summary.html">
+                <a href="../congestion/trend.html">
             
                     
-                    6.6 Summary
+                    6.6 Broader Perspective
             
                 </a>
             
@@ -732,12 +736,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.3" data-path="../data/summary.html">
+        <li class="chapter " data-level="1.8.3" data-path="../data/trend.html">
             
-                <a href="../data/summary.html">
+                <a href="../data/trend.html">
             
                     
-                    7.3 Summary
+                    7.3 Broader Perspective 
             
                 </a>
             
@@ -829,12 +833,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.6" data-path="../security/summary.html">
+        <li class="chapter " data-level="1.9.6" data-path="../security/trend.html">
             
-                <a href="../security/summary.html">
+                <a href="../security/trend.html">
             
                     
-                    8.6 Summary
+                    8.6 Broader Perspective
             
                 </a>
             
@@ -913,12 +917,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.5" data-path="../applications/summary.html">
+        <li class="chapter " data-level="1.10.5" data-path="../applications/trend.html">
             
-                <a href="../applications/summary.html">
+                <a href="../applications/trend.html">
             
                     
-                    9.5 Summary
+                    9.5 Broader Perspective
             
                 </a>
             
@@ -1082,12 +1086,15 @@ size of 1 KB, this implies a maximum sending rate of</p>
 <p>or about one-eighth of the link&apos;s capacity. To use the link fully, then,
 we&apos;d like the sender to be able to transmit up to eight frames before
 having to wait for an acknowledgment.</p>
-<p>The significance of the delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product is that it
+<blockquote>
+<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+The significance of the delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product is that it
 represents the amount of data that could be in transit. We would like to
 be able to send this much data without waiting for the first
 acknowledgment. The principle at work here is often referred to as
 <em>keeping the pipe full</em>. The algorithms presented in the following two
 subsections do exactly this.</p>
+</blockquote>
 <h2 id="sliding-window">Sliding Window</h2>
 <p>Consider again the scenario in which the link has a
 delay <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth product of 8 KB and frames are 1 KB in size.
@@ -1506,7 +1513,9 @@ receiver is capable of receiving corresponds to how much free buffer
 space it has. As in the case of ordered delivery, we need to make sure
 that flow control is necessary at the link level before incorporating it
 into the sliding window protocol.</p>
-<p>One important concept to take away from this discussion is the system
+<blockquote>
+<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+One important concept to take away from this discussion is the system
 design principle we call <em>separation of concerns</em>. That is, you must be
 careful to distinguish between different functions that are sometimes
 rolled together in one mechanism, and you must make sure that each
@@ -1515,6 +1524,7 @@ this particular case, reliable delivery, ordered delivery, and flow
 control are sometimes combined in a single sliding window protocol, and
 we should ask ourselves if this is the right thing to do at the link
 level.</p>
+</blockquote>
 <h2 id="concurrent-logical-channels">Concurrent Logical Channels</h2>
 <p>The data link protocol used in the original ARPANET provides an
 interesting alternative to the sliding window protocol, in that it is
@@ -1584,7 +1594,7 @@ frames on the link when <code>RWS = SWS</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"next":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"previous":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/reliable.md","mtime":"2018-11-02T17:08:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-14T18:19:15.443Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"next":{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},"previous":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/reliable.md","mtime":"2019-03-26T17:22:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-27T20:44:27.274Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1599,6 +1609,10 @@ frames on the link when <code>RWS = SWS</code>.</p>
     
         
         <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
         
     
         
