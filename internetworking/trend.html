@@ -984,7 +984,7 @@
 <h2 id="virtual-networks-all-the-way-down">Virtual Networks All the Way Down</h2>
 <p>For almost as long as there have been packet-switched networks, there
 have been ideas about how to virtualize them, starting with virtual
-circuits. But what exactly does it mean to virtualize the network?</p>
+circuits. But what exactly does it mean to virtualize a network?</p>
 <p>Virtual memory is a helpful example. Virtual memory creates an
 abstraction of a large and private pool of memory, even though the
 underlying physical memory may be shared by many applications
@@ -1013,12 +1013,10 @@ network, even though in reality they were sharing underlying links and
 switches with many other users.  VPNs, however, only virtualize a few
 resources, notably addressing and routing tables. Network
 virtualization as commonly understood today goes further, virtualizing
-every aspect of networking. That means that a virtual network today
-supports all the basic abstractions of a physical network&#x2014;switching,
-routing, firewalling, load balancing&#x2014;virtualizing the entire network
-stack from layers two through seven. In this sense, they are analogous
-to the virtual machine, with its support of all the abstractions of a
-server: CPU, storage, I/O, and so on.</p>
+every aspect of networking. That means that a virtual network should
+support all the basic abstractions of a physical network. In this
+sense, they are analogous to the virtual machine, with its support of
+all the resources of a server: CPU, storage, I/O, and so on.</p>
 <p>To this end, <em>Virtual LANs</em> (VLANs) are how we typically virtualize an
 L2 network. Supporting VLANs required a fairly simple extension to the
 original 802.1 header specification, inserting a 12-bit VLAN ID
@@ -1067,14 +1065,14 @@ should behave just like a physical resources and we know how to
 virtualize physical resources! Said another way, being able to
 virtualize a virtual resource is the best proof that you have done a
 good job of virtualizing the original physical resource. To re-purpose
-the mythoology of the World Turtle: It&apos;s virtual networks all the way
+the mythology of the World Turtle: It&apos;s virtual networks all the way
 down.</p>
 <p>The actual VXLAN header is simple. It includes a 24-bit <em>Virtual
 Network Id</em> (VNI), plus some flag bits. It also implies a particular
 setting of the UDP source and destination port fields (see
 <a href="../e2e/udp.html">Section 5.1</a>), with the destination port 4789
-officially reserved for VXLANs. Figuring out how to assign identifiers
-to virtual LANs (VLAN tags) and virtual networks (VXLAN VIDs) is the
+officially reserved for VXLANs. Figuring out how to uniquely identify
+virtual LANs (VLAN tags) and virtual networks (VXLAN VIDs) is the
 easy part. This is because encapsulation is the fundamental
 cornerstone of virtualization; all you need to add is an identifier
 that tells you which of many possible users this encapsulated packet
@@ -1084,11 +1082,11 @@ nested (encapsulated) inside virtual networks, which is networking&#x2019;s
 version of recursion. The other challenge is understanding how to
 automate the creation, management, migration, and deletion of virtual
 networks, and on this front there is still a lot of room for improvement.
-Mastering this problem will be at the heart of networking in the next
+Mastering this challenge will be at the heart of networking in the next
 decade, and while some of this work will undoubtedly happen in
 proprietary settings, there are open source network virtualization
-platforms, most notably the Linux Foundation&apos;s <em>Tungsten Fabric</em>
-project.</p>
+platforms (e.g., the Linux Foundation&apos;s <em>Tungsten Fabric</em> project)
+leading the way.</p>
 <blockquote>
 <p>[!NOTE|label:Broader Perspective]
 To continue reading about the cloudification of the Internet, see
@@ -1142,7 +1140,7 @@ To continue reading about the cloudification of the Internet, see
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"next":{"title":"Chapter 4: Advanced Internetworking","level":"1.5","depth":1,"path":"scaling/problem.md","ref":"scaling/problem.md","articles":[{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},{"title":"4.5 Broader Perspective ","level":"1.5.5","depth":2,"path":"scaling/trend.md","ref":"scaling/trend.md","articles":[]}]},"previous":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/trend.md","mtime":"2019-03-27T17:51:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-27T20:44:27.274Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"next":{"title":"Chapter 4: Advanced Internetworking","level":"1.5","depth":1,"path":"scaling/problem.md","ref":"scaling/problem.md","articles":[{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},{"title":"4.2 Multicast","level":"1.5.2","depth":2,"path":"scaling/multicast.md","ref":"scaling/multicast.md","articles":[]},{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},{"title":"4.4 Routing Among Mobile Devices","level":"1.5.4","depth":2,"path":"scaling/mobile-ip.md","ref":"scaling/mobile-ip.md","articles":[]},{"title":"4.5 Broader Perspective ","level":"1.5.5","depth":2,"path":"scaling/trend.md","ref":"scaling/trend.md","articles":[]}]},"previous":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/trend.md","mtime":"2019-03-30T21:46:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T18:01:01.221Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

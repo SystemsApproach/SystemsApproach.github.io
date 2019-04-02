@@ -991,8 +991,7 @@ complex hardware appliances (e.g., OLTs, BNGs, BBUs, EPCs). Not only
 have these devices historically been closed and proprietary, but the
 vendors that sell them have typically bundled a broad and diverse
 collection of functionality in each. As a consequence, they have
-become expensive to build, complicated to operate, and extremely slow
-to change.</p>
+become expensive to build, complicated to operate, and slow to change.</p>
 <p>In response, network operators are actively transitioning from these
 purpose-built appliances to open software running on commodity
 servers, switches, and access devices. This initiative is often called
@@ -1007,18 +1006,29 @@ commodity hardware, but it is mostly driven by the need to accelerate
 the pace of innovation. Their goal is to enable new classes of edge
 services&#x2014;e.g., Public Safety, Autonomous Vehicles, Automated
 Factories, Internet-of-Things (IoT), Immersive User Interfaces&#x2014;that
-benefit from low latency connectivity to end users, and the devices
-those users surround themselves with.</p>
-<p>This is all part of the growing trend, led by cloud providers, to move
-functionality out of the datacenter and closer to the network edge. It
-is fair to say that cloud providers and network operators are on a
-collision course. Cloud providers, in pursuit of
-low-latency/high-bandwidth applications, are moving out of the
-datacenter and towards the edge at the same time network operators are
-adopting the best practices and technologies of the cloud to the edge
-that already exists and implements the access network. It&#x2019;s impossible
-to say how this will all play out over time; both industries have
-their particular advantages.</p>
+benefit from low latency connectivity to end users, and more
+importantly, to the increasing number of devices those users surround
+themselves with. This results in a multi-tier cloud similar to the one
+shown in <a href="#cord">Figure 1</a>.</p>
+<figure class="line">
+    <a id="cord"></a>
+    <img src="figures/access/Slide3.png" width="600px">
+    <figcaption>Emerging multi-tier cloud includes datacenter-based
+    public clouds, IXP-hosted distributed clouds, and access-based
+    edge clouds, such as CORD. While there are on the order of 150
+    IXP-hosted clouds worldwide, we can expect there to be thousands
+    or even tens of thousands of edge clouds.</figcaption>
+</figure>
+
+<p>This is all part of the growing trend to move functionality out of the
+datacenter and closer to the network edge, a trend that puts cloud
+providers and network operators on collision course. Cloud providers,
+in pursuit of low-latency/high-bandwidth applications, are moving out
+of the datacenter and towards the edge at the same time network
+operators are adopting the best practices and technologies of the
+cloud to the edge that already exists and implements the access
+network. It&#x2019;s impossible to say how this will all play out over time;
+both industries have their particular advantages.</p>
 <p>On the one hand, cloud providers believe that by saturating metro
 areas with edge clusters and abstracting away the access network, they
 can build an edge presence with low enough latency and high enough
@@ -1029,9 +1039,9 @@ on commodity hardware.</p>
 <p>On the other hand, network operators believe that by building the next
 generation access network using cloud technology, they will be able to
 co-locate edge applications in the access network. This scenario comes
-with three built-in advantages: an existing and widely distributed
-physical footprint, existing operational support, and native support
-for both mobility and guaranteed service.</p>
+with built-in advantages: an existing and widely distributed physical
+footprint, existing operational support, and native support for both
+mobility and guaranteed service.</p>
 <p>While acknowledging both of these possibilities, there is a third
 outcome that is not only worth considering, but also worth working
 towards: the <em>democratization of the network edge.</em> The idea is to
@@ -1123,7 +1133,7 @@ Communications</em>, October 2016.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.9 Broader Perspective","level":"1.3.9","depth":2,"next":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]}]},"previous":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/trend.md","mtime":"2019-03-27T17:27:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-27T20:44:27.274Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.9 Broader Perspective","level":"1.3.9","depth":2,"next":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]}]},"previous":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/trend.md","mtime":"2019-04-02T17:35:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T18:01:01.221Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
