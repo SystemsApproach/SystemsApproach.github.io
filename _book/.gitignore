@@ -1,0 +1,9 @@
+_book/
+*.pdf
+*.tex
+.DS_Store
+*/.DS_Store
+*.sh
+private/
+scripts/
+alt-SUMMARY.md

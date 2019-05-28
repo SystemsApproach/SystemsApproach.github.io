@@ -1,0 +1,4 @@
+.book-summary ul.summary li span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
