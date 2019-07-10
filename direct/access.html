@@ -1015,7 +1015,7 @@ broadband to homes and businesses. PON adopts a point-to-multipoint
 design, which means the network is structured as a tree, with a single
 point starting in the ISP&apos;s network and then fanning out to reach up
 to 1024 homes. PON gets its name from the fact that the
-splitters are passive: they forward optical signls downstream and
+splitters are passive: they forward optical signals downstream and
 upstream without actively storing-and-forwarding frames. In this way,
 they are the optical variant of repeaters used in the classic Ethernet.
 Framing then happens at the source in the ISP&apos;s premises, in a device
@@ -1042,9 +1042,9 @@ Internet (everything to the right of the BNG).</p>
 <p>Because the splitters are passive, PON has to implement some form of
 multi-access protocol. The approach it adopts can be summarized as
 follows. First, upstream and downstream traffic are transmitted on two
-diffrent optical wavelengths, so they are completely independent of
+different optical wavelengths, so they are completely independent of
 each other. Downstream traffic starts at the OLT and the signal is
-propogated down every link in the PON. As a consequence, every frame
+propagated down every link in the PON. As a consequence, every frame
 reaches every ONU. This device then looks at a unique identifier in
 the individual frames sent over the wavelength, and either keeps the
 frame (if the identifier is for it) or drops it (if not). Encryption is
@@ -1080,9 +1080,9 @@ the world, and are complicated by the fact that ISPs often
 simultaneously support both old/legacy technologies and
 new/next-generation technologies, each of which occupies a different
 frequency band. The high-level summary is that traditional cellular
-technolgies range from 700-MHz to 2400-MHz, with new mid-spectrum
+technologies range from 700-MHz to 2400-MHz, with new mid-spectrum
 allocations now happening at 6-GHz and millimeter-wave (mmWave)
-allocations openning above 24-GHz. One interesting
+allocations opening above 24-GHz. One interesting
 footnote is that there is also an unlicensed band at 3.5-GHz set aside
 in North America, called <em>Citizens Broadband Radio Service</em> (CBRS),
 that anyone with a cellular radio can use. This opens the door for
@@ -1110,7 +1110,7 @@ pair; the first tracks and manages the movement of UEs throughout the
 RAN, the second is a database that contains subscriber-related
 information, and the Gateway pair processes and forwards packets
 between the RAN and the Internet (it forms the EPC&apos;s <em>user plane</em>).
-We say &quot;one possible configuration&quot; because the celluar standards
+We say &quot;one possible configuration&quot; because the cellular standards
 allow wide variability in how many S/PGWs a given MME is responsible
 for, making is possible for a single MME to manage mobility across a
 wide geographic area that is served by multiple Central
@@ -1158,18 +1158,18 @@ of releases and generations is called LTE, which stands for <em>Long-Term
 Evolution</em>. The main takeaway is that while standards are published as
 a sequence of discrete releases, the industry as a whole is now on a
 fairly well-defined evolutionary path known as LTE.</p>
-<p>The main innovaition of LTE&apos;s air interface for 5G is the flexibility
+<p>The main innovation of LTE&apos;s air interface for 5G is the flexibility
 it provides. 5G uses a hybrid multiplexing scheme called OFDMA
 (Orthogonal Frequency Division Multiple Access), which intuitively
-combines frequence-division multiplexing (carving the frequency band
+combines frequency-division multiplexing (carving the frequency band
 into multiple overlapping sub-channels) and time-division multiplexing
 (allocating one or more sub-channels to a given UE for a certain slot
 of time). OFDMA also uses a coding scheme known as LDPC (Low Density
 Parity Check) that ensures the probability of inter-symbol
-interference for transimssions on adjacent sub-channels is zero.
+interference for transmissions on adjacent sub-channels is zero.
 Another way of thinking about LDPC is that the way it encodes bits
 onto signals includes enough redundancy (i.e., a form of FEC) to
-ensure the receiver is able able recover the original data even when
+ensure the receiver is able recover the original data even when
 signals overlap. In addition, BBUs also have the ability to
 increase/decrease the power they use to transmit, effectively allowing
 them to dynamically change cell size. This makes it possible to move
@@ -1179,7 +1179,7 @@ UEs from one cell to another on the fly.</p>
 most capacity out of the limited spectrum. More importantly, this
 flexibility provides opportunities for ISPs to offer new services to
 their subscribers, supporting applications that range from
-bandwidth-hungry video and virutual/augmented reality to
+bandwidth-hungry video and virtual/augmented reality to
 latency-sensitive autonomous cars and Internet-of-Things. The
 challenge of 5G is how to control and best take advantage of this
 flexibility.</p>
@@ -1226,7 +1226,7 @@ flexibility.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"next":{"title":"2.9 Broader Perspective","level":"1.3.9","depth":2,"path":"direct/trend.md","ref":"direct/trend.md","articles":[]},"previous":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/access.md","mtime":"2019-05-28T18:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"next":{"title":"2.9 Broader Perspective","level":"1.3.9","depth":2,"path":"direct/trend.md","ref":"direct/trend.md","articles":[]},"previous":{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/access.md","mtime":"2019-07-10T16:11:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

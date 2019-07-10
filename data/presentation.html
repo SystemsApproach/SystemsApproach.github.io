@@ -1224,7 +1224,7 @@ SunRPC. In the taxonomy just introduced, XDR</p>
 </li>
 </ul>
 <p>An XDR integer is a 32-bit data item that encodes a C integer. It is
-represented in twos complement notation, with the most significant byte
+represented in twos&apos; complement notation, with the most significant byte
 of the C integer in the first byte of the XDR integer and the least
 significant byte of the C integer in the fourth byte of the XDR integer.
 That is, XDR uses big-endian format for integers. XDR supports both
@@ -1320,7 +1320,7 @@ types, as illustrated in <a href="#ber1">Figure 7</a>.</p>
 specified in a single byte. Thus, for example, a 32-bit integer is
 encoded as a 1-byte <code>type</code>, a 1-byte <code>length</code>, and the 4 bytes that
 encode the integer, as illustrated in <a href="#ber2">Figure 8</a>. The <code>value</code>
-itself, in the case of an integer, is represented in twos complement
+itself, in the case of an integer, is represented in twos&apos; complement
 notation and big-endian form, just as in XDR. Keep in mind that, even
 though the <code>value</code> of the integer is represented in exactly the same
 way in both XDR and ASN.1, the XDR representation has neither the
@@ -1379,7 +1379,7 @@ so it is able to achieve the same performance.</p>
 <h3 id="protobufs">ProtoBufs</h3>
 <p>Protocol Buffers (Protobufs, for short) is a language-neutral and
 platform-neutral way of serializing structured data, commonly
-used with gRPC. It uses an tagged strategy with a canonical
+used with gRPC. It uses a tagged strategy with a canonical
 intermediate form, where the stub on both sides is generated from a
 shared <code>.proto</code> file. This specification uses a simple C-like syntax,
 as the following example illustrates:</p>
@@ -1515,9 +1515,9 @@ collection of data. Several schema languages have been defined for XML;
 we will focus here on the leading standard, known by the
 none-too-surprising name <em>XML Schema</em>. An individual schema defined
 using XML Schema is known as an <em>XML Schema Document</em> (XSD). The
-following is an XSD for the example; in other words, it defines the
-language to which the example document conforms. It might be stored in a
-file named <code>employee.xsd</code>.</p>
+following is an XSD specification for the example; in other words, it
+defines the language to which the example document conforms. It might
+be stored in a file named <code>employee.xsd</code>.</p>
 <pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span></span>
 <span class="hljs-tag">&lt;<span class="hljs-name">schema</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">element</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;employee&quot;</span>&gt;</span>
@@ -1653,7 +1653,7 @@ core protocols on which the upper layers of the Internet now depend.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"next":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},"previous":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"path":"data/problem.md","ref":"data/problem.md","articles":[{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},{"title":"7.3 Broader Perspective ","level":"1.8.3","depth":2,"path":"data/trend.md","ref":"data/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/presentation.md","mtime":"2019-05-28T18:18:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"next":{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},"previous":{"title":"Chapter 7: End-to-End Data","level":"1.8","depth":1,"path":"data/problem.md","ref":"data/problem.md","articles":[{"title":"7.1 Presentation Formatting","level":"1.8.1","depth":2,"path":"data/presentation.md","ref":"data/presentation.md","articles":[]},{"title":"7.2 Multimedia Data","level":"1.8.2","depth":2,"path":"data/multimedia.md","ref":"data/multimedia.md","articles":[]},{"title":"7.3 Broader Perspective ","level":"1.8.3","depth":2,"path":"data/trend.md","ref":"data/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"data/presentation.md","mtime":"2019-07-10T20:20:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

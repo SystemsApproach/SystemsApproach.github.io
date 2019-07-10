@@ -1254,7 +1254,7 @@ tree for a group, not one for every sender to a group.</p>
 </figure>
 
 <p>When a router sends a <code>Join</code> message toward the RP for a group G, it
-is sent using normal IP unicast transmission. This is illustrated in the
+is sent using normal IP unicast transmission. This is illustrated in
 <a href="#pim-shared">Figure 1(a)</a>, in which router R4 is sending a <code>Join</code> to
 the rendezvous point for some group. The initial <code>Join</code> message is
 &quot;wildcarded&quot;; that is, it applies to all senders. A <code>Join</code> message
@@ -1271,7 +1271,7 @@ toward the RP. Eventually, the message arrives at the RP, completing the
 construction of the tree branch. The shared tree thus constructed is
 shown as a solid line from the RP to R4 in <a href="#pim-shared">Figure 1(a)</a>.</p>
 <p>As more routers send <code>Join</code>s toward the RP, they cause new branches to
-be added to the tree, as illustrated in the <a href="#pim-shared">Figure 1(b)</a>.
+be added to the tree, as illustrated in <a href="#pim-shared">Figure 1(b)</a>.
 Note that, in this case, the <code>Join</code> only needs to travel to R2, which
 can add the new branch to the tree simply by adding a new outgoing
 interface to the forwarding table entry created for this group. R2 need
@@ -1280,7 +1280,7 @@ this process is to build a tree whose root is the RP.</p>
 <p>At this point, suppose a host wishes to send a message to the group. To
 do so, it constructs a packet with the appropriate multicast group
 address as its destination and sends it to a router on its local network
-known as the <em>designated router</em> (DR). Suppose the DR is R1 in the
+known as the <em>designated router</em> (DR). Suppose the DR is R1 in
 <a href="#pim-shared">Figure 1</a>. There is no state for this multicast group
 between R1 and the RP at this point, so instead of simply forwarding the
 multicast packet, R1 <em>tunnels</em> it to the RP. That is, R1 encapsulates
@@ -1302,8 +1302,8 @@ can send to all receivers this way. However, there is some bandwidth
 inefficiency and processing cost in the encapsulation and decapsulation
 of packets on the way to the RP, so the RP forces knowledge about this
 group into the intervening routers so tunneling can be avoided. It sends
-a <code>Join</code> message toward the sending host (the
-<a href="#pim-shared">Figure 1(c)</a>). As this <code>Join</code> travels toward the host,
+a <code>Join</code> message toward the sending host
+(<a href="#pim-shared">Figure 1(c)</a>). As this <code>Join</code> travels toward the host,
 it causes the routers along the path (R3) to learn about the group, so
 that it will be possible for the DR to send the packet to the group as
 <em>native</em> (i.e., not tunneled) multicast packets.</p>
@@ -1322,7 +1322,7 @@ effect of the new <code>Join</code> is to create <em>sender-specific</em> state 
 routers between the identified source and the RP. This is referred to as
 (S, G) state, since it applies to one sender to one group, and contrasts
 with the (*, G) state that was installed between the receivers and the
-RP that applies to all senders. Thus, in the
+RP that applies to all senders. Thus, in
 <a href="#pim-shared">Figure 1(c)</a>, we see a source-specific route from R1 to
 the RP (indicated by the dashed line) and a tree that is valid for all
 senders from the RP to the receivers (indicated by the solid line).</p>
@@ -1400,7 +1400,7 @@ multicast group address, and the IP address of the originating RP.</p>
 
 <p>If an MSDP peer RP that receives one of these broadcasts has active
 receivers for that multicast group, it sends a source-specific <code>Join</code>,
-on that RP&apos;s own behalf, to the source host, as shown in the
+on that RP&apos;s own behalf, to the source host, as shown in
 <a href="#msdp">Figure 3(a)</a>. The <code>Join</code> message builds a branch of the
 source-specific tree to this RP, as shown in <a href="#msdp">Figure 3(b)</a>.
 The result is that every RP that is part of the MSDP network and has
@@ -1473,7 +1473,7 @@ bidirectional&#x2014;a router that receives a multicast packet from a
 downstream branch can forward it both up the tree and down other
 branches. The route followed to deliver a packet to any particular
 receiver goes only as far up the tree as necessary before going down the
-branch to that receiver. See the multicast route from R1 to R2 in the
+branch to that receiver. See the multicast route from R1 to R2 in
 <a href="#pim-bidir">Figure 4(b)</a> for an example. R4 forwards a multicast
 packet downstream to R2 at the same time that it forwards a copy of the
 same packet upstream to R5.</p>
@@ -1482,19 +1482,19 @@ RP. All that is needed is a routable address, which is known as an RP
 address even though it need not be the address of an RP or anything at
 all. How can this be? A <code>Join</code> from a receiver is forwarded toward the
 RP address until it reaches a router with an interface on the link where
-the RP address would reside, where the Join terminates. the
+the RP address would reside, where the Join terminates. 
 <a href="#pim-bidir">Figure 4(a)</a> shows a <code>Join</code> from R2 terminating at R5,
 and a <code>Join</code> from R3 terminating at R6. The upstream forwarding of a
 multicast packet similarly flows toward the RP address until it reaches
 a router with an interface on the link where the RP address would
 reside, but then the router forwards the multicast packet onto that link
 as the final step of upstream forwarding, ensuring that all other
-routers on that link receive the packet. the <a href="#pim-bidir">Figure 4(b)</a>
+routers on that link receive the packet. <a href="#pim-bidir">Figure 4(b)</a>
 illustrates the flow of multicast traffic originating at R1.</p>
 <figure>
     <a id="pim-bidir"></a>
     <img src="figures/f04-17-9780123850591.png" width="400px">
-    <figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join message toward
+    <figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join messages toward
     the RP address that terminate when they reach a router on the RP
     address&apos;s link. (b) A multicast packet from R1 is forwarded
     upstream to the RP address&apos;s link and downstream wherever it
@@ -1570,7 +1570,7 @@ length, etc.) and what sort of application you are trying to support
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"next":{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},"previous":{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/multicast.md","mtime":"2019-05-28T18:17:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2 Multicast","level":"1.5.2","depth":2,"next":{"title":"4.3 Multiprotocol Label Switching","level":"1.5.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},"previous":{"title":"4.1 Global Internet","level":"1.5.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/multicast.md","mtime":"2019-07-10T18:44:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

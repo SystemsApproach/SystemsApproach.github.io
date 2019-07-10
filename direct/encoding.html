@@ -1038,7 +1038,7 @@ cause this average to change, making it more difficult to detect a
 significant change in the signal.</p>
 <p>The second problem is that frequent transitions from high to low and
 <em>vice versa</em> are necessary to enable <em>clock recovery</em>. Intuitively, the
-clock recovery problem is that both the encoding and the decoding
+clock recovery problem is that both the encoding and decoding
 processes are driven by a clock&#x2014;every clock cycle the sender transmits
 a bit and the receiver recovers a bit. The sender&apos;s and the receiver&apos;s
 clocks have to be precisely synchronized in order for the receiver to
@@ -1111,7 +1111,11 @@ three consecutive 0s being transmitted. The resulting 5-bit codes are
 then transmitted using the NRZI encoding, which explains why the code is
 only concerned about consecutive 0s&#x2014;NRZI already solves the problem of
 consecutive 1s. Note that the 4B/5B encoding results in 80% efficiency.</p>
-<p><a id="4b5b"></a></p>
+<table>
+<a id="4b5b"></a>
+<tabcaption>4B/5B encoding.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1186,10 +1190,6 @@ consecutive 1s. Note that the 4B/5B encoding results in 80% efficiency.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 1. 4B/5B encoding.</caption>
-</table>
-
 <p><a href="#4b5b">Table 1</a> gives the 5-bit codes that correspond to
 each of the 16 possible 4-bit data symbols. Notice that since 5 bits
 are enough to encode 32 different codes, and we are using only 16 of
@@ -1244,7 +1244,7 @@ symbols.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"next":{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},"previous":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/encoding.md","mtime":"2019-05-28T18:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"next":{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},"previous":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/encoding.md","mtime":"2019-07-10T16:13:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1195,7 +1195,11 @@ two). Usually, whether the &quot;delay&quot; in delay <span class="katex"><span 
 one-way latency or RTT is made clear by the context.
 <a href="#delay-bw">Table 1</a> shows some examples of  RTT <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> bandwidth
 products for some typical network links.</p>
-<p><a id="delay-bw"></a></p>
+<table>
+<a id="delay-bw"></a>
+<tabcaption>Example delay x bandwidth products.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1230,12 +1234,8 @@ products for some typical network links.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 1. Example delay x bandwidth products.</caption>
-</table>
-
 <h2 id="high-speed-networks">High-Speed Networks</h2>
-<p>The seeming continual increase in bandwdith causes network designers
+<p>The seeming continual increase in bandwidth causes network designers
 to start thinking about what happens in the limit or, stated another
 way, what is the impact on network design of having infinite bandwidth
 available.</p>
@@ -1280,7 +1280,7 @@ dominate our thinking about network design.</p>
 <p>Perhaps the best way to understand the relationship between throughput
 and latency is to return to basics. The effective end-to-end throughput
 that can be achieved over a network is given by the simple relationship</p>
-<div class="ba-center"><p>TransferTime = TransferSize / TransferTime</p></div>
+<div class="ba-center"><p>Throughput = TransferSize / TransferTime</p></div>
 
 <p>where includes not only the elements of one-way identified earlier in
 this section, but also any additional time spent requesting or setting
@@ -1290,7 +1290,7 @@ up the transfer. Generally, we represent this relationship as</p>
 <p>We use in this calculation to account for a request message being sent
 across the network and the data being sent back. For example, consider a
 situation where a user wants to fetch a 1-MB file across a 1-Gbps with a
-round-trip time of 100 ms. The includes both the transmit time for 1 MB
+round-trip time of 100 ms. This includes both the transmit time for 1 MB
 (1 / 1 Gbps <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 1 MB = 8 ms) and the 100-ms RTT, for a total
 transfer time of 108 ms. This means that the effective throughput will be</p>
 <div class="ba-center"><p>1 MB / 108 ms = 74.1 Mbps</p></div>
@@ -1438,7 +1438,7 @@ a buffer.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5 Performance","level":"1.2.5","depth":2,"next":{"title":"1.6 Broader Perspective","level":"1.2.6","depth":2,"path":"foundation/trend.md","ref":"foundation/trend.md","articles":[]},"previous":{"title":"1.4 Software","level":"1.2.4","depth":2,"path":"foundation/software.md","ref":"foundation/software.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/performance.md","mtime":"2019-05-28T18:16:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.5 Performance","level":"1.2.5","depth":2,"next":{"title":"1.6 Broader Perspective","level":"1.2.6","depth":2,"path":"foundation/trend.md","ref":"foundation/trend.md","articles":[]},"previous":{"title":"1.4 Software","level":"1.2.4","depth":2,"path":"foundation/software.md","ref":"foundation/software.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/performance.md","mtime":"2019-07-10T16:48:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

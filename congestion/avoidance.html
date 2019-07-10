@@ -1004,7 +1004,7 @@ router to assist the end node in the anticipation of congestion. This
 approach is often referred to as <em>Active Queue Management</em>  (AQM).
 The second approach attempts to avoid congestion purely from the end
 hosts. This approach is implemented in TCP, making it variant of
-the congestion control mechainsms described in the previous section.</p>
+the congestion control mechanisms described in the previous section.</p>
 <h2 id="active-queue-management-decbit-red-ecn">Active Queue Management (DECbit, RED, ECN)</h2>
 <p>The first approach requires changes to routers, which has never been
 the Internet&apos;s preferred way of introducing new features, but
@@ -1179,7 +1179,7 @@ the two thresholds. <code>P</code> increases slowly as <code>count</code> increa
 thereby making a drop increasingly likely as the time since the last
 drop increases. This makes closely spaced drops relatively less likely
 than widely spaced drops. This extra step in calculating <code>P</code> was
-introduced by the inventorsof RED when they observed that, without it,
+introduced by the inventors of RED when they observed that, without it,
 the packet drops were not well distributed in time but instead tended to
 occur in clusters. Because packet arrivals from a certain connection are
 likely to arrive in bursts, this clustering of drops is likely to cause
@@ -1281,7 +1281,7 @@ understanding AQM behavior. The other thing that came out of RED is
 the recognition that TCP could do a better job if routers were to send
 a more explicit congestion signal.</p>
 <p>That is, instead of <em>dropping</em> a packet and assuming TCP will
-eventually notice (e.g., due to the arrival of a a duplicate ACK), RED
+eventually notice (e.g., due to the arrival of a duplicate ACK), RED
 (or any AQM algorithm for that matter) can do a better job if it
 instead <em>marks</em> the packet and continues to send it along its way to
 the destination. This idea was codified in changes to the IP and TCP
@@ -1604,7 +1604,7 @@ congestion during the last observation window.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.4 Advanced Congestion Control","level":"1.7.4","depth":2,"next":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"path":"congestion/qos.md","ref":"congestion/qos.md","articles":[]},"previous":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/avoidance.md","mtime":"2019-05-27T18:44:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.4 Advanced Congestion Control","level":"1.7.4","depth":2,"next":{"title":"6.5 Quality of Service","level":"1.7.5","depth":2,"path":"congestion/qos.md","ref":"congestion/qos.md","articles":[]},"previous":{"title":"6.3 TCP Congestion Control","level":"1.7.3","depth":2,"path":"congestion/tcpcc.md","ref":"congestion/tcpcc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"congestion/avoidance.md","mtime":"2019-07-10T19:21:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

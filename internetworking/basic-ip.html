@@ -1023,7 +1023,7 @@ bridges or switches would still be viewed as a single network.</p>
 <figure>
     <a id="inet"></a>
     <img src="figures/f03-14-9780123850591.png" width="500px">
-    <figcaption>A simple internetwork. H denotes a host ane R denotes
+    <figcaption>A simple internetwork. H denotes a host and R denotes
     a router.</figcaption>
 </figure>
 
@@ -1184,8 +1184,8 @@ are values defined for the TCP (Transmission Control Protocol&#x2014;6), UDP
 (User Datagram Protocol&#x2014;17), and many other protocols that may sit
 above IP in the protocol graph.</p>
 <p>The <code>Checksum</code> is calculated by considering the entire IP header as a
-sequence of 16-bit words, adding them up using ones complement
-arithmetic, and taking the ones complement of the result. Thus, if any
+sequence of 16-bit words, adding them up using ones&apos; complement
+arithmetic, and taking the ones&apos; complement of the result. Thus, if any
 bit in the header is corrupted in transit, the checksum will not contain
 the correct value upon receipt of the packet. Since a corrupted header
 may contain an error in the destination address&#x2014;and, as a result, may
@@ -1497,14 +1497,18 @@ different physical networks, they have different network numbers, so H5
 deduces that it needs to send the datagram to a router. R1 is the only
 choice&#x2014;the default router&#x2014;so H1 sends the datagram over the wireless
 network to R1. Similarly, R1 knows that it cannot deliver a datagram
-directly to H8 because neither of R1&apos;s interfaces is on the same network
+directly to H8 because neither of R1&apos;s interfaces are on the same network
 as H8. Suppose R1&apos;s default router is R2; R1 then sends the datagram to
 R2 over the Ethernet. Assuming R2 has the forwarding table shown in
 <a href="#ipfwdtab">Table 1</a>, it looks up H8&apos;s network number (network 4) 
 and forwards the datagram over the point-to-point network to
 R3. Finally, R3, since it is on the same network as H8, forwards the
 datagram directly to H8.</p>
-<p><a id="ipfwdtab"></a></p>
+<table>
+<a id="ipfwdtab"></a>
+<tabcaption>Forwarding table for Router R2.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1524,10 +1528,10 @@ datagram directly to H8.</p>
 </tbody>
 </table>
 <table>
-<caption>Table 1. Forwarding table for Router R2.</caption>
+<a id="tab5.3"></a>
+<tabcaption>Complete Forwarding Table for Router R2.</tabcaption>
 </table>
 
-<p><a id="tab5.3"></a></p>
 <table>
 <thead>
 <tr>
@@ -1554,10 +1558,6 @@ datagram directly to H8.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 2. Complete Forwarding Table for Router R2.</caption>
-</table>
-
 <p>Note that it is possible to include the information about directly
 connected networks in the forwarding table. For example, we could
 label the network interfaces of router R2 as interface 0 for the
@@ -1702,7 +1702,11 @@ table, the router ANDs the packet&apos;s destination address with the
 it forwards the packet to the next hop router indicated. In the
 example network of <a href="#subnet">Figure 8</a>, router R1 would have the
 entries shown in <a href="#subnettab">Table 2</a>.</p>
-<p><a id="subnettab"></a></p>
+<table>
+<a id="subnettab"></a>
+<tabcaption>Example Forwarding Table with Subnetting.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1729,10 +1733,6 @@ entries shown in <a href="#subnettab">Table 2</a>.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 3. Example Forwarding Table with Subnetting.</caption>
-</table>
-
 <p>Continuing with the example of a datagram from H1 being sent to H2, R1
 would AND H2&apos;s address (128.96.34.139) with the subnet mask of the first
 entry (255.255.255.128) and compare the result (128.96.34.128) with the
@@ -1765,7 +1765,7 @@ outside the campus see the collection of networks in
 in their forwarding tables to tell them how to reach it. Routers within
 the campus, however, need to be able to route packets to the right
 subnet. Thus, not all parts of the internet see exactly the same routing
-information. This is an example of <em>aggregation</em> of routing information,
+information. This is an example of an <em>aggregation</em> of routing information,
 which is fundamental to scaling of the routing system. The next section
 shows how aggregation can be taken to another level.</p>
 <h3 id="classless-addressing">Classless Addressing</h3>
@@ -1926,7 +1926,7 @@ currently stored in a host is known as the ARP cache or ARP table.</p>
 <p>ARP takes advantage of the fact that many link-level network
 technologies, such as Ethernet, support broadcast. If a host wants to
 send an IP datagram to a host (or router) that it knows to be on the
-same network (i.e., the sending and receiving node have the same IP
+same network (i.e., the sending and receiving nodes have the same IP
 network number), it first checks for a mapping in the cache. If no
 mapping is found, it needs to invoke the Address Resolution Protocol
 over the network. It does this by broadcasting an ARP query onto the
@@ -2123,7 +2123,7 @@ functioning correctly.</p>
 DHCP illustrates an important aspect of scaling: the scaling of network
 management. While discussions of scaling often focus on keeping the
 state in network devices from growing too fast, it is important to pay
-attention to growth of network management complexity. By allowing
+attention to the growth of network management complexity. By allowing
 network managers to configure a range of IP addresses per network rather
 than one IP address per host, DHCP improves the manageability of a
 network.</p>
@@ -2238,7 +2238,11 @@ the network in <a href="#tunnel">Figure 14</a>. A tunnel has been
 configured from R1 to R2 and assigned a virtual interface number
 of 0. The forwarding table in R1 might therefore look like
 <a href="#tunneltab">Table 4</a>.</p>
-<p><a id="tunneltab"></a></p>
+<table>
+<a id="tunneltab"></a>
+<tabcaption>Forwarding Table for Router R1.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -2261,10 +2265,6 @@ of 0. The forwarding table in R1 might therefore look like
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 4. Forwarding Table for Router R1 in [Figure 14](#tunnel).</caption>
-</table>
-
 <p>R1 has two physical interfaces. Interface 0 connects to network 1;
 interface 1 connects to a large internetwork and is thus the default for
 all traffic that does not match something more specific in the
@@ -2365,7 +2365,7 @@ correctly handled by the routing protocols.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"next":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"previous":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/basic-ip.md","mtime":"2019-05-28T18:17:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"next":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"previous":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/basic-ip.md","mtime":"2019-07-10T18:12:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

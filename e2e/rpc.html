@@ -1304,7 +1304,7 @@ sourced, based on an RPC mechanism that they have been using internally
 to implement cloud services in their datacenters.</p>
 <p>These three examples represent interesting alternative design choices
 in the RPC solution space, but least you think they are the only options,
-we describe three other RPC-like mechanisms (WSDL, SOAP, an REST) in
+we describe three other RPC-like mechanisms (WSDL, SOAP, and REST) in
 the context of web services in Chapter 9.</p>
 <h3 id="sunrpc">SunRPC</h3>
 <p>SunRPC became a <em>de facto</em> standard thanks to its wide distribution with
@@ -1537,10 +1537,10 @@ it stood for &quot;glamorous&quot; and for 1.18 it stood for &quot;goose&quot;. 
 are wild and crazy people. Nonetheless, gRPC is popular because it
 makes available to everyone&#x2014;as open source&#x2014;a decade&apos;s worth of
 experience within Google using RPC to build scalable cloud services.</p>
-<p>Before getting into the details, there some major differences
+<p>Before getting into the details, there are some major differences
 between gRPC and the other two examples we&apos;ve just covered. The
 biggest is that gRPC is designed for cloud services rather than the
-simpler client/server paradigm that preceeded it. The difference
+simpler client/server paradigm that preceded it. The difference
 is essentially an extra level of indirection. In the client/server
 world, the client invokes a method on a specific server process
 running on a specific server machine. One server process is presumed
@@ -1572,7 +1572,7 @@ indirection layered on top of a server, all this means is that
 the caller identifies the service it wants to invoke, and a <em>load
 balancer</em> directs that invocation to one of the many available server
 processes (containers) that implement that service, as shown in
-<a href="#rpc-service">Figure 9</a>. The load balancer in can be implemented in
+<a href="#rpc-service">Figure 9</a>. The load balancer can be implemented in
 different ways, including a hardware device, but it is typically
 implemented by a proxy process that runs in a virtual machine
 (also hosted in the cloud) rather than as a physical appliance.</p>
@@ -1604,8 +1604,8 @@ gRPC outsources yet two other problems: (1) efficiently
 encoding/compressing binary data into a message, (2) multiplexing
 multiple remote procedure calls onto a single TCP connection. In other
 words, gRPC encodes the identifier for the remote method as a URI, the
-request paremeters to the remote method as content in the HTTP
-message, and the return value from the remote method in ther HTTP
+request parameters to the remote method as content in the HTTP
+message, and the return value from the remote method in the HTTP
 response. The full gRPC stack is depicted in <a href="#grpc-stack">Figure 10</a>,
 which also includes the language-specific elements. (One strength of
 gRPC is the wide set of programming languages it supports, with only a
@@ -1627,7 +1627,7 @@ of HTTP rather than the other way around.</p>
 <p>The short explanation is that layering provides a convenient way for
 humans to wrap their heads around complex systems, but what we&apos;re
 really trying to do is solve a set of problem (e.g., reliably transfer
-messages of arbitrary size, idenfity senders and receipients, match
+messages of arbitrary size, identify senders and recipients, match
 requests messages with reply messages, and so on) and the way these
 solutions get bundled into protocols, and those protocols then layered
 on top of each other, is the consequence of incremental changes over
@@ -1649,7 +1649,7 @@ brings to the table is to incorporate <em>streaming</em> into the RPC
 mechanism, which is to say, gRPC supports four different request/reply
 patterns:</p>
 <ol>
-<li><p>Simple RPC: The cient sends a single request message and the server
+<li><p>Simple RPC: The client sends a single request message and the server
  responds with a single reply message.</p>
 </li>
 <li><p>Server Streaming RPC: The client sends a single request message and 
@@ -1662,7 +1662,7 @@ patterns:</p>
  client&#x2019;s requests.</p>
 </li>
 <li><p>Bidirectional Streaming RPC: The call is initiated by the client,
- but after that, the client and server can read and write requets
+ but after that, the client and server can read and write requests
  and responses in any order; the streams are completely
  independent.</p>
 </li>
@@ -1709,7 +1709,7 @@ HEADERS (flags = END_STREAM, END_HEADERS)
 grpc-status = 0 # OK
 trace-proto-bin = jher831yy13JHy3hc
 </code></pre><p>In this example, <code>HEADERS</code> and <code>DATA</code> are two standard HTTP control
-messages, which effectively deliniate between &quot;the message&apos;s header&quot;
+messages, which effectively delineate between &quot;the message&apos;s header&quot;
 and &quot;the message&apos;s payload.&quot; Specifically, each line following
 <code>HEADERS</code> (but before <code>DATA</code>) is an <code>attribute = value</code> pair that
 makes up the header (think of each line as analogous to a header
@@ -1722,13 +1722,13 @@ in the message that follows has been compressed using <code>gzip</code>, and
 timeout).</p>
 <p>There is one final piece to explain. The header line</p>
 <pre><code>content-type = application/grpc+proto
-</code></pre><p>indicates that the message body (as demarked by the <code>DATA</code> line) is
+</code></pre><p>indicates that the message body (as demarcated by the <code>DATA</code> line) is
 meaningful only to the application program (i.e., the server method)
 that this client is requesting service from. More specifically,
 the <code>+proto</code> string specifies that the recipient will be able to
 interpret the bits in the message according to a <em>Protocol Buffer</em>
 (abbreviated <code>proto</code>) interface specification. Protocol Buffers are
-gRPC&apos;s way of specifiying how the parameters being passed to
+gRPC&apos;s way of specifying how the parameters being passed to
 the server are encoded into a message, which is in turn used to
 generate the stubs that sit between the underlying RPC mechanism and
 the actual functions being called (see <a href="#rpc-stub">Figure 2</a>). This is
@@ -1736,8 +1736,8 @@ a topic we&apos;ll take up in Chapter 7.</p>
 <blockquote>
 <p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
 The bottom line is that complex mechanisms like RPC, once packaged
-as a monolthic bundle of software (as with SunRPC and DCE-RPC), is
-nowdays built by assembling an assortment of smaller pieces, each of
+as a monolithic bundle of software (as with SunRPC and DCE-RPC), is
+nowadays built by assembling an assortment of smaller pieces, each of
 which solves a narrow problem. gRPC is both an example of that
 approach, and a tool that enables further adoption of the approach. 
 The micro-services architecture mentioned earlier in this subsection
@@ -1789,7 +1789,7 @@ exchange messages with each other.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"next":{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},"previous":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rpc.md","mtime":"2019-05-28T18:17:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.3 Remote Procedure Call","level":"1.6.3","depth":2,"next":{"title":"5.4 Transport for Real-Time (RTP)","level":"1.6.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},"previous":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.6.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/rpc.md","mtime":"2019-07-10T18:57:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

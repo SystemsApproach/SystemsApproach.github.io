@@ -1046,7 +1046,7 @@ to identify the end nodes. Such identifiers are usually called
 addresses is that no two nodes on a network have the same
 address. This is accomplished by making sure that all Ethernet cards
 are assigned a <em>globally unique</em> identifier. For the following
-discussions, we assume that each host has a globally unique
+discussion, we assume that each host has a globally unique
 address. Later on, we consider other useful properties that an address
 might have, but global uniqueness is adequate to get us started.</p>
 <p>Another assumption that we need to make is that there is some way to
@@ -1080,7 +1080,11 @@ forward, or switch, the packet.</p>
     <figcaption>Datagram forwarding: an example network.</figcaption>
 </figure>
 
-<p><a id="fwdtab"></a></p>
+<table>
+<a id="fwdtab"></a>
+<tabcaption>Forwarding Table for Switch 2.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1123,10 +1127,6 @@ forward, or switch, the packet.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 1. Forwarding Table for Switch 2.</caption>
-</table>
-
 <p>Datagram networks have the following characteristics:</p>
 <ul>
 <li><p>A host can send a packet anywhere at any time, since any packet that
@@ -1224,13 +1224,17 @@ distinguishes an SVC from a PVC.</p>
 virtual connection from host A to host B. First, the administrator
 needs to identify a path through the network from A to B. In the example
 network of <a href="#vcircuit">Figure 3</a>, there is only one such path, but in
-general this may not be the case. The administrator then picks a VCI
+general, this may not be the case. The administrator then picks a VCI
 value that is currently unused on each link for the connection. For the
 purposes of our example, let&apos;s suppose that the VCI value 5 is chosen
 for the link from host A to switch 1, and that 11 is chosen for the link
 from switch 1 to switch 2. In that case, switch 1 needs to have an entry
 in its VC table configured as shown in <a href="#vctab">Table 2</a>.</p>
-<p><a id="vctab"></a></p>
+<table>
+<a id="vctab"></a>
+<tabcaption>Example Virtual Circuit Table Entry for Switch 1.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1249,17 +1253,17 @@ in its VC table configured as shown in <a href="#vctab">Table 2</a>.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 2. Example Virtual Circuit Table Entry for Switch 1.</caption>
-</table>
-
 <p>Similarly, suppose that the VCI of 7 is chosen to identify this
 connection on the link from switch 2 to switch 3 and that a VCI of 4 is
 chosen for the link from switch 3 to host B. In that case, switches 2
 and 3 need to be configured with VC table entries as shown in
 <a href="#vctab1">Table 3</a>. Note that the &quot;outgoing&quot; VCI value at one switch is
 the &quot;incoming&quot; VCI value at the next switch.</p>
-<p><a id="vctab1"></a></p>
+<table>
+<a id="vctab1"></a>
+<tabcaption>Virtual Circuit Table Entries for Switches 2 and 3.</tabcaption>
+</table>
+
 <p>VC Table Entry at Switch 2:</p>
 <table>
 <thead>
@@ -1298,10 +1302,6 @@ the &quot;incoming&quot; VCI value at the next switch.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 3. Virtual Circuit Table Entries for Switches 2 and 3.</caption>
-</table>
-
 <figure>
     <a id="vcdat"></a>
     <img src="figures/f03-04-9780123850591.png" width="500px">
@@ -1555,7 +1555,7 @@ cell in order to forward them from input port to output port, but this
 is all internal to the switch.</p>
 <p>There is another good argument in favor of small ATM cells, having
 to do with end-to-end latency. ATM was designed to carry
-both voice phone calls (the dominate use case at the time) and data.
+both voice phone calls (the dominant use case at the time) and data.
 Because voice is low-bandwidth but has strict delay requirements,
 the last thing you want is for a small voice packet queued behind a
 large data packet at a switch. If you force all packets to be small (i.e.,
@@ -1740,7 +1740,11 @@ not forward the frame out on port 2; there would be no need because
 host A would have already directly received the frame on the LAN
 connected to port 1. Anytime a frame addressed to host A was received on
 port 2, the bridge would forward the frame out on port 1.</p>
-<p><a id="learn"></a></p>
+<table>
+<a id="learn"></a>
+<tabcaption>Forwarding Table Maintained by a Bridge.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1775,8 +1779,6 @@ port 2, the bridge would forward the frame out on port 1.</p>
 </tr>
 </tbody>
 </table>
-<caption>Table 4. Forwarding Table Maintained by a Bridge.</caption>
-
 <p>No one actually builds bridges in which the table is configured by hand.
 Having a human maintain this table is too burdensome, and there is a
 simple trick by which a bridge can learn this information for itself.
@@ -1884,7 +1886,7 @@ Ethernet J and that the destination address is one not yet in any
 bridge&apos;s forwarding table: B4 sends a copy of the packet out to
 Ethernets H and I. Now bridge B6 forwards the packet to Ethernet G,
 where B1 would see it and forward it back to Ethernet H; B4 still
-doesn`t have this destination in its table, so it forwards the packet
+doesn&apos;t have this destination in its table, so it forwards the packet
 back to Ethernets I and J. There is nothing to stop this cycle from
 repeating endlessly, with packets looping in both directions among B1,
 B4, and B6.</p>
@@ -2153,7 +2155,7 @@ ID is set to 100. The bridge now applies its normal rules for forwarding
 to the packet, with the extra restriction that the packet may not be
 sent out an interface that is not part of VLAN 100. Thus, under no
 circumstances will the packet&#x2014;even a broadcast packet&#x2014;be sent out
-the interface to host Z, which is in VLAN 200. The packet is, however,
+the interface to host Z, which is in VLAN 200. The packet, however, is
 forwarded on to bridge B1, which follows the same rules and thus may
 forward the packet to host W but not to host Y.</p>
 <p>An attractive feature of VLANs is that it is possible to change the
@@ -2237,7 +2239,7 @@ Ethernet segment. Bridges happen.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"next":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"previous":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/switching.md","mtime":"2019-05-28T18:17:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"next":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"previous":{"title":"Chapter 3: Internetworking","level":"1.4","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.4.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/switching.md","mtime":"2019-07-10T18:26:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1030,7 +1030,7 @@ bits.</p>
 <p>Fortunately, we can do a lot better than this simple scheme. In general,
 we can provide quite strong error detection capability while sending
 only <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> redundant bits for an <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>-bit message, where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> is
-much smaller than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>. On an
+much smaller than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>. On an Ethernet,
 for example, a frame carrying up to 12,000 bits (1500 bytes) of data
 requires only a 32-bit CRC code, or as it is commonly expressed, uses
 CRC-32. Such a code will catch the overwhelming majority of errors, as
@@ -1073,19 +1073,19 @@ occurred.</p>
 <p>You can imagine many different variations on the basic idea of a
 checksum. The exact scheme used by the Internet protocols works as
 follows. Consider the data being checksummed as a sequence of 16-bit
-integers. Add them together using 16-bit ones complement arithmetic
-(explained below) and then take the ones complement of the result. That
+integers. Add them together using 16-bit ones&apos; complement arithmetic
+(explained below) and then take the ones&apos; complement of the result. That
 16-bit number is the checksum.</p>
-<p>In ones complement arithmetic, a negative integer (-x) is represented
+<p>In ones&apos; complement arithmetic, a negative integer (-x) is represented
 as the complement of x; that is, each bit of x is inverted. When
-adding numbers in ones complement arithmetic, a carryout from the most
+adding numbers in ones&apos; complement arithmetic, a carryout from the most
 bit needs to be added to the result. Consider, for example, the addition
-of -5 and -3 in ones complement arithmetic on 4-bit integers: +5
+of -5 and -3 in ones&apos; complement arithmetic on 4-bit integers: +5
 is 0101, so -5 is 1010; +3 is 0011, so -3 is 1100. If we add 1010
-and 1100, ignoring the carry, we get 0110. In ones complement
+and 1100, ignoring the carry, we get 0110. In ones&apos; complement
 arithmetic, the fact that this operation caused a carry from the most
 significant bit causes us to increment the result, giving 0111, which is
-the ones complement representation of -8 (obtained by inverting the
+the ones&apos; complement representation of -8 (obtained by inverting the
 bits in 1000), as we would expect.</p>
 <p>The following routine gives a straightforward implementation of the
 Internet&apos;s checksum algorithm. The <code>count</code> argument gives the length of
@@ -1109,8 +1109,8 @@ already been padded with 0s to a 16-bit boundary.</p>
     <span class="hljs-keyword">return</span> ~(sum &amp; <span class="hljs-number">0xFFFF</span>);
 }
 </code></pre>
-<p>This code ensures that the calculation uses ones complement arithmetic
-rather than the twos complement that is used in most machines. Note the
+<p>This code ensures that the calculation uses ones&apos; complement arithmetic
+rather than the twos&apos; complement that is used in most machines. Note the
 <code>if</code> statement inside the <code>while</code> loop. If there is a carry into the top
 16 bits of <code>sum</code>, then we increment <code>sum</code> just as in the previous
 example.</p>
@@ -1388,7 +1388,7 @@ and 2 for the generator <span class="katex"><span class="katex-mathml"><math><se
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"next":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"previous":{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/error.md","mtime":"2019-05-28T18:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"next":{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"previous":{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/error.md","mtime":"2019-07-10T16:18:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

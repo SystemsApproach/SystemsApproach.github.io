@@ -1067,7 +1067,7 @@ would only be able to cope with an average data rate of about 1 Gbps
 on each port.</p>
 <blockquote>
 <p>These example performance numbers do not represent the absolute
-maxiumum throughput rate that highly tuned software running on a
+maximum throughput rate that highly tuned software running on a
 high-end server could achieve, but they are indicative of limits one
 ultimately faces in pursuing this approach.</p>
 </blockquote>
@@ -1095,7 +1095,7 @@ cellular access networks, but the idea is the same, and in fact, the
 3GPP standard defines CUPS (Control/User Plane Separation) as an
 architectural principle.</p>
 <p>These two kinds of processing are easy to conflate when both run on
-the same CPU, as is the case in software switch depected in
+the same CPU, as is the case in software switch depicted in
 <a href="#softswitch">Figure 1</a>, but performance can be dramatically
 improved by optimizing how the data plane is implemented, and
 correspondingly, specifying a well-defined interface between the
@@ -1136,13 +1136,13 @@ that have historically dominated the industry.</p>
 
 <p><a href="#whitebox">Figure 2</a> is a simplified depiction of a white-box
 switch. The key difference from the earlier implementation on a
-general-purpose processor is the addition of a Network Processoring
+general-purpose processor is the addition of a Network Processor
 Unit (NPU), a domain-specific processor with an architecture and
 instruction set that has been optimized for processing packet headers
 (i.e., for implementing the data plane). NPUs are similar in spirit to
 GPUs that have an architecture optimized for rendering computer
 graphics, but in this case, the NPU is optimized for parsing packet
-headers and making a forwarding decsion. NPUs are able
+headers and making a forwarding decision. NPUs are able
 to process packets (input, make a forwarding decision, and output)
 at rates measured in Terabits-per-second (Tbps), easily fast enough to
 keep up with 32x100-Gbps ports, or the 48x40-Gbps ports shown in the
@@ -1154,7 +1154,7 @@ for example, to implement intelligent firewalls or deep packet
 inspection. They were not as general-purpose as the NPUs we&apos;re
 discussing here; nor were they as high-performance. It seems likely
 that the current approach will make purpose-built network
-processors obsolete, but in any case, we prefer the NPU nominclator
+processors obsolete, but in any case, we prefer the NPU nomenclator
 because it is consistent with the trend to build programmable
 domain-specific processors, including GPUs for graphics and TPUs
 (Tensor Processing Units) for AI.</p>
@@ -1191,7 +1191,7 @@ changing the program it runs. At a high level, this program is
 expressed as a collection of <em>(Match, Action)</em> pairs: if you match
 such-and-such field in the header, then execute this-or-that action.</p>
 <p>The relevance of packet processing being implemented by a multi-stage
-pipleline rather than a single-stage processor is that forwarding a
+pipeline rather than a single-stage processor is that forwarding a
 single packet likely involves looking at multiple header fields. Each stage
 can be programmed to look at a different combination of fields. A
 multi-stage pipeline adds a little end-to-end latency to each packet
@@ -1214,7 +1214,7 @@ the last two decades.</p>
 <p>With switches becoming increasingly commoditized, attention is
 rightfully shifting to the software that controls them. This puts us
 squarely in the middle of a trend to build <em>Software Defined Networks</em>
-(SDN), an idea that started to germinate about tens year ago. In fact,
+(SDN), an idea that started to germinate about ten years ago. In fact,
 it was the early stages of SDN that triggered the networking industry
 to move towards white-box switches.</p>
 <p>The fundamental idea of SDN is one we&apos;ve already discussed: to
@@ -1333,7 +1333,7 @@ interfaces they are familiar with.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"next":{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]},"previous":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/impl.md","mtime":"2019-05-28T18:17:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"next":{"title":"3.5 Broader Perspective","level":"1.4.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]},"previous":{"title":"3.3 Routing","level":"1.4.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/impl.md","mtime":"2019-07-10T18:17:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

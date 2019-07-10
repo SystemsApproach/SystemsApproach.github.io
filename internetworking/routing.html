@@ -1036,7 +1036,11 @@ while the forwarding table contains the information about exactly how to
 forward a packet to that next hop: Send it out interface number 0 with a
 MAC address of 8:0:2b:e4:b:1:2. Note that the last piece of information
 is provided by the Address Resolution Protocol.</p>
-<p><a id="rtab-ftab"></a></p>
+<table>
+<a id="rtab-ftab"></a>
+<tabcaption>Example Rows from (a) Routing and (b) Forwarding Tables.</tabcaption>
+</table>
+
 <p>(a)</p>
 <table>
 <thead>
@@ -1069,10 +1073,6 @@ is provided by the Address Resolution Protocol.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 1. Example Rows from (a) Routing and (b) Forwarding Tables.</caption>
-</table>
-
 <p>Before getting into the details of routing, we need to remind ourselves
 of the key question we should be asking anytime we try to build a
 mechanism for the Internet: &quot;Does this solution scale?&quot; The answer for
@@ -1169,7 +1169,11 @@ by a network manager. A link that is down is assigned an infinite cost.</p>
     <figcaption>Distance-vector routing: an example network.</figcaption>
 </figure>
 
-<p><a id="dvtab1"></a></p>
+<table>
+<a id="dvtab1"></a>
+<tabcaption>Initial Distances Stored at Each Node (Global View).</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1256,10 +1260,6 @@ by a network manager. A link that is down is assigned an infinite cost.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 2. Initial Distances Stored at Each Node (Global View).</caption>
-</table>
-
 <p>To see how a distance-vector routing algorithm works, it is easiest to
 consider an example like the one depicted in
 <a href="#dvroute">Figure 2</a>. In this example, the cost of each link is set to 1,
@@ -1278,7 +1278,11 @@ that it can reach B in one hop and that D is unreachable. The routing
 table stored at A reflects this set of beliefs and includes the name of
 the next hop that A would use to reach any reachable node. Initially,
 then, A&apos;s routing table would look like <a href="#dvtab2">Table 3</a>.</p>
-<p><a id="dvtab2"></a></p>
+<table>
+<a id="dvtab2"></a>
+<tabcaption>Initial Routing Table at Node A.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1320,10 +1324,6 @@ then, A&apos;s routing table would look like <a href="#dvtab2">Table 3</a>.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 3. Initial Routing Table at Node A.</caption>
-</table>
-
 <p>The next step in distance-vector routing is that every node sends a
 message to its directly connected neighbors containing its personal list
 of distances. For example, node F tells node A that it can reach node G
@@ -1341,7 +1341,11 @@ ignored.</p>
 <p>At this point, A can update its routing table with costs and next hops
 for all nodes in the network. The result is shown in
 <a href="#dvtab3">Table 4</a>.</p>
-<p><a id="dvtab3"></a></p>
+<table>
+<a id="dvtab3"></a>
+<tabcaption>Final Routing Table at Node A.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1384,10 +1388,10 @@ for all nodes in the network. The result is shown in
 </tbody>
 </table>
 <table>
-<caption>Table 4. Final Routing Table at Node A.</caption>
+<a id="dvtab4"></a>
+<tabcaption>Final Distances Stored at Each Node (Global View).</tabcaption>
 </table>
 
-<p><a id="dvtab4"></a></p>
 <table>
 <thead>
 <tr>
@@ -1474,10 +1478,6 @@ for all nodes in the network. The result is shown in
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 5. Final Distances Stored at Each Node (Global View).</caption>
-</table>
-
 <p>In the absence of any topology changes, it takes only a few exchanges of
 information between neighbors before each node has a complete routing
 table. The process of getting consistent routing information to all the
@@ -1908,7 +1908,11 @@ the nodes to which they connect, B and C. Note the way the algorithm
 seems to head off on false leads (like the 11-unit cost path to B that
 was the first addition to the <code>Tentative</code> list) but ends up with the
 least-cost paths to all nodes.</p>
-<p><a id="ls_trace"></a></p>
+<table>
+<a id="ls_trace"></a>
+<tabcaption>Steps for Building Routing Table for Node D.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1963,10 +1967,6 @@ least-cost paths to all nodes.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 6. Steps for Building Routing Table for Node D.</caption>
-</table>
-
 <p>The link-state routing algorithm has many nice properties: It has been
 proven to stabilize quickly, it does not generate much traffic, and it
 responds rapidly to topology changes or node failures. On the downside,
@@ -2017,7 +2017,7 @@ basic link-state algorithm described above, including the following:</p>
 </li>
 <li><p><em>Load balancing</em>&#x2014;OSPF allows multiple routes to the same place to
   be assigned the same cost and will cause traffic to be distributed
-  evenly over those routes, thus making better use of available
+  evenly over those routes, thus making better use of the available
   network capacity.</p>
 </li>
 </ul>
@@ -2174,7 +2174,7 @@ idle, which is the last thing you want under heavy load.</p>
 <p>Another problem was that the range of link values was much too large.
 For example, a heavily loaded 9.6-kbps link could look 127 times more
 costly than a lightly loaded 56-kbps link. (Keep in mind, we&apos;re
-talking about the ARPANET cira 1975.) This means that the routing
+talking about the ARPANET circa 1975.) This means that the routing
 algorithm would choose a path with 126 hops of lightly loaded 56-kbps
 links in preference to a 1-hop 9.6-kbps path. While shedding some
 traffic from an overloaded line is a good idea, making it look so
@@ -2228,7 +2228,7 @@ and error, and they were carefully tuned to provide good performance.</p>
 <p>Despite all these improvements, it turns out that in the majority of
 real-world network deployments, metrics change rarely if at all and
 only under the control of a network administrator, not automatically
-as was described above. The reason for this is partly that
+as described above. The reason for this is partly that
 conventional wisdom now holds that dynamically changing metrics
 are too unstable, even though this probably need not be true. Perhaps
 more significantly, many networks today lack the great disparity of
@@ -2238,7 +2238,7 @@ a constant multiplied by (1/link_bandwidth).</p>
 <blockquote>
 <p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
 Why do we still tell the story about a decades old algorithm that&apos;s
-no longer is use? Because it perfectly illustrates two valuable lessons.
+no longer in use? Because it perfectly illustrates two valuable lessons.
 The first is that computer systems are often <em>designed iteratively,
 based on experience.</em>  We seldom get it right the first time, so it&apos;s
 important to deploy a simple solution sooner rather than later, and
@@ -2247,7 +2247,7 @@ indefinitely is usually not a good approach. The second is the
 well-know KISS principle: <em>Keep it Simple, Stupid.</em>  When building a
 complex system, less is often more. Opportunities to invent
 sophisticated optimizations are plentiful, and it&apos;s a tempting
-opportunity to pursue. While such optimations sometimes have
+opportunity to pursue. While such optimizations sometimes have
 short-term value, it is shocking how often a simple approach proves
 best over time. This is because when a system has many moving parts,
 as the Internet most certainly does, keeping each part as simple as
@@ -2296,7 +2296,7 @@ possible is usually the best bet.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2019-05-28T18:17:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3 Routing","level":"1.4.3","depth":2,"next":{"title":"3.4 Implementation","level":"1.4.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},"previous":{"title":"3.2 Basic Internetworking","level":"1.4.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/routing.md","mtime":"2019-07-10T18:21:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

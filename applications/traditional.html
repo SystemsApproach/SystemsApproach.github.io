@@ -1454,7 +1454,11 @@ or to see if a particular page has been modified since the browser last
 fetched it. The full set of operations is summarized in
 <a href="#ops">Table 1</a>. As innocent as it sounds, the <code>POST</code> command enables
 much mischief (including spam) on the Internet.</p>
-<p><a id="ops"></a></p>
+<table>
+<a id="ops"></a>
+<tabcaption>HTTP Request Operations.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1497,10 +1501,6 @@ much mischief (including spam) on the Internet.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 1. HTTP Request Operations.</caption>
-</table>
-
 <p>For example, the <code>START_LINE</code></p>
 <pre><code class="lang-http">GET http://www.cs.princeton.edu/index.html
 HTTP/1.1
@@ -1531,7 +1531,11 @@ example, the <code>START_LINE</code></p>
 was not found. There are five general types of response codes, with the
 first digit of the code indicating its type. <a href="#codes">Table 2</a>
 summarizes the five types of codes.</p>
-<p><a id="codes"></a></p>
+<table>
+<a id="codes"></a>
+<tabcaption>Five Types of HTTP Result Codes.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1568,10 +1572,6 @@ summarizes the five types of codes.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 2. Five Types of HTTP Result Codes.</caption>
-</table>
-
 <p>As with the unexpected consequences of the <code>POST</code> request message, it
 is sometimes surprising how various response messages are used in
 practice. For example, request redirection (specifically code 302) turns
@@ -1696,7 +1696,7 @@ connection&#x2014;by permitting these requests to overlap with each
 other. The way HTTP/2 does this should sound familiar: it defines a
 <em>channel</em> abstraction (technically, the channels are called
 <em>streams</em>), permits multiple concurrent streams to be active at a
-given time (each labled with a unique <em>stream id</em>), and limits each
+given time (each labeled with a unique <em>stream id</em>), and limits each
 stream to one active request/reply exchange at a time.</p>
 <h3 id="caching">Caching</h3>
 <p>An important implementation strategy that makes the web more usable
@@ -1985,7 +1985,7 @@ specifications. If your protocol is required to have at-most-once
 semantics and authentication, include the corresponding modules in your
 specification. This represents a novel approach to modularizing protocol
 services, an alternative to the protocol layering we have seen
-throughout this book. It is bit like flattening a series of protocol
+throughout this book. It is a bit like flattening a series of protocol
 layers into a single protocol, but in a structured way. It remains to be
 seen how well SOAP features and modules, introduced in version 1.2 of
 SOAP, will work in practice. The main weakness of this scheme is that
@@ -2026,7 +2026,7 @@ specifies which versions of WSDL and SOAP must be used.</p>
 Profile by specifying how the SSL/TLS layer is to be used and requiring
 conformance to <em>WS-Security</em> (Web Services Security). WS-Security
 specifies how to use various existing techniques such as X.509 public
-key certificatesand Kerberos to provide security features in SOAP
+key certificates and Kerberos to provide security features in SOAP
 protocols.</p>
 <p>WS-Security is just the first of a growing suite
 of SOAP-level standards established by the industry consortium OASIS
@@ -2071,7 +2071,7 @@ protocol in this architecture consists of defining the document
 structure (i.e., the state representation). XML and the lighter-weight
 JavaScript Object Notation (JSON) are the most frequently used
 presentation languages for this state. Interoperability depends on
-agreement, between a Web Service and its client, on the state
+agreement, between a Web Service and its clients, on the state
 representation. Of course, the same is true in the SOAP architecture; a
 Web Service and its client have to be in agreement on payload format.
 The difference is that in the SOAP architecture interoperability
@@ -2180,7 +2180,7 @@ pick a side and defend it.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"next":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"previous":{"title":"Chapter 9: Applications","level":"1.10","depth":1,"path":"applications/problem.md","ref":"applications/problem.md","articles":[{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},{"title":"9.5 Broader Perspective","level":"1.10.5","depth":2,"path":"applications/trend.md","ref":"applications/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/traditional.md","mtime":"2019-05-28T18:18:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"next":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"previous":{"title":"Chapter 9: Applications","level":"1.10","depth":1,"path":"applications/problem.md","ref":"applications/problem.md","articles":[{"title":"9.1 Traditional Applications","level":"1.10.1","depth":2,"path":"applications/traditional.md","ref":"applications/traditional.md","articles":[]},{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},{"title":"9.5 Broader Perspective","level":"1.10.5","depth":2,"path":"applications/trend.md","ref":"applications/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/traditional.md","mtime":"2019-07-10T20:52:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -997,7 +997,7 @@ the spectrum, a typical user encounters links mostly as a way to
 connect a computer to the existing Internet. Sometimes this link will
 be a wireless (Wi-Fi) link in a coffee shop; sometimes it&apos;s an Ethernet
 link in an office building or university; sometimes it is a smartphone
-connected to a celluar network; for an increasingly large slice of the
+connected to a cellular network; for an increasingly large slice of the
 population it is a fiber optic link provided by an ISP; and many
 others use some sort of copper wire or cable to connect. Fortunately,
 there are many common strategies used on these seemingly disparate
@@ -1035,7 +1035,7 @@ world. We sketched out some of these issues in the opening problem
 statement for this chapter, but before we can discuss these, we need
 to first introduce some simple physics. All of these links are made of
 some physical material that can propagate signals, such as radio waves
-or other sorts of electromagnetic radiation), but what we really want
+or other sorts of electromagnetic radiation, but what we really want
 to do is send <em>bits</em>. In the later sections of this chapter, we&apos;ll
 look at how to encode bits for transmission on a physical medium,
 followed by the other issues mentioned above. By the end of this
@@ -1098,7 +1098,7 @@ economic and deployment issues tend to influence where different link
 types are found. Most consumers interact with the Internet either
 through wireless networks (which they encounter in coffee shops,
 airports, universities, etc.) or through so-called <em>last-mile</em> links
-(or alterntively, <em>access networks</em>) provided by an ISP, as
+(or alternatively, <em>access networks</em>) provided by an ISP, as
 illustrated in <a href="#isp-access">Figure 1</a>. These link types are summarized
 in <a href="#home">Table 1</a>. They typically are chosen because they are
 cost-effective ways of reaching millions of consumers. DSL
@@ -1109,7 +1109,12 @@ technology typically used within multi-dwelling apartment buildings,
 and PON (Passive Optical Network) is a newer technology that is
 commonly used to connect homes and businesses over recently deployed
 fiber.</p>
-<p><a id="home"></a></p>
+<table>
+<a id="home"></a>
+<tabcaption>Common services available for the last-mile 
+connection to your home.</tabcaption>
+</table>
+
 <table>
 <thead>
 <tr>
@@ -1132,11 +1137,6 @@ fiber.</p>
 </tr>
 </tbody>
 </table>
-<table>
-<caption>Table 1. Common services available for the last-mile
-connection to your home.</caption>
-</table>
-
 <p>And of course there is also the <em>mobile</em> or <em>cellular</em> network (also 
 referred to as 4G, but which is rapidly evolving into 5G) that 
 connects our mobile devices to the Internet. This technology can also 
@@ -1204,7 +1204,7 @@ low-level complexity and economic factors.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"next":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"previous":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"path":"direct/problem.md","ref":"direct/problem.md","articles":[{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},{"title":"2.9 Broader Perspective","level":"1.3.9","depth":2,"path":"direct/trend.md","ref":"direct/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/perspective.md","mtime":"2019-05-28T18:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"next":{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},"previous":{"title":"Chapter 2: Direct Connections","level":"1.3","depth":1,"path":"direct/problem.md","ref":"direct/problem.md","articles":[{"title":"2.1 Technology Landscape","level":"1.3.1","depth":2,"path":"direct/perspective.md","ref":"direct/perspective.md","articles":[]},{"title":"2.2 Encoding","level":"1.3.2","depth":2,"path":"direct/encoding.md","ref":"direct/encoding.md","articles":[]},{"title":"2.3 Framing","level":"1.3.3","depth":2,"path":"direct/framing.md","ref":"direct/framing.md","articles":[]},{"title":"2.4 Error Detection","level":"1.3.4","depth":2,"path":"direct/error.md","ref":"direct/error.md","articles":[]},{"title":"2.5 Reliable Transmission","level":"1.3.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},{"title":"2.6 Multi-Access Networks","level":"1.3.6","depth":2,"path":"direct/ethernet.md","ref":"direct/ethernet.md","articles":[]},{"title":"2.7 Wireless Networks","level":"1.3.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},{"title":"2.8 Access Networks","level":"1.3.8","depth":2,"path":"direct/access.md","ref":"direct/access.md","articles":[]},{"title":"2.9 Broader Perspective","level":"1.3.9","depth":2,"path":"direct/trend.md","ref":"direct/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/perspective.md","mtime":"2019-07-10T16:25:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

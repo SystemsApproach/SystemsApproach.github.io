@@ -1047,7 +1047,7 @@ and returned the corresponding address.</p>
 <blockquote>
 <p>Believe it or not, there was also a paper book (like a phone book)
 published periodically that listed all the machines connected to the
-Internet and all people that had an Internet email account.</p>
+Internet and all the people that had an Internet email account.</p>
 </blockquote>
 <p>It should come as no surprise that the approach to naming did not work
 well as the number of hosts in the Internet started to grow. Therefore,
@@ -1441,7 +1441,7 @@ for the client to use to state which of the MIB variables it wants to
 fetch. Second, we need a precise representation for the values returned
 by the server. Both problems are addressed using Abstract Syntax
 Notation One (ASN.1).</p>
-<p>Consider the second problem first. As we already saw in in a previous
+<p>Consider the second problem first. As we already saw in a previous
 chapter, ASN.1/Basic Encoding Rules (BER) defines a representation for
 different data types, such as integers. The MIB defines the type of each
 variable, and then it uses ASN.1/BER to encode the value contained in
@@ -1483,25 +1483,25 @@ possible, with the goal of getting the error-prone human out of the
 loop. This is sometimes called <em>zero-touch</em> management, and it
 implies two things have to happen. First, whereas historically
 operators used tools like SNMP to <em>monitor</em> the network, but had
-to log into any mishaving network device and use a command line
+to log into any misbehaving network device and use a command line
 interface (CLI) to fix the problem, zero-touch management implies that
-we also need to <em>configure</em> the network programatically. In other
+we also need to <em>configure</em> the network programmatically. In other
 words, network management is equal parts reading status information
-and writing configuation information. The goal is to build a closed
+and writing configuration information. The goal is to build a closed
 control loop, although there will always be scenarios where the
 operator has to be alerted that manual intervention is required.</p>
 <p>Second, whereas historically the operator had to configure each
 network device individually, all the devices have to be configured in
 a consistent way if they are going to function correctly as a network.
 As a consequence, zero-touch also implies that the operator should be
-able to declare their network-wide <em>intent</em>, with the mangement tool
+able to declare their network-wide <em>intent</em>, with the management tool
 being smart enough to issue the necessary per-device configuration
 directives in a globally consistent way.</p>
 <figure>
     <a id="mgmt"></a>
     <img src="figures/apps/Slide1.png" width="400px">
     <figcaption>Operator manages a network through a configuration and
-    managment tool, which in turn programmatically interacts with the
+    management tool, which in turn programmatically interacts with the
     underlying network devices (e.g., using gNMI as the transport
     protocol and YANG to specify the schema for the data being
     exchanged).</figcaption>
@@ -1563,13 +1563,13 @@ serve a need and support more features than the alternatives, there is
 still much room for innovation in tools for network management.</p>
 <blockquote>
 <p>For completeness, we note that NETCONF is another of the post-SNMP
-protocols for communicating configuation information to network
+protocols for communicating configuration information to network
 devices. OpenConfig works with NETCONF, but our reading of the
 tea leaves points to gNMI as the future.</p>
 </blockquote>
 <p>We conclude by emphasizing that a seachange is underway. While
 listing SNMP and OpenConfig in the title to this section suggests
-they are equivalent, its more accurate to say that each is &quot;what we
+they are equivalent, it is more accurate to say that each is &quot;what we
 call&quot; these two approaches, but the approaches are quite different.
 On the one hand, SNMP is really just a transport protocol, analogous
 to gNMI in the OpenConfig world. It historically enabled monitoring
@@ -1578,7 +1578,7 @@ devices, but had virtually nothing to say about configuring devices.
 other hand, OpenConfig is primarily an effort to define a common set
 of data models for network devices, roughly similar to the role MIB
 plays in the SNMP world, except OpenConfig is (1) model-based, using
-YANG, and (2) equally focused on monitoring and configuation.</p>
+YANG, and (2) equally focused on monitoring and configuration.</p>
 
                                 
                                 </section>
@@ -1622,7 +1622,7 @@ YANG, and (2) equally focused on monitoring and configuation.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"next":{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},"previous":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/infrastructure.md","mtime":"2019-05-28T18:18:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T20:44:34.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.3 Infrastructure Applications","level":"1.10.3","depth":2,"next":{"title":"9.4 Overlay Networks","level":"1.10.4","depth":2,"path":"applications/overlays.md","ref":"applications/overlays.md","articles":[]},"previous":{"title":"9.2 Multimedia Applications","level":"1.10.2","depth":2,"path":"applications/multimedia.md","ref":"applications/multimedia.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/infrastructure.md","mtime":"2019-07-10T20:39:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T21:03:46.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
