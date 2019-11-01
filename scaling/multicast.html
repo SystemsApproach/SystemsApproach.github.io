@@ -1,1020 +1,210 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.2 Multicast · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3 Multicast &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.4 Multiprotocol Label Switching" href="mpls.html" />
+    <link rel="prev" title="4.2 IP Version 6" href="ipv6.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="mpls.html" />
-    
-    
-    <link rel="prev" href="global.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="global.html">
-            
-                <a href="global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6.2" data-path="multicast.html">
-            
-                <a href="multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="mpls.html">
-            
-                <a href="mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="mobile-ip.html">
-            
-                <a href="mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Scaling to Billions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global.html">4.1 Global Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">4.2 IP Version 6</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3 Multicast</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multicast-addresses">Multicast Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multicast-routing-dvmrp-pim-msdp">Multicast Routing (DVMRP, PIM, MSDP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dvmrp">DVMRP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pim-sm">PIM-SM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interdomain-multicast-msdp">Interdomain Multicast (MSDP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-specific-multicast-pim-ssm">Source-Specific Multicast (PIM-SSM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bidirectional-trees-bidir-pim">Bidirectional Trees (BIDIR-PIM)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">4.4 Multiprotocol Label Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile-ip.html">4.5 Routing Among Mobile Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: The Cloud is Eating the Internet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../scaling.html">Chapter 4:  Advanced Internetworking</a> &raquo;</li>
+        
+      <li>4.3 Multicast</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/scaling/multicast.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >4.2 Multicast</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="42-multicast">4.2 Multicast</h1>
-<p>Multi-access networks like Ethernet
-implement multicast in hardware. There are, however, applications that
-need a broader multicasting capability that is effective at the scale of
-the Internet. For example, when a radio station is broadcast over the
-Internet, the same data must be sent to all the hosts where a user has
-tuned in to that station. In that example, the communication is
-one-to-many. Other examples of one-to-many applications include
-transmitting the same news, current stock prices, software updates,
-or TV channels to multiple hosts. The latter example is commonly
-called IPTV.</p>
-<p>There are also applications whose communication is many-to-many, such
-as multimedia teleconferencing, online multiplayer gaming, or
-distributed simulations. In such cases, members of a group receive
-data from multiple senders, typically each other. From any particular
-sender, they all receive the same data.</p>
-<p>Normal IP communication, in which each packet must be addressed and
-sent to a single host, is not well suited to such applications. If an
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multicast">
+<h1>4.3 Multicast<a class="headerlink" href="#multicast" title="Permalink to this headline">¶</a></h1>
+<p>Multi-access networks like Ethernet implement multicast in hardware.
+There are, however, applications that need a broader multicasting
+capability that is effective at the scale of the Internet. For example,
+when a radio station is broadcast over the Internet, the same data must
+be sent to all the hosts where a user has tuned in to that station. In
+that example, the communication is one-to-many. Other examples of
+one-to-many applications include transmitting the same news, current
+stock prices, software updates, or TV channels to multiple hosts. The
+latter example is commonly called IPTV.</p>
+<p>There are also applications whose communication is many-to-many, such as
+multimedia teleconferencing, online multiplayer gaming, or distributed
+simulations. In such cases, members of a group receive data from
+multiple senders, typically each other. From any particular sender, they
+all receive the same data.</p>
+<p>Normal IP communication, in which each packet must be addressed and sent
+to a single host, is not well suited to such applications. If an
 application has data to send to a group, it would have to send a
 separate packet with the identical data to each member of the group.
 This redundancy consumes more bandwidth than necessary. Furthermore, the
@@ -1030,35 +220,35 @@ That service is referred to as <em>unicast</em>.</p>
 <p>The basic IP multicast model is a many-to-many model based on multicast
 <em>groups</em>, where each group has its own IP <em>multicast address</em>. The hosts
 that are members of a group receive copies of any packets sent to that
-group&apos;s multicast address. A host can be in multiple groups, and it can
+group’s multicast address. A host can be in multiple groups, and it can
 join and leave groups freely by telling its local router using a
 protocol that we will discuss shortly. Thus, while we think of unicast
 addresses as being associated with a node or an interface, multicast
 addresses are associated with an abstract group, the membership of which
 changes dynamically over time. Further, the original IP multicast
 service model allows <em>any</em> host to send multicast traffic to a group; it
-doesn&apos;t have to be a member of the group, and there may be any number of
+doesn’t have to be a member of the group, and there may be any number of
 such senders to a given group.</p>
 <p>Using IP multicast to send the identical packet to each member of the
-group, a host sends a single copy of the packet addressed to the group&apos;s
-multicast address. The sending host doesn&apos;t need to know the individual
+group, a host sends a single copy of the packet addressed to the group’s
+multicast address. The sending host doesn’t need to know the individual
 unicast IP address of each member of the group because, as we will see,
 that knowledge is distributed among the routers in the internetwork.
-Similarly, the sending host doesn&apos;t need to send multiple copies of the
+Similarly, the sending host doesn’t need to send multiple copies of the
 packet because the routers will make copies whenever they have to
 forward the packet over more than one link. Compared to using unicast IP
 to deliver the same packets to many receivers, IP multicast is more
 scalable because it eliminates the redundant traffic (packets) that
 would have been sent many times over the same links, especially those
 near to the sending host.</p>
-<p>IP&apos;s original many-to-many multicast has been supplemented with support
+<p>IP’s original many-to-many multicast has been supplemented with support
 for a form of one-to-many multicast. In this model of one-to-many
 multicast, called <em>Source-Specific Multicast</em> (SSM), a receiving host
 specifies both a multicast group and a specific sending host. The
 receiving host would then receive multicasts addressed to the specified
 group, but only if they are from the specified sender. Many Internet
 multicast applications (e.g., radio broadcasts) fit the SSM model. To
-contrast it with SSM, IP&apos;s original many-to-many model is sometimes
+contrast it with SSM, IP’s original many-to-many model is sometimes
 referred to as <em>Any Source Multicast</em> (ASM).</p>
 <p>A host signals its desire to join or leave a multicast group by
 communicating with its local router using a special protocol for just
@@ -1069,32 +259,32 @@ correctly with regard to that host. Because a host may fail to leave a
 multicast group when it should (after a crash or other failure, for
 example), the router periodically polls the network to determine which
 groups are still of interest to the attached hosts.</p>
-<h2 id="multicast-addresses">Multicast Addresses</h2>
+<div class="section" id="multicast-addresses">
+<h2>Multicast Addresses<a class="headerlink" href="#multicast-addresses" title="Permalink to this headline">¶</a></h2>
 <p>IP has a subrange of its address space reserved for multicast addresses.
-In IPv4, these addresses are assigned in the class D address space, and
-IPv6 also has a portion of its address space reserved for
-multicast group addresses. Some subranges of the multicast ranges are
-reserved for intradomain multicast, so they can be reused independently
-by different domains.</p>
-<p>There are thus 28 bits of possible multicast address in IPv4 when we
+In IPv4, these addresses are assigned in the class&nbsp;D address space, and
+IPv6 also has a portion of its address space reserved for multicast
+group addresses. Some subranges of the multicast ranges are reserved for
+intradomain multicast, so they can be reused independently by different
+domains.</p>
+<p>There are thus 28&nbsp;bits of possible multicast address in IPv4 when we
 ignore the prefix shared by all multicast addresses. This presents a
-problem when attempting to take advantage of hardware multicasting on
-a local area network (LAN). Let&apos;s take the case of Ethernet. Ethernet
-multicast addresses have only 23 bits when we ignore their shared
+problem when attempting to take advantage of hardware multicasting on a
+local area network (LAN). Let’s take the case of Ethernet. Ethernet
+multicast addresses have only 23&nbsp;bits when we ignore their shared
 prefix. In other words, to take advantage of Ethernet multicasting, IP
 has to map 28-bit IP multicast addresses into 23-bit Ethernet multicast
-addresses. This is implemented by taking the low-order 23 bits of any IP
+addresses. This is implemented by taking the low-order 23&nbsp;bits of any IP
 multicast address to use as its Ethernet multicast address and ignoring
-the high-order 5 bits. Thus, 32 (2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>) IP addresses map into
-each one of the Ethernet addresses.</p>
+the high-order 5&nbsp;bits. Thus, 32&nbsp;(2<sup>5</sup>) IP addresses map into each
+one of the Ethernet addresses.</p>
 <blockquote>
-<p>In this section we use Ethernet as a canonical example of a
+<div>In this section we use Ethernet as a canonical example of a
 networking technology that supports multicast in hardware, but the
 same is also true of PON (Passive Optical Networks), which is the
-access network technology often used to deliver
-fiber-to-the-home. In fact, IP Multicast over PON is now a common
-way to deliver IPTV to homes.</p>
-</blockquote>
+access network technology often used to deliver fiber-to-the-home. In
+fact, IP Multicast over PON is now a common way to deliver IPTV to
+homes.</div></blockquote>
 <p>When a host on an Ethernet joins an IP multicast group, it configures
 its Ethernet interface to receive any packets with the corresponding
 Ethernet multicast address. Unfortunately, this causes the receiving
@@ -1113,34 +303,37 @@ discard them.</p>
 multicast addresses to use in the first place. This is normally handled
 by out-of-band means, and there are some quite sophisticated tools to
 enable group addresses to be advertised on the Internet.</p>
-<h2 id="multicast-routing-dvmrp-pim-msdp">Multicast Routing (DVMRP, PIM, MSDP)</h2>
-<p>A router&apos;s unicast forwarding tables indicate, for any IP address, which
+</div>
+<div class="section" id="multicast-routing-dvmrp-pim-msdp">
+<h2>Multicast Routing (DVMRP, PIM, MSDP)<a class="headerlink" href="#multicast-routing-dvmrp-pim-msdp" title="Permalink to this headline">¶</a></h2>
+<p>A router’s unicast forwarding tables indicate, for any IP address, which
 link to use to forward the unicast packet. To support multicast, a
 router must additionally have multicast forwarding tables that indicate,
-based on multicast address, which links&#x2014;possibly more than one&#x2014;to
-use to forward the multicast packet (the router duplicates the packet if
-it is to be forwarded over multiple links). Thus, where unicast
-forwarding tables collectively specify a set of paths, multicast
-forwarding tables collectively specify a set of trees: <em>multicast
-distribution trees</em>. Furthermore, to support Source-Specific Multicast
-(and, it turns out, for some types of Any Source Multicast), the
-multicast forwarding tables must indicate which links to use based on
-the combination of multicast address and the (unicast) IP address of the
-source, again specifying a set of trees.</p>
+based on multicast address, which links—possibly more than one—to use to
+forward the multicast packet (the router duplicates the packet if it is
+to be forwarded over multiple links). Thus, where unicast forwarding
+tables collectively specify a set of paths, multicast forwarding tables
+collectively specify a set of trees: <em>multicast distribution trees</em>.
+Furthermore, to support Source-Specific Multicast (and, it turns out,
+for some types of Any Source Multicast), the multicast forwarding tables
+must indicate which links to use based on the combination of multicast
+address and the (unicast) IP address of the source, again specifying a
+set of trees.</p>
 <p>Multicast routing is the process by which the multicast distribution
 trees are determined or, more concretely, the process by which the
 multicast forwarding tables are built. As with unicast routing, it is
-not enough that a multicast routing protocol &quot;work&quot;; it must also scale
+not enough that a multicast routing protocol “work”; it must also scale
 reasonably well as the network grows, and it must accommodate the
 autonomy of different routing domains.</p>
-<h3 id="dvmrp">DVMRP</h3>
+<div class="section" id="dvmrp">
+<h3>DVMRP<a class="headerlink" href="#dvmrp" title="Permalink to this headline">¶</a></h3>
 <p>Distance-vector routing used in unicast can be extended to support
 multicast. The resulting protocol is called <em>Distance Vector Multicast
 Routing Protocol</em>, or DVMRP. DVMRP was the first multicast routing
 protocol to see widespread use.</p>
 <p>Recall that, in the distance-vector algorithm, each router maintains a
-table of <code>Destination, Cost, NextHop</code> tuples, and exchanges a list of
-<code>(Destination, Cost)</code> pairs with its directly connected neighbors.
+table of <code class="docutils literal notranslate"><span class="pre">Destination,</span> <span class="pre">Cost,</span> <span class="pre">NextHop</span></code> tuples, and exchanges a list of
+<code class="docutils literal notranslate"><span class="pre">(Destination,</span> <span class="pre">Cost)</span></code> pairs with its directly connected neighbors.
 Extending this algorithm to support multicast is a two-stage process.
 First, we create a broadcast mechanism that allows a packet to be
 forwarded to all the networks on the internet. Second, we need to refine
@@ -1149,11 +342,11 @@ that belong to the multicast group. Consequently, DVMRP is one of
 several multicast routing protocols described as <em>flood-and-prune</em>
 protocols.</p>
 <p>Given a unicast routing table, each router knows that the current
-shortest path to a given <code>destination</code> goes through <code>NextHop</code>. Thus,
+shortest path to a given <code class="docutils literal notranslate"><span class="pre">destination</span></code> goes through <code class="docutils literal notranslate"><span class="pre">NextHop</span></code>. Thus,
 whenever it receives a multicast packet from source S, the router
 forwards the packet on all outgoing links (except the one on which the
 packet arrived) if and only if the packet arrived over the link that is
-on the shortest path to S (i.e., the packet came <em>from</em> the <code>NextHop</code>
+on the shortest path to S (i.e., the packet came <em>from</em> the <code class="docutils literal notranslate"><span class="pre">NextHop</span></code>
 associated with S in the routing table). This strategy effectively
 floods packets outward from S but does not loop packets back toward S.</p>
 <p>There are two major shortcomings to this approach. The first is that it
@@ -1190,16 +383,16 @@ now want to prune the set of networks that receives each packet
 addressed to group G to exclude those that have no hosts that are
 members of G. This can be accomplished in two stages. First, we need to
 recognize when a <em>leaf</em> network has no group members. Determining that a
-network is a leaf is easy&#x2014;if the parent router as described above is
-the only router on the network, then the network is a leaf. Determining
-if any group members reside on the network is accomplished by having
-each host that is a member of group G periodically announce this fact
-over the network, as described in our earlier description of link-state
+network is a leaf is easy—if the parent router as described above is the
+only router on the network, then the network is a leaf. Determining if
+any group members reside on the network is accomplished by having each
+host that is a member of group G periodically announce this fact over
+the network, as described in our earlier description of link-state
 multicast. The router then uses this information to decide whether or
 not to forward a multicast packet addressed to G over this LAN.</p>
-<p>The second stage is to propagate this &quot;no members of G here&quot; information
+<p>The second stage is to propagate this “no members of G here” information
 up the shortest-path tree. This is done by having the router augment the
-<code>(Destination, Cost)</code> pairs it sends to its neighbors with the set of
+<code class="docutils literal notranslate"><span class="pre">(Destination,</span> <span class="pre">Cost)</span></code> pairs it sends to its neighbors with the set of
 groups for which the leaf network is interested in receiving multicast
 packets. This information can then be propagated from router to router,
 so that for each of its links a given router knows for what groups it
@@ -1212,30 +405,32 @@ overhead to the basic distance-vector algorithm, until a particular
 multicast address becomes active. At that time, routers that are not
 interested in receiving packets addressed to that group speak up, and
 that information is propagated to the other routers.</p>
-<h3 id="pim-sm">PIM-SM</h3>
+</div>
+<div class="section" id="pim-sm">
+<h3>PIM-SM<a class="headerlink" href="#pim-sm" title="Permalink to this headline">¶</a></h3>
 <p><em>Protocol Independent Multicast</em>, or PIM, was developed in response to
 the scaling problems of earlier multicast routing protocols. In
 particular, it was recognized that the existing protocols did not scale
 well in environments where a relatively small proportion of routers want
 to receive traffic for a certain group. For example, broadcasting
 traffic to all routers until they explicitly ask to be removed from the
-distribution is not a good design choice if most routers don&apos;t want to
+distribution is not a good design choice if most routers don’t want to
 receive the traffic in the first place. This situation is sufficiently
 common that PIM divides the problem space into <em>sparse mode</em> and <em>dense
 mode,</em> where sparse and dense refer to the proportion of routers that
 will want the multicast. PIM dense mode (PIM-DM) uses a flood-and-prune
 algorithm like DVMRP and suffers from the same scalability problem. PIM
 sparse mode (PIM-SM) has become the dominant multicast routing protocol
-and is the focus of our discussion here. The &quot;protocol independent&quot;
+and is the focus of our discussion here. The “protocol independent”
 aspect of PIM, by the way, refers to the fact that, unlike earlier
 protocols such as DVMRP, PIM does not depend on any particular sort of
-unicast routing&#x2014;it can be used with any unicast routing protocol, as
-we will see below.</p>
+unicast routing—it can be used with any unicast routing protocol, as we
+will see below.</p>
 <p>In PIM-SM, routers explicitly join the multicast distribution tree using
-PIM protocol messages known as <code>Join</code> messages. Note the contrast to
-DVMRP&apos;s approach of creating a broadcast tree first and then pruning the
+PIM protocol messages known as <code class="docutils literal notranslate"><span class="pre">Join</span></code> messages. Note the contrast to
+DVMRP’s approach of creating a broadcast tree first and then pruning the
 uninterested routers. The question that arises is where to send those
-<code>Join</code> messages because, after all, any host (and any number of hosts)
+<code class="docutils literal notranslate"><span class="pre">Join</span></code> messages because, after all, any host (and any number of hosts)
 could send to the multicast group. To address this, PIM-SM assigns to
 each group a special router known as the <em>rendezvous point</em> (RP). In
 general, a number of routers in a domain are configured to be candidate
@@ -1248,7 +443,7 @@ link or node failures. For the rest of this discussion, we assume that
 all routers in a domain know the unicast IP address of the RP for a
 given group.</p>
 <p>A multicast forwarding tree is built as a result of routers sending
-<code>Join</code> messages to the RP. PIM-SM allows two types of trees to be
+<code class="docutils literal notranslate"><span class="pre">Join</span></code> messages to the RP. PIM-SM allows two types of trees to be
 constructed: a <em>shared</em> tree, which may be used by all senders, and a
 <em>source-specific</em> tree, which may be used only by a specific sending
 host. The normal mode of operation creates the shared tree first,
@@ -1256,112 +451,113 @@ followed by one or more source-specific trees if there is enough traffic
 to warrant it. Because building trees installs state in the routers
 along the tree, it is important that the default is to have only one
 tree for a group, not one for every sender to a group.</p>
-<figure>
-    <a id="pim-shared"></a>
-    <img src="figures/f04-14-9780123850591.png" width="600px">
-    <figcaption>PIM operation: (a) R4 sends a Join message to RP and joins
-    shared tree; (b) R5 joins shared tree; (c) RP builds
-    source-specific tree to R1 by sending a Join message to R1; (d) R4 and R5
-    build source-specific tree to R1 by sending Join messages to
-    R1.</figcaption>
-</figure>
-
-<p>When a router sends a <code>Join</code> message toward the RP for a group G, it
+<div class="figure align-center" id="id1">
+<span id="fig-pim-shared"></span><a class="reference internal image-reference" href="../_images/f04-14-9780123850591.png"><img alt="../_images/f04-14-9780123850591.png" src="../_images/f04-14-9780123850591.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Figure 110. </span><span class="caption-text">PIM operation: (a)&nbsp;R4 sends a Join message to RP and joins
+shared tree; (b)&nbsp;R5 joins shared tree; (c)&nbsp;RP builds
+source-specific tree to R1 by sending a Join message to R1; (d)&nbsp;R4 and R5
+build source-specific tree to R1 by sending Join messages to
+R1.</span></p>
+</div>
+<p>When a router sends a <code class="docutils literal notranslate"><span class="pre">Join</span></code> message toward the RP for a group G, it
 is sent using normal IP unicast transmission. This is illustrated in
-<a href="#pim-shared">Figure 1(a)</a>, in which router R4 is sending a <code>Join</code> to
-the rendezvous point for some group. The initial <code>Join</code> message is
-&quot;wildcarded&quot;; that is, it applies to all senders. A <code>Join</code> message
-clearly must pass through some sequence of routers before reaching the
-RP (e.g., R2). Each router along the path looks at the <code>Join</code> and
-creates a forwarding table entry for the shared tree, called a (*, G)
-entry (where * means &quot;all senders&quot;). To create the forwarding table
-entry, it looks at the interface on which the <code>Join</code> arrived and marks
-that interface as one on which it should forward data packets for this
-group. It then determines which interface it will use to forward the
-<code>Join</code> toward the RP. This will be the only acceptable interface for
-incoming packets sent to this group. It then forwards the <code>Join</code>
-toward the RP. Eventually, the message arrives at the RP, completing the
-construction of the tree branch. The shared tree thus constructed is
-shown as a solid line from the RP to R4 in <a href="#pim-shared">Figure 1(a)</a>.</p>
-<p>As more routers send <code>Join</code>s toward the RP, they cause new branches to
-be added to the tree, as illustrated in <a href="#pim-shared">Figure 1(b)</a>.
-Note that, in this case, the <code>Join</code> only needs to travel to R2, which
-can add the new branch to the tree simply by adding a new outgoing
-interface to the forwarding table entry created for this group. R2 need
-not forward the <code>Join</code> on to the RP. Note also that the end result of
-this process is to build a tree whose root is the RP.</p>
-<p>At this point, suppose a host wishes to send a message to the group. To
-do so, it constructs a packet with the appropriate multicast group
-address as its destination and sends it to a router on its local network
-known as the <em>designated router</em> (DR). Suppose the DR is R1 in
-<a href="#pim-shared">Figure 1</a>. There is no state for this multicast group
-between R1 and the RP at this point, so instead of simply forwarding the
-multicast packet, R1 <em>tunnels</em> it to the RP. That is, R1 encapsulates
-the multicast packet inside a PIM <code>Register</code> message that it sends to
-the unicast IP address of the RP. Just like an IP tunnel endpoint, the
-RP receives the packet addressed to it, looks at the payload of the
-<code>Register</code> message, and finds inside an IP packet addressed to the
-multicast address of this group. The RP, of course, does know what to do
-with such a packet&#x2014;it sends it out onto the shared tree of which the
-RP is the root. In the example of <a href="#pim-shared">Figure 1</a>, this
-means that the RP sends the packet on to R2, which is able to forward it
-on to R4 and R5. The complete delivery of a packet from R1 to R4 and R5
-is shown in <a href="#pim-deliver">Figure 2</a>. We see the tunneled packet
-travel from R1 to the RP with an extra IP header containing the unicast
-address of RP, and then the multicast packet addressed to G making its
-way along the shared tree to R4 and R5.</p>
+<a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure 110(a)</span></a>, in which router R4 is sending
+a <code class="docutils literal notranslate"><span class="pre">Join</span></code> to the rendezvous point for some group. The initial
+<code class="docutils literal notranslate"><span class="pre">Join</span></code> message is “wildcarded”; that is, it applies to all
+senders. A <code class="docutils literal notranslate"><span class="pre">Join</span></code> message clearly must pass through some sequence of
+routers before reaching the RP (e.g., R2). Each router along the path
+looks at the <code class="docutils literal notranslate"><span class="pre">Join</span></code> and creates a forwarding table entry for the
+shared tree, called a (*,&nbsp;G) entry (where * means “all senders”). To
+create the forwarding table entry, it looks at the interface on which
+the <code class="docutils literal notranslate"><span class="pre">Join</span></code> arrived and marks that interface as one on which it
+should forward data packets for this group. It then determines which
+interface it will use to forward the <code class="docutils literal notranslate"><span class="pre">Join</span></code> toward the RP. This will
+be the only acceptable interface for incoming packets sent to this
+group. It then forwards the <code class="docutils literal notranslate"><span class="pre">Join</span></code> toward the RP. Eventually, the
+message arrives at the RP, completing the construction of the tree
+branch. The shared tree thus constructed is shown as a solid line from
+the RP to R4 in <a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure 110(a)</span></a>.</p>
+<p>As more routers send <code class="docutils literal notranslate"><span class="pre">Join</span></code>s toward the RP, they cause new branches
+to be added to the tree, as illustrated in <a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure
+110(b)</span></a>. Note that, in this case, the <code class="docutils literal notranslate"><span class="pre">Join</span></code> only needs
+to travel to R2, which can add the new branch to the tree simply by
+adding a new outgoing interface to the forwarding table entry created
+for this group. R2 need not forward the <code class="docutils literal notranslate"><span class="pre">Join</span></code> on to the RP. Note also
+that the end result of this process is to build a tree whose root is the
+RP.</p>
+<p>At this point, suppose a host wishes to send a message to the
+group. To do so, it constructs a packet with the appropriate multicast
+group address as its destination and sends it to a router on its local
+network known as the <em>designated router</em> (DR). Suppose the DR is R1 in
+<a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure 110</span></a>. There is no state for this
+multicast group between R1 and the RP at this point, so instead of
+simply forwarding the multicast packet, R1 <em>tunnels</em> it to the
+RP. That is, R1 encapsulates the multicast packet inside a PIM
+<code class="docutils literal notranslate"><span class="pre">Register</span></code> message that it sends to the unicast IP address of the
+RP. Just like an IP tunnel endpoint, the RP receives the packet
+addressed to it, looks at the payload of the <code class="docutils literal notranslate"><span class="pre">Register</span></code> message, and
+finds inside an IP packet addressed to the multicast address of this
+group. The RP, of course, does know what to do with such a packet—it
+sends it out onto the shared tree of which the RP is the root. In the
+example of <a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure 110</span></a>, this means that the
+RP sends the packet on to R2, which is able to forward it on to R4 and
+R5. The complete delivery of a packet from R1 to R4 and R5 is shown in
+<a class="reference internal" href="#fig-pim-deliver"><span class="std std-numref">Figure 111</span></a>. We see the tunneled packet
+travel from R1 to the RP with an extra IP header containing the
+unicast address of RP, and then the multicast packet addressed to G
+making its way along the shared tree to R4 and R5.</p>
 <p>At this point, we might be tempted to declare success, since all hosts
 can send to all receivers this way. However, there is some bandwidth
 inefficiency and processing cost in the encapsulation and decapsulation
 of packets on the way to the RP, so the RP forces knowledge about this
 group into the intervening routers so tunneling can be avoided. It sends
-a <code>Join</code> message toward the sending host
-(<a href="#pim-shared">Figure 1(c)</a>). As this <code>Join</code> travels toward the host,
-it causes the routers along the path (R3) to learn about the group, so
-that it will be possible for the DR to send the packet to the group as
+a <code class="docutils literal notranslate"><span class="pre">Join</span></code> message toward the sending host (<a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure
+110(c)</span></a>). As this <code class="docutils literal notranslate"><span class="pre">Join</span></code> travels toward the host, it
+causes the routers along the path (R3) to learn about the group, so that
+it will be possible for the DR to send the packet to the group as
 <em>native</em> (i.e., not tunneled) multicast packets.</p>
-<figure>
-    <a id="pim-deliver"></a>
-    <img src="figures/f04-15-9780123850591.png" width="500px">
-    <figcaption>Delivery of a packet along a shared tree. R1 tunnels
-    the packet to the RP, which forwards it along the shared tree to
-    R4 and R5.</figcaption>
-</figure>
-
-<p>An important detail to note at this stage is that the <code>Join</code> message
+<div class="figure align-center" id="id2">
+<span id="fig-pim-deliver"></span><a class="reference internal image-reference" href="../_images/f04-15-9780123850591.png"><img alt="../_images/f04-15-9780123850591.png" src="../_images/f04-15-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 111. </span><span class="caption-text">Delivery of a packet along a shared tree. R1 tunnels
+the packet to the RP, which forwards it along the shared tree to
+R4 and R5.</span></p>
+</div>
+<p>An important detail to note at this stage is that the <code class="docutils literal notranslate"><span class="pre">Join</span></code> message
 sent by the RP to the sending host is specific to that sender, whereas
 the previous ones sent by R4 and R5 applied to all senders. Thus, the
-effect of the new <code>Join</code> is to create <em>sender-specific</em> state in the
-routers between the identified source and the RP. This is referred to as
-(S, G) state, since it applies to one sender to one group, and contrasts
-with the (*, G) state that was installed between the receivers and the
-RP that applies to all senders. Thus, in
-<a href="#pim-shared">Figure 1(c)</a>, we see a source-specific route from R1 to
-the RP (indicated by the dashed line) and a tree that is valid for all
-senders from the RP to the receivers (indicated by the solid line).</p>
-<p>The next possible optimization is to replace the entire shared tree with
-a source-specific tree. This is desirable because the path from sender
-to receiver via the RP might be significantly longer than the shortest
-possible path. This again is likely to be triggered by a high data rate
-being observed from some sender. In this case, the router at the
-downstream end of the tree&#x2014;say, R4 in our example&#x2014;sends a
-source-specific <code>Join</code> toward the source. As it follows the shortest
-path toward the source, the routers along the way create (S, G) state
-for this tree, and the result is a tree that has its root at the source,
-rather than the RP. Assuming both R4 and R5 made the switch to the
-source-specific tree, we would end up with the tree shown in
-<a href="#pim-shared">Figure 1(d)</a>. Note that this tree no longer involves the
-RP at all. We have removed the shared tree from this picture to simplify
-the diagram, but in reality all routers with receivers for a group must
-stay on the shared tree in case new senders show up.</p>
+effect of the new <code class="docutils literal notranslate"><span class="pre">Join</span></code> is to create <em>sender-specific</em> state in the
+routers between the identified source and the RP. This is referred to
+as (S,&nbsp;G) state, since it applies to one sender to one group, and
+contrasts with the (*,&nbsp;G) state that was installed between the
+receivers and the RP that applies to all senders. Thus, in
+<a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure 110(c)</span></a>, we see a source-specific
+route from R1 to the RP (indicated by the dashed line) and a tree that
+is valid for all senders from the RP to the receivers (indicated by
+the solid line).</p>
+<p>The next possible optimization is to replace the entire shared tree
+with a source-specific tree. This is desirable because the path from
+sender to receiver via the RP might be significantly longer than the
+shortest possible path. This again is likely to be triggered by a high
+data rate being observed from some sender. In this case, the router at
+the downstream end of the tree—say, R4 in our example—sends a
+source-specific <code class="docutils literal notranslate"><span class="pre">Join</span></code> toward the source. As it follows the shortest
+path toward the source, the routers along the way create (S,&nbsp;G) state
+for this tree, and the result is a tree that has its root at the
+source, rather than the RP. Assuming both R4 and R5 made the switch to
+the source-specific tree, we would end up with the tree shown in
+<a class="reference internal" href="#fig-pim-shared"><span class="std std-numref">Figure 110(d)</span></a>. Note that this tree no longer
+involves the RP at all. We have removed the shared tree from this
+picture to simplify the diagram, but in reality all routers with
+receivers for a group must stay on the shared tree in case new senders
+show up.</p>
 <p>We can now see why PIM is protocol independent. All of its mechanisms
 for building and maintaining trees take advantage of unicast routing
 without depending on any particular unicast routing protocol. The
-formation of trees is entirely determined by the paths that <code>Join</code>
+formation of trees is entirely determined by the paths that <code class="docutils literal notranslate"><span class="pre">Join</span></code>
 messages follow, which is determined by the choice of shortest paths
-made by unicast routing. Thus, to be precise, PIM is &quot;unicast routing
-protocol independent,&quot; as compared to DVMRP. Note that PIM is very much
-bound up with the Internet Protocol&#x2014;it is not protocol independent in
+made by unicast routing. Thus, to be precise, PIM is “unicast routing
+protocol independent,” as compared to DVMRP. Note that PIM is very much
+bound up with the Internet Protocol—it is not protocol independent in
 terms of network-layer protocols.</p>
 <p>The design of PIM-SM again illustrates the challenges in building
 scalable networks and how scalability is sometimes pitted against some
@@ -1371,7 +567,9 @@ routers to be on the order of the number of groups rather than the
 number of senders times the number of groups. However, the
 source-specific tree is likely to be necessary to achieve efficient
 routing and effective use of link bandwidth.</p>
-<h3 id="interdomain-multicast-msdp">Interdomain Multicast (MSDP)</h3>
+</div>
+<div class="section" id="interdomain-multicast-msdp">
+<h3>Interdomain Multicast (MSDP)<a class="headerlink" href="#interdomain-multicast-msdp" title="Permalink to this headline">¶</a></h3>
 <p>PIM-SM has some significant shortcomings when it comes to interdomain
 multicast. In particular, the existence of a single RP for a group goes
 against the principle that domains are autonomous. For a given multicast
@@ -1384,44 +582,46 @@ multicast group. Consequently, the PIM-SM protocol is typically not used
 across domains, only within a domain.</p>
 <p>To extend multicast across domains using PIM-SM, the Multicast Source
 Discovery Protocol (MSDP) was devised. MSDP is used to connect different
-domains&#x2014;each running PIM-SM internally, with its own RPs&#x2014;by
-connecting the RPs of the different domains. Each RP has one or more
-MSDP peer RPs in other domains. Each pair of MSDP peers is connected by
-a TCP connection over which the MSDP protocol runs. Together, all the
-MSDP peers for a given multicast group form a loose mesh that is used as
-a broadcast network. MSDP messages are broadcast through the mesh of
-peer RPs using the Reverse Path Broadcast algorithm that we discussed in
-the context of DVMRP.</p>
+domains—each running PIM-SM internally, with its own RPs—by connecting
+the RPs of the different domains. Each RP has one or more MSDP peer RPs
+in other domains. Each pair of MSDP peers is connected by a TCP
+connection over which the MSDP protocol runs. Together, all the MSDP
+peers for a given multicast group form a loose mesh that is used as a
+broadcast network. MSDP messages are broadcast through the mesh of peer
+RPs using the Reverse Path Broadcast algorithm that we discussed in the
+context of DVMRP.</p>
 <p>What information does MSDP broadcast through the mesh of RPs? Not group
 membership information; when a host joins a group, the furthest that
-information will flow is its own domain&apos;s RP. Instead, it is
-source&#x2014;multicast sender&#x2014;information. Each RP knows the sources in
-its own domain because it receives a <code>Register</code> message whenever a new
-source arises. Each RP periodically uses MSDP to broadcast <code>Source
-Active</code> messages to its peers, giving the IP address of the source, the
-multicast group address, and the IP address of the originating RP.</p>
-<figure>
-    <a id="msdp"></a>
-    <img src="figures/f04-16-9780123850591.png" width="500px">
-    <figcaption>MSDP operation: (a) The source SR sends a Register message
-    to its domain&apos;s RP, RP1; then RP1 sends a source-specific Join message
-    to SR and an MSDP Source Active message to its MSDP peer in Domain B,
-    RP2; then RP2 sends a source-specific Join message to SR. (b) As a
-    result, RP1 and RP2 are in the source-specific tree for source
-    SR.</figcaption>
-</figure>
-
+information will flow is its own domain’s RP. Instead, it is
+source—multicast sender—information. Each RP knows the sources in its
+own domain because it receives a <code class="docutils literal notranslate"><span class="pre">Register</span></code> message whenever a new
+source arises. Each RP periodically uses MSDP to broadcast
+<code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Active</span></code> messages to its peers, giving the IP address of the
+source, the multicast group address, and the IP address of the
+originating RP.</p>
+<div class="figure align-center" id="id3">
+<span id="fig-msdp"></span><a class="reference internal image-reference" href="../_images/f04-16-9780123850591.png"><img alt="../_images/f04-16-9780123850591.png" src="../_images/f04-16-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 112. </span><span class="caption-text">MSDP operation: (a) The source SR sends a Register message
+to its domain’s RP, RP1; then RP1 sends a&nbsp;source-specific Join message
+to SR and an MSDP Source Active message to its MSDP peer in Domain B,
+RP2; then RP2 sends a source-specific Join message to SR. (b) As a
+result, RP1 and RP2 are in the source-specific tree for source
+SR.</span></p>
+</div>
 <p>If an MSDP peer RP that receives one of these broadcasts has active
-receivers for that multicast group, it sends a source-specific <code>Join</code>,
-on that RP&apos;s own behalf, to the source host, as shown in
-<a href="#msdp">Figure 3(a)</a>. The <code>Join</code> message builds a branch of the
-source-specific tree to this RP, as shown in <a href="#msdp">Figure 3(b)</a>.
-The result is that every RP that is part of the MSDP network and has
-active receivers for a particular multicast group is added to the
-source-specific tree of the new source. When an RP receives a multicast
-from the source, the RP uses its shared tree to forward the multicast to
-the receivers in its domain.</p>
-<h3 id="source-specific-multicast-pim-ssm">Source-Specific Multicast (PIM-SSM)</h3>
+receivers for that multicast group, it sends a source-specific
+<code class="docutils literal notranslate"><span class="pre">Join</span></code>, on that RP’s own behalf, to the source host, as shown in
+<a class="reference internal" href="#fig-msdp"><span class="std std-numref">Figure 112(a)</span></a>. The <code class="docutils literal notranslate"><span class="pre">Join</span></code> message builds a
+branch of the source-specific tree to this RP, as shown in
+<a class="reference internal" href="#fig-msdp"><span class="std std-numref">Figure 112(b)</span></a>.  The result is that every RP that
+is part of the MSDP network and has active receivers for a particular
+multicast group is added to the source-specific tree of the new
+source. When an RP receives a multicast from the source, the RP uses
+its shared tree to forward the multicast to the receivers in its
+domain.</p>
+</div>
+<div class="section" id="source-specific-multicast-pim-ssm">
+<h3>Source-Specific Multicast (PIM-SSM)<a class="headerlink" href="#source-specific-multicast-pim-ssm" title="Permalink to this headline">¶</a></h3>
 <p>The original service model of PIM was, like earlier multicast protocols,
 a many-to-many model. Receivers joined a group, and any host could send
 to the group. However, it was recognized in the late 1990s that it might
@@ -1430,9 +630,9 @@ after all, have only one legitimate sender, such as the speaker at a
 conference being sent over the Internet. We already saw that PIM-SM can
 create source-specific shortest path trees as an optimization after
 using the shared tree initially. In the original PIM design, this
-optimization was invisible to hosts&#x2014;only routers joined
-source-specific trees. However, once the need for a one-to-many service
-model was recognized, it was decided to make the source-specific routing
+optimization was invisible to hosts—only routers joined source-specific
+trees. However, once the need for a one-to-many service model was
+recognized, it was decided to make the source-specific routing
 capability of PIM-SM explicitly available to hosts. It turns out that
 this mainly required changes to IGMP and its IPv6 analog, MLD, rather
 than PIM itself. The newly exposed capability is now known as PIM-SSM
@@ -1443,95 +643,88 @@ address G looks just like a normal IP multicast address, and both IPv4
 and IPv6 have allocated subranges of the multicast address space for
 SSM. To use PIM-SSM, a host specifies both the group and the source in
 an IGMP Membership Report message to its local router. That router then
-sends a PIM-SM source-specific <code>Join</code> message toward the source,
+sends a PIM-SM source-specific <code class="docutils literal notranslate"><span class="pre">Join</span></code> message toward the source,
 thereby adding a branch to itself in the source-specific tree, just as
-was described above for &quot;normal&quot; PIM-SM, but bypassing the whole
+was described above for “normal” PIM-SM, but bypassing the whole
 shared-tree stage. Since the tree that results is source specific, only
 the designated source can send packets on that tree.</p>
 <p>The introduction of PIM-SSM has provided some significant benefits,
 particularly since there is relatively high demand for one-to-many
 multicasting:</p>
-<ul>
-<li><p>Multicasts travel more directly to receivers.</p>
-</li>
-<li><p>The address of a channel is effectively a multicast group address
- plus a source address. Therefore, given that a certain range of
- multicast group addresses will be used for SSM exclusively, multiple
- domains can use the same multicast group address independently and
- without conflict, as long as they use it only with sources in their
- own domains.</p>
-</li>
-<li><p>Because only the specified source can send to an SSM group, there is
- less risk of attacks based on malicious hosts overwhelming the
- routers or receivers with bogus multicast traffic.</p>
-</li>
-<li><p>PIM-SSM can be used across domains exactly as it is used within a
- domain, without reliance on anything like MSDP.</p>
-</li>
+<ul class="simple">
+<li>Multicasts travel more directly to receivers.</li>
+<li>The address of a channel is effectively a multicast group address
+plus a source address. Therefore, given that a certain range of
+multicast group addresses will be used for SSM exclusively, multiple
+domains can use the same multicast group address independently and
+without conflict, as long as they use it only with sources in their
+own domains.</li>
+<li>Because only the specified source can send to an SSM group, there is
+less risk of attacks based on malicious hosts overwhelming the
+routers or receivers with bogus multicast traffic.</li>
+<li>PIM-SSM can be used across domains exactly as it is used within a
+domain, without reliance on anything like MSDP.</li>
 </ul>
 <p>SSM, therefore, is quite a useful addition to the multicast service
 model.</p>
-<h3 id="bidirectional-trees-bidir-pim">Bidirectional Trees (BIDIR-PIM)</h3>
-<p>We round off our discussion of multicast with another enhancement to PIM
-known as <em>Bidirectional PIM</em>. BIDIR-PIM is a recent variant of PIM-SM
-that is well suited to many-to-many multicasting within a domain,
-especially when senders and receivers to a group may be the same, as in
-a multiparty videoconference, for example. As in PIM-SM, would-be
-receivers join groups by sending IGMP Membership Report messages (which
-must not be source specific), and a shared tree rooted at an RP is used
-to forward multicast packets to receivers. Unlike PIM-SM, however, the
-shared tree also has branches to the <em>sources</em>. That wouldn&apos;t make any
-sense with PIM-SM&apos;s unidirectional tree, but BIDIR-PIM&apos;s trees are
-bidirectional&#x2014;a router that receives a multicast packet from a
-downstream branch can forward it both up the tree and down other
-branches. The route followed to deliver a packet to any particular
-receiver goes only as far up the tree as necessary before going down the
-branch to that receiver. See the multicast route from R1 to R2 in
-<a href="#pim-bidir">Figure 4(b)</a> for an example. R4 forwards a multicast
-packet downstream to R2 at the same time that it forwards a copy of the
-same packet upstream to R5.</p>
+</div>
+<div class="section" id="bidirectional-trees-bidir-pim">
+<h3>Bidirectional Trees (BIDIR-PIM)<a class="headerlink" href="#bidirectional-trees-bidir-pim" title="Permalink to this headline">¶</a></h3>
+<p>We round off our discussion of multicast with another enhancement to
+PIM known as <em>Bidirectional PIM</em>. BIDIR-PIM is a recent variant of
+PIM-SM that is well suited to many-to-many multicasting within a
+domain, especially when senders and receivers to a group may be the
+same, as in a multiparty videoconference, for example. As in PIM-SM,
+would-be receivers join groups by sending IGMP Membership Report
+messages (which must not be source specific), and a shared tree rooted
+at an RP is used to forward multicast packets to receivers. Unlike
+PIM-SM, however, the shared tree also has branches to the
+<em>sources</em>. That wouldn’t make any sense with PIM-SM’s unidirectional
+tree, but BIDIR-PIM’s trees are bidirectional—a router that receives a
+multicast packet from a downstream branch can forward it both up the
+tree and down other branches. The route followed to deliver a packet
+to any particular receiver goes only as far up the tree as necessary
+before going down the branch to that receiver. See the multicast route
+from R1 to R2 in <a class="reference internal" href="#fig-pim-bidir"><span class="std std-numref">Figure 113(b)</span></a> for an
+example. R4 forwards a multicast packet downstream to R2 at the same
+time that it forwards a copy of the same packet upstream to R5.</p>
 <p>A surprising aspect of BIDIR-PIM is that there need not actually be an
 RP. All that is needed is a routable address, which is known as an RP
 address even though it need not be the address of an RP or anything at
-all. How can this be? A <code>Join</code> from a receiver is forwarded toward the
-RP address until it reaches a router with an interface on the link where
-the RP address would reside, where the Join terminates. 
-<a href="#pim-bidir">Figure 4(a)</a> shows a <code>Join</code> from R2 terminating at R5,
-and a <code>Join</code> from R3 terminating at R6. The upstream forwarding of a
-multicast packet similarly flows toward the RP address until it reaches
-a router with an interface on the link where the RP address would
-reside, but then the router forwards the multicast packet onto that link
-as the final step of upstream forwarding, ensuring that all other
-routers on that link receive the packet. <a href="#pim-bidir">Figure 4(b)</a>
-illustrates the flow of multicast traffic originating at R1.</p>
-<figure>
-    <a id="pim-bidir"></a>
-    <img src="figures/f04-17-9780123850591.png" width="400px">
-    <figcaption>BIDIR-PIM operation: (a) R2 and R3 send Join messages toward
-    the RP address that terminate when they reach a router on the RP
-    address&apos;s link. (b) A multicast packet from R1 is forwarded
-    upstream to the RP address&apos;s link and downstream wherever it
-    intersects a group member branch.</figcaption>
-</figure>
-
+all. How can this be? A <code class="docutils literal notranslate"><span class="pre">Join</span></code> from a receiver is forwarded toward
+the RP address until it reaches a router with an interface on the link
+where the RP address would reside, where the Join
+terminates. <a class="reference internal" href="#fig-pim-bidir"><span class="std std-numref">Figure 113(a)</span></a> shows a <code class="docutils literal notranslate"><span class="pre">Join</span></code>
+from R2 terminating at R5, and a <code class="docutils literal notranslate"><span class="pre">Join</span></code> from R3 terminating at
+R6. The upstream forwarding of a multicast packet similarly flows
+toward the RP address until it reaches a router with an interface on
+the link where the RP address would reside, but then the router
+forwards the multicast packet onto that link as the final step of
+upstream forwarding, ensuring that all other routers on that link
+receive the packet. <a class="reference internal" href="#fig-pim-bidir"><span class="std std-numref">Figure 113(b)</span></a> illustrates
+the flow of multicast traffic originating at R1.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-pim-bidir"></span><a class="reference internal image-reference" href="../_images/f04-17-9780123850591.png"><img alt="../_images/f04-17-9780123850591.png" src="../_images/f04-17-9780123850591.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Figure 113. </span><span class="caption-text">BIDIR-PIM operation: (a) R2 and R3 send Join messages toward
+the RP address that terminate when they reach a router on the RP
+address’s link. (b) A multicast packet from R1 is forwarded
+upstream to the RP address’s link and downstream wherever it
+intersects a group member branch.</span></p>
+</div>
 <p>BIDIR-PIM cannot thus far be used across domains. On the other hand, it
 has several advantages over PIM-SM for many-to-many multicast within a
 domain:</p>
-<ul>
-<li><p>There is no source registration process because the routers already
- know how to route a multicast packet toward the RP address.</p>
-</li>
-<li><p>The routes are more direct than those that use PIM-SM&apos;s shared tree
- because they go only as far up the tree as necessary, not all the
- way to the RP.</p>
-</li>
-<li><p>Bidirectional trees use much less state than the source-specific
- trees of PIM-SM because there is never any source-specific state.
- (On the other hand, the routes will be longer than those of
- source-specific trees.)</p>
-</li>
-<li><p>The RP cannot be a bottleneck, and indeed no actual RP is needed.</p>
-</li>
+<ul class="simple">
+<li>There is no source registration process because the routers already
+know how to route a multicast packet toward the RP address.</li>
+<li>The routes are more direct than those that use PIM-SM’s shared tree
+because they go only as far up the tree as necessary, not all the way
+to the RP.</li>
+<li>Bidirectional trees use much less state than the source-specific
+trees of PIM-SM because there is never any source-specific state. (On
+the other hand, the routes will be longer than those of
+source-specific trees.)</li>
+<li>The RP cannot be a bottleneck, and indeed no actual RP is needed.</li>
 </ul>
 <p>One conclusion to draw from the fact that there are so many different
 approaches to multicast just within PIM is that multicast is a difficult
@@ -1539,112 +732,58 @@ problem space in which to find optimal solutions. You need to decide
 which criteria you want to optimize (bandwidth usage, router state, path
 length, etc.) and what sort of application you are trying to support
 (one-to-many, many-to-many, etc.) before you can make a choice of the
-&quot;best&quot; multicast mode for the task.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+“best” multicast mode for the task.</p>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="global.html" class="navigation navigation-prev " aria-label="Previous page: 4.1 Global Internet">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="mpls.html" class="navigation navigation-next " aria-label="Next page: 4.3 Multiprotocol Label Switching">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mpls.html" class="btn btn-neutral float-right" title="4.4 Multiprotocol Label Switching" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ipv6.html" class="btn btn-neutral float-left" title="4.2 IP Version 6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2 Multicast","level":"1.6.2","depth":2,"next":{"title":"4.3 Multiprotocol Label Switching","level":"1.6.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},"previous":{"title":"4.1 Global Internet","level":"1.6.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/multicast.md","mtime":"2019-07-10T18:44:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

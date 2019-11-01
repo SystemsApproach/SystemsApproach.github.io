@@ -1,1003 +1,201 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>9.4 Overlay Networks · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9.4 Overlay Networks &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Perspective: The Cloud is the New Internet" href="trend.html" />
+    <link rel="prev" title="9.3 Infrastructure Applications" href="infrastructure.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="trend.html" />
-    
-    
-    <link rel="prev" href="infrastructure.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../scaling/problem.html">
-            
-                <a href="../scaling/problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../scaling/global.html">
-            
-                <a href="../scaling/global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../scaling/multicast.html">
-            
-                <a href="../scaling/multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../scaling/mpls.html">
-            
-                <a href="../scaling/mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="../scaling/mobile-ip.html">
-            
-                <a href="../scaling/mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../scaling/trend.html">
-            
-                <a href="../scaling/trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="traditional.html">
-            
-                <a href="traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="multimedia.html">
-            
-                <a href="multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="infrastructure.html">
-            
-                <a href="infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.11.4" data-path="overlays.html">
-            
-                <a href="overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Applications Need Their Own Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traditional.html">9.1 Traditional Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia.html">9.2 Multimedia Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">9.3 Infrastructure Applications</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.4 Overlay Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#routing-overlays">Routing Overlays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#experimental-versions-of-ip">Experimental Versions of IP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#end-system-multicast">End System Multicast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resilient-overlay-networks">Resilient Overlay Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#peer-to-peer-networks">Peer-to-Peer Networks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gnutella">Gnutella</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structured-overlays">Structured Overlays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bittorrent">BitTorrent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#content-distribution-networks">Content Distribution Networks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mechanisms">Mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#policies">Policies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: The Cloud is the New Internet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../applications.html">Chapter 9: Applications</a> &raquo;</li>
+        
+      <li>9.4 Overlay Networks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/applications/overlays.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >9.4 Overlay Networks</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="94-overlay-networks">9.4 Overlay Networks</h1>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overlay-networks">
+<h1>9.4 Overlay Networks<a class="headerlink" href="#overlay-networks" title="Permalink to this headline">¶</a></h1>
 <p>From its inception, the Internet has adopted a clean model, in which the
 routers inside the network are responsible for forwarding packets from
 source to destination, and application programs run on the hosts
@@ -1015,58 +213,56 @@ switches</em> sit in front of server clusters and forward HTTP requests to a
 specific server based on the requested URL. However, <em>overlay networks</em>
 are quickly emerging as the mechanism of choice for introducing new
 functionality into the Internet.</p>
-<figure>
-    <a id="overlay"></a>
-    <img src="figures/f09-19-9780123850591.png" width="300px">
-    <figcaption>Overlay network layered on top of a physical network.</figcaption>
-</figure>
-
+<div class="figure align-center" id="id1">
+<span id="fig-overlay-net"></span><a class="reference internal image-reference" href="../_images/f09-19-9780123850591.png"><img alt="../_images/f09-19-9780123850591.png" src="../_images/f09-19-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 235. </span><span class="caption-text">Overlay network layered on top of a physical network.</span></p>
+</div>
 <p>You can think of an overlay as a logical network implemented on top of
-some underlying network. By this definition, the Internet started out as
-an overlay network on top of the links provided by the old telephone
-network. <a href="#overlay">Figure 1</a> depicts an overlay implemented on top of
-an underlying network. Each node in the overlay also exists in the
-underlying network; it processes and forwards packets in an
-application-specific way. The links that connect the overlay nodes are
-implemented as tunnels through the underlying network. Multiple overlay
-networks can exist on top of the same underlying network&#x2014;each
-implementing its own application-specific behavior&#x2014;and overlays can be
-nested, one on top of another. For example, all of the example overlay
-networks discussed in this section treat today&apos;s Internet as the
-underlying network.</p>
-<figure>
-    <a id="tunnel"></a>
-    <img src="figures/f09-20-9780123850591.png" width="500px">
-    <figcaption>Overlay nodes tunnel through physical nodes.</figcaption>
-</figure>
-
+some underlying network. By this definition, the Internet started out
+as an overlay network on top of the links provided by the old
+telephone network. <a class="reference internal" href="#fig-overlay-net"><span class="std std-numref">Figure 235</span></a> depicts an
+overlay implemented on top of an underlying network. Each node in the
+overlay also exists in the underlying network; it processes and
+forwards packets in an application-specific way. The links that
+connect the overlay nodes are implemented as tunnels through the
+underlying network. Multiple overlay networks can exist on top of the
+same underlying network—each implementing its own application-specific
+behavior—and overlays can be nested, one on top of another. For
+example, all of the example overlay networks discussed in this section
+treat today’s Internet as the underlying network.</p>
+<div class="figure align-center" id="id2">
+<span id="fig-overlay-tunnel"></span><a class="reference internal image-reference" href="../_images/f09-20-9780123850591.png"><img alt="../_images/f09-20-9780123850591.png" src="../_images/f09-20-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 236. </span><span class="caption-text">Overlay nodes tunnel through physical nodes.</span></p>
+</div>
 <p>We have already seen examples of tunneling, for example, to implement
 virtual private networks (VPNs). As a brief refresher, the nodes on
-either end of a tunnel treat the multi-hop path between them as a single
-logical link, the nodes that are tunneled through forward packets based
-on the outer header, never aware that the end nodes have attached an
-inner header. <a href="#tunnel">Figure 2</a> shows three overlay nodes (A, B, and
-C) connected by a pair of tunnels. In this example, overlay node B might
-make a forwarding decision for packets from A to C based on the inner
-header (<code>IHdr</code>), and then attach an outer header (<code>OHdr</code>) that
-identifies C as the destination in the underlying network. Nodes A, B,
-and C are able to interpret both the inner and outer header, whereas the
-intermediate routers understand only the outer header. Similarly, A, B,
-and C have addresses in both the overlay network and the underlying
-network, but they are not necessarily the same; for example, their
-underlying address might be a 32-bit IP address, while their overlay
-address might be an experimental 128-bit address. In fact, the overlay
-need not use conventional addresses at all but may route based on URLs,
+either end of a tunnel treat the multi-hop path between them as a
+single logical link, the nodes that are tunneled through forward
+packets based on the outer header, never aware that the end nodes have
+attached an inner header. <a class="reference internal" href="#fig-overlay-tunnel"><span class="std std-numref">Figure 236</span></a>
+shows three overlay nodes (A, B, and C) connected by a pair of
+tunnels. In this example, overlay node B might make a forwarding
+decision for packets from A to C based on the inner header (<code class="docutils literal notranslate"><span class="pre">IHdr</span></code>),
+and then attach an outer header (<code class="docutils literal notranslate"><span class="pre">OHdr</span></code>) that identifies C as the
+destination in the underlying network. Nodes A, B, and C are able to
+interpret both the inner and outer header, whereas the intermediate
+routers understand only the outer header. Similarly, A, B, and C have
+addresses in both the overlay network and the underlying network, but
+they are not necessarily the same; for example, their underlying
+address might be a 32-bit IP address, while their overlay address
+might be an experimental 128-bit address. In fact, the overlay need
+not use conventional addresses at all but may route based on URLs,
 domain names, an XML query, or even the content of the packet.</p>
-<h2 id="routing-overlays">Routing Overlays</h2>
+<div class="section" id="routing-overlays">
+<h2>Routing Overlays<a class="headerlink" href="#routing-overlays" title="Permalink to this headline">¶</a></h2>
 <p>The simplest kind of overlay is one that exists purely to support an
 alternative routing strategy; no additional application-level processing
 is performed at the overlay nodes. You can view a virtual private
-network (VPN) as an example of a routing overlay, but one that doesn&apos;t
+network (VPN) as an example of a routing overlay, but one that doesn’t
 so much define an alternative strategy or algorithm as it does
 alternative routing table entries to be processed by the standard IP
 forwarding algorithm. In this particular case, the overlay is said to
-use &quot;IP tunnels,&quot; and the ability to utilize these VPNs is supported in
+use “IP tunnels,” and the ability to utilize these VPNs is supported in
 many commercial routers.</p>
 <p>Suppose, however, you wanted to use a routing algorithm that commercial
 router vendors were not willing to include in their products. How would
@@ -1081,29 +277,35 @@ technologies independent of the standardization process, there are no
 standard overlays we can point to as examples. Instead, we illustrate
 the general idea of routing overlays by describing several experimental
 systems that have been built by network researchers.</p>
-<h3 id="experimental-versions-of-ip">Experimental Versions of IP</h3>
+<div class="section" id="experimental-versions-of-ip">
+<h3>Experimental Versions of IP<a class="headerlink" href="#experimental-versions-of-ip" title="Permalink to this headline">¶</a></h3>
 <p>Overlays are ideal for deploying experimental versions of IP that you
 hope will eventually take over the world. For example, IP multicast
-started off as an extension to IP and even today is not enabled in many
-Internet routers. The MBone (multicast backbone) was an overlay network
-that implemented IP multicast on top of the unicast routing provided by
-the Internet. A number of multimedia conference tools were developed for
-and deployed on the Mbone. For example, IETF meetings&#x2014;which are a week
-long and attract thousands of participants&#x2014;were for many years
-broadcast over the MBone.</p>
+started off as an extension to IP and even today is not enabled in
+many Internet routers. The MBone (multicast backbone) was an overlay
+network that implemented IP multicast on top of the unicast routing
+provided by the Internet. A number of multimedia conference tools were
+developed for and deployed on the Mbone. For example, IETF
+meetings—which are a week long and attract thousands of
+participants—were for many years broadcast over the MBone. (Today, the
+wide availability of commercial conferencing tools have replaced the
+MBone-based approach.)</p>
 <p>Like VPNs, the MBone used both IP tunnels and IP addresses, but unlike
-VPNs, the MBone implemented a different forwarding
-algorithm&#x2014;forwarding packets to all downstream neighbors in the
-shortest path multicast tree. As an overlay, multicast-aware routers
-tunnel through legacy routers, with the hope that one day there will be
-no more legacy routers.</p>
+VPNs, the MBone implemented a different forwarding algorithm—forwarding
+packets to all downstream neighbors in the shortest path multicast tree.
+As an overlay, multicast-aware routers tunnel through legacy routers,
+with the hope that one day there will be no more legacy routers.</p>
 <p>The 6-BONE was a similar overlay that was used to incrementally deploy
-IPv6. Like the MBone, the 6-BONE used tunnels to forward packets through
-IPv4 routers. Unlike the MBone, however, 6-BONE nodes did not simply
-provide a new interpretation of IPv4&apos;s 32-bit addresses. Instead, they
-forwarded packets based on IPv6&apos;s 128-bit address space. The 6-BONE also
-supported IPv6 multicast.</p>
-<h3 id="end-system-multicast">End System Multicast</h3>
+IPv6. Like the MBone, the 6-BONE used tunnels to forward packets
+through IPv4 routers. Unlike the MBone, however, 6-BONE nodes did not
+simply provide a new interpretation of IPv4’s 32-bit
+addresses. Instead, they forwarded packets based on IPv6’s 128-bit
+address space. The 6-BONE also supported IPv6 multicast. (Today,
+commercial routers support IPv6, but again, overlays are a valuable
+approach while a new technology is being evaluated and tuned.)</p>
+</div>
+<div class="section" id="end-system-multicast">
+<h3>End System Multicast<a class="headerlink" href="#end-system-multicast" title="Permalink to this headline">¶</a></h3>
 <p>Although IP multicast is popular with researchers and certain segments
 of the networking community, its deployment in the global Internet has
 been limited at best. In response, multicast-based applications like
@@ -1125,62 +327,57 @@ problem: Starting with a fully connected graph representing the
 Internet, the goal is to find the embedded multicast tree that spans all
 the group members.</p>
 <blockquote>
-<p>There is a simpler version of this problem, enabled by the ready
+<div>There is a simpler version of this problem, enabled by the ready
 availability of cloud-hosted VMs around the world. The
-multicast-aware &quot;end systems&quot; can be VMs running at multiple
-sites. As these sites are well-known and relatively fixed, it&apos;s
-possible to construct a static multicast tree in the cloud, and have
-the actual end-hosts simply connect to the nearest cloud location.
-But for the sake of completeness, the following describes the
-approach in its full glory.</p>
-</blockquote>
-<figure>
-    <a id="topology"></a>
-    <img src="figures/f09-21-9780123850591.png" width="400px">
-    <figcaption>Alternative multicast trees mapped onto a physical
-    topology.</figcaption>
-</figure>
-
+multicast-aware “end systems” can be VMs running at multiple sites.
+As these sites are well-known and relatively fixed, it’s possible to
+construct a static multicast tree in the cloud, and have the actual
+end-hosts simply connect to the nearest cloud location. But for the
+sake of completeness, the following describes the approach in its
+full glory.</div></blockquote>
+<div class="figure align-center" id="id3">
+<span id="fig-topology"></span><a class="reference internal image-reference" href="../_images/f09-21-9780123850591.png"><img alt="../_images/f09-21-9780123850591.png" src="../_images/f09-21-9780123850591.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Figure 237. </span><span class="caption-text">Alternative multicast trees mapped onto a physical topology.</span></p>
+</div>
 <p>Since we take the underlying Internet to be fully connected, a naive
-solution would be to have each source directly connected to each member
-of the group. In other words, end system multicast could be implemented
-by having each node send unicast messages to every group member. To see
-the problem in doing this, especially compared to implementing IP
-multicast in routers, consider the example topology in
-<a href="#topology">Figure 3</a>. <a href="#topology">Figure 3(a)</a> depicts an example
-physical topology, where R1 and R2 are routers connected by a
-low-bandwidth transcontinental link; A, B, C, and D are end hosts; and
-link delays are given as edge weights. Assuming A wants to send a
-multicast message to the other three hosts, <a href="#topology">Figure 3(b)</a>
-shows how naive unicast transmission would work. This is clearly
-undesirable because the same message must traverse the link A-R1 three
-times, and two copies of the message traverse R1-R2.
-<a href="#topology">Figure 3(c)</a> depicts the IP multicast tree constructed by
-the Distance Vector Multicast Routing Protocol (DVMRP). Clearly, this
-approach eliminates the redundant messages. Without support from the
-routers, however, the best one can hope for with end system multicast is
-a tree similar to the one shown in <a href="#topology">Figure 3(d)</a>. End system
-multicast defines an architecture for constructing this tree.</p>
-<figure>
-    <a id="layered-overlays"></a>
-    <img src="figures/f09-22-9780123850591.png" width="300px">
-    <figcaption>Multicast tree embedded in an overlay network.</figcaption>
-</figure>
-
-<p>The general approach is to support multiple levels of overlay networks,
-each of which extracts a subgraph from the overlay below it, until we
-have selected the subgraph that the application expects. For end system
-multicast, in particular, this happens in two stages: First we construct
-a simple <em>mesh</em> overlay on top of the fully connected Internet, and then
-we select a multicast tree within this mesh. The idea is illustrated in
-<a href="#layered-overlays">Figure 4</a>, again assuming the four end hosts A, B,
-C, and D. The first step is the critical one: Once we have selected a
-suitable mesh overlay, we simply run a standard multicast routing
-algorithm (e.g., DVMRP) on top of it to build the multicast tree. We
-also have the luxury of ignoring the scalability issue that
-Internet-wide multicast faces since the intermediate mesh can be
-selected to include only those nodes that want to participate in a
-particular multicast group.</p>
+solution would be to have each source directly connected to each
+member of the group. In other words, end system multicast could be
+implemented by having each node send unicast messages to every group
+member. To see the problem in doing this, especially compared to
+implementing IP multicast in routers, consider the example topology in
+<a class="reference internal" href="#fig-topology"><span class="std std-numref">Figure 237</span></a>. <a class="reference internal" href="#fig-topology"><span class="std std-numref">Figure 237</span></a>
+depicts an example physical topology, where R1 and R2 are routers
+connected by a low-bandwidth transcontinental link; A, B, C, and D are
+end hosts; and link delays are given as edge weights. Assuming A wants
+to send a multicast message to the other three hosts, <a class="reference internal" href="#fig-topology"><span class="std std-numref">Figure
+237</span></a> shows how naive unicast transmission would
+work. This is clearly undesirable because the same message must
+traverse the link A-R1 three times, and two copies of the message
+traverse R1-R2. <a class="reference internal" href="#fig-topology"><span class="std std-numref">Figure 237</span></a> depicts the IP
+multicast tree constructed by the Distance Vector Multicast Routing
+Protocol (DVMRP). Clearly, this approach eliminates the redundant
+messages. Without support from the routers, however, the best one can
+hope for with end system multicast is a tree similar to the one shown
+in <a class="reference internal" href="#fig-topology"><span class="std std-numref">Figure 237</span></a>. End system multicast defines an
+architecture for constructing this tree.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-layered-overlays"></span><a class="reference internal image-reference" href="../_images/f09-22-9780123850591.png"><img alt="../_images/f09-22-9780123850591.png" src="../_images/f09-22-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 238. </span><span class="caption-text">Multicast tree embedded in an overlay network.</span></p>
+</div>
+<p>The general approach is to support multiple levels of overlay
+networks, each of which extracts a subgraph from the overlay below it,
+until we have selected the subgraph that the application expects. For
+end system multicast, in particular, this happens in two stages: First
+we construct a simple <em>mesh</em> overlay on top of the fully connected
+Internet, and then we select a multicast tree within this mesh. The
+idea is illustrated in <a class="reference internal" href="#fig-layered-overlays"><span class="std std-numref">Figure 238</span></a>,
+again assuming the four end hosts A, B, C, and D. The first step is
+the critical one: Once we have selected a suitable mesh overlay, we
+simply run a standard multicast routing algorithm (e.g., DVMRP) on top
+of it to build the multicast tree. We also have the luxury of ignoring
+the scalability issue that Internet-wide multicast faces since the
+intermediate mesh can be selected to include only those nodes that
+want to participate in a particular multicast group.</p>
 <p>The key to constructing the intermediate mesh overlay is to select a
 topology that roughly corresponds to the physical topology of the
 underlying Internet, but we have to do this without anyone telling us
@@ -1198,21 +395,21 @@ eventually propagates through the mesh, much as in a distance vector
 routing protocol.</p>
 <p>When a host wants to join the multicast overlay, it must know the IP
 address of at least one other node already in the overlay. It then sends
-a &quot;join mesh&quot; message to this node. This connects the new node to the
+a “join mesh” message to this node. This connects the new node to the
 mesh by an edge to the known node. In general, the new node might send a
 join message to multiple current nodes, thereby joining the mesh by
 multiple links. Once a node is connected to the mesh by a set of links,
-it periodically sends &quot;keep alive&quot; messages to its neighbors, letting
+it periodically sends “keep alive” messages to its neighbors, letting
 them know that it still wants to be part of the group.</p>
-<p>When a node leaves the group, it sends a &quot;leave mesh&quot; message to its
+<p>When a node leaves the group, it sends a “leave mesh” message to its
 directly connected neighbors, and this information is propagated to the
 other nodes in the mesh via the membership list described above.
 Alternatively, a node can fail or just silently decide to quit the
 group, in which case its neighbors detect that it is no longer sending
-&quot;keep alive&quot; messages. Some node departures have little effect on the
+“keep alive” messages. Some node departures have little effect on the
 mesh, but should a node detect that the mesh has become partitioned due
 to a departing node, it creates a new edge to a node in the other
-partition by sending it a &quot;join mesh&quot; message. Note that multiple
+partition by sending it a “join mesh” message. Note that multiple
 neighbors can simultaneously decide that a partition has occurred in the
 mesh, leading to multiple cross-partition edges being added to the mesh.</p>
 <p>As described so far, we will end up with a mesh that is a subgraph of
@@ -1224,28 +421,30 @@ change due to dynamic joins and departures, and (4) underlying network
 conditions may change. What needs to happen is that the system must
 evaluate the value of each edge, resulting in new edges being added to
 the mesh and existing edges being removed over time.</p>
-<p>To add new edges, each node <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> periodically probes some random
-member <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span> that it is not currently connected to in the mesh,
-measures the round-trip latency of edge <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span>, and then evaluates
-the utility of adding this edge. If the utility is above a certain
-threshold, link <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> is added to the mesh. Evaluating the utility
-of adding edge <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> might look something like this:</p>
-<pre><code class="lang-pseudo">EvaluateUtility(j)
-    utility = 0
-    for each member m not equal to i
-        CL = current latency to node m along route through mesh
-        NL = new latency to node m along mesh if edge (i,j) is added}
-        if (NL &lt; CL) then
-            utility += (CL - NL)/CL
-    return utility
-</code></pre>
-<p>Deciding to remove an edge is similar, except each node <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> computes
-the cost of each link to current neighbor <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span> as follows:</p>
-<pre><code class="lang-pseudo">EvaluateCost(j)
-    Cost[i,j] = number of members for which i uses j as next hop
-    Cost[j,i] = number of members for which j uses i as next hop
-    return max(Cost[i,j], Cost[j,i])
-</code></pre>
+<p>To add new edges, each node <em>i</em> periodically probes some random member
+<em>j</em> that it is not currently connected to in the mesh, measures the
+round-trip latency of edge <em>(i,j)</em>, and then evaluates the utility of
+adding this edge. If the utility is above a certain threshold, link
+<em>(i,j)</em> is added to the mesh. Evaluating the utility of adding edge
+<em>(i,j)</em> might look something like this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">EvaluateUtility</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">utility</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">member</span> <span class="n">m</span> <span class="n">not</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">i</span>
+        <span class="n">CL</span> <span class="o">=</span> <span class="n">current</span> <span class="n">latency</span> <span class="n">to</span> <span class="n">node</span> <span class="n">m</span> <span class="n">along</span> <span class="n">route</span> <span class="n">through</span> <span class="n">mesh</span>
+        <span class="n">NL</span> <span class="o">=</span> <span class="n">new</span> <span class="n">latency</span> <span class="n">to</span> <span class="n">node</span> <span class="n">m</span> <span class="n">along</span> <span class="n">mesh</span> <span class="k">if</span> <span class="n">edge</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="n">is</span> <span class="n">added</span><span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">NL</span> <span class="o">&lt;</span> <span class="n">CL</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">utility</span> <span class="o">+=</span> <span class="p">(</span><span class="n">CL</span> <span class="o">-</span> <span class="n">NL</span><span class="p">)</span><span class="o">/</span><span class="n">CL</span>
+    <span class="k">return</span> <span class="n">utility</span>
+</pre></div>
+</div>
+<p>Deciding to remove an edge is similar, except each node <em>i</em> computes the
+cost of each link to current neighbor <em>j</em> as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">EvaluateCost</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">Cost</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">members</span> <span class="k">for</span> <span class="n">which</span> <span class="n">i</span> <span class="n">uses</span> <span class="n">j</span> <span class="n">as</span> <span class="n">next</span> <span class="n">hop</span>
+    <span class="n">Cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">members</span> <span class="k">for</span> <span class="n">which</span> <span class="n">j</span> <span class="n">uses</span> <span class="n">i</span> <span class="n">as</span> <span class="n">next</span> <span class="n">hop</span>
+    <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">Cost</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">Cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>It then picks the neighbor with the lowest cost, and drops it if the
 cost falls below a certain threshold.</p>
 <p>Finally, since the mesh is maintained using what is essentially a
@@ -1255,26 +454,26 @@ possible to prove that the protocol just described results in the
 optimum mesh network, thereby allowing DVMRP to select the best possible
 multicast tree, both simulation and extensive practical experience
 suggests that it does a good job.</p>
-<h3 id="resilient-overlay-networks">Resilient Overlay Networks</h3>
+</div>
+<div class="section" id="resilient-overlay-networks">
+<h3>Resilient Overlay Networks<a class="headerlink" href="#resilient-overlay-networks" title="Permalink to this headline">¶</a></h3>
 <p>Another function that can be performed by an overlay is to find
 alternative routes for traditional unicast applications. Such overlays
 exploit the observation that the triangle inequality does not hold in
-the Internet. <a href="#triangle">Figure 5</a> illustrates what we mean by this.
-It is not uncommon to find three sites in the Internet&#x2014;call them A, B,
-and C&#x2014;such that the latency between A and B is greater than the sum of
-the latencies from A to C and from C to B. That is, sometimes you would
-be better off indirectly sending your packets via some intermediate node
-than sending them directly to the destination.</p>
-<figure>
-    <a id="triangle"></a>
-    <img src="figures/f09-23-9780123850591.png" width="600px">
-    <figcaption>The triangle inequality does not necessarily hold in
-    networks.</figcaption>
-</figure>
-
+the Internet. <a class="reference internal" href="#fig-triangle"><span class="std std-numref">Figure 239</span></a> illustrates what we
+mean by this.  It is not uncommon to find three sites in the
+Internet—call them A, B, and C—such that the latency between A and B
+is greater than the sum of the latencies from A to C and from C
+to B. That is, sometimes you would be better off indirectly sending
+your packets via some intermediate node than sending them directly to
+the destination.</p>
+<div class="figure align-center" id="id5">
+<span id="fig-triangle"></span><a class="reference internal image-reference" href="../_images/f09-23-9780123850591.png"><img alt="../_images/f09-23-9780123850591.png" src="../_images/f09-23-9780123850591.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Figure 239. </span><span class="caption-text">The triangle inequality does not necessarily hold in networks.</span></p>
+</div>
 <p>How can this be? Well, the Border Gateway Protocol (BGP) never promised
 that it would find the <em>shortest</em> route between any two sites; it only
-tries to find <em>some</em> route. To make matters more complex, BGP&apos;s routes
+tries to find <em>some</em> route. To make matters more complex, BGP’s routes
 are heavily influenced by policy issues, such as who is paying whom to
 carry their traffic. This often happens, for example, at peering points
 between major backbone ISPs. In short, that the triangle inequality does
@@ -1288,59 +487,60 @@ about finding the best route among a handful of sites, you could do a
 much better job of monitoring the quality of every path you might use,
 thereby allowing you to select the best possible route at any moment in
 time.</p>
-<p>An experimental overlay, called the Resilient Overlay Network (RON),
-did exactly this. RON scaled to only a few dozen nodes because it used
-an <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&#xD7;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">&#xD7;</span><span class="mord mathit">n</span></span></span></span> strategy of closely monitoring (via active probes) three
-aspects of path quality&#x2014;latency, available bandwidth, and loss
-probability&#x2014;between every pair of sites. It was then able to both
-select the optimal route between any pair of nodes, and rapidly change
-routes should network conditions change. Experience showed that RON
-was able to deliver modest performance improvements to applications,
-but more importantly, it recovered from network failures much more quickly.
-For example, during one 64-hour period in 2001, an instance of RON
-running on 12 nodes detected 32 outages lasting over 30 minutes, and it
-was able to recover from all of them in less than 20 seconds on average.
-This experiment also suggested that forwarding data through just one
-intermediate node is usually sufficient to recover from Internet
-failures.</p>
+<p>An experimental overlay, called the Resilient Overlay Network (RON), did
+exactly this. RON scaled to only a few dozen nodes because it used an <em>N
+× N</em> strategy of closely monitoring (via active probes) three aspects of
+path quality—latency, available bandwidth, and loss probability—between
+every pair of sites. It was then able to both select the optimal route
+between any pair of nodes, and rapidly change routes should network
+conditions change. Experience showed that RON was able to deliver modest
+performance improvements to applications, but more importantly, it
+recovered from network failures much more quickly. For example, during
+one 64-hour period in 2001, an instance of RON running on 12 nodes
+detected 32 outages lasting over 30 minutes, and it was able to recover
+from all of them in less than 20 seconds on average. This experiment
+also suggested that forwarding data through just one intermediate node
+is usually sufficient to recover from Internet failures.</p>
 <p>Since RON was not designed to be a scalable approach, it is not possible
 to use RON to help random host A communicate with random host B; A and B
 have to know ahead of time that they are likely to communicate and then
 join the same RON. However, RON seems like a good idea in certain
 settings, such as when connecting a few dozen corporate sites spread
 across the Internet or allowing you and 50 of your friends to establish
-your own private overlay for the sake of running some
-application. (Today, this idea is put to practice with the marketing
-name <em>Software-Defined WAN</em>, or <em>SD-WAN</em>.) The
-real question, though, is what happens when everyone starts to run their
-own RON. Does the overhead of millions of RONs aggressively probing
-paths swamp the network, and does anyone see improved behavior when
-many RONs compete for the same paths? These questions are still
-unanswered.</p>
-<blockquote>
-<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]</p>
-<p>All of these overlays illustrate a concept that is central to computer
-networks in general: <em>virtualization</em>. That is, it is possible to build
-a virtual network from abstract (logical) resources on top of a physical
-network constructed from physical resources. Moreover, it is possible to
-stack these virtualized networks on top of each other and for multiple
-virtual network to coexist at the same level. Each virtual network, in
-turn, provides new capabilities that are of value to some set of users,
-applications, or higher-level networks.</p>
-</blockquote>
-<h2 id="peer-to-peer-networks">Peer-to-Peer Networks</h2>
-<p>Music-sharing applications like Napster
-and KaZaA introduced the term &quot;peer-to-peer&quot; into the popular
-vernacular. But what exactly does it mean for a system to be
-&quot;peer-to-peer&quot;? Certainly in the context of sharing MP3 files it means
-not having to download music from a central site, but instead being able
-to access music files directly from whoever in the Internet happens to
-have a copy stored on their computer. More generally then, we could say
-that a peer-to-peer network allows a community of users to pool their
-resources (content, storage, network bandwidth, disk bandwidth, CPU),
-thereby providing access to a larger archival store, larger video/audio
-conferences, more complex searches and computations, and so on than any
-one user could afford individually.</p>
+your own private overlay for the sake of running some application.
+(Today, this idea is put to practice with the marketing name
+<em>Software-Defined WAN</em>, or <em>SD-WAN</em>.) The real question, though, is what
+happens when everyone starts to run their own RON. Does the overhead of
+millions of RONs aggressively probing paths swamp the network, and does
+anyone see improved behavior when many RONs compete for the same paths?
+These questions are still unanswered.</p>
+<div class="admonition-key-takeaway admonition">
+<p class="first admonition-title">Key Takeaway</p>
+<p class="last">All of these overlays illustrate a concept that is central to
+computer networks in general: <em>virtualization</em>. That is, it is
+possible to build a virtual network from abstract (logical) resources
+on top of a physical network constructed from physical resources.
+Moreover, it is possible to stack these virtualized networks on top
+of each other and for multiple virtual network to coexist at the same
+level. Each virtual network, in turn, provides new capabilities that
+are of value to some set of users, applications, or higher-level
+networks.</p>
+</div>
+</div>
+</div>
+<div class="section" id="peer-to-peer-networks">
+<h2>Peer-to-Peer Networks<a class="headerlink" href="#peer-to-peer-networks" title="Permalink to this headline">¶</a></h2>
+<p>Music-sharing applications like Napster and KaZaA introduced the term
+“peer-to-peer” into the popular vernacular. But what exactly does it
+mean for a system to be “peer-to-peer”? Certainly in the context of
+sharing MP3 files it means not having to download music from a central
+site, but instead being able to access music files directly from whoever
+in the Internet happens to have a copy stored on their computer. More
+generally then, we could say that a peer-to-peer network allows a
+community of users to pool their resources (content, storage, network
+bandwidth, disk bandwidth, CPU), thereby providing access to a larger
+archival store, larger video/audio conferences, more complex searches
+and computations, and so on than any one user could afford individually.</p>
 <p>Quite often, attributes like <em>decentralized</em> and <em>self-organizing</em> are
 mentioned when discussing peer-to-peer networks, meaning that individual
 nodes organize themselves into a network without any centralized
@@ -1349,11 +549,11 @@ describe the Internet itself. Ironically, however, Napster was not a
 true peer-to-peer system by this definition since it depended on a
 central registry of known files, and users had to search this directory
 to find what machine offered a particular file. It was only the last
-step&#x2014;actually downloading the file&#x2014;that took place between machines
-that belong to two users, but this is little more than a traditional
+step—actually downloading the file—that took place between machines that
+belong to two users, but this is little more than a traditional
 client/server transaction. The only difference is that the server is
 owned by someone just like you rather than a large corporation.</p>
-<p>So we are back to the original question: What&apos;s interesting about
+<p>So we are back to the original question: What’s interesting about
 peer-to-peer networks? One answer is that both the process of locating
 an object of interest and the process of downloading that object onto
 your local machine happen without your having to contact a centralized
@@ -1365,30 +565,29 @@ music and other assorted files), and the links (tunnels) connecting
 these nodes represent the sequence of machines that you have to visit to
 track down the object you want. This description will become clearer
 after we look at two examples.</p>
-<h3 id="gnutella">Gnutella</h3>
-<p>Gnutella is an early peer-to-peer network that attempted to distinguish
-between exchanging music (which likely violates somebody&apos;s copyright)
-and the general sharing of files (which must be good since we&apos;ve been
-taught to share since the age of two). What&apos;s interesting about Gnutella
-is that it was one of the first such systems to not depend on a
-centralized registry of objects. Instead, Gnutella participants arrange
-themselves into an overlay network similar to the one shown in
-<a href="#gnutella">Figure 6</a>. That is, each node that runs the Gnutella
-software (i.e., implements the Gnutella protocol) knows about some set
-of other machines that also run the Gnutella software. The relationship
-&quot;A and B know each other&quot; corresponds to the edges in this graph. (We&apos;ll
-talk about how this graph is formed in a moment.)</p>
-<figure>
-    <a id="gnutella"></a>
-    <img src="figures/f09-24-9780123850591.png" width="300px">
-    <figcaption>Example topology of a gnutella peer-to-peer
-    network.</figcaption>
-</figure>
-
+<div class="section" id="gnutella">
+<h3>Gnutella<a class="headerlink" href="#gnutella" title="Permalink to this headline">¶</a></h3>
+<p>Gnutella is an early peer-to-peer network that attempted to
+distinguish between exchanging music (which likely violates somebody’s
+copyright) and the general sharing of files (which must be good since
+we’ve been taught to share since the age of two). What’s interesting
+about Gnutella is that it was one of the first such systems to not
+depend on a centralized registry of objects. Instead, Gnutella
+participants arrange themselves into an overlay network similar to the
+one shown in <a class="reference internal" href="#fig-gnutella"><span class="std std-numref">Figure 240</span></a>. That is, each node
+that runs the Gnutella software (i.e., implements the Gnutella
+protocol) knows about some set of other machines that also run the
+Gnutella software. The relationship “A and B know each other”
+corresponds to the edges in this graph. (We’ll talk about how this
+graph is formed in a moment.)</p>
+<div class="figure align-center" id="id6">
+<span id="fig-gnutella"></span><a class="reference internal image-reference" href="../_images/f09-24-9780123850591.png"><img alt="../_images/f09-24-9780123850591.png" src="../_images/f09-24-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 240. </span><span class="caption-text">Example topology of a gnutella peer-to-peer network.</span></p>
+</div>
 <p>Whenever the user on a given node wants to find an object, Gnutella
-sends a QUERY message for the object&#x2014;for example, specifying the
-file&apos;s name&#x2014;to its neighbors in the graph. If one of the neighbors has
-the object, it responds to the node that sent it the query with a QUERY
+sends a QUERY message for the object—for example, specifying the file’s
+name—to its neighbors in the graph. If one of the neighbors has the
+object, it responds to the node that sent it the query with a QUERY
 RESPONSE message, specifying where the object can be downloaded (e.g.,
 an IP address and TCP port number). That node can subsequently use GET
 or PUT messages to access the object. If the node cannot resolve the
@@ -1418,7 +617,7 @@ RESPONSE messages, both for objects it requested and for responses that
 just happen to pass through it. A node is free to decide which of the
 nodes it discovers in this way that it wants to keep as a neighbor. The
 Gnutella protocol provides PING and PONG messages by which a node probes
-whether or not a given neighbor still exists and that neighbor&apos;s
+whether or not a given neighbor still exists and that neighbor’s
 response, respectively.</p>
 <p>It should be clear that Gnutella as described here is not a particularly
 clever protocol, and subsequent systems have tried to improve upon it.
@@ -1431,11 +630,13 @@ to proactively replicate the objects, since the more copies of a given
 object there are, the easier it should be to find a copy. Alternatively,
 one could develop a completely different strategy, which is the topic we
 consider next.</p>
-<h3 id="structured-overlays">Structured Overlays</h3>
-<p>At the same time file sharing systems started fighting to fill the
-void left by Napster, the research community began to explore an
-alternative design for peer-to-peer networks. We refer to these networks
-as <em>structured</em>, to contrast them with the essentially random
+</div>
+<div class="section" id="structured-overlays">
+<h3>Structured Overlays<a class="headerlink" href="#structured-overlays" title="Permalink to this headline">¶</a></h3>
+<p>At the same time file sharing systems started fighting to fill the void
+left by Napster, the research community began to explore an alternative
+design for peer-to-peer networks. We refer to these networks as
+<em>structured</em>, to contrast them with the essentially random
 (unstructured) way in which a Gnutella network evolves. Unstructured
 overlays like Gnutella employ trivial overlay construction and
 maintenance algorithms, but the best they can offer is unreliable,
@@ -1447,57 +648,53 @@ additional complexity during overlay construction and maintenance.</p>
 two questions to consider: (1) How do we map objects onto nodes, and (2)
 How do we route a request to the node that is responsible for a given
 object? We start with the first question, which has a simple statement:
-How do we map an object with name <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> into the address of some node
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> that is able to serve that object? While traditional peer-to-peer
-networks have no control over which node hosts object <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>, if we
-could control how objects get distributed over the network, we might
-be able to do a better job of finding those objects at a later time.</p>
+How do we map an object with name <em>x</em> into the address of some node <em>n</em>
+that is able to serve that object? While traditional peer-to-peer
+networks have no control over which node hosts object <em>x</em>, if we could
+control how objects get distributed over the network, we might be able
+to do a better job of finding those objects at a later time.</p>
 <p>A well-known technique for mapping names into an address is to use a
 hash table, so that</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>&#x2192;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">
-hash(x) \rightarrow  n
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit">s</span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">&#x2192;</span><span class="mord mathit">n</span></span></span></span></span></p>
-<p>implies object <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> is first placed on node <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>, and at a later time
-a client trying to locate <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> would only have to perform the hash of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>
-to determine that it is on node <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>. A hash-based approach has the nice
+<div class="math notranslate nohighlight">
+\[hash(x) \rightarrow  n\]</div>
+<p>implies object <em>x</em> is first placed on node <em>n</em>, and at a later time a
+client trying to locate <em>x</em> would only have to perform the hash of <em>x</em>
+to determine that it is on node <em>n</em>. A hash-based approach has the nice
 property that it tends to spread the objects evenly across the set of
 nodes, but straightforward hashing algorithms suffer from a fatal flaw:
-How many possible values of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> should we allow? (In hashing
+How many possible values of <em>n</em> should we allow? (In hashing
 terminology, how many buckets should there be?) Naively, we could decide
 that there are, say, 101 possible hash values, and we use a modulo hash
 function; that is,</p>
-<pre><code class="lang-pseudo">hash(x)
-    return x % 101
-</code></pre>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">hash</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">101</span>
+</pre></div>
+</div>
 <p>Unfortunately, if there are more than 101 nodes willing to host objects,
-then we can&apos;t take advantage of all of them. On the other hand, if we
+then we can’t take advantage of all of them. On the other hand, if we
 select a number larger than the largest possible number of nodes, then
-there will be some values of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> that will hash into an address for a
+there will be some values of <em>x</em> that will hash into an address for a
 node that does not exist. There is also the not-so-small issue of
 translating the value returned by the hash function into an actual IP
 address.</p>
-<figure>
-    <a id="unitcircle"></a>
-    <img src="figures/f09-25-9780123850591.png" width="300px">
-    <figcaption>Both nodes and objects map (hash) onto the ID space, where objects are
-    maintained at the nearest node in this space</figcaption>
-</figure>
-
+<div class="figure align-center" id="id7">
+<span id="fig-unitcircle"></span><a class="reference internal image-reference" href="../_images/f09-25-9780123850591.png"><img alt="../_images/f09-25-9780123850591.png" src="../_images/f09-25-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 241. </span><span class="caption-text">Both nodes and objects map (hash) onto the ID space, where objects are
+maintained at the nearest node in this space.</span></p>
+</div>
 <p>To address these issues, structured peer-to-peer networks use an
 algorithm known as <em>consistent hashing</em>, which hashes a set of objects
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> uniformly across a large ID space. <a href="#unitcircle">Figure 7</a>
+<em>x</em> uniformly across a large ID space. <a class="reference internal" href="#fig-unitcircle"><span class="std std-numref">Figure 241</span></a>
 visualizes a 128-bit ID space as a circle, where we use the algorithm to
 place both objects</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo>(</mo><mi>o</mi><mi>b</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi mathvariant="normal">_</mi><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mo>)</mo><mo>&#x2192;</mo><mi>o</mi><mi>b</mi><mi>j</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">
-hash(object\_name) \rightarrow objid
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.06em;vertical-align:-0.31em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit">s</span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">o</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mord mathit">e</span><span class="mord mathit">c</span><span class="mord mathit">t</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">n</span><span class="mord mathit">a</span><span class="mord mathit">m</span><span class="mord mathit">e</span><span class="mclose">)</span><span class="mrel">&#x2192;</span><span class="mord mathit">o</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mord mathit">i</span><span class="mord mathit">d</span></span></span></span></span></p>
+<div class="math notranslate nohighlight">
+\[hash(ObjectName) \rightarrow Objid\]</div>
 <p>and nodes</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo>(</mo><mi>I</mi><mi>P</mi><mi mathvariant="normal">_</mi><mi>a</mi><mi>d</mi><mi>d</mi><mi>r</mi><mo>)</mo><mo>&#x2192;</mo><mi>n</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">
-hash(IP\_addr) \rightarrow nodeid
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.06em;vertical-align:-0.31em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit">s</span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mord mathrm" style="margin-right:0.02778em;">_</span><span class="mord mathit">a</span><span class="mord mathit">d</span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mrel">&#x2192;</span><span class="mord mathit">n</span><span class="mord mathit">o</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit">i</span><span class="mord mathit">d</span></span></span></span></span></p>
-<p>onto this circle. Since a 128-bit ID space is enormous, it is
-unlikely that an object will hash to exactly the same ID as a machine&apos;s
-IP address hashes to. To account for this unlikelihood, each object is
+<div class="math notranslate nohighlight">
+\[hash(IPAddr) \rightarrow Nodeid\]</div>
+<p>onto this circle. Since a 128-bit ID space is enormous, it is unlikely
+that an object will hash to exactly the same ID as a machine’s IP
+address hashes to. To account for this unlikelihood, each object is
 maintained on the node whose ID is <em>closest</em>, in this 128-bit space, to
 the object ID. In other words, the idea is to use a high-quality hash
 function to map both nodes and objects into the same large, sparse ID
@@ -1506,45 +703,42 @@ respective identifiers. Like ordinary hashing, this distributes objects
 fairly evenly across nodes, but, unlike ordinary hashing, only a small
 number of objects have to move when a node (hash bucket) joins or
 leaves.</p>
-<figure>
-    <a id="locate"></a>
-    <img src="figures/f09-26-9780123850591.png" width="300px">
-    <figcaption>Objects are located by routing through the
-    peer-to-peer overlay network.</figcaption>
-</figure>
-
-<p>We now turn to the second question&#x2014;how does a user that wants to
-access object <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> know which node is closest in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&apos;s ID in this space?
-One possible answer is that each node keeps a complete table of node IDs
-and their associated IP addresses, but this would not be practical for a
+<div class="figure align-center" id="id8">
+<span id="fig-locate"></span><a class="reference internal image-reference" href="../_images/f09-26-9780123850591.png"><img alt="../_images/f09-26-9780123850591.png" src="../_images/f09-26-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 242. </span><span class="caption-text">Objects are located by routing through the peer-to-peer overlay network.</span></p>
+</div>
+<p>We now turn to the second question—how does a user that wants to access
+object <em>x</em> know which node is closest in <em>x</em>’s ID in this space? One
+possible answer is that each node keeps a complete table of node IDs and
+their associated IP addresses, but this would not be practical for a
 large network. The alternative, which is the approach used by structured
 peer-to-peer networks, is to <em>route a message to this node!</em> In other
-words, if we construct the overlay in a clever way&#x2014;which is the same
-as saying that we need to choose entries for a node&apos;s routing table in a
-clever way&#x2014;then we find a node simply by routing toward it.
+words, if we construct the overlay in a clever way—which is the same as
+saying that we need to choose entries for a node’s routing table in a
+clever way—then we find a node simply by routing toward it.
 Collectively, this approach is sometimes called a <em>distributed hash
 table</em> (DHT), since conceptually, the hash table is distributed over all
 the nodes in the network.</p>
-<p><a href="#locate">Figure 8</a> illustrates what happens for a simple 28-bit ID
-space. To keep the discussion as concrete as possible, we consider the
-approach used by a particular peer-to-peer network called <em>Pastry</em>.
-Other systems work in a similar manner.</p>
-<p>Suppose you are at the node with id <code>65a1fc</code> (hex) and you are trying to
-locate the object with ID <code>d46a1c</code>. You realize that your ID shares
-nothing with the object&apos;s, but you know of a node that shares at least
-the prefix <code>d</code>. That node is closer than you in the 128-bit ID space,
+<p><a class="reference internal" href="#fig-locate"><span class="std std-numref">Figure 242</span></a> illustrates what happens for a simple
+28-bit ID space. To keep the discussion as concrete as possible, we
+consider the approach used by a particular peer-to-peer network called
+<em>Pastry</em>.  Other systems work in a similar manner.</p>
+<p>Suppose you are at the node with id <code class="docutils literal notranslate"><span class="pre">65a1fc</span></code> (hex) and you are trying
+to locate the object with ID <code class="docutils literal notranslate"><span class="pre">d46a1c</span></code>. You realize that your ID shares
+nothing with the object’s, but you know of a node that shares at least
+the prefix <code class="docutils literal notranslate"><span class="pre">d</span></code>. That node is closer than you in the 128-bit ID space,
 so you forward the message to it. (We do not give the format of the
-message being forwarded, but you can think of it as saying &quot;locate
-object <code>d46a1c</code>.&quot;) Assuming node <code>d13da3</code> knows of another node that
+message being forwarded, but you can think of it as saying “locate
+object <code class="docutils literal notranslate"><span class="pre">d46a1c</span></code>.”) Assuming node <code class="docutils literal notranslate"><span class="pre">d13da3</span></code> knows of another node that
 shares an even longer prefix with the object, it forwards the message
 on. This process of moving closer in ID-space continues until you reach
 a node that knows of no closer node. This node is, by definition, the
 one that hosts the object. Keep in mind that as we logically move
-through &quot;ID space&quot; the message is actually being forwarded, node to
+through “ID space” the message is actually being forwarded, node to
 node, through the underlying Internet.</p>
 <p>Each node maintains a both routing table (more below) and the IP
 addresses of a small set of numerically larger and smaller node IDs.
-This is called the node&apos;s <em>leaf set</em>. The relevance of the leaf set is
+This is called the node’s <em>leaf set</em>. The relevance of the leaf set is
 that, once a message is routed to any node in the same leaf set as the
 node that hosts the object, that node can directly forward the message
 to the ultimate destination. Said another way, the leaf set facilitates
@@ -1555,75 +749,71 @@ robust because any of the nodes in a leaf set can route a message just
 as well as any other node in the same set. Thus, if one node is unable
 to make progress routing a message, one of its neighbors in the leaf set
 may be able to. In summary, the routing procedure is defined as follows:</p>
-<pre><code class="lang-pseudo">Route(D)
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>Route(D)
     if D is within range of my leaf set
         forward to numerically closest member in leaf set
     else
         let l = length of shared prefix
-        let d = value of l-th digit in D&apos;s address
+        let d = value of l-th digit in D&#39;s address
         if RouteTab[l,d] exists
             forward to RouteTab[l,d]
         else
             forward to known node with at least as long a shared prefix
             and numerically closer than this node
-</code></pre>
-<p>The routing table, denoted <code>RouteTab</code>, is a two-dimensional array. It
+</pre></div>
+</div>
+<p>The routing table, denoted <code class="docutils literal notranslate"><span class="pre">RouteTab</span></code>, is a two-dimensional array. It
 has a row for every hex digit in an ID (there such 32 digits in a
 128-bit ID) and a column for every hex value (there are obviously 16
-such values). Every entry in row <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> shares a prefix of length <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> with
-this node, and within this row the entry in column <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span> has the hex value
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span> in the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>th position. <a href="#rt">Figure 9</a> shows the first three rows
-of an example routing table for node <code>65a1fcx</code>, where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> denotes an
-unspecified suffix. This figure shows the ID prefix matched by every
+such values). Every entry in row <em>i</em> shares a prefix of length <em>i</em> with
+this node, and within this row the entry in column <em>j</em> has the hex value
+<em>j</em> in the <em>i+1</em>-th position. <a class="reference internal" href="#fig-rt"><span class="std std-numref">Figure 243</span></a> shows the first three
+rows of an example routing table for node <code class="docutils literal notranslate"><span class="pre">65a1fcx</span></code>, where <em>x</em> denotes
+an unspecified suffix. This figure shows the ID prefix matched by every
 entry in the table. It does not show the actual value contained in this
-entry&#x2014;the IP address of the next node to route to.</p>
-<figure>
-    <a id="rt"></a>
-    <img src="figures/f09-27-9780123850591.png" width="500px">
-    <figcaption>Example routing table at the node with ID
-    65alcx</figcaption>
-</figure>
-
-<figure>
-    <a id="addnode"></a>
-    <img src="figures/f09-28-9780123850591.png" width="500px">
-    <figcaption>Adding a node to the network.</figcaption>
-</figure>
-
-<p>Adding a node to the overlay works much like routing a &quot;locate object
-message&quot; to an object. The new node must know of at least one current
-member. It asks this member to route an &quot;add node message&quot; to the node
+entry—the IP address of the next node to route to.</p>
+<div class="figure align-center" id="id9">
+<span id="fig-rt"></span><a class="reference internal image-reference" href="../_images/f09-27-9780123850591.png"><img alt="../_images/f09-27-9780123850591.png" src="../_images/f09-27-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 243. </span><span class="caption-text">Example routing table at the node with ID 65alcx</span></p>
+</div>
+<div class="figure align-center" id="id10">
+<span id="fig-addnode"></span><a class="reference internal image-reference" href="../_images/f09-28-9780123850591.png"><img alt="../_images/f09-28-9780123850591.png" src="../_images/f09-28-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 244. </span><span class="caption-text">Adding a node to the network.</span></p>
+</div>
+<p>Adding a node to the overlay works much like routing a “locate object
+message” to an object. The new node must know of at least one current
+member. It asks this member to route an “add node message” to the node
 numerically closest to the ID of the joining node, as shown in
-<a href="#addnode">Figure 10</a>. It is through this routing process that the new
-node learns about other nodes with a shared prefix and is able to begin
-filling out its routing table. Over time, as additional nodes join the
-overlay, existing nodes also have the option of including information
-about the newly joined node in their routing tables. They do this when
-the new node adds a longer prefix than they currently have in their
-table. Neighbors in the leaf sets also exchange routing tables with each
-other, which means that over time routing information propagates through
-the overlay.</p>
+<a class="reference internal" href="#fig-addnode"><span class="std std-numref">Figure 244</span></a>. It is through this routing process
+that the new node learns about other nodes with a shared prefix and is
+able to begin filling out its routing table. Over time, as additional
+nodes join the overlay, existing nodes also have the option of
+including information about the newly joined node in their routing
+tables. They do this when the new node adds a longer prefix than they
+currently have in their table. Neighbors in the leaf sets also
+exchange routing tables with each other, which means that over time
+routing information propagates through the overlay.</p>
 <p>The reader may have noticed that although structured overlays provide a
 probabilistic bound on the number of routing hops required to locate a
-given object&#x2014;the number of hops in Pastry is bounded by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mrow><mn>1</mn><mn>6</mn></mrow></msub></mrow><annotation encoding="application/x-tex">log_{16}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span><span class="mord mathrm mtight">6</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>N,
-where N is the number of nodes in the overlay&#x2014;each hop may
-contribute substantial delay. This is because each intermediate node may
-be at a random location in the Internet. (In the worst case, each node
-is on a different continent!) In fact, in a world-wide overlay network
-using the algorithm as described above, the expected delay of each hop
-is the average delay among all pairs of nodes in the Internet!
-Fortunately, one can do much better in practice. The idea is to choose
-each routing table entry such that it refers to a nearby node in the
-underlying physical network, among all nodes with an ID prefix that is
-appropriate for the entry. It turns out that doing so achieves
-end-to-end routing delays that are within a small factor of the delay
-between source and destination node.</p>
+given object—the number of hops in Pastry is bounded by <span class="math notranslate nohighlight">\(log_{16}N\)</span>,
+where N is the number of nodes in the overlay—each hop may contribute
+substantial delay. This is because each intermediate node may be at a
+random location in the Internet. (In the worst case, each node is on a
+different continent!) In fact, in a world-wide overlay network using the
+algorithm as described above, the expected delay of each hop is the
+average delay among all pairs of nodes in the Internet! Fortunately, one
+can do much better in practice. The idea is to choose each routing table
+entry such that it refers to a nearby node in the underlying physical
+network, among all nodes with an ID prefix that is appropriate for the
+entry. It turns out that doing so achieves end-to-end routing delays
+that are within a small factor of the delay between source and
+destination node.</p>
 <p>Finally, the discussion up to this point has focused on the general
 problem of locating objects in a peer-to-peer network. Given such a
 routing infrastructure, it is possible to build different services. For
 example, a file sharing service would use file names as object names. To
 locate a file, you first hash its name into a corresponding object ID
-and then route a &quot;locate object message&quot; to this ID. The system might
+and then route a “locate object message” to this ID. The system might
 also replicate each file across multiple nodes to improve availability.
 Storing multiple copies on the leaf set of the node to which a given
 file normally routes would be one way of doing this. Keep in mind that
@@ -1638,12 +828,14 @@ constructing a multicast tree from a mesh, one could construct the tree
 from edges in the structured overlay, thereby amortizing the cost of
 overlay construction and maintenance across several applications and
 multicast groups.</p>
-<h3 id="bittorrent">BitTorrent</h3>
+</div>
+<div class="section" id="bittorrent">
+<h3>BitTorrent<a class="headerlink" href="#bittorrent" title="Permalink to this headline">¶</a></h3>
 <p>BitTorrent is a peer-to-peer file sharing protocol devised by Bram
 Cohen. It is based on replicating the file or, rather, replicating
 segments of the file, which are called <em>pieces</em>. Any particular piece
 can usually be downloaded from multiple peers, even if only one peer has
-the entire file. The primary benefit of BitTorrent&apos;s replication is
+the entire file. The primary benefit of BitTorrent’s replication is
 avoiding the bottleneck of having only one source for a file. This is
 particularly useful when you consider that any given computer has a
 limited speed at which it can serve files over its uplink to the
@@ -1667,15 +859,12 @@ for the pieces it has downloaded, even if it has not yet downloaded the
 entire file. (In fact, it is common for peers to leave the swarm once
 they have completed their downloads, although they are encouraged to
 stay longer.) Other nodes join the swarm and begin downloading pieces
-from multiple peers, not just the original peer. See
-<a href="#bitTorrentSwarm">Figure 11</a>.</p>
-<figure>
-    <a id="bitTorrentSwarm"></a>
-    <img src="figures/f09-29-9780123850591.png" width="500px">
-    <figcaption>Peers in a BitTorrent swarm download from other peers
-    that may not yet have the complete file.</figcaption>
-</figure>
-
+from multiple peers, not just the original peer. See <a class="reference internal" href="#fig-bittorrentswarm"><span class="std std-numref">Figure 245</span></a>.</p>
+<div class="figure align-center" id="id11">
+<span id="fig-bittorrentswarm"></span><a class="reference internal image-reference" href="../_images/f09-29-9780123850591.png"><img alt="../_images/f09-29-9780123850591.png" src="../_images/f09-29-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 245. </span><span class="caption-text">Peers in a BitTorrent swarm download from other peers that may not yet
+have the complete file.</span></p>
+</div>
 <p>If the file remains in high demand, with a stream of new peers replacing
 those who leave the swarm, the swarm could remain active indefinitely;
 if not, it could shrink back to include only the original peer until new
@@ -1686,39 +875,35 @@ would-be downloader must first join the swarm. It starts by downloading
 a file containing meta-information about the file and swarm. The file,
 which may be easily replicated, is typically downloaded from a web
 server and discovered by following links from Web pages. It contains:</p>
-<ul>
-<li><p>The target file&apos;s size</p>
-</li>
-<li><p>The piece size</p>
-</li>
-<li><p>SHA-1 hash values precomputed from each piece</p>
-</li>
-<li><p>The URL of the swarm&apos;s <em>tracker</em></p>
-</li>
+<ul class="simple">
+<li>The target file’s size</li>
+<li>The piece size</li>
+<li>SHA-1 hash values precomputed from each piece</li>
+<li>The URL of the swarm’s <em>tracker</em></li>
 </ul>
-<p>A tracker is a server that tracks a swarm&apos;s current membership. We&apos;ll
+<p>A tracker is a server that tracks a swarm’s current membership. We’ll
 see later that BitTorrent can be extended to eliminate this point of
 centralization, with its attendant potential for bottleneck or failure.</p>
 <p>The would-be downloader then joins the swarm, becoming a peer, by
 sending a message to the tracker giving its network address and a peer
 ID that it has generated randomly for itself. The message also carries a
 SHA-1 hash of the main part of the file, which is used as a swarm ID.</p>
-<p>Let&apos;s call the new peer P. The tracker replies to P with a partial list
+<p>Let’s call the new peer P. The tracker replies to P with a partial list
 of peers giving their IDs and network addresses, and P establishes
 connections, over TCP, with some of these peers. Note that P is directly
 connected to just a subset of the swarm, although it may decide to
 contact additional peers or even request more peers from the tracker. To
 establish a BitTorrent connection with a particular peer after their TCP
-connection has been established, P sends P&apos;s own peer ID and swarm ID,
+connection has been established, P sends P’s own peer ID and swarm ID,
 and the peer replies with its peer ID and swarm ID. If the swarm IDs
-don&apos;t match, or the reply peer ID is not what P expects, the connection
+don’t match, or the reply peer ID is not what P expects, the connection
 is aborted.</p>
 <p>The resulting BitTorrent connection is symmetric: Each end can download
 from the other. Each end begins by sending the other a bitmap reporting
-which pieces it has, so each peer knows the other&apos;s initial state.
+which pieces it has, so each peer knows the other’s initial state.
 Whenever a downloader (D) finishes downloading another piece, it sends a
 message identifying that piece to each of its directly connected peers,
-so those peers can update their internal representation of D&apos;s state.
+so those peers can update their internal representation of D’s state.
 This, finally, is the answer to the question of how a download request
 for a piece is routed to a peer that has the piece, because it means
 that each peer knows which directly connected peers have the piece. If D
@@ -1726,10 +911,10 @@ needs a piece that none of its connections has, it could connect to more
 or different peers (it can get more from the tracker) or occupy itself
 with other pieces in hopes that some of its connections will obtain the
 piece from their connections.</p>
-<p>How are objects&#x2014;in this case, pieces&#x2014;mapped onto peer nodes? Of
-course each peer eventually obtains all the pieces, so the question is
-really about which pieces a peer has at a given time before it has all
-the pieces or, equivalently, about the order in which a peer downloads
+<p>How are objects—in this case, pieces—mapped onto peer nodes? Of course
+each peer eventually obtains all the pieces, so the question is really
+about which pieces a peer has at a given time before it has all the
+pieces or, equivalently, about the order in which a peer downloads
 pieces. The answer is that they download pieces in random order, to keep
 them from having a strict subset or superset of the pieces of any of
 their peers.</p>
@@ -1738,9 +923,9 @@ constitutes a single point of failure for the swarm and could
 potentially be a performance bottleneck. Also, providing a tracker can
 be a nuisance for someone who would like to make a file available via
 BitTorrent. Newer versions of BitTorrent additionally support
-&quot;trackerless&quot; swarms that use a DHT-based implementation. BitTorrent
+“trackerless” swarms that use a DHT-based implementation. BitTorrent
 client software that is trackerless capable implements not just a
-BitTorrent peer but also what we&apos;ll call a <em>peer finder</em> (the BitTorrent
+BitTorrent peer but also what we’ll call a <em>peer finder</em> (the BitTorrent
 terminology is simply <em>node</em>), which the peer uses to find peers.</p>
 <p>Peer finders form their own overlay network, using their own protocol
 over UDP to implement a DHT. Furthermore, a peer finder network includes
@@ -1748,14 +933,14 @@ peer finders whose associated peers belong to different swarms. In other
 words, while each swarm forms a distinct network of BitTorrent peers, a
 peer finder network instead spans swarms.</p>
 <p>Peer finders randomly generate their own finder IDs, which are the same
-size (160 bits) as swarm IDs. Each finder maintains a modest table
+size (160&nbsp;bits) as swarm IDs. Each finder maintains a modest table
 containing primarily finders (and their associated peers) whose IDs are
 close to its own, plus some finders whose IDs are more distant. The
 following algorithm ensures that finders whose IDs are close to a given
 swarm ID are likely to know of peers from that swarm; the algorithm
 simultaneously provides a way to look them up. When a finder F needs to
 find peers from a particular swarm, it sends a request to the finders in
-its table whose IDs are close to that swarm&apos;s ID. If a contacted finder
+its table whose IDs are close to that swarm’s ID. If a contacted finder
 knows of any peers for that swarm, it replies with their contact
 information. Otherwise, it replies with the contact information of the
 finders in its table that are close to the swarm, so that F can
@@ -1777,7 +962,7 @@ discover other finders? The files for trackerless swarms include contact
 information for one or a few finders, instead of a tracker URL, for just
 that situation.</p>
 <p>An unusual aspect of BitTorrent is that it deals head-on with the issue
-of fairness, or good &quot;network citizenship.&quot; Protocols often depend on
+of fairness, or good “network citizenship.” Protocols often depend on
 the good behavior of individual peers without being able to enforce it.
 For example, an unscrupulous Ethernet peer could get better performance
 by using a backoff algorithm that is more aggressive than exponential
@@ -1787,7 +972,7 @@ cooperating in congestion control.</p>
 to other peers. Since the typical BitTorrent user just wants to download
 the file as quickly as possible, there is a temptation to implement a
 peer that tries to download all the pieces while doing as little
-uploading as possible&#x2014;this is a bad peer. To discourage bad behavior,
+uploading as possible—this is a bad peer. To discourage bad behavior,
 the BitTorrent protocol includes mechanisms that allow peers to reward
 or punish each other. If a peer is misbehaving by not nicely uploading
 to another peer, the second peer can <em>choke</em> the bad peer: It can decide
@@ -1797,84 +982,79 @@ it has been unchoked. The choking mechanism is also used by a peer to
 limit the number of its active BitTorrent connections, to maintain good
 TCP performance. There are many possible choking algorithms, and
 devising a good one is an art.</p>
-<h2 id="content-distribution-networks">Content Distribution Networks</h2>
+</div>
+</div>
+<div class="section" id="content-distribution-networks">
+<h2>Content Distribution Networks<a class="headerlink" href="#content-distribution-networks" title="Permalink to this headline">¶</a></h2>
 <p>We have already seen how HTTP running over TCP allows web browsers to
 retrieve pages from web servers. However, anyone who has waited an
 eternity for a Web page to return knows that the system is far from
 perfect. Considering that the backbone of the Internet is now
-constructed from 40-Gbps links, it&apos;s not obvious why this
-should happen. It is generally agreed that when it comes to downloading
-Web pages there are four potential bottlenecks in the system:</p>
-<ul>
-<li><p><em>The first mile.</em> The Internet may have high-capacity links in it,
-  but that doesn&apos;t help you download a Web page any faster when you&apos;re
-  connected by a 1.5Mbps DSL line or a poorly performing wireless
-  link.</p>
-</li>
-<li><p><em>The last mile.</em> The link that connects the server to the Internet
-  can be overloaded by too many requests, even if the aggregate
-  bandwidth of that link is quite high.</p>
-</li>
-<li><p><em>The server itself.</em> A server has a finite amount of resources (CPU,
-  memory, disk bandwidth, etc.) and can be overloaded by too many
-  concurrent requests.</p>
-</li>
-<li><p><em>Peering points.</em> The handful of ISPs that collectively implement
-  the backbone of the Internet may internally have high-bandwidth
-  pipes, but they have little motivation to provide high-capacity
-  connectivity to their peers. If you are connected to ISP A and the
-  server is connected to ISP B, then the page you request may get
-  dropped at the point where A and B peer with each other.</p>
-</li>
+constructed from 40-Gbps links, it’s not obvious why this should happen.
+It is generally agreed that when it comes to downloading Web pages there
+are four potential bottlenecks in the system:</p>
+<ul class="simple">
+<li><em>The first mile.</em> The Internet may have high-capacity links in it,
+but that doesn’t help you download a Web page any faster when you’re
+connected by a 1.5Mbps DSL line or a poorly performing wireless link.</li>
+<li><em>The last mile.</em> The link that connects the server to the Internet
+can be overloaded by too many requests, even if the aggregate
+bandwidth of that link is quite high.</li>
+<li><em>The server itself.</em> A server has a finite amount of resources (CPU,
+memory, disk bandwidth, etc.) and can be overloaded by too many
+concurrent requests.</li>
+<li><em>Peering points.</em> The handful of ISPs that collectively implement the
+backbone of the Internet may internally have high-bandwidth pipes,
+but they have little motivation to provide high-capacity connectivity
+to their peers. If you are connected to ISP A and the server is
+connected to ISP B, then the page you request may get dropped at the
+point where A and B peer with each other.</li>
 </ul>
-<p>There&apos;s not a lot anyone except you can do about the first problem, but
+<p>There’s not a lot anyone except you can do about the first problem, but
 it is possible to use replication to address the remaining problems.
 Systems that do this are often called <em>Content Distribution Networks</em>
 (CDNs). Akamai operates what is probably the best-known CDN.</p>
 <p>The idea of a CDN is to geographically distribute a collection of
 <em>server surrogates</em> that cache pages normally maintained in some set of
 <em>backend servers</em>. Thus, rather than having millions of users wait
-forever to contact when a big news story breaks&#x2014;such a situation is
-known as a <em>flash crowd</em>&#x2014;it is possible to spread this load across
-many servers. Moreover, rather than having to traverse multiple ISPs to
-reach , if these surrogate servers happen to be spread across all the
-backbone ISPs, then it should be possible to reach one without having to
-cross a peering point. Clearly, maintaining thousands of surrogate
-servers all over the Internet is too expensive for any one site that
-wants to provide better access to its Web pages. Commercial CDNs provide
-this service for many sites, thereby amortizing the cost across many
+forever to contact when a big news story breaks—such a situation is
+known as a <em>flash crowd</em>—it is possible to spread this load across many
+servers. Moreover, rather than having to traverse multiple ISPs to reach
+, if these surrogate servers happen to be spread across all the backbone
+ISPs, then it should be possible to reach one without having to cross a
+peering point. Clearly, maintaining thousands of surrogate servers all
+over the Internet is too expensive for any one site that wants to
+provide better access to its Web pages. Commercial CDNs provide this
+service for many sites, thereby amortizing the cost across many
 customers.</p>
 <p>Although we call them surrogate servers, in fact, they can just as
-correctly be viewed as caches. If they don&apos;t have a page that has been
+correctly be viewed as caches. If they don’t have a page that has been
 requested by a client, they ask the backend server for it. In practice,
 however, the backend servers proactively replicate their data across the
-surrogates rather than wait for surrogates to request it on demand. It&apos;s
+surrogates rather than wait for surrogates to request it on demand. It’s
 also the case that only static pages, as opposed to dynamic content, are
 distributed across the surrogates. Clients have to go to the backend
 server for any content that either changes frequently (e.g., sports
 scores and stock quotes) or is produced as the result of some
 computation (e.g., a database query).</p>
-<figure>
-    <a id="cdn"></a>
-    <img src="figures/f09-30-9780123850591.png" width="600px">
-    <figcaption>Components in a Content Distribution Network
-    (CDN).</figcaption>
-</figure>
-
+<div class="figure align-center" id="id12">
+<span id="fig-cdn"></span><a class="reference internal image-reference" href="../_images/f09-30-9780123850591.png"><img alt="../_images/f09-30-9780123850591.png" src="../_images/f09-30-9780123850591.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Figure 246. </span><span class="caption-text">Components in a Content Distribution Network (CDN).</span></p>
+</div>
 <p>Having a large set of geographically distributed servers does not fully
 solve the problem. To complete the picture, CDNs also need to provide a
 set of <em>redirectors</em> that forward client requests to the most
-appropriate server, as shown in <a href="#cdn">Figure 12</a>. The primary objective
-of the redirectors is to select the server for each request that results
-in the best <em>response time</em> for the client. A secondary objective is for
-the system as a whole to process as many requests per second as the
-underlying hardware (network links and web servers) is able to support.
-The average number of requests that can be satisfied in a given time
-period&#x2014;known as the <em>system throughput</em>&#x2014;is primarily an issue when
-the system is under heavy load, such as when a flash crowd is accessing
-a small set of pages or a Distributed Denial of Service (DDoS) attacker
-is targeting a particular site, as happened to CNN, Yahoo, and several
-other high-profile sites in February 2000.</p>
+appropriate server, as shown in <a class="reference internal" href="#fig-cdn"><span class="std std-numref">Figure 246</span></a>. The primary
+objective of the redirectors is to select the server for each request
+that results in the best <em>response time</em> for the client. A secondary
+objective is for the system as a whole to process as many requests per
+second as the underlying hardware (network links and web servers) is
+able to support. The average number of requests that can be satisfied in
+a given time period—known as the <em>system throughput</em>—is primarily an
+issue when the system is under heavy load, such as when a flash crowd is
+accessing a small set of pages or a Distributed Denial of Service (DDoS)
+attacker is targeting a particular site, as happened to CNN, Yahoo, and
+several other high-profile sites in February 2000.</p>
 <p>CDNs use several factors to decide how to distribute client requests.
 For example, to minimize response time, a redirector might select a
 server based on its <em>network proximity</em>. In contrast, to improve the
@@ -1885,21 +1065,22 @@ is, it selects a server that is likely to already have the page being
 requested in its cache. The exact combination of factors that should be
 employed by a CDN is open to debate. This section considers some of the
 possibilities.</p>
-<h3 id="mechanisms">Mechanisms</h3>
+<div class="section" id="mechanisms">
+<h3>Mechanisms<a class="headerlink" href="#mechanisms" title="Permalink to this headline">¶</a></h3>
 <p>As described so far, a redirector is just an abstract function, although
 it sounds like what something a router might be asked to do since it
 logically forwards a request message much like a router forwards
 packets. In fact, there are several mechanisms that can be used to
 implement redirection. Note that for the purpose of this discussion we
 assume that each redirector knows the address of every available server.
-(From here on, we drop the &quot;surrogate&quot; qualifier and talk simply in
+(From here on, we drop the “surrogate” qualifier and talk simply in
 terms of a set of servers.) In practice, some form of out-of-band
 communication takes place to keep this information up-to-date as servers
 come and go.</p>
 <p>First, redirection could be implemented by augmenting DNS to return
 different server addresses to clients. For example, when a client asks
 to resolve the name , the DNS server could return the IP address of a
-server hosting CNN&apos;s Web pages that is known to have the lightest load.
+server hosting CNN’s Web pages that is known to have the lightest load.
 Alternatively, for a given set of servers, it might just return
 addresses in a round-robin fashion. Note that the granularity of
 DNS-based redirection is usually at the level of a site (e.g., ) rather
@@ -1911,7 +1092,7 @@ DNS-based redirection. For scalability reasons, the high-level DNS
 server first points to a regional-level DNS server, which replies with
 the actual server address. In order to respond to changes quickly, the
 DNS servers tweak the TTL of the resource records they return to a very
-short period, such as 20 seconds. This is necessary so clients don&apos;t
+short period, such as 20 seconds. This is necessary so clients don’t
 cache results and thus fail to go back to the DNS server for the most
 recent URL-to-server mapping.</p>
 <p>Another possibility is to use the HTTP redirect feature: The client
@@ -1933,24 +1114,26 @@ they do share one very important trait in common. Like an overlay node,
 a proxy-based redirector makes an application-level routing decision.
 Rather than forward a packet based on an address and its knowledge of
 the network topology, it forwards HTTP requests based on a URL and its
-knowledge of the location and load of a set of servers. Today&apos;s Internet
-architecture does not support redirection directly&#x2014;where by &quot;directly&quot;
+knowledge of the location and load of a set of servers. Today’s Internet
+architecture does not support redirection directly—where by “directly”
 we mean the client sends the HTTP request to the redirector, which
-forwards to the destination&#x2014;so instead redirection is typically
+forwards to the destination—so instead redirection is typically
 implemented indirectly by having the redirector return the appropriate
 destination address and the client contacts the server itself.</p>
-<h3 id="policies">Policies</h3>
+</div>
+<div class="section" id="policies">
+<h3>Policies<a class="headerlink" href="#policies" title="Permalink to this headline">¶</a></h3>
 <p>We now consider some example policies that redirectors might use to
 forward requests. Actually, we have already suggested one simple
-policy&#x2014;round-robin. A similar scheme would be to simply select one of
+policy—round-robin. A similar scheme would be to simply select one of
 the available servers at random. Both of these approaches do a good job
 of spreading the load evenly across the CDN, but they do not do a
 particularly good job of lowering the client-perceived response time.</p>
-<p>It&apos;s obvious that neither of these two schemes takes network proximity
+<p>It’s obvious that neither of these two schemes takes network proximity
 into consideration, but, just as importantly, they also ignore locality.
 That is, requests for the same URL are forwarded to different servers,
 making it less likely that the page will be served from the selected
-server&apos;s in-memory cache. This forces the server to retrieve the page
+server’s in-memory cache. This forces the server to retrieve the page
 from its disk, or possibly even from the backend server. How can a
 distributed set of redirectors cause requests for the same page to go to
 the same server (or small set of servers) without global coordination?
@@ -1961,7 +1144,7 @@ communication is required to achieve coordinated operation; no matter
 which redirector receives a URL, the hashing process produces the same
 output.</p>
 <p>So what makes for a good hashing scheme? The classic <em>modulo</em> hashing
-scheme&#x2014;which hashes each URL modulo the number of servers&#x2014;is not
+scheme—which hashes each URL modulo the number of servers—is not
 suitable for this environment. This is because should the number of
 servers change, the modulo calculation will result in a diminishing
 fraction of the pages keeping their same server assignments. While we do
@@ -1979,13 +1162,13 @@ of a server only causes local changes in request assignments. Note that
 unlike the peer-to-peer case, where a message is routed from one node to
 another in order to find the server whose ID is closest to the objects,
 each redirector knows how the set of servers map onto the unit circle,
-so they can each, independently, select the &quot;nearest&quot; one.</p>
+so they can each, independently, select the “nearest” one.</p>
 <p>This strategy can easily be extended to take server load into account.
 Assume the redirector knows the current load of each of the available
 servers. This information may not be perfectly up-to-date, but we can
 imagine the redirector simply counting how many times it has forwarded a
 request to each server in the last few seconds and using this count as
-an estimate of that server&apos;s current load. Upon receiving a URL, the
+an estimate of that server’s current load. Upon receiving a URL, the
 redirector hashes the URL plus each of the available servers and sorts
 the resulting values. This sorted list effectively defines the order in
 which the redirector will consider the available servers. The redirector
@@ -1995,15 +1178,16 @@ consistent hashing is that server order is different for each URL, so if
 one server fails its load is distributed evenly among the other
 machines. This approach is the basis for the Cache Array Routing
 Protocol (CARP) and is shown in pseudocode below.</p>
-<pre><code class="lang-pseudo">SelectServer(URL, S)
-    for each server s in server set S
-        weight[s] = hash(URL, address[s])
-    sort weight
-    for each server s in decreasing order of weight
-        if Load(s) &lt; threshold then
-            return s
-       return server with highest weight
-</code></pre>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SelectServer</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">server</span> <span class="n">s</span> <span class="n">in</span> <span class="n">server</span> <span class="n">set</span> <span class="n">S</span>
+        <span class="n">weight</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">hash</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">address</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+    <span class="n">sort</span> <span class="n">weight</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">server</span> <span class="n">s</span> <span class="n">in</span> <span class="n">decreasing</span> <span class="n">order</span> <span class="n">of</span> <span class="n">weight</span>
+        <span class="k">if</span> <span class="n">Load</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">threshold</span> <span class="n">then</span>
+            <span class="k">return</span> <span class="n">s</span>
+       <span class="k">return</span> <span class="n">server</span> <span class="n">with</span> <span class="n">highest</span> <span class="n">weight</span>
+</pre></div>
+</div>
 <p>As the load increases, this scheme changes from using only the first
 server on the sorted list to spreading requests across several servers.
 Some pages normally handled by busy servers will also start being
@@ -2019,11 +1203,11 @@ servers in the system could be responsible for serving them.</p>
 in at least two different ways. The first is to blur the distinction
 between server load and network proximity by monitoring how long a
 server takes to respond to requests and using this measurement as the
-&quot;server load&quot; parameter in the preceding algorithm. This strategy tends
+“server load” parameter in the preceding algorithm. This strategy tends
 to prefer loaded servers over distant/heavily loaded servers. A second
 approach is to factor proximity into the decision at an earlier stage by
 limiting the candidate set of servers considered by the above algorithms
-(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span>) to only those that are nearby. The harder problem is deciding
+(<em>S</em>) to only those that are nearby. The harder problem is deciding
 which of the potentially many servers are suitably close. One approach
 would be to select only those servers that are available on the same ISP
 as the client. A slightly more sophisticated approach would be to look
@@ -2031,111 +1215,57 @@ at the map of autonomous systems produced by BGP and select only those
 servers within some number of hops from the client as candidate servers.
 Finding the right balance between network proximity and server cache
 locality is a subject of ongoing research.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="infrastructure.html" class="navigation navigation-prev " aria-label="Previous page: 9.3 Infrastructure Applications">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="trend.html" class="navigation navigation-next " aria-label="Next page: 9.5 Broader Perspective">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="trend.html" class="btn btn-neutral float-right" title="Perspective: The Cloud is the New Internet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="infrastructure.html" class="btn btn-neutral float-left" title="9.3 Infrastructure Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.4 Overlay Networks","level":"1.11.4","depth":2,"next":{"title":"9.5 Broader Perspective","level":"1.11.5","depth":2,"path":"applications/trend.md","ref":"applications/trend.md","articles":[]},"previous":{"title":"9.3 Infrastructure Applications","level":"1.11.3","depth":2,"path":"applications/infrastructure.md","ref":"applications/infrastructure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"applications/overlays.md","mtime":"2019-07-30T16:39:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

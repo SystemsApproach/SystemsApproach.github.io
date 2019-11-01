@@ -1,1032 +1,222 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3.1 Switching and Bridging · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1 Switching and Bridging &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2 Basic Interworking" href="basic-ip.html" />
+    <link rel="prev" title="Problem: Not All Networks are Directly Connected" href="problem.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="basic-ip.html" />
-    
-    
-    <link rel="prev" href="problem.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.5.1" data-path="switching.html">
-            
-                <a href="switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="basic-ip.html">
-            
-                <a href="basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="routing.html">
-            
-                <a href="routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="impl.html">
-            
-                <a href="impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../scaling/problem.html">
-            
-                <a href="../scaling/problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../scaling/global.html">
-            
-                <a href="../scaling/global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../scaling/multicast.html">
-            
-                <a href="../scaling/multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../scaling/mpls.html">
-            
-                <a href="../scaling/mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="../scaling/mobile-ip.html">
-            
-                <a href="../scaling/mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../scaling/trend.html">
-            
-                <a href="../scaling/trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Not All Networks are Directly Connected</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1 Switching and Bridging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#datagrams">Datagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-circuit-switching">Virtual Circuit Switching</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asynchronous-transfer-mode-atm">Asynchronous Transfer Mode (ATM)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#source-routing">Source Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l2-switches-and-bridges">L2 Switches and Bridges</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#learning-bridges">Learning Bridges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spanning-tree-algorithm">Spanning Tree Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#broadcast-and-multicast">Broadcast and Multicast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#virtual-lans-vlans">Virtual LANs (VLANs)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basic-ip.html">3.2 Basic Interworking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">3.3 Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impl.html">3.4 Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: Virtual Networks All the Way Down</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../internetworking.html">Chapter 3:  Internetworking</a> &raquo;</li>
+        
+      <li>3.1 Switching and Bridging</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/internetworking/switching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >3.1 Switching and Bridging</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="31-switching-and-bridging">3.1 Switching and Bridging</h1>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="switching-and-bridging">
+<h1>3.1 Switching and Bridging<a class="headerlink" href="#switching-and-bridging" title="Permalink to this headline">¶</a></h1>
 <p>In the simplest terms, a switch is a mechanism that allows us to
 interconnect links to form a larger network. A switch is a multi-input,
 multi-output device that transfers packets from an input to one or more
-outputs. Thus, a switch adds the star topology (see <a href="#star">Figure 1</a>)
-to the set of possible network structures. A star topology has several
-attractive properties:</p>
-<ul>
-<li><p>Even though a switch has a fixed number of inputs and outputs, which
-  limits the number of hosts that can be connected to a single switch,
-  large networks can be built by interconnecting a number of switches.</p>
-</li>
-<li><p>We can connect switches to each other and to hosts using
-  point-to-point links, which typically means that we can build
-  networks of large geographic scope.</p>
-</li>
-<li><p>Adding a new host to the network by connecting it to a switch does
-  not necessarily reduce the performance of the network for other
-  hosts already connected.</p>
-</li>
+outputs. Thus, a switch adds the star topology (see
+<a class="reference internal" href="#fig-star"><span class="std std-numref">Figure 56</span></a>) to the set of possible network
+structures. A star topology has several attractive properties:</p>
+<ul class="simple">
+<li>Even though a switch has a fixed number of inputs and outputs, which
+limits the number of hosts that can be connected to a single switch,
+large networks can be built by interconnecting a number of switches.</li>
+<li>We can connect switches to each other and to hosts using
+point-to-point links, which typically means that we can build
+networks of large geographic scope.</li>
+<li>Adding a new host to the network by connecting it to a switch does
+not necessarily reduce the performance of the network for other hosts
+already connected.</li>
 </ul>
-<figure>
-    <a id="star"></a>
-    <img src="figures/f03-01-9780123850591.png" width="400px">
-    <figcaption>A switch provides a star topology.</figcaption>
-</figure>
-
+<div class="figure align-center" id="id1">
+<span id="fig-star"></span><a class="reference internal image-reference" href="../_images/f03-01-9780123850591.png"><img alt="../_images/f03-01-9780123850591.png" src="../_images/f03-01-9780123850591.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Figure 56. </span><span class="caption-text">A switch provides a star topology.</span></p>
+</div>
 <p>This last claim cannot be made for the shared-media networks discussed
 in the last chapter. For example, it is impossible for two hosts on the
-same 10-Mbps Ethernet segment to transmit continuously at 10 Mbps
+same 10-Mbps Ethernet segment to transmit continuously at 10&nbsp;Mbps
 because they share the same transmission medium. Every host on a
 switched network has its own link to the switch, so it may be entirely
 possible for many hosts to transmit at the full link speed (bandwidth),
@@ -1038,7 +228,7 @@ numbers of nodes) than shared-media networks because of this ability to
 support many hosts at full speed.</p>
 <p>A switch is connected to a set of links and, for each of these links,
 runs the appropriate data link protocol to communicate with the node at
-the other end of the link. A switch&apos;s primary job is to receive incoming
+the other end of the link. A switch’s primary job is to receive incoming
 packets on one of its links and to transmit them on some other link.
 This function is sometimes referred to as either <em>switching</em> or
 <em>forwarding,</em> and in terms of the Open Systems Interconnection (OSI)
@@ -1056,152 +246,130 @@ but it does have some useful applications.</p>
 to identify the end nodes. Such identifiers are usually called
 <em>addresses</em>. We have already seen examples of addresses, such as the
 48-bit address used for Ethernet. The only requirement for Ethernet
-addresses is that no two nodes on a network have the same
-address. This is accomplished by making sure that all Ethernet cards
-are assigned a <em>globally unique</em> identifier. For the following
-discussion, we assume that each host has a globally unique
-address. Later on, we consider other useful properties that an address
-might have, but global uniqueness is adequate to get us started.</p>
+addresses is that no two nodes on a network have the same address. This
+is accomplished by making sure that all Ethernet cards are assigned a
+<em>globally unique</em> identifier. For the following discussion, we assume
+that each host has a globally unique address. Later on, we consider
+other useful properties that an address might have, but global
+uniqueness is adequate to get us started.</p>
 <p>Another assumption that we need to make is that there is some way to
 identify the input and output ports of each switch. There are at least
 two sensible ways to identify ports: One is to number each port, and the
 other is to identify the port by the name of the node (switch or host)
 to which it leads. For now, we use numbering of the ports.</p>
-<h2 id="datagrams">Datagrams</h2>
+<div class="section" id="datagrams">
+<h2>Datagrams<a class="headerlink" href="#datagrams" title="Permalink to this headline">¶</a></h2>
 <p>The idea behind datagrams is incredibly simple: You just include in
 every packet enough information to enable any switch to decide how to
 get it to its destination. That is, every packet contains the complete
 destination address. Consider the example network illustrated in
-<a href="#dgram">Figure 2</a>, in which the hosts have addresses A, B, C, and so
-on. To decide how to forward a packet, a switch consults a <em>forwarding
-table</em> (sometimes called a <em>routing table</em>), an example of which is
-depicted in <a href="#fwdtab">Table 1</a>. This particular table shows the
-forwarding information that switch 2 needs to forward datagrams in the
-example network. It is pretty easy to figure out such a table when you
-have a complete map of a simple network like that depicted here; we
-could imagine a network operator configuring the tables statically. It
-is a lot harder to create the forwarding tables in large, complex
-networks with dynamically changing topologies and multiple paths between
-destinations. That harder problem is known as <em>routing</em> and is the topic
-of a later section. We can think of routing as a process
-that takes place in the background so that, when a data packet turns up,
-we will have the right information in the forwarding table to be able to
-forward, or switch, the packet.</p>
-<figure>
-    <a id="dgram"></a>
-    <img src="figures/f03-02-9780123850591.png" width="500px">
-    <figcaption>Datagram forwarding: an example network.</figcaption>
-</figure>
-
-<table>
-<a id="fwdtab"></a>
-<tabcaption>Forwarding Table for Switch 2.</tabcaption>
-</table>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Destination</th>
-<th style="text-align:center">Port</th>
+<a class="reference internal" href="#fig-dgram"><span class="std std-numref">Figure 57</span></a>, in which the hosts have addresses A,
+B, C, and so on. To decide how to forward a packet, a switch consults
+a <em>forwarding table</em> (sometimes called a <em>routing table</em>), an example
+of which is depicted in <a class="reference internal" href="#tab-fwdtab"><span class="std std-numref">Table 5</span></a>. This
+particular table shows the forwarding information that switch&nbsp;2 needs
+to forward datagrams in the example network. It is pretty easy to
+figure out such a table when you have a complete map of a simple
+network like that depicted here; we could imagine a network operator
+configuring the tables statically. It is a lot harder to create the
+forwarding tables in large, complex networks with dynamically changing
+topologies and multiple paths between destinations. That harder
+problem is known as <em>routing</em> and is the topic of a later section. We
+can think of routing as a process that takes place in the background
+so that, when a data packet turns up, we will have the right
+information in the forwarding table to be able to forward, or switch,
+the packet.</p>
+<div class="figure align-center" id="id2">
+<span id="fig-dgram"></span><a class="reference internal image-reference" href="../_images/f03-02-9780123850591.png"><img alt="../_images/f03-02-9780123850591.png" src="../_images/f03-02-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 57. </span><span class="caption-text">Datagram forwarding: an example network.</span></p>
+</div>
+<span id="tab-fwdtab"></span><table border="1" class="colwidths-auto docutils align-center" id="id3">
+<caption><span class="caption-number">Table 5. </span><span class="caption-text">Forwarding Table for Switch 2.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Destination</th>
+<th class="head">Port</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">A</td>
-<td style="text-align:center">3</td>
+<tbody valign="top">
+<tr class="row-even"><td>A</td>
+<td>3</td>
 </tr>
-<tr>
-<td style="text-align:center">B</td>
-<td style="text-align:center">0</td>
+<tr class="row-odd"><td>B</td>
+<td>0</td>
 </tr>
-<tr>
-<td style="text-align:center">C</td>
-<td style="text-align:center">3</td>
+<tr class="row-even"><td>C</td>
+<td>3</td>
 </tr>
-<tr>
-<td style="text-align:center">D</td>
-<td style="text-align:center">3</td>
+<tr class="row-odd"><td>D</td>
+<td>3</td>
 </tr>
-<tr>
-<td style="text-align:center">E</td>
-<td style="text-align:center">2</td>
+<tr class="row-even"><td>E</td>
+<td>2</td>
 </tr>
-<tr>
-<td style="text-align:center">F</td>
-<td style="text-align:center">1</td>
+<tr class="row-odd"><td>F</td>
+<td>1</td>
 </tr>
-<tr>
-<td style="text-align:center">G</td>
-<td style="text-align:center">0</td>
+<tr class="row-even"><td>G</td>
+<td>0</td>
 </tr>
-<tr>
-<td style="text-align:center">H</td>
-<td style="text-align:center">0</td>
+<tr class="row-odd"><td>H</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
 <p>Datagram networks have the following characteristics:</p>
-<ul>
-<li><p>A host can send a packet anywhere at any time, since any packet that
-  turns up at a switch can be immediately forwarded (assuming a
-  correctly populated forwarding table). For this reason, datagram
-  networks are often called <em>connectionless</em>; this contrasts with the
-  <em>connection-oriented</em> networks described below, in which some
-  <em>connection state</em> needs to be established before the first data
-  packet is sent.</p>
-</li>
-<li><p>When a host sends a packet, it has no way of knowing if the network
-  is capable of delivering it or if the destination host is even up
-  and running.</p>
-</li>
-<li><p>Each packet is forwarded independently of previous packets that
-  might have been sent to the same destination. Thus, two successive
-  packets from host A to host B may follow completely different paths
-  (perhaps because of a change in the forwarding table at some switch
-  in the network).</p>
-</li>
-<li><p>A switch or link failure might not have any serious effect on
-  communication if it is possible to find an alternate route around
-  the failure and to update the forwarding table accordingly.</p>
-</li>
+<ul class="simple">
+<li>A host can send a packet anywhere at any time, since any packet that
+turns up at a switch can be immediately forwarded (assuming a
+correctly populated forwarding table). For this reason, datagram
+networks are often called <em>connectionless</em>; this contrasts with the
+<em>connection-oriented</em> networks described below, in which some
+<em>connection state</em> needs to be established before the first data
+packet is sent.</li>
+<li>When a host sends a packet, it has no way of knowing if the network
+is capable of delivering it or if the destination host is even up and
+running.</li>
+<li>Each packet is forwarded independently of previous packets that might
+have been sent to the same destination. Thus, two successive packets
+from host&nbsp;A to host&nbsp;B may follow completely different paths (perhaps
+because of a change in the forwarding table at some switch in the
+network).</li>
+<li>A switch or link failure might not have any serious effect on
+communication if it is possible to find an alternate route around the
+failure and to update the forwarding table accordingly.</li>
 </ul>
 <p>This last fact is particularly important to the history of datagram
 networks. One of the important design goals of the Internet is
 robustness to failures, and history has shown it to be quite effective
 at meeting this goal.</p>
-<h2 id="virtual-circuit-switching">Virtual Circuit Switching</h2>
-<p>A second technique for packet switching, which differs significantly
-from the datagram model, uses the concept of a <em>virtual circuit</em> (VC).
-This approach, which is also referred to as a <em>connection-oriented
-model</em>, requires setting up a virtual connection from the source host to
-the destination host before any data is sent. To understand how this
-works, consider <a href="#vcircuit">Figure 3</a>, where host A again wants to send
-packets to host B. We can think of this as a two-stage process. The
-first stage is &quot;connection setup.&quot; The second is data transfer. We
-consider each in turn.</p>
-<figure>
-    <a id="vcircuit"></a>
-    <img src="figures/f03-03-9780123850591.png" width="500px">
-    <figcaption>An example of a virtual circuit network.</figcaption>
-</figure>
-
+</div>
+<div class="section" id="virtual-circuit-switching">
+<h2>Virtual Circuit Switching<a class="headerlink" href="#virtual-circuit-switching" title="Permalink to this headline">¶</a></h2>
+<p>A second technique for packet switching uses the concept of a <em>virtual
+circuit</em> (VC). This approach, which is also referred to as a
+<em>connection-oriented model</em>, requires setting up a virtual connection
+from the source host to the destination host before any data is
+sent. To understand how this works, consider <a class="reference internal" href="#fig-vcircuit"><span class="std std-numref">Figure 58</span></a>, where host&nbsp;A again wants to send packets to
+host&nbsp;B. We can think of this as a two-stage process. The first stage
+is “connection setup.” The second is data transfer. We consider each
+in turn.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-vcircuit"></span><a class="reference internal image-reference" href="../_images/f03-03-9780123850591.png"><img alt="../_images/f03-03-9780123850591.png" src="../_images/f03-03-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 58. </span><span class="caption-text">An example of a virtual circuit network.</span></p>
+</div>
 <p>In the connection setup phase, it is necessary to establish a
-&quot;connection state&quot; in each of the switches between the source and
+“connection state” in each of the switches between the source and
 destination hosts. The connection state for a single connection consists
-of an entry in a &quot;VC table&quot; in each switch through which the connection
+of an entry in a “VC table” in each switch through which the connection
 passes. One entry in the VC table on a single switch contains:</p>
-<ul>
-<li><p>A <em>virtual circuit identifier</em> (VCI) that uniquely identifies the
-  connection at this switch and which will be carried inside the
-  header of the packets that belong to this connection</p>
-</li>
-<li><p>An incoming interface on which packets for this VC arrive at the
-  switch</p>
-</li>
-<li><p>An outgoing interface in which packets for this VC leave the switch</p>
-</li>
-<li><p>A potentially different VCI that will be used for outgoing packets</p>
-</li>
+<ul class="simple">
+<li>A <em>virtual circuit identifier</em> (VCI) that uniquely identifies the
+connection at this switch and which will be carried inside the header
+of the packets that belong to this connection</li>
+<li>An incoming interface on which packets for this VC arrive at the
+switch</li>
+<li>An outgoing interface in which packets for this VC leave the switch</li>
+<li>A potentially different VCI that will be used for outgoing packets</li>
 </ul>
 <p>The semantics of one such entry is as follows: If a packet arrives on
 the designated incoming interface and that packet contains the
@@ -1222,7 +390,7 @@ need to ensure that the chosen VCI on a given link is not currently in
 use on that link by some existing connection.</p>
 <p>There are two broad approaches to establishing connection state. One is
 to have a network administrator configure the state, in which case the
-virtual circuit is &quot;permanent.&quot; Of course, it can also be deleted by the
+virtual circuit is “permanent.” Of course, it can also be deleted by the
 administrator, so a permanent virtual circuit (PVC) might best be
 thought of as a long-lived or administratively configured VC.
 Alternatively, a host can send messages into the network to cause the
@@ -1232,234 +400,210 @@ characteristic of a switched virtual circuit (SVC) is that a host may
 set up and delete such a VC dynamically without the involvement of a
 network administrator. Note that an SVC should more accurately be called
 a <em>signalled</em> VC, since it is the use of signalling (not switching) that
-distinguishes an SVC from a PVC.</p>
-<p>Let&apos;s assume that a network administrator wants to manually create a new
-virtual connection from host A to host B. First, the administrator
-needs to identify a path through the network from A to B. In the example
-network of <a href="#vcircuit">Figure 3</a>, there is only one such path, but in
-general, this may not be the case. The administrator then picks a VCI
-value that is currently unused on each link for the connection. For the
-purposes of our example, let&apos;s suppose that the VCI value 5 is chosen
-for the link from host A to switch 1, and that 11 is chosen for the link
-from switch 1 to switch 2. In that case, switch 1 needs to have an entry
-in its VC table configured as shown in <a href="#vctab">Table 2</a>.</p>
-<table>
-<a id="vctab"></a>
-<tabcaption>Example Virtual Circuit Table Entry for Switch 1.</tabcaption>
-</table>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Incoming Interface</th>
-<th style="text-align:center">Incoming VCI</th>
-<th style="text-align:center">Outgoing Interface</th>
-<th style="text-align:center">Outgoing VCI</th>
+distinguishes an SVC from a&nbsp;PVC.</p>
+<p>Let’s assume that a network administrator wants to manually create a
+new virtual connection from host&nbsp;A to host&nbsp;B. First, the administrator
+needs to identify a path through the network from A to B. In the
+example network of <a class="reference internal" href="#fig-vcircuit"><span class="std std-numref">Figure 58</span></a>, there is only
+one such path, but in general, this may not be the case. The
+administrator then picks a VCI value that is currently unused on each
+link for the connection. For the purposes of our example, let’s
+suppose that the VCI value 5 is chosen for the link from host&nbsp;A to
+switch&nbsp;1, and that 11 is chosen for the link from switch&nbsp;1 to
+switch&nbsp;2. In that case, switch&nbsp;1 needs to have an entry in its VC
+table configured as shown in <a class="reference internal" href="#tab-vctab"><span class="std std-numref">Table 6</span></a>.</p>
+<span id="tab-vctab"></span><table border="1" class="colwidths-auto docutils align-center" id="id5">
+<caption><span class="caption-number">Table 6. </span><span class="caption-text">Example Virtual Circuit Table Entry for Switch 1.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Incoming Interface</th>
+<th class="head">Incoming VCI</th>
+<th class="head">Outgoing Interface</th>
+<th class="head">Outgoing VCI</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">11</td>
+<tbody valign="top">
+<tr class="row-even"><td>2</td>
+<td>5</td>
+<td>1</td>
+<td>11</td>
 </tr>
 </tbody>
 </table>
 <p>Similarly, suppose that the VCI of 7 is chosen to identify this
-connection on the link from switch 2 to switch 3 and that a VCI of 4 is
-chosen for the link from switch 3 to host B. In that case, switches 2
+connection on the link from switch&nbsp;2 to switch&nbsp;3 and that a VCI of 4 is
+chosen for the link from switch&nbsp;3 to host&nbsp;B. In that case, switches 2
 and 3 need to be configured with VC table entries as shown in
-<a href="#vctab1">Table 3</a>. Note that the &quot;outgoing&quot; VCI value at one switch is
-the &quot;incoming&quot; VCI value at the next switch.</p>
-<table>
-<a id="vctab1"></a>
-<tabcaption>Virtual Circuit Table Entries for Switches 2 and 3.</tabcaption>
-</table>
-
-<p>VC Table Entry at Switch 2:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Incoming Interface</th>
-<th style="text-align:center">Incoming VCI</th>
-<th style="text-align:center">Outgoing Interface</th>
-<th style="text-align:center">Outgoing VCI</th>
+<a class="reference internal" href="#tab-vctab2"><span class="std std-numref">Table 7</span></a> and  <a class="reference internal" href="#tab-vctab3"><span class="std std-numref">Table 8</span></a>,
+respectively. Note that the “outgoing” VCI value at one switch is the
+“incoming” VCI value at the next switch.</p>
+<span id="tab-vctab2"></span><table border="1" class="colwidths-auto docutils align-center" id="id6">
+<caption><span class="caption-number">Table 7. </span><span class="caption-text">Virtual Circuit Table Entry at Switch 2.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Incoming Interface</th>
+<th class="head">Incoming VCI</th>
+<th class="head">Outgoing Interface</th>
+<th class="head">Outgoing VCI</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">7</td>
+<tbody valign="top">
+<tr class="row-even"><td>3</td>
+<td>11</td>
+<td>2</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
-<p>VC Table Entry at Switch 3:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Incoming Interface</th>
-<th style="text-align:center">Incoming VCI</th>
-<th style="text-align:center">Outgoing Interface</th>
-<th style="text-align:center">Outgoing VCI</th>
+<span id="tab-vctab3"></span><table border="1" class="colwidths-auto docutils align-center" id="id7">
+<caption><span class="caption-number">Table 8. </span><span class="caption-text">Virtual Circuit Table Entry at Switch 3.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Incoming Interface</th>
+<th class="head">Incoming VCI</th>
+<th class="head">Outgoing Interface</th>
+<th class="head">Outgoing VCI</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">4</td>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>7</td>
+<td>1</td>
+<td>4</td>
 </tr>
 </tbody>
 </table>
-<figure>
-    <a id="vcdat"></a>
-    <img src="figures/f03-04-9780123850591.png" width="500px">
-    <figcaption>A packet is sent into a virtual circuit network.</figcaption>
-</figure>
-
+<div class="figure align-center" id="id8">
+<span id="fig-vcdat"></span><a class="reference internal image-reference" href="../_images/f03-04-9780123850591.png"><img alt="../_images/f03-04-9780123850591.png" src="../_images/f03-04-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 59. </span><span class="caption-text">A packet is sent into a virtual circuit network.</span></p>
+</div>
 <p>Once the VC tables have been set up, the data transfer phase can
-proceed, as illustrated in <a href="#vcdat">Figure 4</a>. For any packet that it
-wants to send to host B, A puts the VCI value of 5 in the header of the
-packet and sends it to switch 1. Switch 1 receives any such packet on
-interface 2, and it uses the combination of the interface and the VCI in
-the packet header to find the appropriate VC table entry. As shown in
-<a href="#vctab">Table 2</a>, the table entry in this case tells switch 1 to
-forward the packet out of interface 1 and to put the VCI value 11 in the
-header when the packet is sent. Thus, the packet will arrive at switch 2
-on interface 3 bearing VCI 11. Switch 2 looks up interface 3 and VCI 11
-in its VC table (as shown in <a href="#vctab1">Table 3</a>) and sends the packet
-on to switch  3 after updating the VCI value in the packet header
-appropriately, as shown in <a href="#vcdat2">Figure 5</a>. This process continues
-until it arrives at host B with the VCI value of 4 in the packet. To
-host B, this identifies the packet as having come from host A.</p>
+proceed, as illustrated in <a class="reference internal" href="#fig-vcdat"><span class="std std-numref">Figure 59</span></a>. For any
+packet that it wants to send to host&nbsp;B, A puts the VCI value of 5 in
+the header of the packet and sends it to switch&nbsp;1. Switch&nbsp;1 receives
+any such packet on interface&nbsp;2, and it uses the combination of the
+interface and the VCI in the packet header to find the appropriate VC
+table entry. As shown in <a class="reference internal" href="#tab-vctab"><span class="std std-numref">Table 6</span></a>, the table
+entry in this case tells switch&nbsp;1 to forward the packet out of
+interface 1 and to put the VCI value 11 in the header when the packet
+is sent. Thus, the packet will arrive at switch&nbsp;2 on interface 3
+bearing VCI 11. Switch&nbsp;2 looks up interface 3 and VCI 11 in its VC
+table (as shown in <a class="reference internal" href="#tab-vctab2"><span class="std std-numref">Table 7</span></a>) and sends the
+packet on to switch &nbsp;3 after updating the VCI value in the packet
+header appropriately, as shown in <a class="reference internal" href="#fig-vcdat2"><span class="std std-numref">Figure 60</span></a>. This process continues until it arrives at host&nbsp;B with
+the VCI value of 4 in the packet. To host&nbsp;B, this identifies the
+packet as having come from host&nbsp;A.</p>
 <p>In real networks of reasonable size, the burden of configuring VC tables
 correctly in a large number of switches would quickly become excessive
 using the above procedures. Thus, either a network management tool or
 some sort of signalling (or both) is almost always used, even when
-setting up &quot;permanent&quot; VCs. In the case of PVCs, signalling is initiated
+setting up “permanent” VCs. In the case of PVCs, signalling is initiated
 by the network administrator, while SVCs are usually set up using
 signalling by one of the hosts. We consider now how the same VC just
 described could be set up by signalling from the host.</p>
-<figure>
-    <a id="vcdat2"></a>
-    <img src="figures/f03-05-9780123850591.png" width="500px">
-    <figcaption>A packet makes its way through a virtual circuit
-    network.</figcaption>
-</figure>
-
-<p>To start the signalling process, host A sends a setup message into the
-network&#x2014;that is, to switch 1. The setup message contains, among other
-things, the complete destination address of host B. The setup message
+<div class="figure align-center" id="id9">
+<span id="fig-vcdat2"></span><a class="reference internal image-reference" href="../_images/f03-05-9780123850591.png"><img alt="../_images/f03-05-9780123850591.png" src="../_images/f03-05-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 60. </span><span class="caption-text">A packet makes its way through a virtual circuit
+network.</span></p>
+</div>
+<p>To start the signalling process, host&nbsp;A sends a setup message into the
+network—that is, to switch&nbsp;1. The setup message contains, among other
+things, the complete destination address of host&nbsp;B. The setup message
 needs to get all the way to B to create the necessary connection state
 in every switch along the way. We can see that getting the setup message
 to B is a lot like getting a datagram to B, in that the switches have to
 know which output to send the setup message to so that it eventually
-reaches B. For now, let&apos;s just assume that the switches know enough
+reaches B. For now, let’s just assume that the switches know enough
 about the network topology to figure out how to do that, so that the
 setup message flows on to switches 2 and 3 before finally reaching
-host B.</p>
-<p>When switch 1 receives the connection request, in addition to sending it
-on to switch 2, it creates a new entry in its virtual circuit table for
-this new connection. This entry is exactly the same as shown previously
-in <a href="#vctab">Table 2</a>. The main difference is that now the task of
-assigning an unused VCI value on the interface is performed by the
-switch for that port. In this example, the switch picks the value 5. The
-virtual circuit table now has the following information: &quot;When packets
-arrive on port 2 with identifier 5, send them out on port 1.&quot; Another
-issue is that, somehow, host A will need to learn that it should put the
-VCI value of 5 in packets that it wants to send to B; we will see how
-that happens below.</p>
-<p>When switch 2 receives the setup message, it performs a similar process;
+host&nbsp;B.</p>
+<p>When switch&nbsp;1 receives the connection request, in addition to sending
+it on to switch&nbsp;2, it creates a new entry in its virtual circuit table
+for this new connection. This entry is exactly the same as shown
+previously in <a class="reference internal" href="#tab-vctab"><span class="std std-numref">Table 6</span></a>. The main difference is
+that now the task of assigning an unused VCI value on the interface is
+performed by the switch for that port. In this example, the switch
+picks the value 5. The virtual circuit table now has the following
+information: “When packets arrive on port&nbsp;2 with identifier&nbsp;5, send
+them out on port&nbsp;1.” Another issue is that, somehow, host&nbsp;A will need
+to learn that it should put the VCI value of 5 in packets that it
+wants to send to B; we will see how that happens below.</p>
+<p>When switch&nbsp;2 receives the setup message, it performs a similar process;
 in this example, it picks the value 11 as the incoming VCI value.
-Similarly, switch 3 picks 7 as the value for its incoming VCI. Each
+Similarly, switch&nbsp;3 picks 7 as the value for its incoming VCI. Each
 switch can pick any number it likes, as long as that number is not
 currently in use for some other connection on that port of that switch.
 As noted above, VCIs have link-local scope; that is, they have no global
 significance.</p>
-<p>Finally, the setup message arrives as host B. Assuming that B is healthy
-and willing to accept a connection from host A, it too allocates an
+<p>Finally, the setup message arrives as host&nbsp;B. Assuming that B is healthy
+and willing to accept a connection from host&nbsp;A, it too allocates an
 incoming VCI value, in this case 4. This VCI value can be used by B to
-identify all packets coming from host A.</p>
+identify all packets coming from host&nbsp;A.</p>
 <p>Now, to complete the connection, everyone needs to be told what their
-downstream neighbor is using as the VCI for this connection. Host B
-sends an acknowledgment of the connection setup to switch 3 and includes
-in that message the VCI that it chose (4). Now switch 3 can complete the
+downstream neighbor is using as the VCI for this connection. Host&nbsp;B
+sends an acknowledgment of the connection setup to switch&nbsp;3 and includes
+in that message the VCI that it chose&nbsp;(4). Now switch&nbsp;3 can complete the
 virtual circuit table entry for this connection, since it knows the
-outgoing value must be 4. Switch 3 sends the acknowledgment on to
-switch 2, specifying a VCI of 7. Switch 2 sends the message on to
-switch 1, specifying a VCI of 11. Finally, switch 1 passes the
-acknowledgment on to host A, telling it to use the VCI of 5 for this
+outgoing value must be&nbsp;4. Switch&nbsp;3 sends the acknowledgment on to
+switch&nbsp;2, specifying a VCI of&nbsp;7. Switch&nbsp;2 sends the message on to
+switch&nbsp;1, specifying a VCI of&nbsp;11. Finally, switch&nbsp;1 passes the
+acknowledgment on to host&nbsp;A, telling it to use the VCI of&nbsp;5 for this
 connection.</p>
 <p>At this point, everyone knows all that is necessary to allow traffic to
-flow from host A to host B. Each switch has a complete virtual circuit
-table entry for the connection. Furthermore, host A has a firm
-acknowledgment that everything is in place all the way to host B. At
+flow from host&nbsp;A to host&nbsp;B. Each switch has a complete virtual circuit
+table entry for the connection. Furthermore, host&nbsp;A has a firm
+acknowledgment that everything is in place all the way to host&nbsp;B. At
 this point, the connection table entries are in place in all three
 switches just as in the administratively configured example above, but
 the whole process happened automatically in response to the signalling
 message sent from A. The data transfer phase can now begin and is
 identical to that used in the PVC case.</p>
-<p>When host A no longer wants to send data to host B, it tears down the
-connection by sending a teardown message to switch 1. The switch removes
+<p>When host&nbsp;A no longer wants to send data to host&nbsp;B, it tears down the
+connection by sending a teardown message to switch&nbsp;1. The switch removes
 the relevant entry from its table and forwards the message on to the
 other switches in the path, which similarly delete the appropriate table
-entries. At this point, if host A were to send a packet with a VCI of 5
-to switch 1, it would be dropped as if the connection had never existed.</p>
+entries. At this point, if host&nbsp;A were to send a packet with a VCI of 5
+to switch&nbsp;1, it would be dropped as if the connection had never existed.</p>
 <p>There are several things to note about virtual circuit switching:</p>
-<ul>
-<li><p>Since host A has to wait for the connection request to reach the far
- side of the network and return before it can send its first data
- packet, there is at least one round-trip time (RTT) of delay before
- data is sent.</p>
-</li>
-<li><p>While the connection request contains the full address for host B
- (which might be quite large, being a global identifier on the
- network), each data packet contains only a small identifier, which
- is only unique on one link. Thus, the per-packet overhead caused by
- the header is reduced relative to the datagram model. More
- importantly, the lookup is fast because the virtual circuit number
- can be treated as an index into a table rather than as a key that has
- to be looked up.</p>
-</li>
-<li><p>If a switch or a link in a connection fails, the connection is
- broken and a new one will need to be established. Also, the old one
- needs to be torn down to free up table storage space in the
- switches.</p>
-</li>
-<li><p>The issue of how a switch decides which link to forward the
- connection request on has been glossed over. In essence, this is the
- same problem as building up the forwarding table for datagram
- forwarding, which requires some sort of <em>routing algorithm</em>. Routing
- is described in a later section, and the algorithms
- described there are generally applicable to routing setup requests
- as well as datagrams.</p>
-</li>
+<ul class="simple">
+<li>Since host&nbsp;A has to wait for the connection request to reach the far
+side of the network and return before it can send its first data
+packet, there is at least one round-trip time (RTT) of delay before
+data is sent.</li>
+<li>While the connection request contains the full address for host&nbsp;B
+(which might be quite large, being a global identifier on the
+network), each data packet contains only a small identifier, which is
+only unique on one link. Thus, the per-packet overhead caused by the
+header is reduced relative to the datagram model. More importantly,
+the lookup is fast because the virtual circuit number can be treated
+as an index into a table rather than as a key that has to be looked
+up.</li>
+<li>If a switch or a link in a connection fails, the connection is broken
+and a new one will need to be established. Also, the old one needs to
+be torn down to free up table storage space in the switches.</li>
+<li>The issue of how a switch decides which link to forward the
+connection request on has been glossed over. In essence, this is the
+same problem as building up the forwarding table for datagram
+forwarding, which requires some sort of <em>routing algorithm</em>. Routing
+is described in a later section, and the algorithms described there
+are generally applicable to routing setup requests as well as
+datagrams.</li>
 </ul>
 <p>One of the nice aspects of virtual circuits is that by the time the host
 gets the go-ahead to send data, it knows quite a lot about the
-network&#x2014;for example, that there really is a route to the receiver and
+network—for example, that there really is a route to the receiver and
 that the receiver is willing and able to receive data. It is also
 possible to allocate resources to the virtual circuit at the time it is
 established. For example, X.25 (an early and now largely obsolete
-virtual-circuit-based networking technology) employed the
-following three-part strategy:</p>
-<ol>
-<li><p>Buffers are allocated to each virtual circuit when the circuit is
- initialized.</p>
-</li>
-<li><p>The sliding window protocol is run between each pair of
- nodes along the virtual circuit, and this protocol is augmented with
- flow control to keep the sending node from over-running the buffers
- allocated at the receiving node.</p>
-</li>
-<li><p>The circuit is rejected by a given node if not enough buffers are
- available at that node when the connection request message is
- processed.</p>
-</li>
+virtual-circuit-based networking technology) employed the following
+three-part strategy:</p>
+<ol class="arabic simple">
+<li>Buffers are allocated to each virtual circuit when the circuit is
+initialized.</li>
+<li>The sliding window protocol is run between each pair of nodes along
+the virtual circuit, and this protocol is augmented with flow control
+to keep the sending node from over-running the buffers allocated at
+the receiving node.</li>
+<li>The circuit is rejected by a given node if not enough buffers are
+available at that node when the connection request message is
+processed.</li>
 </ol>
 <p>In doing these three things, each node is ensured of having the buffers
 it needs to queue the packets that arrive on that circuit. This basic
@@ -1474,7 +618,7 @@ source host often sends a sequence of packets to the same destination
 host. It is possible for each switch to distinguish among the set of
 packets it currently has queued, based on the source/destination pair,
 and thus for the switch to ensure that the packets belonging to each
-source/destination pair are receiving a fair share of the switch&apos;s
+source/destination pair are receiving a fair share of the switch’s
 buffers.</p>
 <p>In the virtual circuit model, we could imagine providing each circuit
 with a different <em>quality of service</em> (QoS). In this setting, the term
@@ -1482,78 +626,75 @@ with a different <em>quality of service</em> (QoS). In this setting, the term
 user some kind of performance-related guarantee, which in turn implies
 that switches set aside the resources they need to meet this guarantee.
 For example, the switches along a given virtual circuit might allocate a
-percentage of each outgoing link&apos;s bandwidth to that circuit. As another
+percentage of each outgoing link’s bandwidth to that circuit. As another
 example, a sequence of switches might ensure that packets belonging to a
 particular circuit not be delayed (queued) for more than a certain
 amount of time.</p>
 <p>There have been a number of successful examples of virtual circuit
 technologies over the years, notably X.25, Frame Relay, and Asynchronous
-Transfer Mode (ATM). With the success of the Internet&apos;s connectionless
+Transfer Mode (ATM). With the success of the Internet’s connectionless
 model, however, none of them enjoys great popularity today. One of the
 most common applications of virtual circuits for many years was the
 construction of <em>virtual private networks</em> (VPNs), a subject discussed
-in a later section. Even that application is now mostly
-supported using Internet-based technologies today.</p>
-<h3 id="asynchronous-transfer-mode-atm">Asynchronous Transfer Mode (ATM)</h3>
+in a later section. Even that application is now mostly supported using
+Internet-based technologies today.</p>
+<div class="section" id="asynchronous-transfer-mode-atm">
+<h3>Asynchronous Transfer Mode (ATM)<a class="headerlink" href="#asynchronous-transfer-mode-atm" title="Permalink to this headline">¶</a></h3>
 <p>Asynchronous Transfer Mode (ATM) is probably the most well-known virtual
-circuit-based networking technology, although it is now well past
-its peak in terms of deployment. ATM became an important technology in
-the 1980s and early 1990s for a variety of reasons, not the least of
-which is that it was embraced by the telephone industry, which at that
-point in time was less active in computer networks (other than
-as a supplier of links from which other people built networks). ATM also
-happened to be in the right place at the right time, as a high-speed
-switching technology that appeared on the scene just when shared media
-like Ethernet and token rings were starting to look a bit too slow for
-many users of computer networks. In some ways ATM was a competing
-technology with Ethernet switching, and it was seen by many as a
-competitor to IP as well.</p>
-<figure>
-    <a id="atmcell"></a>
-    <img src="figures/f03-06-9780123850591.png" width="550px">
-    <figcaption>ATM cell format at the UNI.</figcaption>
-</figure>
-
-<p>The approach ATM takes has some interesting properties, which
-makes it worth examining a bit further. The picture of
-the ATM packet format&#x2014;more commonly called an ATM <em>cell</em>&#x2014;in
-<a href="#atmcell">Figure 6</a> will illustrate the main points. We&apos;ll skip the
-generic flow control (GFC) bits, which never saw much use, and start
-with the 24 bits that are labelled VPI (virtual path identifier&#x2014;8
-bits) and VCI (virtual circuit identifier&#x2014;16 bits). If you consider
-these bits together as a single 24-bit field, they correspond to the
-virtual circuit identifier introduced above. The reason for breaking the
-field into two parts was to allow for a level of hierarchy: All the
-circuits with the same VPI could, in some cases, be treated as a group
-(a virtual path) and could all be switched together looking only at the
-VPI, simplifying the work of a switch that could ignore all the VCI bits
-and reducing the size of the VC table considerably.</p>
+circuit-based networking technology, although it is now well past its
+peak in terms of deployment. ATM became an important technology in the
+1980s and early 1990s for a variety of reasons, not the least of which
+is that it was embraced by the telephone industry, which at that point
+in time was less active in computer networks (other than as a supplier
+of links from which other people built networks). ATM also happened to
+be in the right place at the right time, as a high-speed switching
+technology that appeared on the scene just when shared media like
+Ethernet and token rings were starting to look a bit too slow for many
+users of computer networks. In some ways ATM was a competing technology
+with Ethernet switching, and it was seen by many as a competitor to IP
+as well.</p>
+<div class="figure align-center" id="id10">
+<span id="fig-atmcell"></span><a class="reference internal image-reference" href="../_images/f03-06-9780123850591.png"><img alt="../_images/f03-06-9780123850591.png" src="../_images/f03-06-9780123850591.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-number">Figure 61. </span><span class="caption-text">ATM cell format at the UNI.</span></p>
+</div>
+<p>The approach ATM takes has some interesting properties, which makes it
+worth examining a bit further. The picture of the ATM packet format—more
+commonly called an ATM <em>cell</em>—in <a class="reference internal" href="#fig-atmcell"><span class="std std-numref">Figure 61</span></a> will illustrate
+the main points. We’ll skip the generic flow control (GFC) bits, which
+never saw much use, and start with the 24 bits that are labelled VPI
+(virtual path identifier—8 bits) and VCI (virtual circuit identifier—16
+bits). If you consider these bits together as a single 24-bit field,
+they correspond to the virtual circuit identifier introduced above. The
+reason for breaking the field into two parts was to allow for a level of
+hierarchy: All the circuits with the same VPI could, in some cases, be
+treated as a group (a virtual path) and could all be switched together
+looking only at the VPI, simplifying the work of a switch that could
+ignore all the VCI bits and reducing the size of the VC table
+considerably.</p>
 <p>Skipping to the last header byte we find an 8-bit cyclic redundancy
-check (CRC), known as the <em>header error check</em> (<code>HEC</code>). It uses
-CRC-8 and provides error
-detection and single-bit error correction capability on the cell header
-only. Protecting the cell header is particularly important because an
-error in the <code>VCI</code> will cause the cell to be misdelivered.</p>
+check (CRC), known as the <em>header error check</em> (<code class="docutils literal notranslate"><span class="pre">HEC</span></code>). It uses CRC-8
+and provides error detection and single-bit error correction capability
+on the cell header only. Protecting the cell header is particularly
+important because an error in the <code class="docutils literal notranslate"><span class="pre">VCI</span></code> will cause the cell to be
+misdelivered.</p>
 <p>Probably the most significant thing to notice about the ATM cell, and
 the reason it is called a cell and not a packet, is that it comes in
-only one size: 53 bytes. What was the reason for this? One big reason was
-to facilitate the implementation of hardware switches. When ATM was
+only one size: 53 bytes. What was the reason for this? One big reason
+was to facilitate the implementation of hardware switches. When ATM was
 being created in the mid- and late 1980s, 10-Mbps Ethernet was the
 cutting-edge technology in terms of speed. To go much faster, most
 people thought in terms of hardware. Also, in the telephone world,
-people think big when they think of switches&#x2014;telephone switches often
+people think big when they think of switches—telephone switches often
 serve tens of thousands of customers. Fixed-length packets turn out to
 be a very helpful thing if you want to build fast, highly scalable
 switches. There are two main reasons for this:</p>
-<ol>
-<li><p>It is easier to build hardware to do simple jobs, and the job of
- processing packets is simpler when you already know how long each
- one will be.</p>
-</li>
-<li><p>If all packets are the same length, then you can have lots of
- switching elements all doing much the same thing in parallel, each
- of them taking the same time to do its job.</p>
-</li>
+<ol class="arabic simple">
+<li>It is easier to build hardware to do simple jobs, and the job of
+processing packets is simpler when you already know how long each one
+will be.</li>
+<li>If all packets are the same length, then you can have lots of
+switching elements all doing much the same thing in parallel, each of
+them taking the same time to do its job.</li>
 </ol>
 <p>This second reason, the enabling of parallelism, greatly improves the
 scalability of switch designs. It would be overstating the case to say
@@ -1563,23 +704,22 @@ task of building such hardware and that there was a lot of knowledge
 available about how to build cell switches in hardware at the time the
 ATM standards were being defined. As it turns out, this same principle
 is still applied in many switches and routers today, even if they deal
-in variable length packets&#x2014;they cut those packets into some sort of
-cell in order to forward them from input port to output port, but this
-is all internal to the switch.</p>
-<p>There is another good argument in favor of small ATM cells, having
-to do with end-to-end latency. ATM was designed to carry
-both voice phone calls (the dominant use case at the time) and data.
-Because voice is low-bandwidth but has strict delay requirements,
-the last thing you want is for a small voice packet queued behind a
-large data packet at a switch. If you force all packets to be small (i.e.,
-cell-sized), then large data packets can still be supported by
-reassembling a set of cells into a packet, and you get the benefit of
-being able to interleave the forwarding of voice cells and data cells
-at every switch along the path from source to destination. This idea
-of using small cells to improve end-to-end latency is alive and well
-today in cellular access networks.</p>
-<p>Having decided to use small, fixed-length packets, the next question
-was what is the right length to fix them at? If you make them too short,
+in variable length packets—they cut those packets into some sort of cell
+in order to forward them from input port to output port, but this is all
+internal to the switch.</p>
+<p>There is another good argument in favor of small ATM cells, having to do
+with end-to-end latency. ATM was designed to carry both voice phone
+calls (the dominant use case at the time) and data. Because voice is
+low-bandwidth but has strict delay requirements, the last thing you want
+is for a small voice packet queued behind a large data packet at a
+switch. If you force all packets to be small (i.e., cell-sized), then
+large data packets can still be supported by reassembling a set of cells
+into a packet, and you get the benefit of being able to interleave the
+forwarding of voice cells and data cells at every switch along the path
+from source to destination. This idea of using small cells to improve
+end-to-end latency is alive and well today in cellular access networks.</p>
+<p>Having decided to use small, fixed-length packets, the next question was
+what is the right length to fix them at? If you make them too short,
 then the amount of header information that needs to be carried around
 relative to the amount of data that fits in one cell gets larger, so the
 percentage of link bandwidth that is actually used to carry data goes
@@ -1591,17 +731,20 @@ larger units before handing them up to the host. The performance of such
 a device depends directly on cell size. On the other hand, if you make
 the cells too big, then there is a problem of wasted bandwidth caused by
 the need to pad transmitted data to fill a complete cell. If the cell
-payload size is 48 bytes and you want to send 1 byte, you&apos;ll need to
-send 47 bytes of padding. If this happens a lot, then the utilization of
+payload size is 48&nbsp;bytes and you want to send 1&nbsp;byte, you’ll need to
+send 47&nbsp;bytes of padding. If this happens a lot, then the utilization of
 the link will be very low. The combination of relatively high
 header-to-payload ratio plus the frequency of sending partially filled
 cells did actually lead to some noticeable inefficiency in ATM networks
 that some detractors called the <em>cell tax</em>.</p>
 <p>As it turns out, 48 bytes was picked for the ATM cell payload as a
 compromise. There were good arguments for both larger and smaller cells,
-and 48 made almost no one happy&#x2014;a power of two would certainly have
-been better for computers to process.</p>
-<h2 id="source-routing">Source Routing</h2>
+and 48 made almost no one happy—a power of two would certainly have been
+better for computers to process.</p>
+</div>
+</div>
+<div class="section" id="source-routing">
+<h2>Source Routing<a class="headerlink" href="#source-routing" title="Permalink to this headline">¶</a></h2>
 <p>A third approach to switching that uses neither virtual circuits nor
 conventional datagrams is known as <em>source routing</em>. The name derives
 from the fact that all the information about network topology that is
@@ -1609,273 +752,258 @@ required to switch a packet across the network is provided by the source
 host.</p>
 <p>There are various ways to implement source routing. One would be to
 assign a number to each output of each switch and to place that number
-in the header of the packet. The switching function is then very simple:
-For each packet that arrives on an input, the switch would read the port
-number in the header and transmit the packet on that output. However,
-since there will in general be more than one switch in the path between
-the sending and the receiving host, the header for the packet needs to
-contain enough information to allow every switch in the path to
-determine which output the packet needs to be placed
+in the header of the packet. The switching function is then very
+simple: For each packet that arrives on an input, the switch would
+read the port number in the header and transmit the packet on that
+output. However, since there will in general be more than one switch
+in the path between the sending and the receiving host, the header for
+the packet needs to contain enough information to allow every switch
+in the path to determine which output the packet needs to be placed
 on. One way to do this would be to put an ordered list of switch ports
 in the header and to rotate the list so that the next switch in the
-path is always at the front of the list. <a href="#source-route">Figure 7</a>
-illustrates this idea.</p>
-<figure>
-    <a id="source-route"></a>
-    <img src="figures/f03-07-9780123850591.png" width="500px">
-    <figcaption>Source routing in a switched network (where the switch
-    reads the rightmost number).</figcaption>
-</figure>
-
-<p>In this example, the packet needs to traverse three switches to get
-from host A to host B. At switch 1, it needs to exit on port 1, at the
-next switch it needs to exit at port 0, and at the third switch it
-needs to exit at port 3. Thus, the original header when the packet
-leaves host A contains the list of ports (3, 0, 1), where we assume that
-each switch reads the rightmost element of the list. To make sure
-that the next switch gets the appropriate information, each switch
-rotates the list after it has read its own entry. Thus, the packet
-header as it leaves switch 1 enroute to switch 2 is now (1, 3, 0);
-switch 2 performs another rotation and sends out a packet with (0, 1, 3)
-in the header.  Although not shown, switch 3 performs yet another
-rotation, restoring the header to what it was when host A sent it.</p>
-<p>There are several things to note about this approach. First, it
-assumes that host A knows enough about the topology of the network to
-form a header that has all the right directions in it for every switch
-in the path. This is somewhat analogous to the problem of building the
-forwarding tables in a datagram network or figuring out where to send
-a setup packet in a virtual circuit network. In practice, however, it
-is the first switch at the ingress to the network (as opposed to the
-end host connected to that switch) that appends the source route.</p>
+path is always at the front of the list. <a class="reference internal" href="#fig-source-route"><span class="std std-numref">Figure 62</span></a> illustrates this idea.</p>
+<div class="figure align-center" id="id11">
+<span id="fig-source-route"></span><a class="reference internal image-reference" href="../_images/f03-07-9780123850591.png"><img alt="../_images/f03-07-9780123850591.png" src="../_images/f03-07-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 62. </span><span class="caption-text">Source routing in a switched network (where the switch
+reads the rightmost number).</span></p>
+</div>
+<p>In this example, the packet needs to traverse three switches to get from
+host A to host B. At switch 1, it needs to exit on port 1, at the next
+switch it needs to exit at port 0, and at the third switch it needs to
+exit at port 3. Thus, the original header when the packet leaves host A
+contains the list of ports (3, 0, 1), where we assume that each switch
+reads the rightmost element of the list. To make sure that the next
+switch gets the appropriate information, each switch rotates the list
+after it has read its own entry. Thus, the packet header as it leaves
+switch 1 enroute to switch 2 is now (1, 3, 0); switch 2 performs another
+rotation and sends out a packet with (0, 1, 3) in the header. Although
+not shown, switch 3 performs yet another rotation, restoring the header
+to what it was when host A sent it.</p>
+<p>There are several things to note about this approach. First, it assumes
+that host A knows enough about the topology of the network to form a
+header that has all the right directions in it for every switch in the
+path. This is somewhat analogous to the problem of building the
+forwarding tables in a datagram network or figuring out where to send a
+setup packet in a virtual circuit network. In practice, however, it is
+the first switch at the ingress to the network (as opposed to the end
+host connected to that switch) that appends the source route.</p>
 <p>Second, observe that we cannot predict how big the header needs to be,
 since it must be able to hold one word of information for every switch
 on the path. This implies that headers are probably of variable length
 with no upper bound, unless we can predict with absolute certainty the
 maximum number of switches through which a packet will ever need to
 pass.</p>
-<p>Third, there are some variations on this approach. For example,
-rather than rotate the header, each switch could just strip the first
-element as it uses it.  Rotation has an advantage over stripping,
-however: Host B gets a copy of the complete header, which may help it
-figure out how to get back to host A.  Yet another alternative is to
-have the header carry a pointer to the current &quot;next port&quot; entry, so
-that each switch just updates the pointer rather than rotating the
-header; this may be more efficient to implement. We show these three
-approaches in <a href="#sroute-app">Figure 8</a>.  In each case, the entry that
-this switch needs to read is <code>A</code>, and the entry that the next
-switch needs to read is <code>B</code>.</p>
-<figure>
-    <a id="sroute-apps"></a>
-    <img src="figures/f03-08-9780123850591.png" width="550px">
-    <figcaption>Three ways to handle headers for source routing:
-    (a) rotation; (b) stripping; (c) pointer. The labels are read
-    right to left.</figcaption>
-</figure>
-
-<p>Source routing can be used in both datagram networks and virtual
-circuit networks. For example, the Internet Protocol, which is a
-datagram protocol, includes a source route option that allows selected
-packets to be source routed, while the majority are switched as
-conventional datagrams. Source routing is also used in some virtual
-circuit networks as the means to get the initial setup request along
-the path from source to destination.</p>
+<p>Third, there are some variations on this approach. For example, rather
+than rotate the header, each switch could just strip the first element
+as it uses it. Rotation has an advantage over stripping, however: Host B
+gets a copy of the complete header, which may help it figure out how to
+get back to host A. Yet another alternative is to have the header carry
+a pointer to the current “next port” entry, so that each switch just
+updates the pointer rather than rotating the header; this may be more
+efficient to implement. We show these three approaches in
+<a class="reference internal" href="#fig-sroute-apps"><span class="std std-numref">Figure 63</span></a>. In each case, the entry that
+this switch needs to read is <code class="docutils literal notranslate"><span class="pre">A</span></code>, and the entry that the next switch
+needs to read is <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
+<div class="figure align-center" id="id12">
+<span id="fig-sroute-apps"></span><a class="reference internal image-reference" href="../_images/f03-08-9780123850591.png"><img alt="../_images/f03-08-9780123850591.png" src="../_images/f03-08-9780123850591.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-number">Figure 63. </span><span class="caption-text">Three ways to handle headers for source routing:
+(a) rotation; (b) stripping; (c) pointer. The labels are read
+right to left.</span></p>
+</div>
+<p>Source routing can be used in both datagram networks and virtual circuit
+networks. For example, the Internet Protocol, which is a datagram
+protocol, includes a source route option that allows selected packets to
+be source routed, while the majority are switched as conventional
+datagrams. Source routing is also used in some virtual circuit networks
+as the means to get the initial setup request along the path from source
+to destination.</p>
 <p>Source routes are sometimes categorized as <em>strict</em> or <em>loose</em>. In a
 strict source route, every node along the path must be specified,
 whereas a loose source route only specifies a set of nodes to be
-traversed, without saying exactly how to get from one node to the
-next. A loose source route can be thought of as a set of waypoints
-rather than a completely specified route. The loose option can be
-helpful to limit the amount of 
-information that a source must obtain to create a source route. In any
-reasonably large network, it is likely to be hard for a host
-to get the complete path information it needs to construct correct
+traversed, without saying exactly how to get from one node to the next.
+A loose source route can be thought of as a set of waypoints rather than
+a completely specified route. The loose option can be helpful to limit
+the amount of information that a source must obtain to create a source
+route. In any reasonably large network, it is likely to be hard for a
+host to get the complete path information it needs to construct correct
 a strict source route to any destination. But both types of source
 routes do find application in certain scenarios, as we will see in later
 chapters.</p>
-<h2 id="bridges-and-l2-switches">Bridges and L2 Switches</h2>
+</div>
+<div class="section" id="l2-switches-and-bridges">
+<h2>L2 Switches and Bridges<a class="headerlink" href="#l2-switches-and-bridges" title="Permalink to this headline">¶</a></h2>
 <p>Having discussed some of the basic ideas behind switching, we now focus
-more closely on some specific switching technologies. We begin by
-considering a class of switch that is used to forward packets between
-LANs (local area networks) such as Ethernets. Such switches are
-today known as L2 switches; historically, they have also been referred
-to as <em>bridges</em>, and they are very widely used in campus and
-enterprise networks.</p>
-<p>Suppose you have a pair of Ethernets that you want to interconnect. One
-approach you might try is to put a repeater between them.
-This would not be a workable solution,
-however, if doing so exceeded the physical limitations of the Ethernet.
-(Recall that no more than two repeaters between any pair of hosts and no
-more than a total of 2500 m in length are allowed.) An alternative would
-be to put a node with a pair of Ethernet adaptors between the two
-Ethernets and have the node forward frames from one Ethernet to the
-other. This node would differ from a repeater, which operates on bits,
-not frames, and just blindly copies the bits received on one interface
-to another. Instead, this node would fully implement the Ethernet&apos;s
-collision detection and media access protocols on each interface. Hence,
-the length and number-of-host restrictions of the Ethernet, which are
-all about managing collisions, would not apply to the combined pair of
-Ethernets connected in this way. This device operates in promiscuous
-mode, accepting all frames transmitted on either of the Ethernets, and
+more closely on a specific switching technology. We begin by considering
+a class of switch that is used to forward packets between LANs (local
+area networks) such as Ethernets. Such switches are today known as <em>L2
+switches</em>, and they are very widely used in campus and enterprise
+networks. Historically, they were more commonly referred to as <em>bridges</em>
+because they were used to “bridge” ethernet segments to build an
+<em>extended LAN</em>.</p>
+<p>The following starts with the historical perspective (using bridges to
+connect a set of Ethernet segments), and then shifts to the perspective
+in wide-spread use today (using L2 switches to connect a set of
+point-to-point links). But whether we call the device a bridge or a
+switch—and the network you build an extended LAN or a switched
+Ethernet—the two behave in <em>exactly</em> the same way.</p>
+<p>To begin, suppose you have a pair of Ethernets that you want to
+interconnect. One approach you might try is to put a repeater between
+them. This would not be a workable solution, however, if doing so
+exceeded the physical limitations of the Ethernet. (Recall that no more
+than two repeaters between any pair of hosts and no more than a total of
+2500&nbsp;m in length are allowed.) An alternative would be to put a node
+with a pair of Ethernet adaptors between the two Ethernets and have the
+node forward frames from one Ethernet to the other. This node would
+differ from a repeater, which operates on bits, not frames, and just
+blindly copies the bits received on one interface to another. Instead,
+this node would fully implement the Ethernet’s collision detection and
+media access protocols on each interface. Hence, the length and
+number-of-host restrictions of the Ethernet, which are all about
+managing collisions, would not apply to the combined pair of Ethernets
+connected in this way. This device operates in promiscuous mode,
+accepting all frames transmitted on either of the Ethernets, and
 forwarding them to the other.</p>
-<p>The node we have just described is typically called a <em>bridge</em>, and a
-collection of LANs connected by one or more bridges is usually said to
-form an <em>extended LAN</em>. In their simplest variants, bridges simply
-accept LAN frames on their inputs and forward them out on all other
-outputs. This simple strategy was used by early bridges but has some
-pretty serious limitations as we&apos;ll see below. A number of refinements
-have been added over the years to make bridges an effective mechanism
-for interconnecting a set of LANs. The rest of this section fills in the
-more interesting details.</p>
-<p>Note that a bridge meets our definition of a switch from the previous
-section: a multi-input, multi-output device, which transfers packets
-from an input to one or more outputs. And recall that this provides a
-way to increase the total bandwidth of a network. For example, while a
-single Ethernet segment might carry only 100 Mbps of total traffic, an
-Ethernet bridge can carry as much as 100<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> Mbps, where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> is the
-number of ports (inputs and outputs) on the bridge.</p>
-<h3 id="learning-bridges">Learning Bridges</h3>
+<p>In their simplest variants, bridges simply accept LAN frames on their
+inputs and forward them out on all other outputs. This simple strategy
+was used by early bridges but has some pretty serious limitations as
+we’ll see below. A number of refinements were added over the years
+to make bridges an effective mechanism for interconnecting a set of
+LANs. The rest of this section fills in the more interesting details.</p>
+<div class="section" id="learning-bridges">
+<h3>Learning Bridges<a class="headerlink" href="#learning-bridges" title="Permalink to this headline">¶</a></h3>
 <p>The first optimization we can make to a bridge is to observe that it
 need not forward all frames that it receives. Consider the bridge in
-<a href="#elan2">Figure 9</a>. Whenever a frame from host A that is addressed to
-host B arrives on port 1, there is no need for the bridge to forward the
-frame out over port 2. The question, then, is how does a bridge come to
-learn on which port the various hosts reside?</p>
-<figure>
-    <a id="elan2"></a>
-    <img src="figures/f03-09-9780123850591.png" width="500px">
-    <figcaption>Illustration of a learning bridge.</figcaption>
-</figure>
-
+<a class="reference internal" href="#fig-elan2"><span class="std std-numref">Figure 64</span></a>. Whenever a frame from host&nbsp;A that is
+addressed to host&nbsp;B arrives on port&nbsp;1, there is no need for the bridge
+to forward the frame out over port&nbsp;2. The question, then, is how does
+a bridge come to learn on which port the various hosts reside?</p>
+<div class="figure align-center" id="id13">
+<span id="fig-elan2"></span><a class="reference internal image-reference" href="../_images/f03-09-9780123850591.png"><img alt="../_images/f03-09-9780123850591.png" src="../_images/f03-09-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 64. </span><span class="caption-text">Illustration of a learning bridge.</span></p>
+</div>
 <p>One option would be to have a human download a table into the bridge
-similar to the one given in <a href="#learn">Table 4</a>. Then, whenever the
-bridge receives a frame on port 1 that is addressed to host A, it would
-not forward the frame out on port 2; there would be no need because
-host A would have already directly received the frame on the LAN
-connected to port 1. Anytime a frame addressed to host A was received on
-port 2, the bridge would forward the frame out on port 1.</p>
-<table>
-<a id="learn"></a>
-<tabcaption>Forwarding Table Maintained by a Bridge.</tabcaption>
-</table>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Host</th>
-<th style="text-align:center">Port</th>
+similar to the one given in <a class="reference internal" href="#tab-learn"><span class="std std-numref">Table 9</span></a>. Then,
+whenever the bridge receives a frame on port&nbsp;1 that is addressed to
+host&nbsp;A, it would not forward the frame out on port&nbsp;2; there would be
+no need because host&nbsp;A would have already directly received the frame
+on the LAN connected to port&nbsp;1. Anytime a frame addressed to host&nbsp;A
+was received on port&nbsp;2, the bridge would forward the frame out on
+port&nbsp;1.</p>
+<span id="tab-learn"></span><table border="1" class="colwidths-auto docutils align-center" id="id14">
+<caption><span class="caption-number">Table 9. </span><span class="caption-text">Forwarding Table Maintained by a Bridge.</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Host</th>
+<th class="head">Port</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">A</td>
-<td style="text-align:center">1</td>
+<tbody valign="top">
+<tr class="row-even"><td>A</td>
+<td>1</td>
 </tr>
-<tr>
-<td style="text-align:center">B</td>
-<td style="text-align:center">1</td>
+<tr class="row-odd"><td>B</td>
+<td>1</td>
 </tr>
-<tr>
-<td style="text-align:center">C</td>
-<td style="text-align:center">1</td>
+<tr class="row-even"><td>C</td>
+<td>1</td>
 </tr>
-<tr>
-<td style="text-align:center">X</td>
-<td style="text-align:center">2</td>
+<tr class="row-odd"><td>X</td>
+<td>2</td>
 </tr>
-<tr>
-<td style="text-align:center">Y</td>
-<td style="text-align:center">2</td>
+<tr class="row-even"><td>Y</td>
+<td>2</td>
 </tr>
-<tr>
-<td style="text-align:center">Z</td>
-<td style="text-align:center">2</td>
+<tr class="row-odd"><td>Z</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
-<p>No one actually builds bridges in which the table is configured by hand.
-Having a human maintain this table is too burdensome, and there is a
+<p>Having a human maintain this table is too burdensome, and there is a
 simple trick by which a bridge can learn this information for itself.
 The idea is for each bridge to inspect the <em>source</em> address in all the
-frames it receives. Thus, when host A sends a frame to a host on either
+frames it receives. Thus, when host&nbsp;A sends a frame to a host on either
 side of the bridge, the bridge receives this frame and records the fact
-that a frame from host A was just received on port 1. In this way, the
-bridge can build a table just like <a href="#learn">Table 4</a>.</p>
+that a frame from host A was just received on port&nbsp;1. In this way, the
+bridge can build a table just like <a class="reference internal" href="#tab-learn"><span class="std std-numref">Table 9</span></a>.</p>
 <p>Note that a bridge using such a table implements a version of the
-datagram (or connectionless) model of forwarding described earlier.
-Each packet carries a global address, and the
-bridge decides which output to send a packet on by looking up that
-address in a table.</p>
+datagram (or connectionless) model of forwarding described earlier. Each
+packet carries a global address, and the bridge decides which output to
+send a packet on by looking up that address in a table.</p>
 <p>When a bridge first boots, this table is empty; entries are added over
 time. Also, a timeout is associated with each entry, and the bridge
 discards the entry after a specified period of time. This is to protect
-against the situation in which a host&#x2014;and, as a consequence, its LAN
-address&#x2014;is moved from one network to another. Thus, this table is not
+against the situation in which a host—and, as a consequence, its LAN
+address—is moved from one network to another. Thus, this table is not
 necessarily complete. Should the bridge receive a frame that is
 addressed to a host not currently in the table, it goes ahead and
 forwards the frame out on all the other ports. In other words, this
 table is simply an optimization that filters out some frames; it is not
 required for correctness.</p>
-<h3 id="implementation">Implementation</h3>
-<p>The code that implements the learning bridge algorithm is quite simple,
-and we sketch it here. Structure <code>BridgeEntry</code> defines a single entry in
-the bridge&apos;s forwarding table; these are stored in a <code>Map</code> structure
-(which supports <code>mapCreate</code>, <code>mapBind</code>, and <code>mapResolve</code> operations) to
-enable entries to be efficiently located when packets arrive from
-sources already in the table. The constant <code>MAX_TTL</code> specifies how long
-an entry is kept in the table before it is discarded.</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BRIDGE_TAB_SIZE   1024  <span class="hljs-comment">/* max size of bridging table */</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_TTL           120   <span class="hljs-comment">/* time (in seconds) before an entry is flushed */</span></span>
+</div>
+<div class="section" id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+<p>The code that implements the learning bridge algorithm is quite
+simple, and we sketch it here. Structure <code class="docutils literal notranslate"><span class="pre">BridgeEntry</span></code> defines a
+single entry in the bridge’s forwarding table; these are stored in a
+<code class="docutils literal notranslate"><span class="pre">Map</span></code> structure (which supports <code class="docutils literal notranslate"><span class="pre">mapCreate</span></code>, <code class="docutils literal notranslate"><span class="pre">mapBind</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">mapResolve</span></code> operations) to enable entries to be efficiently located
+when packets arrive from sources already in the table. The constant
+<code class="docutils literal notranslate"><span class="pre">MAX_TTL</span></code> specifies how long an entry is kept in the table before it
+is discarded.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define BRIDGE_TAB_SIZE   1024  </span><span class="cm">/* max size of bridging table */</span><span class="cp"></span>
+<span class="cp">#define MAX_TTL           120   </span><span class="cm">/* time (in seconds) before an entry is flushed */</span><span class="cp"></span>
 
-<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> {
-    MacAddr     destination;    <span class="hljs-comment">/* MAC address of a node */</span>
-    <span class="hljs-keyword">int</span>         ifnumber;       <span class="hljs-comment">/* interface to reach it */</span>
-    u_short     TTL;            <span class="hljs-comment">/* time to live */</span>
-    Binding     binding;        <span class="hljs-comment">/* binding in the Map */</span>
-} BridgeEntry;
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">MacAddr</span>     <span class="n">destination</span><span class="p">;</span>    <span class="cm">/* MAC address of a node */</span>
+    <span class="kt">int</span>         <span class="n">ifnumber</span><span class="p">;</span>       <span class="cm">/* interface to reach it */</span>
+    <span class="n">u_short</span>     <span class="n">TTL</span><span class="p">;</span>            <span class="cm">/* time to live */</span>
+    <span class="n">Binding</span>     <span class="n">binding</span><span class="p">;</span>        <span class="cm">/* binding in the Map */</span>
+<span class="p">}</span> <span class="n">BridgeEntry</span><span class="p">;</span>
 
-<span class="hljs-keyword">int</span>     numEntries = <span class="hljs-number">0</span>;
-Map     bridgeMap = mapCreate(BRIDGE_TAB_SIZE, <span class="hljs-keyword">sizeof</span>(BridgeEntry));
-</code></pre>
+<span class="kt">int</span>     <span class="n">numEntries</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">Map</span>     <span class="n">bridgeMap</span> <span class="o">=</span> <span class="n">mapCreate</span><span class="p">(</span><span class="n">BRIDGE_TAB_SIZE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BridgeEntry</span><span class="p">));</span>
+</pre></div>
+</div>
 <p>The routine that updates the forwarding table when a new packet arrives
-is given by <code>updateTable</code>. The arguments passed are the source media
+is given by <code class="docutils literal notranslate"><span class="pre">updateTable</span></code>. The arguments passed are the source media
 access control (MAC) address contained in the packet and the interface
 number on which it was received. Another routine, not shown here, is
 invoked at regular intervals, scans the entries in the forwarding table,
-and decrements the <code>TTL</code> (time to live) field of each entry, discarding
-any entries whose <code>TTL</code> has reached 0. Note that the <code>TTL</code> is reset to
-<code>MAX_TTL</code> every time a packet arrives to refresh an existing table
-entry and that the interface on which the destination can be reached is
-updated to reflect the most recently received packet.</p>
-<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> 
-<span class="hljs-title">updateTable</span> <span class="hljs-params">(MacAddr src, <span class="hljs-keyword">int</span> inif)</span> 
-</span>{
-    BridgeEntry       *b;
+and decrements the <code class="docutils literal notranslate"><span class="pre">TTL</span></code> (time to live) field of each entry,
+discarding any entries whose <code class="docutils literal notranslate"><span class="pre">TTL</span></code> has reached&nbsp;0. Note that the
+<code class="docutils literal notranslate"><span class="pre">TTL</span></code> is reset to <code class="docutils literal notranslate"><span class="pre">MAX_TTL</span></code> every time a packet arrives to refresh
+an existing table entry and that the interface on which the destination
+can be reached is updated to reflect the most recently received packet.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span>
+<span class="nf">updateTable</span> <span class="p">(</span><span class="n">MacAddr</span> <span class="n">src</span><span class="p">,</span> <span class="kt">int</span> <span class="n">inif</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">BridgeEntry</span>       <span class="o">*</span><span class="n">b</span><span class="p">;</span>
 
-    <span class="hljs-keyword">if</span> (mapResolve(bridgeMap, &amp;src, (<span class="hljs-keyword">void</span> **)&amp;b) == FALSE ) 
-    {
-        <span class="hljs-comment">/* this address is not in the table, so try to add it */</span>
-        <span class="hljs-keyword">if</span> (numEntries &lt; BRIDGE_TAB_SIZE) 
-        {
-            b = NEW(BridgeEntry);
-            b-&gt;binding = mapBind( bridgeMap, &amp;src, b);
-            <span class="hljs-comment">/* use source address of packet as dest. address in table */</span>
-            b-&gt;destination = src;
-            numEntries++;
-        }
-        <span class="hljs-keyword">else</span> 
-        {
-            <span class="hljs-comment">/* can`t fit this address in the table now, so give up */</span>
-            <span class="hljs-keyword">return</span>;
-        }
-    }
-    <span class="hljs-comment">/* reset TTL and use most recent input interface */</span>
-    b-&gt;TTL = MAX_TTL;
-    b-&gt;ifnumber = inif;
-}
-</code></pre>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mapResolve</span><span class="p">(</span><span class="n">bridgeMap</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">src</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="n">FALSE</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* this address is not in the table, so try to add it */</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">numEntries</span> <span class="o">&lt;</span> <span class="n">BRIDGE_TAB_SIZE</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">NEW</span><span class="p">(</span><span class="n">BridgeEntry</span><span class="p">);</span>
+            <span class="n">b</span><span class="o">-&gt;</span><span class="n">binding</span> <span class="o">=</span> <span class="n">mapBind</span><span class="p">(</span> <span class="n">bridgeMap</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">src</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+            <span class="cm">/* use source address of packet as dest. address in table */</span>
+            <span class="n">b</span><span class="o">-&gt;</span><span class="n">destination</span> <span class="o">=</span> <span class="n">src</span><span class="p">;</span>
+            <span class="n">numEntries</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="cm">/* can&#39;t fit this address in the table now, so give up */</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="cm">/* reset TTL and use most recent input interface */</span>
+    <span class="n">b</span><span class="o">-&gt;</span><span class="n">TTL</span> <span class="o">=</span> <span class="n">MAX_TTL</span><span class="p">;</span>
+    <span class="n">b</span><span class="o">-&gt;</span><span class="n">ifnumber</span> <span class="o">=</span> <span class="n">inif</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Note that this implementation adopts a simple strategy in the case where
-the bridge table has become full to capacity&#x2014;it simply fails to add
-the new address. Recall that completeness of the bridge table is not
+the bridge table has become full to capacity—it simply fails to add the
+new address. Recall that completeness of the bridge table is not
 necessary for correct forwarding; it just optimizes performance. If
 there is some entry in the table that is not currently being used, it
 will eventually time out and be removed, creating space for a new entry.
@@ -1883,437 +1011,359 @@ An alternative approach would be to invoke some sort of cache
 replacement algorithm on finding the table full; for example, we might
 locate and remove the entry with the smallest TTL to accommodate the new
 entry.</p>
-<figure>
-    <a id="elan3"></a>
-    <img src="figures/f03-10-9780123850591.png" width="400px">
-    <figcaption>Extended LAN with loops.</figcaption>
-</figure>
-
-<h3 id="spanning-tree-algorithm">Spanning Tree Algorithm</h3>
-<p>The preceding strategy works just fine until the extended LAN has a loop
-in it, in which case it fails in a horrible way&#x2014;frames potentially
-loop through the extended LAN forever. This is easy to see in the
-example depicted in <a href="#elan3">Figure 10</a>, where, for example, bridges B1,
-B4, and B6 form a loop. Suppose that a packet enters bridge B4 from
-Ethernet J and that the destination address is one not yet in any
-bridge&apos;s forwarding table: B4 sends a copy of the packet out to
-Ethernets H and I. Now bridge B6 forwards the packet to Ethernet G,
-where B1 would see it and forward it back to Ethernet H; B4 still
-doesn&apos;t have this destination in its table, so it forwards the packet
-back to Ethernets I and J. There is nothing to stop this cycle from
-repeating endlessly, with packets looping in both directions among B1,
-B4, and B6.</p>
-<p>Why would an extended LAN come to have a loop in it? One possibility is
-that the network is managed by more than one administrator, for example,
-because it spans multiple departments in an organization. In such a
-setting, it is possible that no single person knows the entire
-configuration of the network, meaning that a bridge that closes a loop
-might be added without anyone knowing. A second, more likely scenario is
-that loops are built into the network on purpose&#x2014;to provide redundancy
-in case of failure. After all, a network with no loops needs only one
-link failure to become split into two separate partitions.</p>
-<p>Whatever the cause, bridges must be able to correctly handle loops. This
-problem is addressed by having the bridges run a distributed <em>spanning
-tree</em> algorithm. If you think of the extended LAN as being represented
-by a graph that possibly has loops (cycles), then a spanning tree is a
-subgraph of this graph that covers (spans) all the vertices but contains
-no cycles. That is, a spanning tree keeps all of the vertices of the
-original graph but throws out some of the edges. For example,
-<a href="#graphs">Figure 11</a> shows a cyclic graph on the left and one of
-possibly many spanning trees on the right.</p>
-<figure>
-    <a id="graphs"></a>
-    <img src="figures/f03-11-9780123850591.png" width="500px">
-    <figcaption>Example of (a) a cyclic graph; (b) a corresponding spanning
-    tree.</figcaption>
-</figure>
-
-<p>The idea of a spanning tree is simple enough: It&apos;s a subset of the
-actual network topology that has no loops and that reaches all the LANs
-in the extended LAN. The hard part is how all of the bridges coordinate
-their decisions to arrive at a single view of the spanning tree. After
-all, one topology is typically able to be covered by multiple spanning
-trees. The answer lies in the spanning tree protocol, which we&apos;ll
-describe now.</p>
-<p>The spanning tree algorithm, which was developed by Radia Perlman,
-then at the Digital Equipment Corporation, is a protocol used by a set
-of bridges to agree upon a spanning tree for a particular extended
-LAN. (The IEEE 802.1 specification for LAN bridges is based on this
-algorithm.) In practice, this means that each bridge decides the ports
-over which it is and is not willing to forward frames. In a sense, it
-is by removing ports from the topology that the extended LAN is
-reduced to an acyclic tree. It is even possible that an entire bridge
-will not participate in forwarding frames, which seems kind of strange
-at first glance. The algorithm is dynamic, however, meaning that the
-bridges are always prepared to reconfigure themselves into a new
-spanning tree should some bridge fail, and so those unused ports and
-bridges provide the redundant capacity needed to recover from failures.</p>
-<blockquote>
-<p>Representing an extended LAN as an abstract graph is a bit 
-awkward. Basically, you let both the bridges and the LANs correspond 
-to the vertices of the graph and the ports correspond to the graph&apos;s 
-edges. However, the spanning tree we are going to compute for this 
-graph needs to span only those nodes that correspond to networks. It 
-is possible that nodes corresponding to bridges will be disconnected 
-from the rest of the graph. This corresponds to a situation in which 
-all the ports connecting a bridge to various networks get removed by 
-the algorithm.</p>
-</blockquote>
-<p>The main idea of the spanning tree is for the bridges to select the
+</div>
+<div class="section" id="spanning-tree-algorithm">
+<h3>Spanning Tree Algorithm<a class="headerlink" href="#spanning-tree-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>The preceding strategy works just fine until the network has a loop in
+it, in which case it fails in a horrible way—frames potentially get
+forwarded forever. This is easy to see in the example depicted in
+<a class="reference internal" href="#fig-elan3"><span class="std std-numref">Figure 65</span></a>, where switches S1, S4, and S6 form a&nbsp;loop.</p>
+<div class="figure align-center" id="id15">
+<span id="fig-elan3"></span><a class="reference internal image-reference" href="../_images/Slide5.png"><img alt="../_images/Slide5.png" src="../_images/Slide5.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 65. </span><span class="caption-text">Switched Ethernet with loops.</span></p>
+</div>
+<p>Note that we are now making the shift from calling the each forwarding
+device a bridge (connecting segments that might reach multiple other
+devices) to instead calling them L2 switches (connecting point-to-point
+links that reach just one other device). To keep the example managable,
+we include just three hosts. In practice, switches typically have 16,
+24, or 48 ports, meaning they are able to connect to that many hosts
+(and other swiches).</p>
+<p>In our example switched network, suppose that a packet enters switch S4
+from Host C and that the destination address is one not yet in any
+switches’s forwarding table: S4 sends a copy of the packet out its two
+other ports: to switches S1 and S6. Switch S6 forwards the packet onto
+S1 (and meanwhile, S1 forwards the packet onto S6), both of which in
+turn forward their packets back to S4. Switch S4 still doesn’t have this
+destination in its table, so it forwards the packet out its two other
+ports. There is nothing to stop this cycle from repeating endlessly,
+with packets looping in both directions among S1, S4, and S6.</p>
+<p>Why would a switched Ethernet (or extended LAN) come to have a loop in
+it? One possibility is that the network is managed by more than one
+administrator, for example, because it spans multiple departments in an
+organization. In such a setting, it is possible that no single person
+knows the entire configuration of the network, meaning that a switch
+that closes a loop might be added without anyone knowing. A second, more
+likely scenario is that loops are built into the network on purpose—to
+provide redundancy in case of failure. After all, a network with no
+loops needs only one link failure to become split into two separate
+partitions.</p>
+<p>Whatever the cause, switches must be able to correctly handle loops.
+This problem is addressed by having the switches run a distributed
+<em>spanning tree</em> algorithm. If you think of the network as being
+represented by a graph that possibly has loops (cycles), then a
+spanning tree is a subgraph of this graph that covers (spans) all the
+vertices but contains no cycles. That is, a spanning tree keeps all of
+the vertices of the original graph but throws out some of the
+edges. For example, <a class="reference internal" href="#fig-graphs"><span class="std std-numref">Figure 66</span></a> shows a cyclic
+graph on the left and one of possibly many spanning trees on the
+right.</p>
+<div class="figure align-center" id="id16">
+<span id="fig-graphs"></span><a class="reference internal image-reference" href="../_images/f03-11-9780123850591.png"><img alt="../_images/f03-11-9780123850591.png" src="../_images/f03-11-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 66. </span><span class="caption-text">Example of (a)&nbsp;a cyclic graph; (b)&nbsp;a corresponding spanning
+tree.</span></p>
+</div>
+<p>The idea of a spanning tree is simple enough: It’s a subset of the
+actual network topology that has no loops and that reaches all the
+devices in the network. The hard part is how all of the switches
+coordinate their decisions to arrive at a single view of the spanning
+tree. After all, one topology is typically able to be covered by
+multiple spanning trees. The answer lies in the spanning tree protocol,
+which we’ll describe now.</p>
+<p>The spanning tree algorithm, which was developed by Radia Perlman, then
+at the Digital Equipment Corporation, is a protocol used by a set of
+switches to agree upon a spanning tree for a particular network. (The
+IEEE 802.1 specification is based on this algorithm.) In practice, this
+means that each switch decides the ports over which it is and is not
+willing to forward frames. In a sense, it is by removing ports from the
+topology that the network is reduced to an acyclic tree. It is even
+possible that an entire switch will not participate in forwarding
+frames, which seems kind of strange at first glance. The algorithm is
+dynamic, however, meaning that the switches are always prepared to
+reconfigure themselves into a new spanning tree should some switch fail,
+and so those unused ports and switches provide the redundant capacity
+needed to recover from failures.</p>
+<p>The main idea of the spanning tree is for the switches to select the
 ports over which they will forward frames. The algorithm selects ports
-as follows. Each bridge has a unique identifier; for our purposes, we
-use the labels B1, B2, B3, and so on. The algorithm first elects the
-bridge with the smallest ID as the root of the spanning tree; exactly
-how this election takes place is described below. The root bridge always
-forwards frames out over all of its ports. Next, each bridge computes
+as follows. Each switch has a unique identifier; for our purposes, we
+use the labels S1, S2, S3, and so on. The algorithm first elects the
+switch with the smallest ID as the root of the spanning tree; exactly
+how this election takes place is described below. The root switch always
+forwards frames out over all of its ports. Next, each switch computes
 the shortest path to the root and notes which of its ports is on this
-path. This port is also selected as the bridge&apos;s preferred path to the
-root. Finally, all the bridges connected to a given LAN elect a single
-<em>designated</em> bridge that will be responsible for forwarding frames
-toward the root bridge. Each LAN&apos;s designated bridge is the one that is
-closest to the root. If two or more bridges are equally close to the
-root, then the bridges` identifiers are used to break ties, and the
-smallest ID wins. Of course, each bridge is connected to more than one
-LAN, so it participates in the election of a designated bridge for each
-LAN it is connected to. In effect, this means that each bridge decides
-if it is the designated bridge relative to each of its ports. The bridge
-forwards frames over those ports for which it is the designated bridge.</p>
-<figure>
-    <a id="elan4"></a>
-    <img src="figures/f03-12-9780123850591.png" width="400px">
-    <figcaption>Spanning tree with some ports not selected.</figcaption>
-</figure>
-
-<p><a href="#elan4">Figure 12</a> shows the spanning tree that corresponds to the
-extended LAN shown in <a href="#elan3">Figure 10</a>. In this example, B1 is the
-root bridge, since it has the smallest ID. Notice that both B3 and B5
-are connected to LAN A, but B5 is the designated bridge since it is
-closer to the root. Similarly, both B5 and B7 are connected to LAN B,
-but in this case B5 is the designated bridge since it has the smaller
-ID; both are an equal distance from B1.</p>
-<p>While it is possible for a human to look at the extended LAN given in
-<a href="#elan3">Figure 10</a> and to compute the spanning tree given in
-the <a href="#elan4">Figure 12</a> according to the rules given above, the bridges in
-an extended LAN do not have the luxury of being able to see the topology
-of the entire network, let alone peek inside other bridges to see their
-ID. Instead, the bridges have to exchange configuration messages with
-each other and then decide whether or not they are the root or a
-designated bridge based on these messages.</p>
+path. This port is also selected as the switch’s preferred path to the
+root. Finally, to account for the possibility there could be another
+switch connected to its ports, the switch elect a single <em>designated</em>
+switch that will be responsible for forwarding frames toward the root.
+Each designated switch is the one that is closest to the root. If two or
+more switches are equally close to the root, then the switches’
+identifiers are used to break ties, and the smallest ID wins. Of course,
+each switch might be connected to more than one other switch, so it
+participates in the election of a designated switch for each such port.
+In effect, this means that each switch decides if it is the designated
+switch relative to each of its ports. The switch forwards frames over
+those ports for which it is the designated switch.</p>
+<div class="figure align-center" id="id17">
+<span id="fig-elan4"></span><a class="reference internal image-reference" href="../_images/Slide6.png"><img alt="../_images/Slide6.png" src="../_images/Slide6.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 67. </span><span class="caption-text">Spanning tree with some ports not selected.</span></p>
+</div>
+<p><a class="reference internal" href="#fig-elan4"><span class="std std-numref">Figure 67</span></a> shows the spanning tree that
+corresponds to the network shown in <a class="reference internal" href="#fig-elan3"><span class="std std-numref">Figure 65</span></a>. In this example, S1 is the root, since it has the
+smallest ID. Notice that S3 and S5 are connected to each other, but S5
+is the designated switch since it is closer to the root. Similarly, S5
+and S7 are connected to each other, but in this case S5 is the
+designated switch since it has the smaller ID; both are an equal
+distance from S1.</p>
+<p>While it is possible for a human to look at the network given in
+<a class="reference internal" href="#fig-elan3"><span class="std std-numref">Figure 65</span></a> and to compute the spanning tree given
+in the <a class="reference internal" href="#fig-elan4"><span class="std std-numref">Figure 67</span></a> according to the rules given
+above, the switches do not have the luxury of being able to see the
+topology of the entire network, let alone peek inside other switches
+to see their ID. Instead, they have to exchange configuration messages
+with each other and then decide whether or not they are the root or a
+designated switch based on these messages.</p>
 <p>Specifically, the configuration messages contain three pieces of
 information:</p>
-<ol>
-<li><p>The ID for the bridge that is sending the message.</p>
-</li>
-<li><p>The ID for what the sending bridge believes to be the root bridge.</p>
-</li>
-<li><p>The distance, measured in hops, from the sending bridge to the root
- bridge.</p>
-</li>
+<ol class="arabic simple">
+<li>The ID for the switch that is sending the message.</li>
+<li>The ID for what the sending switch believes to be the root switch.</li>
+<li>The distance, measured in hops, from the sending switch to the root
+switch.</li>
 </ol>
-<p>Each bridge records the current <em>best</em> configuration message it has seen
-on each of its ports (&quot;best&quot; is defined below), including both messages
-it has received from other bridges and messages that it has itself
+<p>Each switch records the current <em>best</em> configuration message it has seen
+on each of its ports (“best” is defined below), including both messages
+it has received from other switches and messages that it has itself
 transmitted.</p>
-<p>Initially, each bridge thinks it is the root, and so it sends a
+<p>Initially, each switch thinks it is the root, and so it sends a
 configuration message out on each of its ports identifying itself as the
 root and giving a distance to the root of 0. Upon receiving a
-configuration message over a particular port, the bridge checks to see
+configuration message over a particular port, the switch checks to see
 if that new message is better than the current best configuration
 message recorded for that port. The new configuration message is
 considered <em>better</em> than the currently recorded information if any of
 the following is true:</p>
-<ul>
-<li><p>It identifies a root with a smaller ID.</p>
-</li>
-<li><p>It identifies a root with an equal ID but with a shorter distance.</p>
-</li>
-<li><p>The root ID and distance are equal, but the sending bridge has a
-  smaller ID</p>
-</li>
+<ul class="simple">
+<li>It identifies a root with a smaller ID.</li>
+<li>It identifies a root with an equal ID but with a shorter distance.</li>
+<li>The root ID and distance are equal, but the sending switch has a
+smaller ID</li>
 </ul>
 <p>If the new message is better than the currently recorded information,
-the bridge discards the old information and saves the new information.
-However, it first adds 1 to the distance-to-root field since the bridge
-is one hop farther away from the root than the bridge that sent the
+the switch discards the old information and saves the new information.
+However, it first adds 1 to the distance-to-root field since the switch
+is one hop farther away from the root than the switch that sent the
 message.</p>
-<p>When a bridge receives a configuration message indicating that it is not
-the root bridge&#x2014;that is, a message from a bridge with a smaller
-ID&#x2014;the bridge stops generating configuration messages on its own and
-instead only forwards configuration messages from other bridges, after
-first adding 1 to the distance field. Likewise, when a bridge receives a
-configuration message that indicates it is not the designated bridge for
-that port&#x2014;that is, a message from a bridge that is closer to the root
-or equally far from the root but with a smaller ID&#x2014;the bridge stops
-sending configuration messages over that port. Thus, when the system
-stabilizes, only the root bridge is still generating configuration
-messages, and the other bridges are forwarding these messages only over
-ports for which they are the designated bridge. At this point, a
-spanning tree has been built, and all the bridges are in agreement on
-which ports are in use for the spanning tree. Only those ports may be
-used for forwarding data packets in the extended LAN.</p>
-<p>Let&apos;s see how this works with an example. Consider what would happen in
-<a href="#elan4">Figure 12</a> if the power had just been restored to the building
-housing this network, so that all the bridges boot at about the same
-time. All the bridges would start off by claiming to be the root. We
-denote a configuration message from node X in which it claims to be
-distance d from root node Y as (Y,d,X). Focusing on the activity
-at node B3, a sequence of events would unfold as follows:</p>
-<ol>
-<li><p>B3 receives (B2, 0, B2).</p>
-</li>
-<li><p>Since 2 &lt; 3, B3 accepts B2 as root.</p>
-</li>
-<li><p>B3 adds one to the distance advertised by B2 (0) and thus sends
- (B2, 1, B3) toward B5.</p>
-</li>
-<li><p>Meanwhile, B2 accepts B1 as root because it has the lower ID, and it
- sends (B1, 1, B2) toward B3.</p>
-</li>
-<li><p>B5 accepts B1 as root and sends (B1, 1, B5) toward B3.</p>
-</li>
-<li><p>B3 accepts B1 as root, and it notes that both B2 and B5 are closer
- to the root than it is; thus, B3 stops forwarding messages on both
- its interfaces.</p>
-</li>
+<p>When a switch receives a configuration message indicating that it is not
+the root—that is, a message from a switch with a smaller ID—the switch
+stops generating configuration messages on its own and instead only
+forwards configuration messages from other switches, after first adding
+1 to the distance field. Likewise, when a switch receives a
+configuration message that indicates it is not the designated switch for
+that port—that is, a message from a switch that is closer to the root or
+equally far from the root but with a smaller ID—the switch stops sending
+configuration messages over that port. Thus, when the system stabilizes,
+only the root switch is still generating configuration messages, and the
+other switches are forwarding these messages only over ports for which
+they are the designated switch. At this point, a spanning tree has been
+built, and all the switches are in agreement on which ports are in use
+for the spanning tree. Only those ports may be used for forwarding data
+packets.</p>
+<p>Let’s see how this works with an example. Consider what would happen in
+<a class="reference internal" href="#fig-elan4"><span class="std std-numref">Figure 67</span></a> if the power had just been restored to a campus,
+so that all the switches boot at about the same time. All the switches
+would start off by claiming to be the root. We denote a configuration
+message from node X in which it claims to be distance d from root node Y
+as (Y,d,X). Focusing on the activity at S3, a sequence of events would
+unfold as follows:</p>
+<ol class="arabic simple">
+<li>S3 receives (S2,&nbsp;0,&nbsp;S2).</li>
+<li>Since 2 &lt; 3, S3 accepts S2 as root.</li>
+<li>S3 adds one to the distance advertised by S2 (0) and thus sends
+(S2,&nbsp;1,&nbsp;S3) toward S5.</li>
+<li>Meanwhile, S2 accepts S1 as root because it has the lower ID, and it
+sends (S1,&nbsp;1,&nbsp;S2) toward S3.</li>
+<li>S5 accepts S1 as root and sends (S1,&nbsp;1,&nbsp;S5) toward S3.</li>
+<li>S3 accepts S1 as root, and it notes that both S2 and S5 are closer to
+the root than it is, but S2 has the smaller id, so it remains on S3’s
+path to the root.</li>
 </ol>
-<p>This leaves B3 with both ports not selected, as shown in
-<a href="#elan4">Figure 12</a>.</p>
-<p>Even after the system has stabilized, the root bridge continues to send
-configuration messages periodically, and the other bridges continue to
-forward these messages as described in the previous paragraph. Should a
-particular bridge fail, the downstream bridges will not receive these
-configuration messages, and after waiting a specified period of time
-they will once again claim to be the root, and the algorithm just
-described will kick in again to elect a new root and new designated
-bridges.</p>
+<p>This leaves S3 with active ports as shown in <a class="reference internal" href="#fig-elan4"><span class="std std-numref">Figure 67</span></a>.
+Note that Hosts A an B are not able to communication over the shortest
+path (via S5) because frames have to “flow up the tree and back down,”
+but that’s the price you pay to avoid loops.</p>
+<p>Even after the system has stabilized, the root switch continues to send
+configuration messages periodically, and the other switches continue to
+forward these messages as just described. Should a particular switch
+fail, the downstream switches will not receive these configuration
+messages, and after waiting a specified period of time they will once
+again claim to be the root, and the algorithm will kick in again to
+elect a new root and new designated switches.</p>
 <p>One important thing to notice is that although the algorithm is able to
-reconfigure the spanning tree whenever a bridge fails, it is not able to
+reconfigure the spanning tree whenever a switch fails, it is not able to
 forward frames over alternative paths for the sake of routing around a
-congested bridge.</p>
-<h3 id="broadcast-and-multicast">Broadcast and Multicast</h3>
-<p>The preceding discussion has focused on how bridges forward unicast
-frames from one LAN to another. Since the goal of a bridge is to
+congested switch.</p>
+</div>
+<div class="section" id="broadcast-and-multicast">
+<h3>Broadcast and Multicast<a class="headerlink" href="#broadcast-and-multicast" title="Permalink to this headline">¶</a></h3>
+<p>The preceding discussion focuses on how switches forward unicast
+frames from one port to another. Since the goal of a switch is to
 transparently extend a LAN across multiple networks, and since most LANs
-support both broadcast and multicast, then bridges must also support
-these two features. Broadcast is simple&#x2014;each bridge forwards a frame
+support both broadcast and multicast, then switches must also support
+these two features. Broadcast is simple—each switch forwards a frame
 with a destination broadcast address out on each active (selected) port
 other than the one on which the frame was received.</p>
 <p>Multicast can be implemented in exactly the same way, with each host
 deciding for itself whether or not to accept the message. This is
 exactly what is done in practice. Notice, however, that since not all
-the LANs in an extended LAN necessarily have a host that is a member of
-a particular multicast group, it is possible to do better. Specifically,
-the spanning tree algorithm can be extended to prune networks over which
-multicast frames need not be forwarded. Consider a frame sent to group M
-by a host on LAN A in <a href="#elan4">Figure 12</a>. If there is no host on LAN J
-that belongs to group M, then there is no need for bridge B4 to forward
-the frames over that network. On the other hand, not having a host on
-LAN H that belongs to group M does not necessarily mean that bridge B1
-can avoid forwarding multicast frames onto LAN H. It all depends on
-whether or not there are members of group M on LANs I and J.</p>
-<p>How does a given bridge learn whether it should forward a multicast
-frame over a given port? It learns exactly the same way that a bridge
+hosts are a member of any particular multicast group, it is possible
+to do better. Specifically, the spanning tree algorithm can be
+extended to prune networks over which multicast frames need not be
+forwarded.  Consider a frame sent to group M by a host A in
+<a class="reference internal" href="#fig-elan4"><span class="std std-numref">Figure 67</span></a>.  If host C does not belong to group
+M, then there is no need for switch S4 to forward the frames over that
+network.</p>
+<p>How would a given switch learn whether it should forward a multicast
+frame over a given port? It learns exactly the same way that a switch
 learns whether it should forward a unicast frame over a particular
-port&#x2014;by observing the <em>source</em> addresses that it receives over that
+port—by observing the <em>source</em> addresses that it receives over that
 port. Of course, groups are not typically the source of frames, so we
 have to cheat a little. In particular, each host that is a member of
 group M must periodically send a frame with the address for group M in
 the source field of the frame header. This frame would have as its
-destination address the multicast address for the bridges.</p>
-<p>Note that, although the multicast extension just described was once
-proposed, it was not widely adopted. Instead, multicast is implemented in
-exactly the same way as broadcast on today&apos;s extended LANs.</p>
-<h3 id="limitations-of-bridges">Limitations of Bridges</h3>
-<p>The bridge-based solution just described is meant to be used in only a
-fairly limited setting&#x2014;to connect a handful of similar LANs. The main
-limitations of bridges become apparent when we consider the issues of
-scale and heterogeneity.</p>
-<p>On the issue of scale, it is not realistic to connect more than a few
-LANs by means of bridges, where in practice <em>few</em> typically means &quot;tens
-of.&quot; One reason for this is that the spanning tree algorithm scales
-linearly; that is, there is no provision for imposing a hierarchy on the
-extended LAN. A second reason is that bridges forward all broadcast
-frames. While it is reasonable for all hosts within a limited setting
-(say, a department) to see each other&apos;s broadcast messages, it is
-unlikely that all the hosts in a larger environment (say, a large
-company or university) would want to have to be bothered by each other&apos;s
-broadcast messages. Said another way, broadcast does not scale, and as a
-consequence extended LANs do not scale.</p>
-<p>One approach to increasing the scalability of extended LANs is the
-<em>virtual LAN</em> (VLAN). VLANs allow a single extended LAN to be
-partitioned into several seemingly separate LANs. Each virtual LAN is
-assigned an identifier (sometimes called a <em>color</em>), and packets can
-only travel from one segment to another if both segments have the same
-identifier. This has the effect of limiting the number of segments in an
-extended LAN that will receive any given broadcast packet.</p>
-<figure>
-    <a id="vlan"></a>
-    <img src="figures/f03-13-9780123850591.png" width="400px">
-    <figcaption>Two virtual LANs share a common backbone.</figcaption>
-</figure>
-
-<p>We can see how VLANs work with an example. <a href="#vlan">Figure 13</a> shows four
-hosts on four different LAN segments. In the absence of VLANs, any
-broadcast packet from any host will reach all the other hosts. Now let&apos;s
-suppose that we define the segments connected to hosts W and X as being
-in one VLAN, which we&apos;ll call VLAN 100. We also define the segments that
-connect to hosts Y and Z as being in VLAN 200. To do this, we need to
-configure a VLAN ID on each port of bridges B1 and B2. The link between
-B1 and B2 is considered to be in both VLANs.</p>
-<p>When a packet sent by host X arrives at bridge B2, the bridge observes
+destination address the multicast address for the switches.</p>
+<p>Although the multicast extension just described was once proposed, it
+was not widely adopted. Instead, multicast is implemented in exactly the
+same way as broadcast.</p>
+</div>
+<div class="section" id="virtual-lans-vlans">
+<h3>Virtual LANs (VLANs)<a class="headerlink" href="#virtual-lans-vlans" title="Permalink to this headline">¶</a></h3>
+<p>One limitation of switches is that they do not scale. It is not
+realistic to connect more than a few switches, where in practice <em>few</em>
+typically means “tens of.” One reason for this is that the spanning
+tree algorithm scales linearly; that is, there is no provision for
+imposing a hierarchy on the set of switches. A second reason is that
+switches forward all broadcast frames. While it is reasonable for all
+hosts within a limited setting (say, a department) to see each other’s
+broadcast messages, it is unlikely that all the hosts in a larger
+environment (say, a large company or university) would want to have to
+be bothered by each other’s broadcast messages. Said another way,
+broadcast does not scale, and as a consequence L2-based networks do
+not scale.</p>
+<p>One approach to increasing the scalability is the <em>virtual LAN</em> (VLAN).
+VLANs allow a single extended LAN to be partitioned into several
+seemingly separate LANs. Each virtual LAN is assigned an identifier
+(sometimes called a <em>color</em>), and packets can only travel from one
+segment to another if both segments have the same identifier. This has
+the effect of limiting the number of segments in an extended LAN that
+will receive any given broadcast packet.</p>
+<div class="figure align-center" id="id18">
+<span id="fig-vlan"></span><a class="reference internal image-reference" href="../_images/Slide7.png"><img alt="../_images/Slide7.png" src="../_images/Slide7.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-number">Figure 68. </span><span class="caption-text">Two virtual LANs share a common backbone.</span></p>
+</div>
+<p>We can see how VLANs work with an example. <a class="reference internal" href="#fig-vlan"><span class="std std-numref">Figure 68</span></a> shows four hosts and two switches. In the absence of
+VLANs, any broadcast packet from any host will reach all the other
+hosts. Now let’s suppose that we define the segments connected to
+hosts W and X as being in one VLAN, which we’ll call VLAN 100. We also
+define the segments that connect to hosts&nbsp;Y and Z as being in
+VLAN 200. To do this, we need to configure a VLAN ID on each port of
+switches&nbsp;S1 and S2. The link between S1 and S2 is considered to be in
+both VLANs.</p>
+<p>When a packet sent by host X arrives at switch S2, the switch observes
 that it came in a port that was configured as being in VLAN 100. It
 inserts a VLAN header between the Ethernet header and its payload. The
 interesting part of the VLAN header is the VLAN ID; in this case, that
-ID is set to 100. The bridge now applies its normal rules for forwarding
+ID is set to 100. The switch now applies its normal rules for forwarding
 to the packet, with the extra restriction that the packet may not be
 sent out an interface that is not part of VLAN 100. Thus, under no
-circumstances will the packet&#x2014;even a broadcast packet&#x2014;be sent out
-the interface to host Z, which is in VLAN 200. The packet, however, is
-forwarded on to bridge B1, which follows the same rules and thus may
-forward the packet to host W but not to host Y.</p>
+circumstances will the packet—even a broadcast packet—be sent out the
+interface to host&nbsp;Z, which is in VLAN 200. The packet, however, is
+forwarded on to switch&nbsp;S1, which follows the same rules and thus may
+forward the packet to host&nbsp;W but not to host&nbsp;Y.</p>
 <p>An attractive feature of VLANs is that it is possible to change the
 logical topology without moving any wires or changing any addresses. For
-example, if we wanted to make the segment that connects to host Z be
-part of VLAN 100 and thus enable X, W, and Z to be on the same virtual
-LAN, then we would just need to change one piece of configuration on
-bridge B2.</p>
-<p>On the issue of heterogeneity, bridges are fairly limited in the kinds
-of networks they can interconnect. In particular, bridges make use of
-the network&apos;s frame header and so can support only networks that have
-exactly the same format for addresses. Thus, bridges can be used to
-connect Ethernets to Ethernets, token rings to token rings, and one
-802.11 network to another. It&apos;s also possible to put a bridge between,
-say, an Ethernet and an 802.11 network, since both networks support the same
-48-bit address format. However, bridges do not readily generalize to
-other kinds of networks with different addressing formats, such as
-ATM.</p>
-<p>Despite their limitations, bridges are a very important part of the
-complete networking picture. Their main advantage is that they allow
-multiple LANs to be transparently connected; that is, the networks can
-be connected without the end hosts having to run any additional
-protocols (or even be aware, for that matter). The one potential
-exception is when the hosts are expected to announce their membership in
-a multicast group.</p>
-<p>Notice, however, that this transparency can be dangerous. If a host or,
-more precisely, the application and transport protocol running on that
-host is programmed under the assumption that it is running on a single
-LAN, then inserting bridges between the source and destination hosts can
-have unexpected consequences. For example, if a bridge becomes
-congested, it may have to drop frames; in contrast, it is rare that a
-single Ethernet ever drops a frame. As another example, the latency
-between any pair of hosts on an extended LAN becomes both larger and
-more highly variable; in contrast, the physical limitations of a single
-Ethernet make the latency both small and predictable. As a final
-example, it is possible (although unlikely) that frames will be
-reordered in an extended LAN; in contrast, frame order is never shuffled
-on a single Ethernet. The bottom line is that it is never safe to design
-network software under the assumption that it will run over a single
-Ethernet segment. Bridges happen.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+example, if we wanted to make the link that connects to host&nbsp;Z be part
+of VLAN 100 and thus enable X, W, and Z to be on the same virtual LAN,
+then we would just need to change one piece of configuration on switch
+S2.</p>
+<p>Supporting VLANs requires a fairly simple extension to the
+original 802.1 header specification, inserting a 12-bit VLAN ID
+(<code class="docutils literal notranslate"><span class="pre">VID</span></code>) field between the <code class="docutils literal notranslate"><span class="pre">SrcAddr</span></code> and <code class="docutils literal notranslate"><span class="pre">Type</span></code> fields, as shown in
+<a class="reference internal" href="#fig-vlan-tag"><span class="std std-numref">Figure 69</span></a>. (This VID is typically referred to as
+a <em>VLAN Tag</em>.) There are actually 32-bits inserted in the middle of
+the header, but the first 16-bits are used to preserve backwards
+compatibility with the original specification (they use <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">=</span>
+<span class="pre">0x8100</span></code> to indicate that this frame includes the VLAN extension); the
+other four bits hold control information used to prioritize
+frames. This means it is possible to map <span class="math notranslate nohighlight">\(2^{12} = 4096\)</span> virtual
+networks onto a single physical LAN.</p>
+<div class="figure align-center" id="id19">
+<span id="fig-vlan-tag"></span><a class="reference internal image-reference" href="../_images/Slide41.png"><img alt="../_images/Slide41.png" src="../_images/Slide41.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 69. </span><span class="caption-text">802.1Q VLAN tag embedded within an Ethernet (802.1)
+header.</span></p>
+</div>
+<p>We conclude this discussion by observing there is another limitation
+of networks built by interconnecting L2 switches: lack of support for
+heterogeneity. That is, switches are limited in the kinds of networks
+they can interconnect. In particular, switches make use of the
+network’s frame header and so can support only networks that have
+exactly the same format for addresses. For example, switches can be
+used to connect Ethernet and 802.11 based networks to another, since
+they share a common header format, but switches do not readily
+generalize to other kinds of networks with different addressing
+formats, such as ATM, SONET, PON, or the cellular network. The next
+section explains how to address this limitation, as well as to scale
+switched networks to even larger sizes.</p>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="problem.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 3: Internetworking">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="basic-ip.html" class="navigation navigation-next " aria-label="Next page: 3.2 Basic Internetworking">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basic-ip.html" class="btn btn-neutral float-right" title="3.2 Basic Interworking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="problem.html" class="btn btn-neutral float-left" title="Problem: Not All Networks are Directly Connected" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Switching and Bridging","level":"1.5.1","depth":2,"next":{"title":"3.2 Basic Internetworking","level":"1.5.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},"previous":{"title":"Chapter 3: Internetworking","level":"1.5","depth":1,"path":"internetworking/problem.md","ref":"internetworking/problem.md","articles":[{"title":"3.1 Switching and Bridging","level":"1.5.1","depth":2,"path":"internetworking/switching.md","ref":"internetworking/switching.md","articles":[]},{"title":"3.2 Basic Internetworking","level":"1.5.2","depth":2,"path":"internetworking/basic-ip.md","ref":"internetworking/basic-ip.md","articles":[]},{"title":"3.3 Routing","level":"1.5.3","depth":2,"path":"internetworking/routing.md","ref":"internetworking/routing.md","articles":[]},{"title":"3.4 Implementation","level":"1.5.4","depth":2,"path":"internetworking/impl.md","ref":"internetworking/impl.md","articles":[]},{"title":"3.5 Broader Perspective","level":"1.5.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"internetworking/switching.md","mtime":"2019-07-10T18:26:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

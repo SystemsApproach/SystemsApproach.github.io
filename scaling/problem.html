@@ -1,1015 +1,191 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Chapter 4: Advanced Internetworking · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Problem: Scaling to Billions &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.1 Global Internet" href="global.html" />
+    <link rel="prev" title="Chapter 4: Advanced Internetworking" href="../scaling.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="global.html" />
-    
-    
-    <link rel="prev" href="../internetworking/trend.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="global.html">
-            
-                <a href="global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="multicast.html">
-            
-                <a href="multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="mpls.html">
-            
-                <a href="mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="mobile-ip.html">
-            
-                <a href="mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Problem: Scaling to Billions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global.html">4.1 Global Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">4.2 IP Version 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multicast.html">4.3 Multicast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">4.4 Multiprotocol Label Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile-ip.html">4.5 Routing Among Mobile Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: The Cloud is Eating the Internet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../scaling.html">Chapter 4:  Advanced Internetworking</a> &raquo;</li>
+        
+      <li>Problem: Scaling to Billions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/scaling/problem.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Chapter 4: Advanced Internetworking</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="chapter-4-advanced-internetworking">Chapter 4: Advanced Internetworking</h1>
-<blockquote>
-<p>Every seeming equality conceals a hierarchy. <em>&#x2014;Mason Cooley</em></p>
-</blockquote>
-<h2 id="problem-scaling-to-billions">Problem: Scaling to Billions</h2>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="problem-scaling-to-billions">
+<h1>Problem: Scaling to Billions<a class="headerlink" href="#problem-scaling-to-billions" title="Permalink to this headline">¶</a></h1>
 <p>We have now seen how to build an internetwork that consists of a number
 of networks of different types. That is, we have dealt with the problem
 of <em>heterogeneity</em>. The second critical problem in
-internetworking&#x2014;arguably the fundamental problem for all
-networking&#x2014;is <em>scale</em>. To understand the problem of scaling
-a network, it is worth considering the growth of the Internet, which
-has roughly doubled in size each year for 30 years. This sort of
-growth forces us to face a number of challenges.</p>
+internetworking—arguably the fundamental problem for all networking—is
+<em>scale</em>. To understand the problem of scaling a network, it is worth
+considering the growth of the Internet, which has roughly doubled in
+size each year for 30&nbsp;years. This sort of growth forces us to face a
+number of challenges.</p>
 <p>Chief among these is how do you build a routing system that can handle
 hundreds of thousands of networks and billions of end nodes? As we will
 see in this chapter, most approaches to tackling the scalability of
@@ -1022,16 +198,16 @@ by BGP as the Internet continues to grow.</p>
 <p>Closely related to the scalability of routing is the problem of
 addressing. Even two decades ago it had become apparent that the 32-bit
 addressing scheme of IP version 4 would not last forever. That led to
-the definition of a new version of IP&#x2014;version 6, since version 5 had
+the definition of a new version of IP—version 6, since version 5 had
 been used in an earlier experiment. IPv6 primarily expands the address
 space but also adds a number of new features, some of which have been
 retrofitted to IPv4.</p>
 <p>While the Internet continues to grow in size, it also needs to evolve
 its functionality. The final sections of this chapter cover some
-significant enhancements to the Internet&apos;s capabilities. The first,
+significant enhancements to the Internet’s capabilities. The first,
 multicast, is an enhancement of the basic service model. We show how
-multicast&#x2014;the ability to deliver the same packets to a group of
-receivers efficiently&#x2014;can be incorporated into an internet, and we
+multicast—the ability to deliver the same packets to a group of
+receivers efficiently—can be incorporated into an internet, and we
 describe several of the routing protocols that have been developed to
 support multicast. The second enhancement, Multiprotocol Label Switching
 (MPLS), modifies the forwarding mechanism of IP networks. This
@@ -1040,111 +216,55 @@ and in the services offered by IP networks. Finally, we look at the
 effects of mobility on routing and describe some enhancements to IP to
 support mobile hosts and routers. For each of these enhancements, issues
 of scalability continue to be important.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="../internetworking/trend.html" class="navigation navigation-prev " aria-label="Previous page: 3.5 Broader Perspective">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="global.html" class="navigation navigation-next " aria-label="Next page: 4.1 Global Internet">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="global.html" class="btn btn-neutral float-right" title="4.1 Global Internet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../scaling.html" class="btn btn-neutral float-left" title="Chapter 4: Advanced Internetworking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chapter 4: Advanced Internetworking","level":"1.6","depth":1,"next":{"title":"4.1 Global Internet","level":"1.6.1","depth":2,"path":"scaling/global.md","ref":"scaling/global.md","articles":[]},"previous":{"title":"3.5 Broader Perspective","level":"1.5.5","depth":2,"path":"internetworking/trend.md","ref":"internetworking/trend.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/problem.md","mtime":"2018-09-10T22:00:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

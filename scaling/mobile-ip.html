@@ -1,1054 +1,240 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.4 Routing Among Mobile Devices · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.5 Routing Among Mobile Devices &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Perspective: The Cloud is Eating the Internet" href="trend.html" />
+    <link rel="prev" title="4.4 Multiprotocol Label Switching" href="mpls.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="trend.html" />
-    
-    
-    <link rel="prev" href="mpls.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="global.html">
-            
-                <a href="global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="multicast.html">
-            
-                <a href="multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="mpls.html">
-            
-                <a href="mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.6.4" data-path="mobile-ip.html">
-            
-                <a href="mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Scaling to Billions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global.html">4.1 Global Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">4.2 IP Version 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multicast.html">4.3 Multicast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">4.4 Multiprotocol Label Switching</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.5 Routing Among Mobile Devices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#challenges-for-mobile-networking">Challenges for Mobile Networking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routing-to-mobile-hosts-mobile-ip">Routing to Mobile Hosts (Mobile IP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#route-optimization-in-mobile-ip">Route Optimization in Mobile IP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mobility-in-ipv6">Mobility in IPv6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: The Cloud is Eating the Internet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../scaling.html">Chapter 4:  Advanced Internetworking</a> &raquo;</li>
+        
+      <li>4.5 Routing Among Mobile Devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/scaling/mobile-ip.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >4.4 Routing Among Mobile Devices</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="44-routing-among-mobile-devices">4.4 Routing Among Mobile Devices</h1>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="routing-among-mobile-devices">
+<h1>4.5 Routing Among Mobile Devices<a class="headerlink" href="#routing-among-mobile-devices" title="Permalink to this headline">¶</a></h1>
 <p>It probably should not be a great surprise to learn that mobile devices
 present some challenges for the Internet architecture. The Internet was
 designed in an era when computers were large, immobile devices, and,
-while the Internet&apos;s designers probably had some notion that mobile
-devices might appear in the future, it&apos;s fair to assume it was not a top
+while the Internet’s designers probably had some notion that mobile
+devices might appear in the future, it’s fair to assume it was not a top
 priority to accommodate them. Today, of course, mobile computers are
 everywhere, notably in the form of laptops and smartphones, and
-increasingly in other forms, such as drones. In this section, we
-will look at some of the challenges posed by the appearance of mobile
-devices and some of the current approaches to accommodating
-them.</p>
-<h2 id="challenges-for-mobile-networking">Challenges for Mobile Networking</h2>
-<p>It is easy enough today to turn up in a wireless hotspot,
-connect to the Internet using 802.11 or some other wireless networking
-protocol, and obtain pretty good Internet service. One key enabling
-technology that made the hotspot feasible is DHCP. You can settle
-in at a coffee shop, open your laptop, obtain an IP address for your
-laptop, and get your laptop talking to a default router and a Domain
-Name System (DNS) server, and for a broad class of applications you
-have everything you need.</p>
-<p>If we look a little more closely, however, it&apos;s clear that for some
+increasingly in other forms, such as drones. In this section, we will
+look at some of the challenges posed by the appearance of mobile devices
+and some of the current approaches to accommodating them.</p>
+<div class="section" id="challenges-for-mobile-networking">
+<h2>Challenges for Mobile Networking<a class="headerlink" href="#challenges-for-mobile-networking" title="Permalink to this headline">¶</a></h2>
+<p>It is easy enough today to turn up in a wireless hotspot, connect to the
+Internet using 802.11 or some other wireless networking protocol, and
+obtain pretty good Internet service. One key enabling technology that
+made the hotspot feasible is DHCP. You can settle in at a coffee shop,
+open your laptop, obtain an IP address for your laptop, and get your
+laptop talking to a default router and a Domain Name System (DNS)
+server, and for a broad class of applications you have everything you
+need.</p>
+<p>If we look a little more closely, however, it’s clear that for some
 application scenarios, just getting a new IP address every time you
-move&#x2014;which is what DHCP does for you&#x2014;isn&apos;t always enough. Suppose
-you are using your laptop or smartphone for a Voice over IP telephone
+move—which is what DHCP does for you—isn’t always enough. Suppose you
+are using your laptop or smartphone for a Voice over IP telephone
 call, and while talking on the phone you move from one hotspot to
 another, or even switch from Wi-Fi to the cellular network for your
 Internet connection.</p>
 <p>Clearly, when you move from one access network to another, you need to
-get a new IP address&#x2014;one that corresponds to the new network. But, the
-computer or telephone at the other end of your conversation doesn&apos;t
+get a new IP address—one that corresponds to the new network. But, the
+computer or telephone at the other end of your conversation doesn’t
 immediately know where you have moved or what your new IP address is.
 Consequently, in the absence of some other mechanism, packets would
-continue to be sent to the address where you <em>used</em> to be, not where you
-are now. This problem is illustrated in <a href="#mobileeg">Figure 1</a>; as the
-mobile node moves from the 802.11 network in <a href="#mobileeg">Figure 1(a)</a>
-to the cellular network in <a href="#mobileeg">Figure 1(b)</a>, somehow packets
-from the <em>correspondent node</em> need to find their way to the new network
-and then on to the mobile node.</p>
-<figure>
-    <a id="mobileeg"></a>
-    <img src="figures/f04-26-22092018.png" width="500px">
-    <figcaption>Forwarding packets from a correspondent node to a
-    mobile node.</figcaption>
-</figure>
-
+continue to be sent to the address where you <em>used</em> to be, not where
+you are now. This problem is illustrated in <a class="reference internal" href="#fig-mobileeg"><span class="std std-numref">Figure 122</span></a>; as the mobile node moves from the 802.11 network in
+<a class="reference internal" href="#fig-mobileeg"><span class="std std-numref">Figure 122(a)</span></a> to the cellular network in
+<a class="reference internal" href="#fig-mobileeg"><span class="std std-numref">Figure 122(b)</span></a>, somehow packets from the
+<em>correspondent node</em> need to find their way to the new network and
+then on to the mobile node.</p>
+<div class="figure align-center" id="id1">
+<span id="fig-mobileeg"></span><a class="reference internal image-reference" href="../_images/f04-26-22092018.png"><img alt="../_images/f04-26-22092018.png" src="../_images/f04-26-22092018.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 122. </span><span class="caption-text">Forwarding packets from a correspondent node to a
+mobile node.</span></p>
+</div>
 <p>There are many different ways to tackle the problem just described, and
 we will look at some of them below. Assuming that there is some way to
 redirect packets so that they come to your new address rather than your
 old address, the next immediately apparent problems relate to security.
-For example, if there is a mechanism by which I can say, &quot;My new IP
-address is X,&quot; how do I prevent some attacker from making such a
+For example, if there is a mechanism by which I can say, “My new IP
+address is X,” how do I prevent some attacker from making such a
 statement without my permission, thus enabling him to either receive my
 packets, or to redirect my packets to some unwitting third party? Thus,
 we see that security and mobility are quite closely related.</p>
@@ -1060,33 +246,32 @@ some possibly more temporary information about how to route packets to
 the endpoint. As long as devices do not move, or do not move often,
 using a single address for both jobs seem pretty reasonable. But once
 devices start to move, you would rather like to have an identifier that
-does not change as you move&#x2014;this is sometimes called an <em>Endpoint
-Identifier</em> or <em>Host Identifier</em>&#x2014;and a separate <em>locator</em>. This idea
-of separating locators from identifiers has been around for a long time,
+does not change as you move—this is sometimes called an <em>Endpoint
+Identifier</em> or <em>Host Identifier</em>—and a separate <em>locator</em>. This idea of
+separating locators from identifiers has been around for a long time,
 and most of the approaches to handling mobility described below provide
 such a separation in some form.</p>
-<p>The assumption that IP addresses don&apos;t change shows up in many
-different places. For example, transport protocols like TCP have
-historically made assumptions about the IP address staying constant
-for the life of a connection, so one approach could be to redesign
-transport protocols so they can operate with changing end-point
-addresses.</p>
+<p>The assumption that IP addresses don’t change shows up in many different
+places. For example, transport protocols like TCP have historically made
+assumptions about the IP address staying constant for the life of a
+connection, so one approach could be to redesign transport protocols so
+they can operate with changing end-point addresses.</p>
 <p>But rather than try to change TCP, a common alternative is for the
-application to periodically re-establish the TCP connection in case
-the client&apos;s IP address has changed. As strange as this sounds, if the
+application to periodically re-establish the TCP connection in case the
+client’s IP address has changed. As strange as this sounds, if the
 application is HTTP-based (e.g., a web browser like Chrome or a
-streaming application like Netflix) then that is exactly what happens. In
-other words, the strategy is for the application to work around situations
-where the user&apos;s IP address may have changed, instead of trying to
-maintain the appearance that it does not change.</p>
+streaming application like Netflix) then that is exactly what happens.
+In other words, the strategy is for the application to work around
+situations where the user’s IP address may have changed, instead of
+trying to maintain the appearance that it does not change.</p>
 <p>While we are all familiar with endpoints that move, it is worth noting
 that routers can also move. This is certainly less common today than
 endpoint mobility, but there are plenty of environments where a mobile
-router might make sense. One example might be an emergency response team
-trying to deploy a network after some natural disaster has knocked out
-all the fixed infrastructure. There are additional considerations when
-<em>all</em> the nodes in a network, not just the endpoints, are mobile, a
-topic we will discuss later in this section.</p>
+router might make sense. One example might be an emergency response
+team trying to deploy a network after some natural disaster has
+knocked out all the fixed infrastructure. There are additional
+considerations when <em>all</em> the nodes in a network, not just the
+endpoints, are mobile, a topic we will discuss later in this section.</p>
 <p>Before we start to look at some of the approaches to supporting mobile
 devices, a couple of points of clarification. It is common to find that
 people confuse wireless networks with mobility. After all, mobility and
@@ -1096,18 +281,20 @@ while mobility is about dealing with what happens when a node moves
 around as it communicates. Certainly many nodes that use wireless
 communication channels are not mobile, and sometimes mobile nodes will
 use wired communication (although this is less common).</p>
-<p>Finally, in this chapter we are mostly interested in what we might call
-<em>network-layer mobility</em>. That is, we are interested in how to deal with
-nodes that move from one network to another. Moving from one access
-point to another in the same 802.11 network can be handled by mechanisms
-specific to 802.11, and cellular networks also have ways to
-handle mobility, of course, but in large heterogeneous systems like the
-Internet we need to support mobility more broadly across networks.</p>
-<h2 id="routing-to-mobile-hosts-mobile-ip">Routing to Mobile Hosts (Mobile IP)</h2>
-<p>Mobile IP is the primary mechanism in today&apos;s Internet architecture to
+<p>Finally, in this chapter we are mostly interested in what we might
+call <em>network-layer mobility</em>. That is, we are interested in how to
+deal with nodes that move from one network to another. Moving from one
+access point to another in the same 802.11 network can be handled by
+mechanisms specific to 802.11, and cellular networks also have ways to
+handle mobility, of course, but in large heterogeneous systems like
+the Internet we need to support mobility more broadly across networks.</p>
+</div>
+<div class="section" id="routing-to-mobile-hosts-mobile-ip">
+<h2>Routing to Mobile Hosts (Mobile IP)<a class="headerlink" href="#routing-to-mobile-hosts-mobile-ip" title="Permalink to this headline">¶</a></h2>
+<p>Mobile IP is the primary mechanism in today’s Internet architecture to
 tackle the problem of routing packets to mobile hosts. It introduces a
 few new capabilities but does not require any change from non-mobile
-hosts or most routers&#x2014;thus making it incrementally deployable.</p>
+hosts or most routers—thus making it incrementally deployable.</p>
 <p>The mobile host is assumed to have a permanent IP address, called its
 <em>home address</em>, which has a network prefix equal to that of its <em>home
 network</em>. This is the address that will be used by other hosts when they
@@ -1116,17 +303,16 @@ it can be used by long-lived applications as the host roams. We can
 think of this as the long-lived identifier of the host.</p>
 <p>When the host moves to a new foreign network away from its home network,
 it typically acquires a new address on that network using some means
-such as DHCP. This address is going to change every time the host
-roams to a new network, so we can think of this as being more like the
-locator for the host, but it is important to note that the host does not
-lose its permanent home address when it acquires a new address on the
-foreign network. This home address is critical to its ability to sustain
-communications as it moves, as we&apos;ll see below.</p>
+such as DHCP. This address is going to change every time the host roams
+to a new network, so we can think of this as being more like the locator
+for the host, but it is important to note that the host does not lose
+its permanent home address when it acquires a new address on the foreign
+network. This home address is critical to its ability to sustain
+communications as it moves, as we’ll see below.</p>
 <blockquote>
-<p>Because DHCP was developed around the same time as Mobile IP, the 
-original Mobile IP standards did not require DHCP, but DHCP is 
-ubiquitous today. </p>
-</blockquote>
+<div>Because DHCP was developed around the same time as Mobile IP, the
+original Mobile IP standards did not require DHCP, but DHCP is
+ubiquitous today.</div></blockquote>
 <p>While the majority of routers remain unchanged, mobility support does
 require some new functionality in at least one router, known as the
 <em>home agent</em> of the mobile node. This router is located on the home
@@ -1134,14 +320,12 @@ network of the mobile host. In some cases, a second router with enhanced
 functionality, the <em>foreign agent,</em> is also required. This router is
 located on a network to which the mobile node attaches itself when it is
 away from its home network. We will consider first the operation of
-Mobile IP when a foreign agent is used. An example network with both
-home and foreign agents is shown in <a href="#mobile">Figure 2</a>.</p>
-<figure>
-    <a id="mobile"></a>
-    <img src="figures/f04-27-9780123850591.png" width="500px">
-    <figcaption>Mobile host and mobility agents.</figcaption>
-</figure>
-
+Mobile&nbsp;IP when a foreign agent is used. An example network with both
+home and foreign agents is shown in <a class="reference internal" href="#fig-mobile"><span class="std std-numref">Figure 123</span></a>.</p>
+<div class="figure align-center" id="id2">
+<span id="fig-mobile"></span><a class="reference internal image-reference" href="../_images/f04-27-9780123850591.png"><img alt="../_images/f04-27-9780123850591.png" src="../_images/f04-27-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 123. </span><span class="caption-text">Mobile host and mobility agents.</span></p>
+</div>
 <p>Both home and foreign agents periodically announce their presence on the
 networks to which they are attached using agent advertisement messages.
 A mobile host may also solicit an advertisement when it attaches to a
@@ -1158,35 +342,30 @@ home address of that node. Normal IP forwarding will cause that packet
 to arrive on the home network of the mobile node on which the home agent
 is sitting. Thus, we can divide the problem of delivering the packet to
 the mobile node into three parts:</p>
-<ol>
-<li><p>How does the home agent intercept a packet that is destined for the
- mobile node?</p>
-</li>
-<li><p>How does the home agent then deliver the packet to the foreign
- agent?</p>
-</li>
-<li><p>How does the foreign agent deliver the packet to the mobile node?</p>
-</li>
+<ol class="arabic simple">
+<li>How does the home agent intercept a packet that is destined for the
+mobile node?</li>
+<li>How does the home agent then deliver the packet to the foreign agent?</li>
+<li>How does the foreign agent deliver the packet to the mobile node?</li>
 </ol>
-<p>The first problem might look easy if you just look at
-<a href="#mobile">Figure 2</a>, in which the home agent is clearly the only path
-between the sending host and the home network and thus must receive
-packets that are destined to the mobile node. But what if the sending
-(correspondent) node were on network 18, or what if there were another
-router connected to network 18 that tried to deliver the packet without
-its passing through the home agent? To address this problem, the home
-agent actually impersonates the mobile node, using a technique called
-<em>proxy ARP.</em> This works just like Address Resolution Protocol (ARP),
-except that the home agent inserts the IP address of the mobile node,
-rather than its own, in the ARP messages. It uses its own hardware
-address, so that all the nodes on the same network learn to associate
-the hardware address of the home agent with the IP address of the mobile
-node. One subtle aspect of this process is the fact that ARP information
-may be cached in other nodes on the network. To make sure that these
-caches are invalidated in a timely way, the home agent issues an ARP
-message as soon as the mobile node registers with a foreign agent.
-Because the ARP message is not a response to a normal ARP request, it is
-termed a <em>gratuitous ARP</em>.</p>
+<p>The first problem might look easy if you just look at <a class="reference internal" href="#fig-mobile"><span class="std std-numref">Figure
+123</span></a>, in which the home agent is clearly the only path between
+the sending host and the home network and thus must receive packets that
+are destined to the mobile node. But what if the sending (correspondent)
+node were on network&nbsp;18, or what if there were another router connected
+to network&nbsp;18 that tried to deliver the packet without its passing
+through the home agent? To address this problem, the home agent actually
+impersonates the mobile node, using a technique called <em>proxy ARP.</em> This
+works just like Address Resolution Protocol (ARP), except that the home
+agent inserts the IP address of the mobile node, rather than its own, in
+the ARP messages. It uses its own hardware address, so that all the
+nodes on the same network learn to associate the hardware address of the
+home agent with the IP address of the mobile node. One subtle aspect of
+this process is the fact that ARP information may be cached in other
+nodes on the network. To make sure that these caches are invalidated in
+a timely way, the home agent issues an ARP message as soon as the mobile
+node registers with a foreign agent. Because the ARP message is not a
+response to a normal ARP request, it is termed a <em>gratuitous ARP</em>.</p>
 <p>The second problem is the delivery of the intercepted packet to the
 foreign agent. Here we use the tunneling technique described elsewhere.
 The home agent simply wraps the packet inside an IP header that is
@@ -1211,11 +390,11 @@ itself. To make this work, however, the mobile node must be able to
 dynamically acquire an IP address that is located in the address space
 of the foreign network (e.g., using DHCP). This address will then be
 used as the care-of address. In our example, this address would have a
-network number of 12. This approach has the desirable feature of
-allowing mobile nodes to attach to networks that don&apos;t have foreign
-agents; thus, mobility can be achieved with only the addition of a home
-agent and some new software on the mobile node (assuming DHCP is used on
-the foreign network).</p>
+network number of&nbsp;12. This approach has the desirable feature of
+allowing mobile nodes to attach to networks that don’t have foreign
+agents; thus, mobility can be achieved with only the addition of a
+home agent and some new software on the mobile node (assuming DHCP is
+used on the foreign network).</p>
 <p>What about traffic in the other direction (i.e., from mobile node to
 fixed node)? This turns out to be much easier. The mobile node just puts
 the IP address of the fixed node in the destination field of its IP
@@ -1223,7 +402,8 @@ packets while putting its permanent address in the source field, and the
 packets are forwarded to the fixed node using normal means. Of course,
 if both nodes in a conversation are mobile, then the procedures
 described above are used in each direction.</p>
-<h3 id="route-optimization-in-mobile-ip">Route Optimization in Mobile IP</h3>
+<div class="section" id="route-optimization-in-mobile-ip">
+<h3>Route Optimization in Mobile IP<a class="headerlink" href="#route-optimization-in-mobile-ip" title="Permalink to this headline">¶</a></h3>
 <p>There is one significant drawback to the above approach: The route from
 the correspondent node to the mobile node can be significantly
 suboptimal. One of the most extreme examples is when a mobile node and
@@ -1249,7 +429,7 @@ care-of address and create its own tunnel, then the route can be
 optimized; if not, packets just follow the suboptimal route.</p>
 <p>When a home agent sees a packet destined for one of the mobile nodes
 that it supports, it can deduce that the sender is not using the optimal
-route. Therefore, it sends a &quot;binding update&quot; message back to the
+route. Therefore, it sends a “binding update” message back to the
 source, in addition to forwarding the data packet to the foreign agent.
 The source, if capable, uses this binding update to create an entry in a
 <em>binding cache,</em> which consists of a list of mappings from mobile node
@@ -1272,13 +452,16 @@ For example, an attacker wishing to intercept the packets destined to
 some other node in an internetwork could contact the home agent for that
 node and announce itself as the new foreign agent for the node. Thus, it
 is clear that some authentication mechanisms are required.</p>
-<h3 id="mobility-in-ipv6">Mobility in IPv6</h3>
+</div>
+<div class="section" id="mobility-in-ipv6">
+<h3>Mobility in IPv6<a class="headerlink" href="#mobility-in-ipv6" title="Permalink to this headline">¶</a></h3>
 <p>There are a handful of significant differences between mobility support
 in IPv4 and IPv6. Most importantly, it was possible to build mobility
 support into the standards for IPv6 pretty much from the beginning, thus
 alleviating a number of incremental deployment problems. (It may be more
 correct to say that IPv6 is one big incremental deployment problem,
-which, once solved, will deliver mobility support as part of the package.)</p>
+which, once solved, will deliver mobility support as part of the
+package.)</p>
 <p>Since all IPv6-capable hosts can acquire an address whenever they are
 attached to a foreign network (using several mechanisms defined as part
 of the core v6 specifications), Mobile IPv6 does away with the foreign
@@ -1299,121 +482,67 @@ consumption and processing.</p>
 <p>Finally, we note that many open issues remain in mobile networking.
 Managing the power consumption of mobile devices is increasingly
 important, so that smaller devices with limited battery power can be
-built. There is also the problem of <em>ad hoc</em> mobile networks&#x2014;enabling
-a group of mobile nodes to form a network in the absence of any fixed
-nodes&#x2014;which has some special challenges. A
-particularly challenging class of mobile networks is <em>sensor networks</em>.
-Sensors typically are small, inexpensive, and
-often battery powered, meaning that issues of very low power consumption
-and limited processing capability must also be considered. Furthermore,
-since wireless communications and mobility typically go hand in hand,
-the continual advances in wireless technologies keep on producing new
-challenges and opportunities for mobile networking.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+built. There is also the problem of <em>ad hoc</em> mobile networks—enabling a
+group of mobile nodes to form a network in the absence of any fixed
+nodes—which has some special challenges. A particularly challenging
+class of mobile networks is <em>sensor networks</em>. Sensors typically are
+small, inexpensive, and often battery powered, meaning that issues of
+very low power consumption and limited processing capability must also
+be considered. Furthermore, since wireless communications and mobility
+typically go hand in hand, the continual advances in wireless
+technologies keep on producing new challenges and opportunities for
+mobile networking.</p>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="mpls.html" class="navigation navigation-prev " aria-label="Previous page: 4.3 Multiprotocol Label Switching">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="trend.html" class="navigation navigation-next " aria-label="Next page: 4.5 Broader Perspective ">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="trend.html" class="btn btn-neutral float-right" title="Perspective: The Cloud is Eating the Internet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mpls.html" class="btn btn-neutral float-left" title="4.4 Multiprotocol Label Switching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.4 Routing Among Mobile Devices","level":"1.6.4","depth":2,"next":{"title":"4.5 Broader Perspective ","level":"1.6.5","depth":2,"path":"scaling/trend.md","ref":"scaling/trend.md","articles":[]},"previous":{"title":"4.3 Multiprotocol Label Switching","level":"1.6.3","depth":2,"path":"scaling/mpls.md","ref":"scaling/mpls.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"scaling/mobile-ip.md","mtime":"2019-07-10T18:36:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

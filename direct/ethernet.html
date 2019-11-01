@@ -1,1003 +1,196 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.6 Multi-Access Networks · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.6 Multi-Access Networks &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.7 Wireless Networks" href="wireless.html" />
+    <link rel="prev" title="2.5 Reliable Transmission" href="reliable.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="wireless.html" />
-    
-    
-    <link rel="prev" href="reliable.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="perspective.html">
-            
-                <a href="perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="encoding.html">
-            
-                <a href="encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="framing.html">
-            
-                <a href="framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="error.html">
-            
-                <a href="error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="reliable.html">
-            
-                <a href="reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.4.6" data-path="ethernet.html">
-            
-                <a href="ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="wireless.html">
-            
-                <a href="wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="access.html">
-            
-                <a href="access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../scaling/problem.html">
-            
-                <a href="../scaling/problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../scaling/global.html">
-            
-                <a href="../scaling/global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../scaling/multicast.html">
-            
-                <a href="../scaling/multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../scaling/mpls.html">
-            
-                <a href="../scaling/mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="../scaling/mobile-ip.html">
-            
-                <a href="../scaling/mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../scaling/trend.html">
-            
-                <a href="../scaling/trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perspective.html">2.1 Technology Landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encoding.html">2.2 Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="framing.html">2.3 Framing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error.html">2.4 Error Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reliable.html">2.5 Reliable Transmission</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.6 Multi-Access Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#physical-properties">Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-protocol">Access Protocol</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#frame-format">Frame Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#addresses">Addresses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transmitter-algorithm">Transmitter Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#longevity-of-ethernet">Longevity of Ethernet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wireless.html">2.7 Wireless Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access.html">2.8 Access Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: Race to the Edge</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../direct.html">Chapter 2:  Direct Links</a> &raquo;</li>
+        
+      <li>2.6 Multi-Access Networks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/direct/ethernet.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.6 Multi-Access Networks</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="26-multi-access-networks">2.6 Multi-Access Networks</h1>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multi-access-networks">
+<h1>2.6 Multi-Access Networks<a class="headerlink" href="#multi-access-networks" title="Permalink to this headline">¶</a></h1>
 <p>Developed in the mid-1970s by researchers at the Xerox Palo Alto
 Research Center (PARC), the Ethernet eventually became the dominant
 local area networking technology, emerging from a pack of competing
@@ -1008,9 +201,9 @@ Sense, Multiple Access with Collision Detect (CSMA/CD).</p>
 <p>As indicated by the CSMA name, the Ethernet is a multiple-access
 network, meaning that a set of nodes sends and receives frames over a
 shared link. You can, therefore, think of an Ethernet as being like a
-bus that has multiple stations plugged into it. The &quot;carrier sense&quot; in
+bus that has multiple stations plugged into it. The “carrier sense” in
 CSMA/CD means that all the nodes can distinguish between an idle and a
-busy link, and &quot;collision detect&quot; means that a node listens as it
+busy link, and “collision detect” means that a node listens as it
 transmits and can therefore detect when a frame it is transmitting has
 interfered (collided) with a frame transmitted by another node.</p>
 <p>The Ethernet has its roots in an early packet radio network, called
@@ -1021,60 +214,52 @@ shared medium fairly and efficiently (in Aloha, the medium was the
 atmosphere, while in the Ethernet the medium was originally a coax
 cable). The core idea in both Aloha and the Ethernet is an algorithm
 that controls when each node can transmit.</p>
-<p>Interestingly, modern Ethernet links are now largely point to point;
+<p>Modern Ethernet links are now largely point to point;
 that is, they connect one host to an Ethernet <em>switch</em>, or they
-interconnect switches. As a consequence, the &quot;multiple access&quot;
-algorithm is not used much in today&apos;s wired Ethernets, but it is
-now used in wireless networks, such as 802.11 networks (also known
-as Wi-Fi). Due to the enormous influence of Ethernet, we chose
-to describe its classic algorithm here, and then explain how it has been
-adapted to Wi-Fi in the next section. We will also discuss Ethernet
-switches elsewhere. For now, we&apos;ll focus on how a single Ethernet link
-works.</p>
+interconnect switches. As a consequence, the “multiple access” algorithm
+is not used much in today’s wired Ethernets, but a variant is now used in
+wireless networks, such as 802.11 networks (also known as Wi-Fi). Due to
+the enormous influence of Ethernet, we chose to describe its classic
+algorithm here, and then explain how it has been adapted to Wi-Fi in the
+next section. We will also discuss Ethernet switches elsewhere. For now,
+we’ll focus on how a single Ethernet link works.</p>
 <p>Digital Equipment Corporation and Intel Corporation joined Xerox to
 define a 10-Mbps Ethernet standard in 1978. This standard then formed
 the basis for IEEE standard 802.3, which additionally defines a much
 wider collection of physical media over which an Ethernet can operate,
 including 100-Mbps, 1-Gbps, 10-Gbps, 40-Gbps, and 100-Gbps versions.</p>
-<h2 id="physical-properties">Physical Properties</h2>
+<div class="section" id="physical-properties">
+<h2>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h2>
 <p>Ethernet segments were originally implemented using coaxial cable of
-length up to 500 m. (Modern Ethernets use twisted copper pairs, usually
-a particular type known as &quot;Category 5,&quot; or optical fibers, and in some
+length up to 500&nbsp;m. (Modern Ethernets use twisted copper pairs, usually
+a particular type known as “Category 5,” or optical fibers, and in some
 cases can be quite a lot longer than 500 m.) This cable was similar to
 the type used for cable TV. Hosts connected to an Ethernet segment by
 tapping into it. A <em>transceiver</em>, a small device directly attached to
 the tap, detected when the line was idle and drove the signal when the
 host was transmitting. It also received incoming signals. The
 transceiver, in turn, connected to an Ethernet adaptor, which was
-plugged into the host. This configuration is shown in <a href="#tap">Figure 1</a>.</p>
-<figure>
-    <a id="tap"></a>
-    <img src="figures/f02-22-9780123850591.png" width="300px">
-    <figcaption>Ethernet transceiver and adaptor.</figcaption>
-</figure>
-
-<p>Multiple Ethernet segments can be joined together by <em>repeaters</em>. A
+plugged into the host. This configuration is shown in <a class="reference internal" href="#fig-tap"><span class="std std-numref">Figure
+39</span></a>.</p>
+<div class="figure align-center" id="id1">
+<span id="fig-tap"></span><a class="reference internal image-reference" href="../_images/f02-22-9780123850591.png"><img alt="../_images/f02-22-9780123850591.png" src="../_images/f02-22-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 39. </span><span class="caption-text">Ethernet transceiver and adaptor.</span></p>
+</div>
+<p>Multiple Ethernet segments can be joined together by <em>repeaters</em> (or a
+multi-port variant of a repeater, called a <em>hub</em>). A
 repeater is a device that forwards digital signals, much like an
-amplifier forwards analog signals; repeaters do not understand bits
-or frames. No more than four repeaters could be positioned between
-any pair of hosts, meaning that a classical Ethernet had a total reach
-of only 2500 m. For example, using just two repeaters between any pair
-of hosts supports a configuration similar to the one illustrated
-in <a href="#net-repeat">Figure 2</a>&#x2014;that is, a segment running down
-the spine of a building with a segment on each floor.</p>
-<figure>
-    <a id="net-repeat"></a>
-    <img src="figures/f02-23-9780123850591.png" width="500px">
-    <figcaption>Ethernet repeater.</figcaption>
-</figure>
-
-<p>It&apos;s also possible to create a multiway repeater, sometimes called a
-<em>hub</em>, as illustrated in <a href="#hub">Figure 3</a>. Like a repeater, a hub just
-repeats whatever signals it hears on one port out all its other ports.
-The important thing about hubs is that they can be used to connect
-node to a shared Ethernet without using a tap, meaning the link can
-be implemented in fiber or twisted pair copper, and not a coax cable.
-This is necessary to achieve the higher Ethernet performance levels.</p>
+amplifier forwards analog signals; repeaters do not understand bits or
+frames. No more than four repeaters could be positioned between any pair
+of hosts, meaning that a classical Ethernet had a total reach of only
+2500&nbsp;m. For example, using just two repeaters between any pair of hosts
+supports a configuration similar to the one illustrated in
+<a class="reference internal" href="#fig-net-repeat"><span class="std std-numref">Figure 40</span></a>; that is, a segment running down the
+spine of a building with a segment on each floor.</p>
+<div class="figure align-center" id="id2">
+<span id="fig-net-repeat"></span><a class="reference internal image-reference" href="../_images/f02-23-9780123850591.png"><img alt="../_images/f02-23-9780123850591.png" src="../_images/f02-23-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 40. </span><span class="caption-text">Ethernet repeater, interconnecting segments to form a larger
+collision domain.</span></p>
+</div>
 <p>Any signal placed on the Ethernet by a host is broadcast over the entire
 network; that is, the signal is propagated in both directions, and
 repeaters and hubs forward the signal on all outgoing segments.
@@ -1083,70 +268,68 @@ keep it from bouncing back and interfering with trailing signals. The
 original Ethernet specifications used the Manchester encoding scheme
 described in an earlier section, while 4B/5B encoding (or the similar
 8B/10B) scheme is used today on higher speed Ethernets.</p>
-<figure>
-    <a id="hub"></a>
-    <img src="figures/f02-24-9780123850591.png" width="400px">
-    <figcaption>Ethernet hub.</figcaption>
-</figure>
-
 <p>It is important to understand that whether a given Ethernet spans a
 single segment, a linear sequence of segments connected by repeaters, or
-multiple segments connected in a star configuration by a hub, data
+multiple segments connected in a star configuration, data
 transmitted by any one host on that Ethernet reaches all the other
 hosts. This is the good news. The bad news is that all these hosts are
 competing for access to the same link, and, as a consequence, they are
 said to be in the same <em>collision domain</em>. The multi-access part of the
 Ethernet is all about dealing with the competition for the link that
 arises in a collision domain.</p>
-<h2 id="access-protocol">Access Protocol</h2>
+</div>
+<div class="section" id="access-protocol">
+<h2>Access Protocol<a class="headerlink" href="#access-protocol" title="Permalink to this headline">¶</a></h2>
 <p>We now turn our attention to the algorithm that controls access to a
-shared Ethernet link. This algorithm is commonly called the Ethernet&apos;s
+shared Ethernet link. This algorithm is commonly called the Ethernet’s
 <em>media access control</em> (MAC). It is typically implemented in hardware on
 the network adaptor. We will not describe the hardware <em>per se</em>, but
 instead focus on the algorithm it implements. First, however, we
-describe the Ethernet&apos;s frame format and addresses.</p>
-<h3 id="frame-format">Frame Format</h3>
-<p>Each Ethernet frame is defined by the format given in
-<a href="#enet-format">Figure 4</a>. The 64-bit preamble allows the receiver
-to synchronize with the signal; it is a sequence of alternating 0s and
-1s. Both the source and destination hosts are identified with a 48-bit
+describe the Ethernet’s frame format and addresses.</p>
+<div class="section" id="frame-format">
+<h3>Frame Format<a class="headerlink" href="#frame-format" title="Permalink to this headline">¶</a></h3>
+<p>Each Ethernet frame is defined by the format given in <a class="reference internal" href="#fig-enet-format"><span class="std std-numref">Figure
+41</span></a>. The 64-bit preamble allows the receiver to
+synchronize with the signal; it is a sequence of alternating 0s and 1s.
+Both the source and destination hosts are identified with a 48-bit
 address. The packet type field serves as the demultiplexing key; it
 identifies to which of possibly many higher-level protocols this frame
-should be delivered. Each frame contains up to 1500 bytes of data.
-Minimally, a frame must contain at least 46 bytes of data, even if this
+should be delivered. Each frame contains up to 1500&nbsp;bytes of data.
+Minimally, a frame must contain at least 46&nbsp;bytes of data, even if this
 means the host has to pad the frame before transmitting it. The reason
 for this minimum frame size is that the frame must be long enough to
 detect a collision; we discuss this more below. Finally, each frame
 includes a 32-bit CRC. Like the HDLC protocol described in an earlier
 section, the Ethernet is a bit-oriented framing protocol. Note that from
-the host&apos;s perspective, an Ethernet frame has a 14-byte header: two
+the host’s perspective, an Ethernet frame has a 14-byte header: two
 6-byte addresses and a 2-byte type field. The sending adaptor attaches
 the preamble and CRC before transmitting, and the receiving adaptor
 removes them.</p>
-<figure>
-    <a id="enet-format"></a>
-    <img src="figures/f02-25-9780123850591.png" width="400px">
-    <figcaption>Ethernet frame format.</figcaption>
-</figure>
-
-<h3 id="addresses">Addresses</h3>
-<p>Each host on an Ethernet&#x2014;in fact, every Ethernet host in the
-world&#x2014;has a unique Ethernet address. Technically, the address belongs
-to the adaptor, not the host; it is usually burned into ROM. Ethernet
-addresses are typically printed in a form humans can read as a sequence
-of six numbers separated by colons. Each number corresponds to 1 byte of
-the 6-byte address and is given by a pair of hexadecimal digits, one for
+<div class="figure align-center" id="id3">
+<span id="fig-enet-format"></span><a class="reference internal image-reference" href="../_images/f02-25-9780123850591.png"><img alt="../_images/f02-25-9780123850591.png" src="../_images/f02-25-9780123850591.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Figure 41. </span><span class="caption-text">Ethernet frame format.</span></p>
+</div>
+</div>
+<div class="section" id="addresses">
+<h3>Addresses<a class="headerlink" href="#addresses" title="Permalink to this headline">¶</a></h3>
+<p>Each host on an Ethernet—in fact, every Ethernet host in the world—has a
+unique Ethernet address. Technically, the address belongs to the
+adaptor, not the host; it is usually burned into ROM. Ethernet addresses
+are typically printed in a form humans can read as a sequence of six
+numbers separated by colons. Each number corresponds to 1 byte of the
+6-byte address and is given by a pair of hexadecimal digits, one for
 each of the 4-bit nibbles in the byte; leading 0s are dropped. For
-example, <code>8:0:2b:e4:b1:2</code> is the human-readable representation of
+example, <code class="docutils literal notranslate"><span class="pre">8:0:2b:e4:b1:2</span></code> is the human-readable representation of
 Ethernet address</p>
-<pre><code class="lang-pseudo">00001000  00000000  00101011  11100100  10110001  00000010
-</code></pre>
-<p>To ensure that every adaptor gets a unique address, each
-manufacturer of Ethernet devices is allocated a different prefix that
-must be prepended to the address on every adaptor they build. For
-example, Advanced Micro Devices has been assigned the 24-bit prefix
-<code>080020</code> (or <code>8:0:20</code>). A given manufacturer then makes sure the
-address suffixes it produces are unique.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mo">00001000</span>  <span class="mo">00000000</span>  <span class="mo">00101011</span>  <span class="mi">11100100</span>  <span class="mi">10110001</span>  <span class="mo">00000010</span>
+</pre></div>
+</div>
+<p>To ensure that every adaptor gets a unique address, each manufacturer of
+Ethernet devices is allocated a different prefix that must be prepended
+to the address on every adaptor they build. For example, Advanced Micro
+Devices has been assigned the 24-bit prefix <code class="docutils literal notranslate"><span class="pre">080020</span></code> (or <code class="docutils literal notranslate"><span class="pre">8:0:20</span></code>).
+A given manufacturer then makes sure the address suffixes it produces
+are unique.</p>
 <p>Each frame transmitted on an Ethernet is received by every adaptor
 connected to that Ethernet. Each adaptor recognizes those frames
 addressed to its address and passes only those frames on to the host.
@@ -1161,58 +344,55 @@ program its adaptor to accept some set of multicast addresses. Multicast
 addresses are used to send messages to some subset of the hosts on an
 Ethernet (e.g., all file servers). To summarize, an Ethernet adaptor
 receives all frames and accepts</p>
-<ul>
-<li><p>Frames addressed to its own address</p>
-</li>
-<li><p>Frames addressed to the broadcast address</p>
-</li>
-<li><p>Frames addressed to a multicast address, if it has been instructed
-  to listen to that address</p>
-</li>
-<li><p>All frames, if it has been placed in promiscuous mode</p>
-</li>
+<ul class="simple">
+<li>Frames addressed to its own address</li>
+<li>Frames addressed to the broadcast address</li>
+<li>Frames addressed to a multicast address, if it has been instructed to
+listen to that address</li>
+<li>All frames, if it has been placed in promiscuous mode</li>
 </ul>
 <p>It passes to the host only the frames that it accepts.</p>
-<h3 id="transmitter-algorithm">Transmitter Algorithm</h3>
+</div>
+<div class="section" id="transmitter-algorithm">
+<h3>Transmitter Algorithm<a class="headerlink" href="#transmitter-algorithm" title="Permalink to this headline">¶</a></h3>
 <p>As we have just seen, the receiver side of the Ethernet protocol is
-simple; the real smarts are implemented at the sender&apos;s side. The
+simple; the real smarts are implemented at the sender’s side. The
 transmitter algorithm is defined as follows.</p>
 <p>When the adaptor has a frame to send and the line is idle, it transmits
 the frame immediately; there is no negotiation with the other adaptors.
-The upper bound of 1500 bytes in the message means that the adaptor can
+The upper bound of 1500&nbsp;bytes in the message means that the adaptor can
 occupy the line for only a fixed length of time.</p>
 <p>When an adaptor has a frame to send and the line is busy, it waits for
-the line to go idle and then transmits immediately. (To be more
-precise, all adaptors wait 9.6 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s after the
-end of one frame before beginning to transmit the next frame. This
-is true for both the sender of the first frame as well as those
-nodes listening for the line to become idle.) The Ethernet is
-said to be a <em>1-persistent</em> protocol because an adaptor with a frame to
-send transmits with probability 1 whenever a busy line goes idle. In
-general, a <em>p-persistent</em> algorithm transmits with probability
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>&#x2264;</mo><mi>p</mi><mo>&#x2264;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0 \le p \le 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">&#x2264;</span><span class="mord mathit">p</span><span class="mrel">&#x2264;</span><span class="mord mathrm">1</span></span></span></span> after a line becomes idle and defers with probability
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn><mo>&#x2212;</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">q = 1 - p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">&#x2212;</span><span class="mord mathit">p</span></span></span></span>. The reasoning behind choosing a <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span><span class="mrel">&lt;</span><span class="mord mathrm">1</span></span></span></span> is that there might
-be multiple adaptors waiting for the busy line to become idle, and we
-don&apos;t want all of them to begin transmitting at the same time. If each
-adaptor transmits immediately with a probability of, say, 33%, then up
-to three adaptors can be waiting to transmit and the odds are that only
-one will begin transmitting when the line becomes idle. Despite this
-reasoning, an Ethernet adaptor always transmits immediately after
-noticing that the network has become idle and has been very effective in
-doing so.</p>
-<p>To complete the story about <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span></span></span></span>-persistent protocols for the case when
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span><span class="mrel">&lt;</span><span class="mord mathrm">1</span></span></span></span>, you might wonder how long a sender that loses the coin flip
+the line to go idle and then transmits immediately. (To be more precise,
+all adaptors wait 9.6&nbsp;μs after the end of one frame before beginning to
+transmit the next frame. This is true for both the sender of the first
+frame as well as those nodes listening for the line to become idle.) The
+Ethernet is said to be a <em>1-persistent</em> protocol because an adaptor with
+a frame to send transmits with probability&nbsp;1 whenever a busy line goes
+idle. In general, a <em>p-persistent</em> algorithm transmits with
+probability <span class="math notranslate nohighlight">\(0 \le p \le 1\)</span> after a line becomes idle and defers
+with probability <em>q = 1 - p</em>. The
+reasoning behind choosing a <em>p&lt;1</em> is that there might be multiple
+adaptors waiting for the busy line to become idle, and we don’t want all
+of them to begin transmitting at the same time. If each adaptor
+transmits immediately with a probability of, say, 33%, then up to three
+adaptors can be waiting to transmit and the odds are that only one will
+begin transmitting when the line becomes idle. Despite this reasoning,
+an Ethernet adaptor always transmits immediately after noticing that the
+network has become idle and has been very effective in doing&nbsp;so.</p>
+<p>To complete the story about <em>p</em>-persistent protocols for the case when
+<em>p&lt;1</em>, you might wonder how long a sender that loses the coin flip
 (i.e., decides to defer) has to wait before it can transmit. The answer
 for the Aloha network, which originally developed this style of
 protocol, was to divide time into discrete slots, with each slot
 corresponding to the length of time it takes to transmit a full frame.
 Whenever a node has a frame to send and it senses an empty (idle) slot,
-it transmits with probability <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span></span></span></span> and defers until the next slot with
-probability <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn><mo>&#x2212;</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">q = 1 - p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">q</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">&#x2212;</span><span class="mord mathit">p</span></span></span></span>. If that next slot is also empty, the node again
-decides to transmit or defer, with probabilities <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">q</span></span></span></span>,
-respectively. If that next slot is not empty&#x2014;that is, some other
-station has decided to transmit&#x2014;then the node simply waits for the
-next idle slot and the algorithm repeats.</p>
+it transmits with probability <em>p</em> and defers until the next slot with
+probability <em>q = 1 - p</em>. If that next slot is also empty, the node again
+decides to transmit or defer, with probabilities <em>p</em> and <em>q</em>,
+respectively. If that next slot is not empty—that is, some other station
+has decided to transmit—then the node simply waits for the next idle
+slot and the algorithm repeats.</p>
 <p>Returning to our discussion of the Ethernet, because there is no
 centralized control it is possible for two (or more) adaptors to begin
 transmitting at the same time, either because both found the line to be
@@ -1222,202 +402,147 @@ network. Each sender, because the Ethernet supports collision detection,
 is able to determine that a collision is in progress. At the moment an
 adaptor detects that its frame is colliding with another, it first makes
 sure to transmit a 32-bit jamming sequence and then stops the
-transmission. Thus, a transmitter will minimally send 96 bits in the
+transmission. Thus, a transmitter will minimally send 96&nbsp;bits in the
 case of a collision: 64-bit preamble plus 32-bit jamming sequence.</p>
-<p>One way that an adaptor will send only 96 bits&#x2014;which is sometimes
-called a <em>runt frame</em>&#x2014;is if the two hosts are close to each other. Had
-the two hosts been farther apart, they would have had to transmit
-longer, and thus send more bits, before detecting the collision. In
-fact, the worst-case scenario happens when the two hosts are at opposite
-ends of the Ethernet. To know for sure that the frame it just sent did
-not collide with another frame, the transmitter may need to send as many
-as 512 bits. Not coincidentally, every Ethernet frame must be at least
-512 bits (64 bytes) long: 14 bytes of header plus 46 bytes of data plus
-4 bytes of CRC.</p>
-<p>Why 512 bits? The answer is related to another question you might ask
-about an Ethernet: Why is its length limited to only 2500 m? Why not 10
-or 1000 km? The answer to both questions has to do with the fact that the
-farther apart two nodes are, the longer it takes for a frame sent by one
-to reach the other, and the network is vulnerable to a collision
+<p>One way that an adaptor will send only 96&nbsp;bits—which is sometimes called
+a <em>runt frame</em>—is if the two hosts are close to each other. Had the two
+hosts been farther apart, they would have had to transmit longer, and
+thus send more bits, before detecting the collision. In fact, the
+worst-case scenario happens when the two hosts are at opposite ends of
+the Ethernet. To know for sure that the frame it just sent did not
+collide with another frame, the transmitter may need to send as many as
+512&nbsp;bits. Not coincidentally, every Ethernet frame must be at least
+512&nbsp;bits (64&nbsp;bytes) long: 14&nbsp;bytes of header plus 46&nbsp;bytes of data plus
+4&nbsp;bytes of CRC.</p>
+<p>Why 512&nbsp;bits? The answer is related to another question you might ask
+about an Ethernet: Why is its length limited to only 2500&nbsp;m? Why not 10
+or 1000&nbsp;km? The answer to both questions has to do with the fact that
+the farther apart two nodes are, the longer it takes for a frame sent by
+one to reach the other, and the network is vulnerable to a collision
 during this time.</p>
-<figure>
-    <a id="worst"></a>
-    <img src="figures/f02-26-9780123850591.png" width="350px">
-    <figcaption>Worst-case scenario: (a) A sends a frame at time t;
-    (b) A&apos;s frame arrives at B at time t+d; (c) B begins transmitting
-    at time t+d and collides with A&apos;s frame; (d) B&apos;s runt (32-bit)
-    frame arrives at A at time t+2d.</figcaption>
-</figure>
-
-<p><a href="#worst">Figure 5</a> illustrates the worst-case scenario,
-where hosts A and B are at opposite ends of the network. Suppose
-host A begins transmitting a frame at time t, as shown in (a). It
-takes it one link latency (let&apos;s denote the latency as d) for the
-frame to reach host B. Thus, the first bit of A&apos;s frame arrives at B
-at time t+d, as shown in (b). Suppose an instant before host A&apos;s
-frame arrives (i.e., B still sees an idle line),
-host B begins to transmit its own frame. B&apos;s frame
-will immediately collide with A&apos;s frame, and this collision will be
-detected by host B (c). Host B will send the 32-bit jamming sequence, as
-described above. (B&apos;s frame will be a runt.) Unfortunately, host A will
-not know that the collision occurred until B&apos;s frame reaches it, which
-will happen one link latency later, at time t+2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span>d, as shown
-in (d). Host A must continue to transmit until this time in order to
-detect the collision. In other words, host A must transmit for
-2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span>d to be sure that it detects all possible collisions.
-Considering that a maximally configured Ethernet is 2500 m long, and
-that there may be up to four repeaters between any two hosts, the
-round-trip delay has been determined to be 51.2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s, which on a
-10-Mbps Ethernet corresponds to 512 bits. The other way to look at this
-situation is that we need to limit the Ethernet&apos;s maximum latency to a
-fairly small value (e.g., 51.2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s) for the access algorithm to
-work; hence, an Ethernet&apos;s maximum length must be something on the order
-of 2500 m.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-worst"></span><a class="reference internal image-reference" href="../_images/f02-26-9780123850591.png"><img alt="../_images/f02-26-9780123850591.png" src="../_images/f02-26-9780123850591.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-number">Figure 42. </span><span class="caption-text">Worst-case scenario: (a) A sends a frame at time t;
+(b) A’s frame arrives at B at time t+d; (c) B begins transmitting
+at time t+d and collides with A’s frame; (d) B’s runt (32-bit)
+frame arrives at A at time t+2×d.</span></p>
+</div>
+<p><a class="reference internal" href="#fig-worst"><span class="std std-numref">Figure 42</span></a> illustrates the worst-case scenario,
+where hosts&nbsp;A
+and B are at opposite ends of the network. Suppose host&nbsp;A begins
+transmitting a frame at time t, as shown in&nbsp;(a). It takes it one link
+latency (let’s denote the latency as d) for the frame to reach host&nbsp;B.
+Thus, the first bit of A’s frame arrives at B at time t+d, as shown
+in&nbsp;(b). Suppose an instant before host&nbsp;A’s frame arrives (i.e., B still
+sees an idle line), host&nbsp;B begins to transmit its own frame. B’s frame
+will immediately collide with A’s frame, and this collision will be
+detected by host&nbsp;B&nbsp;(c). Host&nbsp;B will send the 32-bit jamming sequence, as
+described above. (B’s frame will be a runt.) Unfortunately, host&nbsp;A will
+not know that the collision occurred until B’s frame reaches it, which
+will happen one link latency later, at time <em>t+2×d</em>, as shown in&nbsp;(d).
+Host&nbsp;A must continue to transmit until this time in order to detect the
+collision. In other words, host&nbsp;A must transmit for <em>2×d</em> to be sure
+that it detects all possible collisions. Considering that a maximally
+configured Ethernet is 2500&nbsp;m long, and that there may be up to four
+repeaters between any two hosts, the round-trip delay has been
+determined to be 51.2&nbsp;μs, which on a 10-Mbps Ethernet corresponds to
+512&nbsp;bits. The other way to look at this situation is that we need to
+limit the Ethernet’s maximum latency to a fairly small value (e.g.,
+51.2&nbsp;μs) for the access algorithm to work; hence, an Ethernet’s maximum
+length must be something on the order of 2500&nbsp;m.</p>
 <p>Once an adaptor has detected a collision and stopped its transmission,
 it waits a certain amount of time and tries again. Each time it tries to
 transmit but fails, the adaptor doubles the amount of time it waits
 before trying again. This strategy of doubling the delay interval
 between each retransmission attempt is a general technique known as
 <em>exponential backoff</em>. More precisely, the adaptor first delays either 0
-or 51.2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s, selected at random. If this effort fails, it then waits
-0, 51.2, 102.4, or 153.6 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s (selected randomly) before trying
-again; this is k <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span> 51.2 for k=0..3. After the third
-collision, it waits k<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span>51.2 for k=0.2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>-1, again selected
-at random. In general, the algorithm randomly selects a k between 0
-and 2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.664392em;"></span><span class="strut bottom" style="height:0.664392em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>-1 and waits k<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#xD7;</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">&#xD7;</span></span></span></span>51.2<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BC;</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BC;</span></span></span></span>s, where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> is
-the number of collisions experienced so far. The adaptor gives up
-after a given number of tries and reports a transmit error to the
-host. Adaptors typically retry up to 16 times, although the backoff
-algorithm caps <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> in the above formula at 10.</p>
-<h2 id="longevity-of-ethernet">Longevity of Ethernet</h2>
-<p>Ethernet has been the dominant local area network technology for over
-30 years. Today it is typically deployed point-to-point rather than
-tapping into a coax cable, it often runs at speeds of 1 or 10 Gbps
-rather than 10 Mbps, and it allows jumbo packets with up to 9000
-bytes of data rather than 1500 bytes. But, it remains backwards
-compatible with the original standard. This makes it worth saying a
-few words about why Ethernets have been so successful, so that we can
-understand the properties we should emulate with any technology that
-tries to replace it.</p>
+or 51.2&nbsp;μs, selected at random. If this effort fails, it then waits 0,
+51.2, 102.4, or 153.6&nbsp;μs (selected randomly) before trying again; this
+is k × 51.2 for k=0..3. After the third collision, it waits <em>k × 51.2</em>
+for k = 0.2<sup>3</sup> - 1, again selected at random. In general,
+the algorithm randomly selects a <em>k</em> between 0 and 2<sup>n</sup> - 1
+and waits k × 51.2 μs, where <em>n</em> is the number of collisions
+experienced so far. The adaptor gives up after a given number of tries
+and reports a transmit error to the host. Adaptors typically retry up to
+16&nbsp;times, although the backoff algorithm caps <em>n</em> in the above formula
+at&nbsp;10.</p>
+</div>
+</div>
+<div class="section" id="longevity-of-ethernet">
+<h2>Longevity of Ethernet<a class="headerlink" href="#longevity-of-ethernet" title="Permalink to this headline">¶</a></h2>
+<p>Ethernet has been the dominant local area network technology for over 30
+years. Today it is typically deployed point-to-point rather than tapping
+into a coax cable, it often runs at speeds of 1 or 10 Gbps rather than
+10 Mbps, and it allows jumbo packets with up to 9000 bytes of data
+rather than 1500 bytes. But, it remains backwards compatible with the
+original standard. This makes it worth saying a few words about why
+Ethernets have been so successful, so that we can understand the
+properties we should emulate with any technology that tries to replace
+it.</p>
 <p>First, an Ethernet is extremely easy to administer and maintain: There
 is no routing or configuration tables to be kept up-to-date, and it is
 easy to add a new host to the network. It is hard to imagine a simpler
 network to administer. Second, it is inexpensive: cable/fiber is
-relatively cheap, and the only other cost is the network adaptor on
-each host. Ethernet became deeply entrenched for these reasons, and
-any switch-based approach that aspired to displace it required
-additional investment in infrastructure (the switches), on top of the
-cost of each adaptor. The switch-based variant of Ethernet did
-eventually succeed in replacing multi-access Ethernet, but this is in
-part because it could be deployed incrementally&#x2014;with some hosts
-connected by point-to-point links to switches while others remained
-tapped into coax&#x2014;all the while retaining the simplicity of network
-administration.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+relatively cheap, and the only other cost is the network adaptor on each
+host. Ethernet became deeply entrenched for these reasons, and any
+switch-based approach that aspired to displace it required additional
+investment in infrastructure (the switches), on top of the cost of each
+adaptor. The switch-based variant of Ethernet did eventually succeed in
+replacing multi-access Ethernet, but this is primarily because it
+could be <em>deployed incrementally</em>—with some hosts connected by
+point-to-point links to switches while others remained tapped into
+coax and connected to repeaters or hubs—all the while retaining the
+simplicity of network administration.</p>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="reliable.html" class="navigation navigation-prev " aria-label="Previous page: 2.5 Reliable Transmission">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="wireless.html" class="navigation navigation-next " aria-label="Next page: 2.7 Wireless Networks">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wireless.html" class="btn btn-neutral float-right" title="2.7 Wireless Networks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reliable.html" class="btn btn-neutral float-left" title="2.5 Reliable Transmission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.6 Multi-Access Networks","level":"1.4.6","depth":2,"next":{"title":"2.7 Wireless Networks","level":"1.4.7","depth":2,"path":"direct/wireless.md","ref":"direct/wireless.md","articles":[]},"previous":{"title":"2.5 Reliable Transmission","level":"1.4.5","depth":2,"path":"direct/reliable.md","ref":"direct/reliable.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"direct/ethernet.md","mtime":"2019-07-10T16:23:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

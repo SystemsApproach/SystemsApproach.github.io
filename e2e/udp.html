@@ -1,1003 +1,182 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5.1 Simple Demultiplexor (UDP) · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1 Simple Demultiplexor (UDP) &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.2 Reliable Byte Stream (TCP)" href="tcp.html" />
+    <link rel="prev" title="Problem: Getting Processes to Communicate" href="problem.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="tcp.html" />
-    
-    
-    <link rel="prev" href="problem.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="../foundation/problem.html">
-            
-                <a href="../foundation/problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="../foundation/applications.html">
-            
-                <a href="../foundation/applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="../foundation/requirements.html">
-            
-                <a href="../foundation/requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../foundation/architecture.html">
-            
-                <a href="../foundation/architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="../foundation/software.html">
-            
-                <a href="../foundation/software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="../foundation/performance.html">
-            
-                <a href="../foundation/performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="../foundation/trend.html">
-            
-                <a href="../foundation/trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../scaling/problem.html">
-            
-                <a href="../scaling/problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../scaling/global.html">
-            
-                <a href="../scaling/global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../scaling/multicast.html">
-            
-                <a href="../scaling/multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../scaling/mpls.html">
-            
-                <a href="../scaling/mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="../scaling/mobile-ip.html">
-            
-                <a href="../scaling/mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../scaling/trend.html">
-            
-                <a href="../scaling/trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="1.7.1" data-path="udp.html">
-            
-                <a href="udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="tcp.html">
-            
-                <a href="tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="rpc.html">
-            
-                <a href="rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="rtp.html">
-            
-                <a href="rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Getting Processes to Communicate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.1 Simple Demultiplexor (UDP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">5.2 Reliable Byte Stream (TCP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">5.3 Remote Procedure Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rtp.html">5.4 Transport for Real-Time (RTP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: HTTP is the New Narrow Waist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../e2e.html">Chapter 5:  End-to-End Protocols</a> &raquo;</li>
+        
+      <li>5.1 Simple Demultiplexor (UDP)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/e2e/udp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >5.1 Simple Demultiplexor (UDP)</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="51-simple-demultiplexor-udp">5.1 Simple Demultiplexor (UDP)</h1>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simple-demultiplexor-udp">
+<h1>5.1 Simple Demultiplexor (UDP)<a class="headerlink" href="#simple-demultiplexor-udp" title="Permalink to this headline">¶</a></h1>
 <p>The simplest possible transport protocol is one that extends the
 host-to-host delivery service of the underlying network into a
 process-to-process communication service. There are likely to be many
@@ -1005,7 +184,7 @@ processes running on any given host, so the protocol needs to add a
 level of demultiplexing, thereby allowing multiple application processes
 on each host to share the network. Aside from this requirement, the
 transport protocol adds no other functionality to the best-effort
-service provided by the underlying network. The Internet&apos;s User Datagram
+service provided by the underlying network. The Internet’s User Datagram
 Protocol is an example of such a transport protocol.</p>
 <p>The only interesting issue in such a protocol is the form of the address
 used to identify the target process. Although it is possible for
@@ -1018,190 +197,129 @@ usually called a <em>port</em>. The basic idea is for a source process to send
 a message to a port and for the destination process to receive the
 message from a port.</p>
 <p>The header for an end-to-end protocol that implements this
-demultiplexing function typically contains an identifier (port) for both
-the sender (source) and the receiver (destination) of the message. For
-example, the UDP header is given in <a href="#udp-format">Figure 1</a>. Notice
-that the UDP port field is only 16 bits long. This means that there are
-up to 64K possible ports, clearly not enough to identify all the
-processes on all the hosts in the Internet. Fortunately, ports are not
-interpreted across the entire Internet, but only on a single host. That
-is, a process is really identified by a port on some particular host: a
-(port, host) pair. This pair constitutes the demultiplexing key for
-the UDP protocol.</p>
+demultiplexing function typically contains an identifier (port) for
+both the sender (source) and the receiver (destination) of the
+message. For example, the UDP header is given in <a class="reference internal" href="#fig-udp-format"><span class="std std-numref">Figure 125</span></a>.  Notice that the UDP port field is only 16&nbsp;bits
+long. This means that there are up to 64K possible ports, clearly not
+enough to identify all the processes on all the hosts in the
+Internet. Fortunately, ports are not interpreted across the entire
+Internet, but only on a single host. That is, a process is really
+identified by a port on some particular host: a (port, host)
+pair. This pair constitutes the demultiplexing key for the UDP
+protocol.</p>
 <p>The next issue is how a process learns the port for the process to which
 it wants to send a message. Typically, a client process initiates a
 message exchange with a server process. Once a client has contacted a
-server, the server knows the client&apos;s port (from the <code>SrcPrt</code> field
+server, the server knows the client’s port (from the <code class="docutils literal notranslate"><span class="pre">SrcPrt</span></code> field
 contained in the message header) and can reply to it. The real problem,
-therefore, is how the client learns the server&apos;s port in the first
+therefore, is how the client learns the server’s port in the first
 place. A common approach is for the server to accept messages at a
 <em>well-known port</em>. That is, each server receives its messages at some
 fixed port that is widely published, much like the emergency telephone
-service available in the United States at the well-known phone
-number 911. In the Internet, for example, the Domain Name Server (DNS)
-receives messages at well-known port 53 on each host, the mail service
-listens for messages at port 25, and the Unix <code>talk</code> program accepts
-messages at well-known port 517, and so on. This mapping is published
+service available in the United States at the well-known phone number
+911. In the Internet, for example, the Domain Name Server (DNS) receives
+messages at well-known port&nbsp;53 on each host, the mail service listens
+for messages at port&nbsp;25, and the Unix <code class="docutils literal notranslate"><span class="pre">talk</span></code> program accepts messages
+at well-known port&nbsp;517, and so on. This mapping is published
 periodically in an RFC and is available on most Unix systems in file
-<code>/etc/services</code>. Sometimes a well-known port is just the starting point
-for communication: The client and server use the well-known port to
-agree on some other port that they will use for subsequent
+<code class="docutils literal notranslate"><span class="pre">/etc/services</span></code>. Sometimes a well-known port is just the starting
+point for communication: The client and server use the well-known port
+to agree on some other port that they will use for subsequent
 communication, leaving the well-known port free for other clients.</p>
-<figure>
-    <a id="udp-format"></a>
-    <img src="figures/f05-01-9780123850591.png" width="400px">
-    <figcaption>Format for UDP header.</figcaption>
-</figure>
-
+<div class="figure align-center" id="id1">
+<span id="fig-udp-format"></span><a class="reference internal image-reference" href="../_images/f05-01-9780123850591.png"><img alt="../_images/f05-01-9780123850591.png" src="../_images/f05-01-9780123850591.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Figure 125. </span><span class="caption-text">Format for UDP header.</span></p>
+</div>
 <p>An alternative strategy is to generalize this idea, so that there is
-only a single well-known port&#x2014;the one at which the <em>port mapper</em>
-service accepts messages. A client would send a message to the port
-mapper&apos;s well-known port asking for the port it should use to talk to
-the &quot;whatever&quot; service, and the port mapper returns the appropriate
-port. This strategy makes it easy to change the port associated with
-different services over time and for each host to use a different port
-for the same service.</p>
+only a single well-known port—the one at which the <em>port mapper</em> service
+accepts messages. A client would send a message to the port mapper’s
+well-known port asking for the port it should use to talk to the
+“whatever” service, and the port mapper returns the appropriate port.
+This strategy makes it easy to change the port associated with different
+services over time and for each host to use a different port for the
+same service.</p>
 <p>As just mentioned, a port is purely an abstraction. Exactly how it is
-implemented differs from system to system, or more precisely, from OS to
-OS. For example, the socket API described in Chapter 1 is an example
-implementation of ports. Typically, a port is implemented by a message
-queue, as illustrated in <a href="#udp-queue">Figure 2</a>. When a message
-arrives, the protocol (e.g., UDP) appends the message to the end of the
-queue. Should the queue be full, the message is discarded. There is no
-flow-control mechanism in UDP to tell the sender to slow down. When an
-application process wants to receive a message, one is removed from the
-front of the queue. If the queue is empty, the process blocks until a
-message becomes available.</p>
-<figure>
-    <a id="udp-queue"></a>
-    <img src="figures/f05-02-9780123850591.png" width="400px">
-    <figcaption>UDP message queue.</figcaption>
-</figure>
-
+implemented differs from system to system, or more precisely, from OS
+to OS. For example, the socket API described in Chapter&nbsp;1 is an
+example implementation of ports. Typically, a port is implemented by a
+message queue, as illustrated in <a class="reference internal" href="#fig-udp-queue"><span class="std std-numref">Figure 126</span></a>. When a message arrives, the protocol (e.g., UDP)
+appends the message to the end of the queue. Should the queue be full,
+the message is discarded. There is no flow-control mechanism in UDP to
+tell the sender to slow down. When an application process wants to
+receive a message, one is removed from the front of the queue. If the
+queue is empty, the process blocks until a message becomes available.</p>
+<div class="figure align-center" id="id2">
+<span id="fig-udp-queue"></span><a class="reference internal image-reference" href="../_images/f05-02-9780123850591.png"><img alt="../_images/f05-02-9780123850591.png" src="../_images/f05-02-9780123850591.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Figure 126. </span><span class="caption-text">UDP message queue.</span></p>
+</div>
 <p>Finally, although UDP does not implement flow control or
 reliable/ordered delivery, it does provide one more function aside from
-demultiplexing messages to some application process&#x2014;it also ensures
-the correctness of the message by the use of a checksum. (The UDP
-checksum is optional in IPv4 but is mandatory in IPv6.) The basic UDP
-checksum algorithm is the same one used for IP&#x2014;that is, it adds up a
-set of 16-bit words using ones&apos; complement arithmetic and takes the ones&apos;
+demultiplexing messages to some application process—it also ensures the
+correctness of the message by the use of a checksum. (The UDP checksum
+is optional in IPv4 but is mandatory in IPv6.) The basic UDP checksum
+algorithm is the same one used for IP—that is, it adds up a set of
+16-bit words using ones’ complement arithmetic and takes the ones’
 complement of the result. But the input data that is used for the
 checksum is a little counterintuitive.</p>
 <p>The UDP checksum takes as input the UDP header, the contents of the
 message body, and something called the <em>pseudoheader</em>. The pseudoheader
-consists of three fields from the IP header&#x2014;protocol number, source IP
-address, and destination IP address&#x2014;plus the UDP length field. (Yes,
-the UDP length field is included twice in the checksum calculation.) The
+consists of three fields from the IP header—protocol number, source IP
+address, and destination IP address—plus the UDP length field. (Yes, the
+UDP length field is included twice in the checksum calculation.) The
 motivation behind having the pseudoheader is to verify that this message
 has been delivered between the correct two endpoints. For example, if
 the destination IP address was modified while the packet was in transit,
 causing the packet to be misdelivered, this fact would be detected by
 the UDP checksum.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="problem.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 5: End-to-End Protocols">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="tcp.html" class="navigation navigation-next " aria-label="Next page: 5.2 Reliable Byte Stream (TCP)">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tcp.html" class="btn btn-neutral float-right" title="5.2 Reliable Byte Stream (TCP)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="problem.html" class="btn btn-neutral float-left" title="Problem: Getting Processes to Communicate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.7.1","depth":2,"next":{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.7.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},"previous":{"title":"Chapter 5: End-to-End Protocols","level":"1.7","depth":1,"path":"e2e/problem.md","ref":"e2e/problem.md","articles":[{"title":"5.1 Simple Demultiplexor (UDP)","level":"1.7.1","depth":2,"path":"e2e/udp.md","ref":"e2e/udp.md","articles":[]},{"title":"5.2 Reliable Byte Stream (TCP)","level":"1.7.2","depth":2,"path":"e2e/tcp.md","ref":"e2e/tcp.md","articles":[]},{"title":"5.3 Remote Procedure Call","level":"1.7.3","depth":2,"path":"e2e/rpc.md","ref":"e2e/rpc.md","articles":[]},{"title":"5.4 Transport for Real-Time (RTP)","level":"1.7.4","depth":2,"path":"e2e/rtp.md","ref":"e2e/rtp.md","articles":[]},{"title":"5.5 Broader Perspective","level":"1.7.5","depth":2,"path":"e2e/trend.md","ref":"e2e/trend.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"e2e/udp.md","mtime":"2019-07-10T19:05:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

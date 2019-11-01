@@ -1,1055 +1,242 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1.3 Architecture · Computer Networks: A Systems Approach</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.3 Architecture &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../static/bridge.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-block-align/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-intopic-toc/style.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/rtd_theme_mods.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.4 Software" href="software.html" />
+    <link rel="prev" title="1.2 Requirements" href="requirements.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="software.html" />
-    
-    
-    <link rel="prev" href="requirements.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> Computer Networks: A Systems Approach
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+              <div class="version">
+                Version 6.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    About
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../preface.html">
-            
-                <a href="../preface.html">
-            
-                    
-                    Preface
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="problem.html">
-            
-                <a href="problem.html">
-            
-                    
-                    Chapter 1: Foundation
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.1" data-path="applications.html">
-            
-                <a href="applications.html">
-            
-                    
-                    1.1 Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2" data-path="requirements.html">
-            
-                <a href="requirements.html">
-            
-                    
-                    1.2 Requirements
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.3.3" data-path="architecture.html">
-            
-                <a href="architecture.html">
-            
-                    
-                    1.3 Architecture
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.4" data-path="software.html">
-            
-                <a href="software.html">
-            
-                    
-                    1.4 Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.5" data-path="performance.html">
-            
-                <a href="performance.html">
-            
-                    
-                    1.5 Performance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="trend.html">
-            
-                <a href="trend.html">
-            
-                    
-                    1.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../direct/problem.html">
-            
-                <a href="../direct/problem.html">
-            
-                    
-                    Chapter 2: Direct Connections
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../direct/perspective.html">
-            
-                <a href="../direct/perspective.html">
-            
-                    
-                    2.1 Technology Landscape
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../direct/encoding.html">
-            
-                <a href="../direct/encoding.html">
-            
-                    
-                    2.2 Encoding
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.3" data-path="../direct/framing.html">
-            
-                <a href="../direct/framing.html">
-            
-                    
-                    2.3 Framing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="../direct/error.html">
-            
-                <a href="../direct/error.html">
-            
-                    
-                    2.4 Error Detection
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../direct/reliable.html">
-            
-                <a href="../direct/reliable.html">
-            
-                    
-                    2.5 Reliable Transmission
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="../direct/ethernet.html">
-            
-                <a href="../direct/ethernet.html">
-            
-                    
-                    2.6 Multi-Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="../direct/wireless.html">
-            
-                <a href="../direct/wireless.html">
-            
-                    
-                    2.7 Wireless Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.8" data-path="../direct/access.html">
-            
-                <a href="../direct/access.html">
-            
-                    
-                    2.8 Access Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.9" data-path="../direct/trend.html">
-            
-                <a href="../direct/trend.html">
-            
-                    
-                    2.9 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../internetworking/problem.html">
-            
-                <a href="../internetworking/problem.html">
-            
-                    
-                    Chapter 3: Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.5.1" data-path="../internetworking/switching.html">
-            
-                <a href="../internetworking/switching.html">
-            
-                    
-                    3.1 Switching and Bridging
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../internetworking/basic-ip.html">
-            
-                <a href="../internetworking/basic-ip.html">
-            
-                    
-                    3.2 Basic Internetworking
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../internetworking/routing.html">
-            
-                <a href="../internetworking/routing.html">
-            
-                    
-                    3.3 Routing
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../internetworking/impl.html">
-            
-                <a href="../internetworking/impl.html">
-            
-                    
-                    3.4 Implementation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.5" data-path="../internetworking/trend.html">
-            
-                <a href="../internetworking/trend.html">
-            
-                    
-                    3.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="../scaling/problem.html">
-            
-                <a href="../scaling/problem.html">
-            
-                    
-                    Chapter 4: Advanced Internetworking
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.6.1" data-path="../scaling/global.html">
-            
-                <a href="../scaling/global.html">
-            
-                    
-                    4.1 Global Internet
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.2" data-path="../scaling/multicast.html">
-            
-                <a href="../scaling/multicast.html">
-            
-                    
-                    4.2 Multicast
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../scaling/mpls.html">
-            
-                <a href="../scaling/mpls.html">
-            
-                    
-                    4.3 Multiprotocol Label Switching
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.4" data-path="../scaling/mobile-ip.html">
-            
-                <a href="../scaling/mobile-ip.html">
-            
-                    
-                    4.4 Routing Among Mobile Devices
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../scaling/trend.html">
-            
-                <a href="../scaling/trend.html">
-            
-                    
-                    4.5 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="../e2e/problem.html">
-            
-                <a href="../e2e/problem.html">
-            
-                    
-                    Chapter 5: End-to-End Protocols
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.7.1" data-path="../e2e/udp.html">
-            
-                <a href="../e2e/udp.html">
-            
-                    
-                    5.1 Simple Demultiplexor (UDP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../e2e/tcp.html">
-            
-                <a href="../e2e/tcp.html">
-            
-                    
-                    5.2 Reliable Byte Stream (TCP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.3" data-path="../e2e/rpc.html">
-            
-                <a href="../e2e/rpc.html">
-            
-                    
-                    5.3 Remote Procedure Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.4" data-path="../e2e/rtp.html">
-            
-                <a href="../e2e/rtp.html">
-            
-                    
-                    5.4 Transport for Real-Time (RTP)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.5" data-path="../e2e/trend.html">
-            
-                <a href="../e2e/trend.html">
-            
-                    
-                    5.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8" data-path="../congestion/problem.html">
-            
-                <a href="../congestion/problem.html">
-            
-                    
-                    Chapter 6: Congestion Control
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.8.1" data-path="../congestion/issues.html">
-            
-                <a href="../congestion/issues.html">
-            
-                    
-                    6.1 Issues in Resource Allocation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.2" data-path="../congestion/queuing.html">
-            
-                <a href="../congestion/queuing.html">
-            
-                    
-                    6.2 Queuing Disciplines
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.3" data-path="../congestion/tcpcc.html">
-            
-                <a href="../congestion/tcpcc.html">
-            
-                    
-                    6.3 TCP Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.4" data-path="../congestion/avoidance.html">
-            
-                <a href="../congestion/avoidance.html">
-            
-                    
-                    6.4 Advanced Congestion Control
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.5" data-path="../congestion/qos.html">
-            
-                <a href="../congestion/qos.html">
-            
-                    
-                    6.5 Quality of Service
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.8.6" data-path="../congestion/trend.html">
-            
-                <a href="../congestion/trend.html">
-            
-                    
-                    6.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9" data-path="../data/problem.html">
-            
-                <a href="../data/problem.html">
-            
-                    
-                    Chapter 7: End-to-End Data
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.9.1" data-path="../data/presentation.html">
-            
-                <a href="../data/presentation.html">
-            
-                    
-                    7.1 Presentation Formatting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.2" data-path="../data/multimedia.html">
-            
-                <a href="../data/multimedia.html">
-            
-                    
-                    7.2 Multimedia Data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.9.3" data-path="../data/trend.html">
-            
-                <a href="../data/trend.html">
-            
-                    
-                    7.3 Broader Perspective 
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10" data-path="../security/problem.html">
-            
-                <a href="../security/problem.html">
-            
-                    
-                    Chapter 8: Network Security
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.10.1" data-path="../security/trust.html">
-            
-                <a href="../security/trust.html">
-            
-                    
-                    8.1 Trust and Threats
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.2" data-path="../security/crypto.html">
-            
-                <a href="../security/crypto.html">
-            
-                    
-                    8.2 Cryptographic Building Blocks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.3" data-path="../security/key-distro.html">
-            
-                <a href="../security/key-distro.html">
-            
-                    
-                    8.3 Key Predistribution
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.4" data-path="../security/authentication.html">
-            
-                <a href="../security/authentication.html">
-            
-                    
-                    8.4 Authentication Protocols
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../security/systems.html">
-            
-                <a href="../security/systems.html">
-            
-                    
-                    8.5 Example Systems
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.6" data-path="../security/trend.html">
-            
-                <a href="../security/trend.html">
-            
-                    
-                    8.6 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11" data-path="../applications/problem.html">
-            
-                <a href="../applications/problem.html">
-            
-                    
-                    Chapter 9: Applications
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.11.1" data-path="../applications/traditional.html">
-            
-                <a href="../applications/traditional.html">
-            
-                    
-                    9.1 Traditional Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../applications/multimedia.html">
-            
-                <a href="../applications/multimedia.html">
-            
-                    
-                    9.2 Multimedia Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.3" data-path="../applications/infrastructure.html">
-            
-                <a href="../applications/infrastructure.html">
-            
-                    
-                    9.3 Infrastructure Applications
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="../applications/overlays.html">
-            
-                <a href="../applications/overlays.html">
-            
-                    
-                    9.4 Overlay Networks
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="../applications/trend.html">
-            
-                <a href="../applications/trend.html">
-            
-                    
-                    9.5 Broader Perspective
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Building a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">1.1 Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">1.2 Requirements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.3 Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layering-and-protocols">Layering and Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encapsulation">Encapsulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiplexing-and-demultiplexing">Multiplexing and Demultiplexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layer-osi-model">7-Layer OSI Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#internet-architecture">Internet Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software.html">1.4 Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">1.5 Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trend.html">Perspective: Feature Velocity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scaling.html">Chapter 4:  Advanced Internetworking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../e2e.html">Chapter 5:  End-to-End Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../congestion.html">Chapter 6:  Congestion Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Chapter 7: End-to-End Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">Chapter 8: Network Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Computer Networks: A Systems Approach</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../foundation.html">Chapter 1:  Foundation</a> &raquo;</li>
+        
+      <li>1.3 Architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/foundation/architecture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1.3 Architecture</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="13-architecture">1.3 Architecture</h1>
-<p>In case you hadn&apos;t noticed, the previous section established a pretty
-substantial set of requirements for network design&#x2014;a computer network
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture">
+<h1>1.3 Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<p>In case you hadn’t noticed, the previous section established a pretty
+substantial set of requirements for network design—a computer network
 must provide general, cost-effective, fair, and robust connectivity
-among a large number of computers. As if this weren&apos;t enough, networks
+among a large number of computers. As if this weren’t enough, networks
 do not remain fixed at any single point in time but must evolve to
 accommodate changes in both the underlying technologies upon which they
 are based as well as changes in the demands placed on them by
 application programs. Furthermore, networks must be manageable by humans
 of varying levels of skill. Designing a network to meet these
-requirements is no small task.</p>
+requirements is no small&nbsp;task.</p>
 <p>To help deal with this complexity, network designers have developed
-general blueprints&#x2014;usually called <em>network architectures</em>&#x2014;that guide
-the design and implementation of networks. This section defines more
+general blueprints—usually called <em>network architectures</em>—that guide the
+design and implementation of networks. This section defines more
 carefully what we mean by a network architecture by introducing the
 central ideas that are common to all network architectures. It also
-introduces two of the most widely referenced architectures&#x2014;the OSI (or
+introduces two of the most widely referenced architectures—the OSI (or
 7-layer) architecture and the Internet architecture.</p>
-<h2 id="layering-and-protocols">Layering and Protocols</h2>
-<p>Abstraction&#x2014;the hiding of details behind a well-defined interface&#x2014;is
-the fundamental tool used by system designers to manage complexity. The
-idea of an abstraction is to define a model that can capture some
-important aspect of the system, encapsulate this model in an object that
-provides an interface that can be manipulated by other components of the
-system, and hide the details of how the object is implemented from the
-users of the object. The challenge is to identify abstractions that
+<div class="section" id="layering-and-protocols">
+<h2>Layering and Protocols<a class="headerlink" href="#layering-and-protocols" title="Permalink to this headline">¶</a></h2>
+<p>Abstraction—the hiding of details behind a well-defined interface—is the
+fundamental tool used by system designers to manage complexity. The idea
+of an abstraction is to define a model that can capture some important
+aspect of the system, encapsulate this model in an object that provides
+an interface that can be manipulated by other components of the system,
+and hide the details of how the object is implemented from the users of
+the object. The challenge is to identify abstractions that
 simultaneously provide a service that proves useful in a large number of
 situations and that can be efficiently implemented in the underlying
 system. This is exactly what we were doing when we introduced the idea
 of a channel in the previous section: we were providing an abstraction
 for applications that hides the complexity of the network from
 application writers.</p>
-<figure>
-    <a id="layers1"></a>
-    <img src="figures/f01-08-9780123850591.png" width="300px">
-    <figcaption>Example of a layered network system.</figcaption>
-</figure>
-
-<p>Abstractions naturally lead to layering, especially in network systems.
-The general idea is that you start with the services offered by the
-underlying hardware and then add a sequence of layers, each providing a
-higher (more abstract) level of service. The services provided at the
-high layers are implemented in terms of the services provided by the low
-layers. Drawing on the discussion of requirements given in the previous
-section, for example, we might imagine a simple network as having two
-layers of abstraction sandwiched between the application program and the
-underlying hardware, as illustrated in <a href="#layers1">Figure 1</a>. The layer
-immediately above the hardware in this case might provide host-to-host
-connectivity, abstracting away the fact that there may be an
-arbitrarily complex network topology between any two hosts. The next
-layer up builds on the available host-to-host communication service
-and provides support for process-to-process channels, abstracting away
-the fact that the network occasionally loses messages, for example.</p>
+<div class="figure align-center" id="id1">
+<span id="fig-layers1"></span><a class="reference internal image-reference" href="../_images/f01-08-9780123850591.png"><img alt="../_images/f01-08-9780123850591.png" src="../_images/f01-08-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 8. </span><span class="caption-text">Example of a layered network system.</span></p>
+</div>
+<p>Abstractions naturally lead to layering, especially in network
+systems.  The general idea is that you start with the services offered
+by the underlying hardware and then add a sequence of layers, each
+providing a higher (more abstract) level of service. The services
+provided at the high layers are implemented in terms of the services
+provided by the low layers. Drawing on the discussion of requirements
+given in the previous section, for example, we might imagine a simple
+network as having two layers of abstraction sandwiched between the
+application program and the underlying hardware, as illustrated in
+<a class="reference internal" href="#fig-layers1"><span class="std std-numref">Figure 8</span></a>. The layer immediately above the
+hardware in this case might provide host-to-host connectivity,
+abstracting away the fact that there may be an arbitrarily complex
+network topology between any two hosts. The next layer up builds on
+the available host-to-host communication service and provides support
+for process-to-process channels, abstracting away the fact that the
+network occasionally loses messages, for example.</p>
 <p>Layering provides two nice features. First, it decomposes the problem of
 building a network into more manageable components. Rather than
 implementing a monolithic piece of software that does everything you
@@ -1066,14 +253,12 @@ abstractions. To see this, consider the two types of channels discussed
 in the previous section. One provides a request/reply service and one
 supports a message stream service. These two channels might be
 alternative offerings at some level of a multilevel networking system,
-as illustrated in <a href="#layers2">Figure 2</a>.</p>
-<figure>
-    <a id="layers2"></a>
-    <img src="figures/f01-09-9780123850591.png" width="300px">
-    <figcaption>Layered system with alternative abstractions available
-    at a given layer.</figcaption>
-</figure>
-
+as illustrated in <a class="reference internal" href="#fig-layers2"><span class="std std-numref">Figure 9</span></a>.</p>
+<div class="figure align-center" id="id2">
+<span id="fig-layers2"></span><a class="reference internal image-reference" href="../_images/f01-09-9780123850591.png"><img alt="../_images/f01-09-9780123850591.png" src="../_images/f01-09-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 9. </span><span class="caption-text">Layered system with alternative abstractions available
+at a given layer.</span></p>
+</div>
 <p>Using this discussion of layering as a foundation, we are now ready to
 discuss the architecture of a network more precisely. For starters, the
 abstract objects that make up the layers of a network system are called
@@ -1105,48 +290,44 @@ respond when it receives such a command.</p>
 <p>To summarize, a protocol defines a communication service that it exports
 locally (the service interface), along with a set of rules governing the
 messages that the protocol exchanges with its peer(s) to implement this
-service (the peer interface). This situation is illustrated in
-<a href="#interfaces">Figure 3</a>.</p>
-<figure>
-    <a id="interfaces"></a>
-    <img src="figures/f01-10-9780123850591.png" width="500px">
-    <figcaption>Service interfaces and peer interfaces.</figcaption>
-</figure>
-
+service (the peer interface). This situation is illustrated in <a class="reference internal" href="#fig-interfaces"><span class="std std-numref">Figure
+10</span></a>.</p>
+<div class="figure align-center" id="id3">
+<span id="fig-interfaces"></span><a class="reference internal image-reference" href="../_images/f01-10-9780123850591.png"><img alt="../_images/f01-10-9780123850591.png" src="../_images/f01-10-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 10. </span><span class="caption-text">Service interfaces and peer interfaces.</span></p>
+</div>
 <p>Except at the hardware level, where peers directly communicate with each
-other over a physical medium, peer-to-peer communication is indirect&#x2014;each
-protocol communicates with its peer by passing messages to some
-lower-level protocol, which in turn delivers the message to <em>its</em> peer.
-In addition, there are potentially more than one protocol at any given
-level, each providing a different communication service. We therefore
-represent the suite of protocols that make up a network system with a
-<em>protocol graph</em>. The nodes of the graph correspond to protocols, and
-the edges represent a <em>depends on</em> relation. For example,
-<a href="#protgraph">Figure 4</a> illustrates a protocol graph for the hypothetical
-layered system we have been discussing&#x2014;protocols RRP (Request/Reply
+other over a physical medium, peer-to-peer communication is
+indirect—each protocol communicates with its peer by passing messages to
+some lower-level protocol, which in turn delivers the message to <em>its</em>
+peer. In addition, there are potentially more than one protocol at any
+given level, each providing a different communication service. We
+therefore represent the suite of protocols that make up a network system
+with a <em>protocol graph</em>. The nodes of the graph correspond to protocols,
+and the edges represent a <em>depends on</em> relation. For example, <a class="reference internal" href="#fig-protgraph"><span class="std std-numref">Figure
+11</span></a> illustrates a protocol graph for the hypothetical
+layered system we have been discussing—protocols RRP (Request/Reply
 Protocol) and MSP (Message Stream Protocol) implement two different
 types of process-to-process channels, and both depend on the
 Host-to-Host Protocol (HHP) which provides a host-to-host connectivity
 service.</p>
-<figure>
-    <a id="protgraph"></a>
-    <img class="line" src="figures/f01-11-9780123850591.png" width="500px">
-    <figcaption>Example of a protocol graph.</figcaption>
-</figure>
-
-<p>In this example, suppose that the file access program on host 1 wants to
-send a message to its peer on host 2 using the communication service
+<div class="figure align-center" id="id4">
+<span id="fig-protgraph"></span><a class="reference internal image-reference" href="../_images/f01-11-9780123850591.png"><img alt="../_images/f01-11-9780123850591.png" src="../_images/f01-11-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 11. </span><span class="caption-text">Example of a protocol graph.</span></p>
+</div>
+<p>In this example, suppose that the file access program on host&nbsp;1 wants to
+send a message to its peer on host&nbsp;2 using the communication service
 offered by RRP. In this case, the file application asks RRP to send the
 message on its behalf. To communicate with its peer, RRP invokes the
 services of HHP, which in turn transmits the message to its peer on the
 other machine. Once the message has arrived at the instance of HHP on
-host 2, HHP passes the message up to RRP, which in turn delivers the
+host&nbsp;2, HHP passes the message up to RRP, which in turn delivers the
 message to the file application. In this particular case, the
 application is said to employ the services of the <em>protocol stack</em>
 RRP/HHP.</p>
 <p>Note that the term <em>protocol</em> is used in two different ways. Sometimes
-it refers to the abstract interfaces&#x2014;that is, the operations defined
-by the service interface and the form and meaning of messages exchanged
+it refers to the abstract interfaces—that is, the operations defined by
+the service interface and the form and meaning of messages exchanged
 between peers, and sometimes it refers to the module that actually
 implements these two interfaces. To distinguish between the interfaces
 and the module that implements these interfaces, we generally refer to
@@ -1171,9 +352,11 @@ procedures for introducing, validating, and finally approving protocols
 in their respective architectures. We briefly describe the architectures
 defined by the IETF and ISO shortly, but first there are two additional
 things we need to explain about the mechanics of protocol layering.</p>
-<h2 id="encapsulation">Encapsulation</h2>
+</div>
+<div class="section" id="encapsulation">
+<h2>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">¶</a></h2>
 <p>Consider what happens in when one of the application programs sends a
-message to its peer by passing the message to RRP. From RRP&apos;s
+message to its peer by passing the message to RRP. From RRP’s
 perspective, the message it is given by the application is an
 uninterpreted string of bytes. RRP does not care that these bytes
 represent an array of integers, an email message, a digital image, or
@@ -1181,24 +364,21 @@ whatever; it is simply charged with sending them to its peer. However,
 RRP must communicate control information to its peer, instructing it how
 to handle the message when it is received. RRP does this by attaching a
 <em>header</em> to the message. Generally speaking, a header is a small data
-structure&#x2014;from a few bytes to a few dozen bytes&#x2014;that is used among
-peers to communicate with each other. As the name suggests, headers are
+structure—from a few bytes to a few dozen bytes—that is used among peers
+to communicate with each other. As the name suggests, headers are
 usually attached to the front of a message. In some cases, however, this
 peer-to-peer control information is sent at the end of the message, in
 which case it is called a <em>trailer</em>. The exact format for the header
 attached by RRP is defined by its protocol specification. The rest of
-the message&#x2014;that is, the data being transmitted on behalf of the
-application&#x2014;is called the message&apos;s <em>body</em> or <em>payload</em>. We say that
-the application&apos;s data is <em>encapsulated</em> in the new message created by
-RRP.</p>
-<figure>
-    <a id="encapsulation"></a>
-    <img src="figures/f01-12-9780123850591.png" width="500px">
-    <figcaption>High-level messages are encapsulated inside of low-level messages.</figcaption>
-</figure>
-
+the message—that is, the data being transmitted on behalf of the
+application—is called the message’s <em>body</em> or <em>payload</em>. We say that the
+application’s data is <em>encapsulated</em> in the new message created by RRP.</p>
+<div class="figure align-center" id="id5">
+<span id="fig-encapsulation"></span><a class="reference internal image-reference" href="../_images/f01-12-9780123850591.png"><img alt="../_images/f01-12-9780123850591.png" src="../_images/f01-12-9780123850591.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Figure 12. </span><span class="caption-text">High-level messages are encapsulated inside of low-level messages.</span></p>
+</div>
 <p>This process of encapsulation is then repeated at each level of the
-protocol graph; for example, HHP encapsulates RRP&apos;s message by attaching
+protocol graph; for example, HHP encapsulates RRP’s message by attaching
 a header of its own. If we now assume that HHP sends the message to its
 peer over some network, then when the message arrives at the destination
 host, it is processed in the opposite order: HHP first interprets the
@@ -1207,34 +387,36 @@ appropriate given the contents of the header) and passes the body of the
 message (but not the HHP header) up to RRP, which takes whatever action
 is indicated by the RRP header that its peer attached and passes the
 body of the message (but not the RRP header) up to the application
-program. The message passed up from RRP to the application on host 2 is
+program. The message passed up from RRP to the application on host&nbsp;2 is
 exactly the same message as the application passed down to RRP on
-host 1; the application does not see any of the headers that have been
+host&nbsp;1; the application does not see any of the headers that have been
 attached to it to implement the lower-level communication services. This
-whole process is illustrated in <a href="#encapsulation">Figure 5</a>. Note
-that in this example, nodes in the network (e.g., switches and
-routers) may inspect the HHP header at the front of the message.</p>
+whole process is illustrated in <a class="reference internal" href="#fig-encapsulation"><span class="std std-numref">Figure 12</span></a>. Note that
+in this example, nodes in the network (e.g., switches and routers) may
+inspect the HHP header at the front of the message.</p>
 <p>Note that when we say a low-level protocol does not interpret the
 message it is given by some high-level protocol, we mean that it does
 not know how to extract any meaning from the data contained in the
 message. It is sometimes the case, however, that the low-level protocol
 applies some simple transformation to the data it is given, such as to
 compress or encrypt it. In this case, the protocol is transforming the
-entire body of the message, including both the original application&apos;s
+entire body of the message, including both the original application’s
 data and all the headers attached to that data by higher-level
 protocols.</p>
-<h2 id="multiplexing-and-demultiplexing">Multiplexing and Demultiplexing</h2>
-<p>Recall from that a fundamental idea of packet switching is to multiplex
+</div>
+<div class="section" id="multiplexing-and-demultiplexing">
+<h2>Multiplexing and Demultiplexing<a class="headerlink" href="#multiplexing-and-demultiplexing" title="Permalink to this headline">¶</a></h2>
+<p>Recall that a fundamental idea of packet switching is to multiplex
 multiple flows of data over a single physical link. This same idea
 applies up and down the protocol graph, not just to switching nodes. In
-<a href="#protgraph">Figure 4</a>, for example, we can think of RRP as
+<a class="reference internal" href="#fig-protgraph"><span class="std std-numref">Figure 11</span></a>, for example, we can think of RRP as
 implementing a logical communication channel, with messages from two
-different applications multiplexed over this channel at the source
-host and then demultiplexed back to the appropriate application at the
+different applications multiplexed over this channel at the source host
+and then demultiplexed back to the appropriate application at the
 destination host.</p>
 <p>Practically speaking, this simply means that the header that RRP
 attaches to its messages contains an identifier that records the
-application to which the message belongs. We call this identifier RRP&apos;s
+application to which the message belongs. We call this identifier RRP’s
 <em>demultiplexing key</em>, or <em>demux key</em> for short. At the source host, RRP
 includes the appropriate demux key in its header. When the message is
 delivered to RRP on the destination host, it strips its header, examines
@@ -1242,36 +424,36 @@ the demux key, and demultiplexes the message to the correct application.</p>
 <p>RRP is not unique in its support for multiplexing; nearly every protocol
 implements this mechanism. For example, HHP has its own demux key to
 determine which messages to pass up to RRP and which to pass up to MSP.
-However, there is no uniform agreement among protocols&#x2014;even those
-within a single network architecture&#x2014;on exactly what constitutes a
-demux key. Some protocols use an 8-bit field (meaning they can support
-only 256 high-level protocols), and others use 16- or 32-bit fields.
-Also, some protocols have a single demultiplexing field in their header,
-while others have a pair of demultiplexing fields. In the former case,
-the same demux key is used on both sides of the communication, while in
-the latter case each side uses a different key to identify the
-high-level protocol (or application program) to which the message is to
-be delivered.</p>
-<h2 id="7-layer-osi-model">7-Layer OSI Model</h2>
+However, there is no uniform agreement among protocols—even those within
+a single network architecture—on exactly what constitutes a demux key.
+Some protocols use an 8-bit field (meaning they can support only 256
+high-level protocols), and others use 16- or 32-bit fields. Also, some
+protocols have a single demultiplexing field in their header, while
+others have a pair of demultiplexing fields. In the former case, the
+same demux key is used on both sides of the communication, while in the
+latter case each side uses a different key to identify the high-level
+protocol (or application program) to which the message is to be
+delivered.</p>
+</div>
+<div class="section" id="layer-osi-model">
+<h2>7-Layer OSI Model<a class="headerlink" href="#layer-osi-model" title="Permalink to this headline">¶</a></h2>
 <p>The ISO was one of the first organizations to formally define a common
 way to connect computers. Their architecture, called the <em>Open Systems
-Interconnection</em> (OSI) architecture and illustrated in
-<a href="#osi">Figure 6</a>, defines a partitioning of network functionality into
-seven layers, where one or more protocols implement the functionality
-assigned to a given layer. In this sense, the schematic given in is
-not a protocol graph, <em>per se</em>, but rather a <em>reference model</em> for a
-protocol graph. It is often referred to as the 7-layer model.</p>
-<figure>
-    <a id="osi"></a>
-    <img src="figures/f01-13-9780123850591.png" width="600px">
-    <figcaption>The OSI 7-layer model.</figcaption>
-</figure>
-
+Interconnection</em> (OSI) architecture and illustrated in <a class="reference internal" href="#fig-osi"><span class="std std-numref">Figure
+13</span></a>, defines a partitioning of network functionality into seven
+layers, where one or more protocols implement the functionality assigned
+to a given layer. In this sense, the schematic given in is not a
+protocol graph, <em>per se</em>, but rather a <em>reference model</em> for a protocol
+graph. It is often referred to as the 7-layer model.</p>
+<div class="figure align-center" id="id6">
+<span id="fig-osi"></span><a class="reference internal image-reference" href="../_images/f01-13-9780123850591.png"><img alt="../_images/f01-13-9780123850591.png" src="../_images/f01-13-9780123850591.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Figure 13. </span><span class="caption-text">The OSI 7-layer model.</span></p>
+</div>
 <p>Starting at the bottom and working up, the <em>physical</em> layer handles the
 transmission of raw bits over a communications link. The <em>data link</em>
 layer then collects a stream of bits into a larger aggregate called a
 <em>frame</em>. Network adaptors, along with device drivers running in the
-node&apos;s operating system, typically implement the data link level. This
+node’s operating system, typically implement the data link level. This
 means that frames, not raw bits, are actually delivered to hosts. The
 <em>network</em> layer handles routing among nodes within a packet-switched
 network. At this layer, the unit of data exchanged among nodes is
@@ -1291,225 +473,189 @@ layer. Application layer protocols include things like the Hypertext
 Transfer Protocol (HTTP), which is the basis of the World Wide Web and
 is what enables web browsers to request pages from web servers. Below
 that, the <em>presentation</em> layer is concerned with the format of data
-exchanged between peers&#x2014;for example, whether an integer is 16, 32, or
-64 bits long, whether the most significant byte is transmitted first or
+exchanged between peers—for example, whether an integer is 16, 32, or 64
+bits long, whether the most significant byte is transmitted first or
 last, or how a video stream is formatted. Finally, the <em>session</em> layer
 provides a name space that is used to tie together the potentially
 different transport streams that are part of a single application. For
 example, it might manage an audio stream and a video stream that are
 being combined in a teleconferencing application.</p>
-<h2 id="internet-architecture">Internet Architecture</h2>
+</div>
+<div class="section" id="internet-architecture">
+<h2>Internet Architecture<a class="headerlink" href="#internet-architecture" title="Permalink to this headline">¶</a></h2>
 <p>The Internet architecture, which is also sometimes called the TCP/IP
 architecture after its two main protocols, is depicted in
-<a href="#internet1">Figure 7</a>. An alternative representation is given in
-<a href="#internet2">Figure 8</a>. The Internet architecture evolved out
-of experiences with an earlier packet-switched network called the
-ARPANET. Both the Internet and the ARPANET were funded by the Advanced
-Research Projects Agency (ARPA), one of the research and development
-funding agencies of the U.S. Department of Defense. The Internet and
-ARPANET were around before the OSI architecture, and the experience
-gained from building them was a major influence on the OSI reference
-model.</p>
-<figure>
-    <a id="internet1"></a>
-    <img src="figures/f01-14-9780123850591.png" width="300px">
-    <figcaption>Internet protocol graph.</figcaption>
-</figure>
-
-<figure>
-    <a id="internet2"></a>
-    <img src="figures/f01-15-9780123850591.png" width="250px">
-    <figcaption>Alternative view of the Internet architecture. The &quot;subnetwork&quot; layer
-    was historically referred to as the &quot;network&quot; layer and is now often
-    referred to as &quot;layer 2.&quot;</figcaption>
-</figure>
-
+<a class="reference internal" href="#fig-internet1"><span class="std std-numref">Figure 14</span></a>. An alternative representation is
+given in <a class="reference internal" href="#fig-internet2"><span class="std std-numref">Figure 15</span></a>. The Internet
+architecture evolved out of experiences with an earlier
+packet-switched network called the ARPANET. Both the Internet and the
+ARPANET were funded by the Advanced Research Projects Agency (ARPA),
+one of the research and development funding agencies of the
+U.S. Department of Defense. The Internet and ARPANET were around
+before the OSI architecture, and the experience gained from building
+them was a major influence on the OSI reference model.</p>
+<div class="figure align-center" id="id7">
+<span id="fig-internet1"></span><a class="reference internal image-reference" href="../_images/f01-14-9780123850591.png"><img alt="../_images/f01-14-9780123850591.png" src="../_images/f01-14-9780123850591.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Figure 14. </span><span class="caption-text">Internet protocol graph.</span></p>
+</div>
+<div class="figure align-center" id="id8">
+<span id="fig-internet2"></span><a class="reference internal image-reference" href="../_images/f01-15-9780123850591.png"><img alt="../_images/f01-15-9780123850591.png" src="../_images/f01-15-9780123850591.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figure 15. </span><span class="caption-text">Alternative view of the Internet architecture. The “subnetwork” layer
+was historically referred to as the “network” layer and is now often
+referred to as “layer 2.”</span></p>
+</div>
 <p>While the 7-layer OSI model can, with some imagination, be applied to
-the Internet, a 4-layer model is often used instead. At the lowest level
-is a wide variety of network protocols, denoted NET<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mrow></mrow><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.30110799999999993em;"></span><span class="strut bottom" style="height:0.45110799999999995em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>, NET<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mrow></mrow><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.30110799999999993em;"></span><span class="strut bottom" style="height:0.45110799999999995em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>,
-and so on. In practice, these protocols are implemented by a combination
-of hardware (e.g., a network adaptor) and software (e.g., a network device
-driver). For example, you might find Ethernet or wireless protocols
-(such as the 802.11 Wi-Fi standards) at this layer. (These protocols in
-turn may actually involve several sublayers, but the Internet
-architecture does not presume anything about them.) The second layer
-consists of a single protocol&#x2014;the <em>Internet Protocol</em> (IP). This is
-the protocol that supports the interconnection of multiple networking
-technologies into a single, logical internetwork. The third layer
-contains two main protocols&#x2014;the <em>Transmission Control Protocol</em> (TCP)
-and the <em>User Datagram Protocol</em> (UDP). TCP and UDP provide alternative
-logical channels to application programs: TCP provides a reliable
-byte-stream channel, and UDP provides an unreliable datagram delivery
-channel (<em>datagram</em> may be thought of as a synonym for message). In the
-language of the Internet, TCP and UDP are sometimes called <em>end-to-end</em>
-protocols, although it is equally correct to refer to them as
-<em>transport</em> protocols.</p>
+the Internet, a 4-layer model is often used instead. At the lowest
+level is a wide variety of network protocols, denoted NET<sub>1</sub>,
+NET<sub>2</sub>, and so on. In practice, these protocols are implemented
+by a combination of hardware (e.g., a network adaptor) and software
+(e.g., a network device driver). For example, you might find Ethernet
+or wireless protocols (such as the 802.11 Wi-Fi standards) at this
+layer. (These protocols in turn may actually involve several
+sublayers, but the Internet architecture does not presume anything
+about them.) The second layer consists of a single protocol—the
+<em>Internet Protocol</em> (IP). This is the protocol that supports the
+interconnection of multiple networking technologies into a single,
+logical internetwork. The third layer contains two main protocols—the
+<em>Transmission Control Protocol</em> (TCP) and the <em>User Datagram Protocol</em>
+(UDP). TCP and UDP provide alternative logical channels to application
+programs: TCP provides a reliable byte-stream channel, and UDP
+provides an unreliable datagram delivery channel (<em>datagram</em> may be
+thought of as a synonym for message). In the language of the Internet,
+TCP and UDP are sometimes called <em>end-to-end</em> protocols, although it
+is equally correct to refer to them as <em>transport</em> protocols.</p>
 <p>Running above the transport layer is a range of application protocols,
 such as HTTP, FTP, Telnet (remote login), and the Simple Mail Transfer
 Protocol (SMTP), that enable the interoperation of popular applications.
 To understand the difference between an application layer protocol and
 an application, think of all the different World Wide Web browsers that
-are or have been available (e.g., Firefox, Chrome, Safari, Netscape, Mosaic,
-Internet Explorer). There is a similarly large number of different
-implementations of web servers. The reason that you can use any one of
-these application programs to access a particular site on the Web is
-that they all conform to the same application layer protocol: HTTP.
-Confusingly, the same term sometimes applies to both an application and
-the application layer protocol that it uses (e.g., FTP is often used as
-the name of an application that implements the FTP protocol).</p>
+are or have been available (e.g., Firefox, Chrome, Safari, Netscape,
+Mosaic, Internet Explorer). There is a similarly large number of
+different implementations of web servers. The reason that you can use
+any one of these application programs to access a particular site on the
+Web is that they all conform to the same application layer protocol:
+HTTP. Confusingly, the same term sometimes applies to both an
+application and the application layer protocol that it uses (e.g., FTP
+is often used as the name of an application that implements the FTP
+protocol).</p>
 <p>Most people who work actively in the networking field are familiar with
 both the Internet architecture and the 7-layer OSI architecture, and
 there is general agreement on how the layers map between architectures.
-The Internet&apos;s application layer is considered to be at layer 7, its
+The Internet’s application layer is considered to be at layer 7, its
 transport layer is layer 4, the IP (internetworking or just network)
 layer is layer 3, and the link or subnet layer below IP is layer 2.</p>
+<blockquote>
+<div>Although we call it the “Internet architecture” rather than the
+“IETF architecture,” it’s fair to say that the IETF is the primary
+standardization body responsible for its definition, as well as the
+specification of many of its protocols, such as TCP, UDP, IP,
+DNS, and BGP. But the Internet architecture also embraces many
+protocols defined by other organizations, including IEEE’s
+802.11 ethernet and Wi-Fi standards, W3C’s HTTP/HTML web
+specifications, 3GPP’s 4G and 5G cellular networks standards,
+and ITU-T’s H.232 video encoding standards, to name a few. In
+addition to defining architectures and specifying protocols, there
+are still other organizations that support the larger goal of
+interoperability. One example is the IANA (Internet Assigned
+Numbers Authority), which as its name impies, is responsible for
+handing out the unique identifiers needed to make the protocols
+work. IANA, in turn, is a department within the ICANN (Internt
+Corporation for Assigned Names and Numbers), a non-profit
+organization that’s responsible for the overall stewardship of the
+Internet.</div></blockquote>
 <p>The Internet architecture has three features that are worth
-highlighting. First, as best illustrated by <a href="#internet2">Figure 8</a>,
-the Internet architecture does not imply strict layering. The
-application is free to bypass the defined transport layers and to
-directly use IP or one of the underlying networks. In fact,
-programmers are free to define new channel abstractions or
+highlighting. First, as best illustrated by <a class="reference internal" href="#fig-internet2"><span class="std std-numref">Figure 15</span></a>, the Internet architecture does not imply strict
+layering. The application is free to bypass the defined transport
+layers and to directly use IP or one of the underlying networks. In
+fact, programmers are free to define new channel abstractions or
 applications that run on top of any of the existing protocols.</p>
-<p>Second, if you look closely at the protocol graph in
-<a href="#internet1">Figure 7</a>, you will notice an hourglass shape&#x2014;wide at the
-top, narrow in the middle, and wide at the bottom. This shape actually
-reflects the central philosophy of the architecture. That is, IP
-serves as the focal point for the architecture&#x2014;it defines a common
-method for exchanging packets among a wide collection of
-networks. Above IP there can be arbitrarily many transport protocols,
-each offering a different channel abstraction to application
-programs. Thus, the issue of delivering messages from host to host is
-completely separated from the issue of providing a useful
-process-to-process communication service. Below IP, the architecture
-allows for arbitrarily many different network technologies, ranging from
-Ethernet to wireless to single point-to-point links.</p>
+<p>Second, if you look closely at the protocol graph in <a class="reference internal" href="#fig-internet1"><span class="std std-numref">Figure
+14</span></a>, you will notice an hourglass shape—wide at the top,
+narrow in the middle, and wide at the bottom. This shape actually
+reflects the central philosophy of the architecture. That is, IP serves
+as the focal point for the architecture—it defines a common method for
+exchanging packets among a wide collection of networks. Above IP there
+can be arbitrarily many transport protocols, each offering a different
+channel abstraction to application programs. Thus, the issue of
+delivering messages from host to host is completely separated from the
+issue of providing a useful process-to-process communication service.
+Below IP, the architecture allows for arbitrarily many different network
+technologies, ranging from Ethernet to wireless to single point-to-point
+links.</p>
 <p>A final attribute of the Internet architecture (or more accurately, of
-the IETF culture) is that in order for a new protocol to be officially
-included in the architecture, there must be both a protocol
-specification and at least one (and preferably two) representative
-implementations of the specification. The existence of working
-implementations is required for standards to be adopted by the IETF.
-This cultural assumption of the design community helps to ensure that
-the architecture&apos;s protocols can be efficiently implemented. Perhaps the
-value the Internet culture places on working software is best
+the IETF culture) is that in order for a new
+protocol to be officially included in the architecture, there must be
+both a protocol specification and at least one (and preferably two)
+representative implementations of the specification. The existence of
+working implementations is required for standards to be adopted by the
+IETF. This cultural assumption of the design community helps to ensure
+that the architecture’s protocols can be efficiently implemented.
+Perhaps the value the Internet culture places on working software is best
 exemplified by a quote on T-shirts commonly worn at IETF meetings:</p>
 <blockquote>
-<p><em>We reject kings, presidents, and voting. We believe in rough
-consensus and running code.</em> <strong>(David Clark)</strong></p>
-<p>[!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]</p>
-<p>Of these three attributes of the Internet architecture, the hourglass
-design philosophy is important enough to bear repeating. The hourglass&apos;s
-narrow waist represents a minimal and carefully chosen set of global
-capabilities that allows both higher-level applications and lower-level
-communication technologies to coexist, share capabilities, and evolve
-rapidly. The narrow-waisted model is critical to the Internet&apos;s ability
-to adapt rapidly to new user demands and changing technologies.</p>
-</blockquote>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<div><em>We reject kings, presidents, and voting. We believe in rough
+consensus and running code.</em> <strong>(David Clark)</strong></div></blockquote>
+<div class="admonition-key-takeaway admonition">
+<p class="first admonition-title">Key Takeaway</p>
+<p class="last">Of these three attributes of the Internet architecture, the hourglass
+design philosophy is important enough to bear repeating. The
+hourglass’s narrow waist represents a minimal and carefully chosen
+set of global capabilities that allows both higher-level applications
+and lower-level communication technologies to coexist, share
+capabilities, and evolve rapidly. The narrow-waisted model is
+critical to the Internet’s ability to adapt rapidly to new user
+demands and changing technologies.</p>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="requirements.html" class="navigation navigation-prev " aria-label="Previous page: 1.2 Requirements">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="software.html" class="navigation navigation-next " aria-label="Next page: 1.4 Software">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="software.html" class="btn btn-neutral float-right" title="1.4 Software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="requirements.html" class="btn btn-neutral float-left" title="1.2 Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.3 Architecture","level":"1.3.3","depth":2,"next":{"title":"1.4 Software","level":"1.3.4","depth":2,"path":"foundation/software.md","ref":"foundation/software.md","articles":[]},"previous":{"title":"1.2 Requirements","level":"1.3.2","depth":2,"path":"foundation/requirements.md","ref":"foundation/requirements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchorjs","katex","block-align","flexible-alerts","sequence-diagrams","creativecommons","intopic-toc","custom-favicon","smart-nav-collapse"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"intopic-toc":{"label":"Content","selector":".markdown-section h2","visible":true},"block-align":{},"search":{},"sequence-diagrams":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"bridge.ico","custom-favicon":{},"creativecommons":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"smart-nav-collapse":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"branch":"master"},"title":"Computer Networks: A Systems Approach","gitbook":"*"},"file":{"path":"foundation/architecture.md","mtime":"2019-07-30T16:30:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-31T21:12:52.047Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-smart-nav-collapse/smart-nav-collapse.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-
