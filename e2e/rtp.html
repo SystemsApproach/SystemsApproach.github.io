@@ -185,18 +185,17 @@
             
   <div class="section" id="transport-for-real-time-rtp">
 <h1>5.4 Transport for Real-Time (RTP)<a class="headerlink" href="#transport-for-real-time-rtp" title="Permalink to this headline">¶</a></h1>
-<p>In the early days of packet switching, most applications were concerned
-with the movement of data: accessing remote computing resources,
-transferring files, sending email, etc. However, at least as early as
-1981, experiments were under way to carry real-time traffic, such as
-digitized voice samples, over packet networks. We call an application
-“real-time” when it has strong requirements for the timely delivery of
-information. Voice over IP (VoIP) is a classic example of a real-time
-application because you can’t easily carry on a conversation with
-someone if it takes more than a fraction of a second to get a response.
-As we will see shortly, real-time applications place some specific
-demands on the transport protocol that are not well met by the protocols
-discussed so far in this chapter.</p>
+<p>In the early days of packet switching, most applications were
+concerned with transfering files, although as early as 1981,
+experiments were under way to carry real-time traffic, such as
+digitized voice samples. We call an application “real-time” when it
+has strong requirements for the timely delivery of information. Voice
+over IP (VoIP) is a classic example of a real-time application because
+you can’t easily carry on a conversation with someone if it takes more
+than a fraction of a second to get a response.  As we will see
+shortly, real-time applications place some specific demands on the
+transport protocol that are not well met by the protocols discussed so
+far in this chapter.</p>
 <div class="figure align-center" id="id1">
 <span id="fig-zoom"></span><a class="reference internal image-reference" href="../_images/Zoom.png"><img alt="../_images/Zoom.png" src="../_images/Zoom.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 147. </span><span class="caption-text">User interface of a videoconferencing tool.</span></p>
@@ -228,19 +227,20 @@ different applications, such as the synchronization of audio and video
 streams. We will see below how these concerns affected the design of the
 primary real-time transport protocol in use today, RTP.</p>
 <p>Much of RTP actually derives from protocol functionality that was
-originally embedded in the application itself. When <code class="docutils literal notranslate"><span class="pre">vat</span></code> (an early
-prototype that all of today’s commercial conferencing products were
-derived from) was first developed, it ran over UDP, and the designers
-figured out which features were needed to handle the real-time nature of
-voice communication. Later, they realized that these features could be
+originally embedded in the application itself. Two of the first such
+applications were <code class="docutils literal notranslate"><span class="pre">vic</span></code> and <code class="docutils literal notranslate"><span class="pre">vat</span></code>, the former supporting real-time
+video and the latter supporting real-time audio. Both applications
+originally ran directly over UDP, while the designers figured out
+which features were needed to handle the real-time nature of the
+communication. Later, they realized that these features could be
 useful to many other applications and defined a protocol with those
-features, which became RTP. RTP can run over many lower-layer protocols,
-but still commonly runs over UDP. That leads to the protocol stack shown
-in <a class="reference internal" href="#fig-vat-stack"><span class="std std-numref">Figure 148</span></a>. Note that we are therefore running a
-transport protocol over a transport protocol. There is no rule against
-that, and in fact it makes a lot of sense, since UDP provides such a
-minimal level of functionality, and the basic demultiplexing based on
-port numbers happens to be just what RTP needs as a starting point. So,
+features, which became RTP.</p>
+<p>RTP can run over many lower-layer protocols, but still commonly runs
+over UDP. That leads to the protocol stack shown in <a class="reference internal" href="#fig-vat-stack"><span class="std std-numref">Figure 148</span></a>. Note that we are therefore running a transport
+protocol over a transport protocol. There is no rule against that, and
+in fact it makes a lot of sense, since UDP provides such a minimal
+level of functionality, and the basic demultiplexing based on port
+numbers happens to be just what RTP needs as a starting point. So,
 rather than recreate port numbers in RTP, RTP outsources the
 demultiplexing function to UDP.</p>
 <div class="figure align-center" id="id2">
@@ -298,17 +298,18 @@ changing the parameters of the coding algorithm to reduce the bandwidth
 consumed. Clearly, to make this work, the receiver needs to notify the
 sender that losses are occurring so that the sender can adjust its
 coding parameters.</p>
-<p>Another common function across multimedia applications is the concept of
-frame boundary indication. A frame in this context is application
+<p>Another common function across multimedia applications is the concept
+of frame boundary indication. A frame in this context is application
 specific. For example, it may be helpful to notify a video application
-that a certain set of packets correspond to a single frame. In an audio
-application it is helpful to mark the beginning of a “talkspurt,” which
-is a collection of sounds or words followed by silence. The receiver can
-then identify the silences between talkspurts and use them as
-opportunities to move the playback point. This follows the observation
-that slight shortening or lengthening of the spaces between words are
-not perceptible to users, whereas shortening or lengthening the words
-themselves is both perceptible and annoying.</p>
+that a certain set of packets correspond to a single frame. In an
+audio application it is helpful to mark the beginning of a
+“talkspurt,” which is a collection of sounds or words followed by
+silence. The receiver can then identify the silences between
+talkspurts and use them as opportunities to move the playback
+point. This follows the observation that slight shortening or
+lengthening of the spaces between words are not perceptible to users,
+whereas shortening or lengthening the words themselves is both
+perceptible and annoying.</p>
 <p>A final function that we might want to put into the protocol is some
 way of identifying senders that is more user-friendly than an IP
 address. As illustrated in <a class="reference internal" href="#fig-zoom"><span class="std std-numref">Figure 147</span></a>, audio and
