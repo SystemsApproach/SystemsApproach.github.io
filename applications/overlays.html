@@ -427,11 +427,11 @@ round-trip latency of edge <em>(i,j)</em>, and then evaluates the utility of
 adding this edge. If the utility is above a certain threshold, link
 <em>(i,j)</em> is added to the mesh. Evaluating the utility of adding edge
 <em>(i,j)</em> might look something like this:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">EvaluateUtility</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EvaluateUtility</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
     <span class="n">utility</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">each</span> <span class="n">member</span> <span class="n">m</span> <span class="n">not</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">i</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">member</span> <span class="n">m</span> <span class="ow">not</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">i</span>
         <span class="n">CL</span> <span class="o">=</span> <span class="n">current</span> <span class="n">latency</span> <span class="n">to</span> <span class="n">node</span> <span class="n">m</span> <span class="n">along</span> <span class="n">route</span> <span class="n">through</span> <span class="n">mesh</span>
-        <span class="n">NL</span> <span class="o">=</span> <span class="n">new</span> <span class="n">latency</span> <span class="n">to</span> <span class="n">node</span> <span class="n">m</span> <span class="n">along</span> <span class="n">mesh</span> <span class="k">if</span> <span class="n">edge</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="n">is</span> <span class="n">added</span><span class="p">}</span>
+        <span class="n">NL</span> <span class="o">=</span> <span class="n">new</span> <span class="n">latency</span> <span class="n">to</span> <span class="n">node</span> <span class="n">m</span> <span class="n">along</span> <span class="n">mesh</span> <span class="k">if</span> <span class="n">edge</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="ow">is</span> <span class="n">added</span><span class="p">}</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">NL</span> <span class="o">&lt;</span> <span class="n">CL</span><span class="p">)</span> <span class="n">then</span>
             <span class="n">utility</span> <span class="o">+=</span> <span class="p">(</span><span class="n">CL</span> <span class="o">-</span> <span class="n">NL</span><span class="p">)</span><span class="o">/</span><span class="n">CL</span>
     <span class="k">return</span> <span class="n">utility</span>
@@ -439,10 +439,10 @@ adding this edge. If the utility is above a certain threshold, link
 </div>
 <p>Deciding to remove an edge is similar, except each node <em>i</em> computes the
 cost of each link to current neighbor <em>j</em> as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">EvaluateCost</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="n">Cost</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">members</span> <span class="k">for</span> <span class="n">which</span> <span class="n">i</span> <span class="n">uses</span> <span class="n">j</span> <span class="n">as</span> <span class="n">next</span> <span class="n">hop</span>
-    <span class="n">Cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">members</span> <span class="k">for</span> <span class="n">which</span> <span class="n">j</span> <span class="n">uses</span> <span class="n">i</span> <span class="n">as</span> <span class="n">next</span> <span class="n">hop</span>
-    <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">Cost</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">Cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EvaluateCost</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">Cost</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">members</span> <span class="k">for</span> <span class="n">which</span> <span class="n">i</span> <span class="n">uses</span> <span class="n">j</span> <span class="k">as</span> <span class="nb">next</span> <span class="n">hop</span>
+    <span class="n">Cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">members</span> <span class="k">for</span> <span class="n">which</span> <span class="n">j</span> <span class="n">uses</span> <span class="n">i</span> <span class="k">as</span> <span class="nb">next</span> <span class="n">hop</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">Cost</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">Cost</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>It then picks the neighbor with the lowest cost, and drops it if the
@@ -666,7 +666,7 @@ How many possible values of <em>n</em> should we allow? (In hashing
 terminology, how many buckets should there be?) Naively, we could decide
 that there are, say, 101 possible hash values, and we use a modulo hash
 function; that is,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">hash</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hash</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">101</span>
 </pre></div>
 </div>
@@ -749,17 +749,17 @@ robust because any of the nodes in a leaf set can route a message just
 as well as any other node in the same set. Thus, if one node is unable
 to make progress routing a message, one of its neighbors in the leaf set
 may be able to. In summary, the routing procedure is defined as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>Route(D)
-    if D is within range of my leaf set
-        forward to numerically closest member in leaf set
-    else
-        let l = length of shared prefix
-        let d = value of l-th digit in D&#39;s address
-        if RouteTab[l,d] exists
-            forward to RouteTab[l,d]
-        else
-            forward to known node with at least as long a shared prefix
-            and numerically closer than this node
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Route</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">D</span> <span class="ow">is</span> <span class="n">within</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">my</span> <span class="n">leaf</span> <span class="nb">set</span>
+        <span class="n">forward</span> <span class="n">to</span> <span class="n">numerically</span> <span class="n">closest</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">leaf</span> <span class="nb">set</span>
+    <span class="k">else</span>
+        <span class="n">let</span> <span class="n">l</span> <span class="o">=</span> <span class="n">length</span> <span class="n">of</span> <span class="n">shared</span> <span class="n">prefix</span>
+        <span class="n">let</span> <span class="n">d</span> <span class="o">=</span> <span class="n">value</span> <span class="n">of</span> <span class="n">l</span><span class="o">-</span><span class="n">th</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">D</span><span class="s1">&#39;s address</span>
+        <span class="k">if</span> <span class="n">RouteTab</span><span class="p">[</span><span class="n">l</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="n">exists</span>
+            <span class="n">forward</span> <span class="n">to</span> <span class="n">RouteTab</span><span class="p">[</span><span class="n">l</span><span class="p">,</span><span class="n">d</span><span class="p">]</span>
+        <span class="k">else</span>
+            <span class="n">forward</span> <span class="n">to</span> <span class="n">known</span> <span class="n">node</span> <span class="k">with</span> <span class="n">at</span> <span class="n">least</span> <span class="k">as</span> <span class="n">long</span> <span class="n">a</span> <span class="n">shared</span> <span class="n">prefix</span>
+            <span class="ow">and</span> <span class="n">numerically</span> <span class="n">closer</span> <span class="n">than</span> <span class="n">this</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>The routing table, denoted <code class="docutils literal notranslate"><span class="pre">RouteTab</span></code>, is a two-dimensional array. It
@@ -1178,14 +1178,14 @@ consistent hashing is that server order is different for each URL, so if
 one server fails its load is distributed evenly among the other
 machines. This approach is the basis for the Cache Array Routing
 Protocol (CARP) and is shown in pseudocode below.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SelectServer</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">each</span> <span class="n">server</span> <span class="n">s</span> <span class="n">in</span> <span class="n">server</span> <span class="n">set</span> <span class="n">S</span>
-        <span class="n">weight</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">hash</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">address</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SelectServer</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">server</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">server</span> <span class="nb">set</span> <span class="n">S</span>
+        <span class="n">weight</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">address</span><span class="p">[</span><span class="n">s</span><span class="p">])</span>
     <span class="n">sort</span> <span class="n">weight</span>
-    <span class="k">for</span> <span class="n">each</span> <span class="n">server</span> <span class="n">s</span> <span class="n">in</span> <span class="n">decreasing</span> <span class="n">order</span> <span class="n">of</span> <span class="n">weight</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">server</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">decreasing</span> <span class="n">order</span> <span class="n">of</span> <span class="n">weight</span>
         <span class="k">if</span> <span class="n">Load</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">threshold</span> <span class="n">then</span>
             <span class="k">return</span> <span class="n">s</span>
-       <span class="k">return</span> <span class="n">server</span> <span class="n">with</span> <span class="n">highest</span> <span class="n">weight</span>
+       <span class="k">return</span> <span class="n">server</span> <span class="k">with</span> <span class="n">highest</span> <span class="n">weight</span>
 </pre></div>
 </div>
 <p>As the load increases, this scheme changes from using only the first

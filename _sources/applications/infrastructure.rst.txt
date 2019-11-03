@@ -200,7 +200,7 @@ Each name server implements the zone information as a collection of
 binding or, more specifically, a 5-tuple that contains the following
 fields:
 
-.. code-block:: c
+::
 
    (Name, Value, Type, Class, TTL)
 
@@ -243,7 +243,7 @@ into the corresponding IP addresses. Taken together, these two records
 effectively implement a pointer from the root name server to one of the
 TLD servers.
 
-.. code-block:: c
+::
 
    (edu, a3.nstld.com, NS, IN)
    (a3.nstld.com, 192.5.6.32, A, IN)
@@ -254,7 +254,7 @@ TLD servers.
 Moving our way down the hierarchy by one level, the server has records
 for domains like this:
 
-.. code-block:: c
+::
 
    (princeton.edu, dns.princeton.edu, NS, IN)
    (dns.princeton.edu, 128.112.129.15, A, IN)
@@ -267,7 +267,7 @@ hierarchy. That server might be able to directly resolve some queries
 server at yet another layer in the hierarchy (e.g., for a query about
 ``penguins.cs.princeton.edu``).
 
-.. code-block:: c
+::
 
    (email.princeton.edu, 128.112.198.35, A, IN)
    (penguins.cs.princeton.edu, dns1.cs.princeton.edu, NS, IN)
@@ -288,7 +288,7 @@ purpose for the email application—they allow an administrator to change
 which host receives mail on behalf of the domain without having to
 change everyone’s email address.
 
-.. code-block:: c
+::
 
    (penguins.cs.princeton.edu, 128.112.155.166, A, IN)
    (www.cs.princeton.edu, coreweb.cs.princeton.edu, CNAME, IN)
@@ -354,7 +354,7 @@ the Department of Computer Science at Princeton know about the server on
 ``dns1.cs.princeton.edu``. This local name server, in turn, has resource
 records for one or more of the root servers, for example:
 
-.. code-block:: c
+::
 
    ('root', a.root-servers.net, NS, IN)
    (a.root-servers.net, 198.41.0.4, A, IN)

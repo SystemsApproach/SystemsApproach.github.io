@@ -671,12 +671,12 @@ data is stored and the sequence number for that byte.</p>
 <p>Looking first at the sending side, three pointers are maintained into
 the send buffer, each with an obvious meaning: <code class="docutils literal notranslate"><span class="pre">LastByteAcked</span></code>,
 <code class="docutils literal notranslate"><span class="pre">LastByteSent</span></code>, and <code class="docutils literal notranslate"><span class="pre">LastByteWritten</span></code>. Clearly,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteAcked</span> <span class="o">&lt;=</span> <span class="n">LastByteSent</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteAcked</span> <span class="o">&lt;=</span> <span class="n">LastByteSent</span>
 </pre></div>
 </div>
 <p>since the receiver cannot have acknowledged a byte that has not yet been
 sent, and</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteSent</span> <span class="o">&lt;=</span> <span class="n">LastByteWritten</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteSent</span> <span class="o">&lt;=</span> <span class="n">LastByteWritten</span>
 </pre></div>
 </div>
 <p>since TCP cannot send a byte that the application process has not yet
@@ -689,14 +689,14 @@ generated.</p>
 receiving side: <code class="docutils literal notranslate"><span class="pre">LastByteRead</span></code>, <code class="docutils literal notranslate"><span class="pre">NextByteExpected</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">LastByteRcvd</span></code>. The inequalities are a little less intuitive, however,
 because of the problem of out-of-order delivery. The first relationship</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteRead</span> <span class="o">&lt;</span> <span class="n">NextByteExpected</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteRead</span> <span class="o">&lt;</span> <span class="n">NextByteExpected</span>
 </pre></div>
 </div>
 <p>is true because a byte cannot be read by the application until it is
 received <em>and</em> all preceding bytes have also been received.
 <code class="docutils literal notranslate"><span class="pre">NextByteExpected</span></code> points to the byte immediately after the latest
 byte to meet this criterion. Second,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">NextByteExpected</span> <span class="o">&lt;=</span> <span class="n">LastByteRcvd</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NextByteExpected</span> <span class="o">&lt;=</span> <span class="n">LastByteRcvd</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>since, if data has arrived in order, <code class="docutils literal notranslate"><span class="pre">NextByteExpected</span></code> points to the
@@ -728,12 +728,12 @@ the amount of data that can be sent without waiting for acknowledgment
 from the receiver. Thus, the receiver throttles the sender by
 advertising a window that is no larger than the amount of data that it
 can buffer. Observe that TCP on the receive side must keep</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteRcvd</span> <span class="o">-</span> <span class="n">LastByteRead</span> <span class="o">&lt;=</span> <span class="n">MaxRcvBuffer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteRcvd</span> <span class="o">-</span> <span class="n">LastByteRead</span> <span class="o">&lt;=</span> <span class="n">MaxRcvBuffer</span>
 </pre></div>
 </div>
 <p>to avoid overflowing its buffer. It therefore advertises a window size
 of</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">AdvertisedWindow</span> <span class="o">=</span> <span class="n">MaxRcvBuffer</span> <span class="o">-</span> <span class="p">((</span><span class="n">NextByteExpected</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">LastByteRead</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AdvertisedWindow</span> <span class="o">=</span> <span class="n">MaxRcvBuffer</span> <span class="o">-</span> <span class="p">((</span><span class="n">NextByteExpected</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">LastByteRead</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>which represents the amount of free space remaining in its buffer. As
@@ -752,12 +752,12 @@ it eventually goes to 0.</p>
 <p>TCP on the send side must then adhere to the advertised window it gets
 from the receiver. This means that at any given time, it must ensure
 that</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteSent</span> <span class="o">-</span> <span class="n">LastByteAcked</span> <span class="o">&lt;=</span> <span class="n">AdvertisedWindow</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteSent</span> <span class="o">-</span> <span class="n">LastByteAcked</span> <span class="o">&lt;=</span> <span class="n">AdvertisedWindow</span>
 </pre></div>
 </div>
 <p>Said another way, the sender computes an <em>effective</em> window that limits
 how much data it can send:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">EffectiveWindow</span> <span class="o">=</span> <span class="n">AdvertisedWindow</span> <span class="o">-</span> <span class="p">(</span><span class="n">LastByteSent</span> <span class="o">-</span> <span class="n">LastByteAcked</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EffectiveWindow</span> <span class="o">=</span> <span class="n">AdvertisedWindow</span> <span class="o">-</span> <span class="p">(</span><span class="n">LastByteSent</span> <span class="o">-</span> <span class="n">LastByteAcked</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Clearly, <code class="docutils literal notranslate"><span class="pre">EffectiveWindow</span></code> must be greater than 0 before the source
@@ -769,11 +769,11 @@ time before. In such a situation, the sender would be able to free
 buffer space, but not to send any more data.</p>
 <p>All the while this is going on, the send side must also make sure that
 the local application process does not overflow the send buffer—that is,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteWritten</span> <span class="o">-</span> <span class="n">LastByteAcked</span> <span class="o">&lt;=</span> <span class="n">MaxSendBuffer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LastByteWritten</span> <span class="o">-</span> <span class="n">LastByteAcked</span> <span class="o">&lt;=</span> <span class="n">MaxSendBuffer</span>
 </pre></div>
 </div>
 <p>If the sending process tries to write y&nbsp;bytes to TCP, but</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">LastByteWritten</span> <span class="o">-</span> <span class="n">LastByteAcked</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">MaxSendBuffer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">LastByteWritten</span> <span class="o">-</span> <span class="n">LastByteAcked</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">MaxSendBuffer</span>
 </pre></div>
 </div>
 <p>then TCP blocks the sending process and does not allow it to generate
@@ -1046,14 +1046,14 @@ idea is that as long as TCP has any data in flight, the sender will
 eventually receive an ACK. This ACK can be treated like a timer
 firing, triggering the transmission of more data. Nagle’s algorithm
 provides a simple, unified rule for deciding when to transmit:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">the</span> <span class="n">application</span> <span class="n">produces</span> <span class="n">data</span> <span class="n">to</span> <span class="n">send</span>
-    <span class="k">if</span> <span class="n">both</span> <span class="n">the</span> <span class="n">available</span> <span class="n">data</span> <span class="n">and</span> <span class="n">the</span> <span class="n">window</span> <span class="o">&gt;=</span> <span class="n">MSS</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">the</span> <span class="n">application</span> <span class="n">produces</span> <span class="n">data</span> <span class="n">to</span> <span class="n">send</span>
+    <span class="k">if</span> <span class="n">both</span> <span class="n">the</span> <span class="n">available</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="o">&gt;=</span> <span class="n">MSS</span>
         <span class="n">send</span> <span class="n">a</span> <span class="n">full</span> <span class="n">segment</span>
     <span class="k">else</span>
-        <span class="k">if</span> <span class="n">there</span> <span class="n">is</span> <span class="n">unACKed</span> <span class="n">data</span> <span class="n">in</span> <span class="n">flight</span>
+        <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">unACKed</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">flight</span>
             <span class="n">buffer</span> <span class="n">the</span> <span class="n">new</span> <span class="n">data</span> <span class="n">until</span> <span class="n">an</span> <span class="n">ACK</span> <span class="n">arrives</span>
         <span class="k">else</span>
-            <span class="n">send</span> <span class="n">all</span> <span class="n">the</span> <span class="n">new</span> <span class="n">data</span> <span class="n">now</span>
+            <span class="n">send</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">new</span> <span class="n">data</span> <span class="n">now</span>
 </pre></div>
 </div>
 <p>In other words, it’s always OK to send a full segment if the window
@@ -1095,7 +1095,7 @@ segment arrives, TCP reads the time again, and then takes the
 difference between these two times as a <code class="docutils literal notranslate"><span class="pre">SampleRTT</span></code>. TCP then
 computes an <code class="docutils literal notranslate"><span class="pre">EstimatedRTT</span></code> as a weighted average between the
 previous estimate and this new sample. That is,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">EstimatedRTT</span> <span class="o">=</span> <span class="n">alpha</span> <span class="n">x</span> <span class="n">EstimatedRTT</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="n">x</span> <span class="n">SampleRTT</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EstimatedRTT</span> <span class="o">=</span> <span class="n">alpha</span> <span class="n">x</span> <span class="n">EstimatedRTT</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="n">x</span> <span class="n">SampleRTT</span>
 </pre></div>
 </div>
 <p>The parameter <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is selected to <em>smooth</em> the
@@ -1105,7 +1105,7 @@ hand, a large <code class="docutils literal notranslate"><span class="pre">alpha
 adapt to real changes. The original TCP specification recommended a
 setting of <code class="docutils literal notranslate"><span class="pre">alpha</span></code> between 0.8 and 0.9. TCP then uses
 <code class="docutils literal notranslate"><span class="pre">EstimatedRTT</span></code> to compute the timeout in a rather conservative way:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">TimeOut</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">x</span> <span class="n">EstimatedRTT</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TimeOut</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">x</span> <span class="n">EstimatedRTT</span>
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1174,7 @@ samples suggests that the timeout value should not be too tightly
 coupled to the <code class="docutils literal notranslate"><span class="pre">EstimatedRTT</span></code>.</p>
 <p>In the new approach, the sender measures a new <code class="docutils literal notranslate"><span class="pre">SampleRTT</span></code> as before.
 It then folds this new sample into the timeout calculation as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Difference</span> <span class="o">=</span> <span class="n">SampleRTT</span> <span class="o">-</span> <span class="n">EstimatedRTT</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Difference</span> <span class="o">=</span> <span class="n">SampleRTT</span> <span class="o">-</span> <span class="n">EstimatedRTT</span>
 <span class="n">EstimatedRTT</span> <span class="o">=</span> <span class="n">EstimatedRTT</span> <span class="o">+</span> <span class="p">(</span> <span class="n">delta</span> <span class="n">x</span> <span class="n">Difference</span><span class="p">)</span>
 <span class="n">Deviation</span> <span class="o">=</span> <span class="n">Deviation</span> <span class="o">+</span> <span class="n">delta</span> <span class="p">(</span><span class="o">|</span><span class="n">Difference</span><span class="o">|</span> <span class="o">-</span> <span class="n">Deviation</span><span class="p">)</span>
 </pre></div>
@@ -1183,7 +1183,7 @@ It then folds this new sample into the timeout calculation as follows:</p>
 calculate both the mean RTT and the variation in that mean.</p>
 <p>TCP then computes the timeout value as a function of both
 <code class="docutils literal notranslate"><span class="pre">EstimatedRTT</span></code> and <code class="docutils literal notranslate"><span class="pre">Deviation</span></code> as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">TimeOut</span> <span class="o">=</span> <span class="n">mu</span> <span class="n">x</span> <span class="n">EstimatedRTT</span> <span class="o">+</span> <span class="n">phi</span> <span class="n">x</span> <span class="n">Deviation</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TimeOut</span> <span class="o">=</span> <span class="n">mu</span> <span class="n">x</span> <span class="n">EstimatedRTT</span> <span class="o">+</span> <span class="n">phi</span> <span class="n">x</span> <span class="n">Deviation</span>
 </pre></div>
 </div>
 <p>where based on experience, <code class="docutils literal notranslate"><span class="pre">mu</span></code> is typically set to 1 and <code class="docutils literal notranslate"><span class="pre">phi</span></code> is
@@ -1207,7 +1207,7 @@ start of the code and of <code class="docutils literal notranslate"><span class=
 values. If you find the code hard to follow, you might want to try
 plugging some real numbers into it and verifying that it gives the same
 results as the equations above.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="n">SampleRTT</span> <span class="o">-=</span> <span class="p">(</span><span class="n">EstimatedRTT</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">);</span>
     <span class="n">EstimatedRTT</span> <span class="o">+=</span> <span class="n">SampleRTT</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">SampleRTT</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>

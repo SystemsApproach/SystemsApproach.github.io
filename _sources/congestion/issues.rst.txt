@@ -353,7 +353,7 @@ using the ratio of throughput to delay as a metric for evaluating the
 effectiveness of a resource allocation scheme. This ratio is sometimes
 referred to as the *power* of the network:
 
-.. code-block:: c
+::
 
    Power = Throughput / Delay
 

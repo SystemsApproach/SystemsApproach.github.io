@@ -57,7 +57,8 @@ originally ran directly over UDP, while the designers figured out
 which features were needed to handle the real-time nature of the
 communication. Later, they realized that these features could be
 useful to many other applications and defined a protocol with those
-features, which became RTP.
+features. That protocol was eventually standardized as the *Real-time
+Transport Protocol* (RTP).
 
 RTP can run over many lower-layer protocols, but still commonly runs
 over UDP. That leads to the protocol stack shown in :numref:`Figure %s

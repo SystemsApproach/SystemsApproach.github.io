@@ -348,32 +348,32 @@ that consists of regular text only can be encoded using 7-bit ASCII.
 There’s also a readable encoding for mostly ASCII data.</p>
 <p>Putting this all together, a message that contains some plain text, a
 JPEG image, and a PostScript file would look something like this:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>MIME-Version: 1.0
-Content-Type: multipart/mixed;
-boundary=&quot;-------417CA6E2DE4ABCAFBC5&quot;
-From: Alice Smith &lt;Alice@cisco.com&gt;
-To: Bob@cs.Princeton.edu
-Subject: promised material
-Date: Mon, 07 Sep 1998 19:45:19 -0400
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIME</span><span class="o">-</span><span class="n">Version</span><span class="p">:</span> <span class="mf">1.0</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">multipart</span><span class="o">/</span><span class="n">mixed</span><span class="p">;</span>
+<span class="n">boundary</span><span class="o">=</span><span class="s2">&quot;-------417CA6E2DE4ABCAFBC5&quot;</span>
+<span class="n">From</span><span class="p">:</span> <span class="n">Alice</span> <span class="n">Smith</span> <span class="o">&lt;</span><span class="n">Alice</span><span class="nd">@cisco</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="n">To</span><span class="p">:</span> <span class="n">Bob</span><span class="nd">@cs</span><span class="o">.</span><span class="n">Princeton</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">Subject</span><span class="p">:</span> <span class="n">promised</span> <span class="n">material</span>
+<span class="n">Date</span><span class="p">:</span> <span class="n">Mon</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Sep</span> <span class="mi">1998</span> <span class="mi">19</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">19</span> <span class="o">-</span><span class="mi">0400</span>
 
----------417CA6E2DE4ABCAFBC5
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+<span class="o">---------</span><span class="mi">417</span><span class="n">CA6E2DE4ABCAFBC5</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">us</span><span class="o">-</span><span class="n">ascii</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Transfer</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="mi">7</span><span class="n">bit</span>
 
-Bob,
+<span class="n">Bob</span><span class="p">,</span>
 
-Here&#39;s the jpeg image and draft report I promised.
+<span class="n">Here</span><span class="s1">&#39;s the jpeg image and draft report I promised.</span>
 
---Alice
+<span class="o">--</span><span class="n">Alice</span>
 
----------417CA6E2DE4ABCAFBC5
-Content-Type: image/jpeg
-Content-Transfer-Encoding: base64
-... unreadable encoding of a jpeg figure
----------417CA6E2DE4ABCAFBC5
-Content-Type: application/postscript; name=&quot;draft.ps&quot;
-Content-Transfer-Encoding: 7bit
-... readable encoding of a PostScript document
+<span class="o">---------</span><span class="mi">417</span><span class="n">CA6E2DE4ABCAFBC5</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">image</span><span class="o">/</span><span class="n">jpeg</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Transfer</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">base64</span>
+<span class="o">...</span> <span class="n">unreadable</span> <span class="n">encoding</span> <span class="n">of</span> <span class="n">a</span> <span class="n">jpeg</span> <span class="n">figure</span>
+<span class="o">---------</span><span class="mi">417</span><span class="n">CA6E2DE4ABCAFBC5</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">postscript</span><span class="p">;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;draft.ps&quot;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Transfer</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="mi">7</span><span class="n">bit</span>
+<span class="o">...</span> <span class="n">readable</span> <span class="n">encoding</span> <span class="n">of</span> <span class="n">a</span> <span class="n">PostScript</span> <span class="n">document</span>
 </pre></div>
 </div>
 <p>In this example, the line in the message header says that this message
@@ -628,7 +628,7 @@ basis of a hypertext system.</p>
 fetches the page from the server using HTTP running over TCP. Like SMTP,
 HTTP is a text-oriented protocol. At its core, HTTP is a
 request/response protocol, where every message has the general form</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">START_LINE</span> <span class="o">&lt;</span><span class="n">CRLF</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">START_LINE</span> <span class="o">&lt;</span><span class="n">CRLF</span><span class="o">&gt;</span>
 <span class="n">MESSAGE_HEADER</span> <span class="o">&lt;</span><span class="n">CRLF</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">CRLF</span><span class="o">&gt;</span>
 <span class="n">MESSAGE_BODY</span> <span class="o">&lt;</span><span class="n">CRLF</span><span class="o">&gt;</span>
@@ -709,8 +709,8 @@ the Internet.</p>
 </tbody>
 </table>
 <p>For example, the <code class="docutils literal notranslate"><span class="pre">START_LINE</span></code></p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span>GET http://www.cs.princeton.edu/index.html
-HTTP/1.1
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">princeton</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 </pre></div>
 </div>
 <p>says that the client wants the server on host to return the page named .

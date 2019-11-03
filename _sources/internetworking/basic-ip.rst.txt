@@ -544,7 +544,7 @@ sending host is attached will be sent out through the default router.
 
 We can describe the datagram forwarding algorithm in the following way:
 
-.. code-block:: c
+::
 
    if (NetworkNum of destination = NetworkNum of one of my interfaces) then
        deliver packet to destination over that interface
@@ -557,7 +557,7 @@ We can describe the datagram forwarding algorithm in the following way:
 For a host with only one interface and only a default router in its
 forwarding table, this simplifies to
 
-.. code-block:: c
+::
 
    if (NetworkNum of destination = my NetworkNum) then
        deliver packet to destination directly
@@ -804,7 +804,7 @@ connected to the same network as H2.
 We can now describe the datagram forwarding algorithm in the following
 way:
 
-.. code-block:: c
+::
 
    D = destination IP address
    for each forwarding table entry (SubnetNumber, SubnetMask, NextHop)

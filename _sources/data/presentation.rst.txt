@@ -359,7 +359,7 @@ Management Protocol (SNMP).
 
 ASN.1 represents each data item with a triple of the form
 
-.. code-block:: c
+::
 
    (tag, length, value)
 
@@ -500,7 +500,7 @@ byte (e.g., the integer 2 is encoded as ``0000 0010``), while for an
 integer bigger than 128, more bytes are needed. For example, 365 would
 be encoded as
 
-.. code-block:: c
+::
 
    1110 1101 0000 0010
 
@@ -509,7 +509,7 @@ is there to tell us whether we’ve reached the end of the integer. In
 this example, the ``1`` in the most significant bit of the first byte
 indicates there is more than one byte in the varint:
 
-.. code-block:: c
+::
 
    1110 1101 0000 0010
    → 110 1101  000 0010
@@ -518,7 +518,7 @@ Since varints store numbers with the least significant group first, you
 next reverse the two groups of seven bits. Then you concatenate them to
 get your final value:
 
-.. code-block:: c
+::
 
    000 0010  110 1101
    →  000 0010 || 110 1101

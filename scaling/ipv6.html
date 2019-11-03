@@ -338,7 +338,7 @@ topic).</p>
 addresses. The standard representation is <code class="docutils literal notranslate"><span class="pre">x:x:x:x:x:x:x:x</span></code>, where
 each <code class="docutils literal notranslate"><span class="pre">x</span></code> is a hexadecimal representation of a 16-bit piece of the
 address. An example would be</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">47</span><span class="nl">CD</span><span class="p">:</span><span class="mi">1234</span><span class="o">:</span><span class="mi">4422</span><span class="o">:</span><span class="nl">ACO2</span><span class="p">:</span><span class="mo">0022</span><span class="o">:</span><span class="mi">1234</span><span class="o">:</span><span class="nl">A456</span><span class="p">:</span><span class="mo">0124</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">47</span><span class="n">CD</span><span class="p">:</span><span class="mi">1234</span><span class="p">:</span><span class="mi">4422</span><span class="p">:</span><span class="n">ACO2</span><span class="p">:</span><span class="mi">0022</span><span class="p">:</span><span class="mi">1234</span><span class="p">:</span><span class="n">A456</span><span class="p">:</span><span class="mi">0124</span>
 </pre></div>
 </div>
 <p>Any IPv6 address can be written using this notation. Since there are a
@@ -346,11 +346,11 @@ few special types of IPv6 addresses, there are some special notations
 that may be helpful in certain circumstances. For example, an address
 with a large number of contiguous 0s can be written more compactly by
 omitting all the 0 fields. Thus,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">47</span><span class="nl">CD</span><span class="p">:</span><span class="mo">0000</span><span class="o">:</span><span class="mo">0000</span><span class="o">:</span><span class="mo">0000</span><span class="o">:</span><span class="mo">0000</span><span class="o">:</span><span class="mo">0000</span><span class="o">:</span><span class="nl">A456</span><span class="p">:</span><span class="mo">0124</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">47</span><span class="n">CD</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="mi">0000</span><span class="p">:</span><span class="n">A456</span><span class="p">:</span><span class="mi">0124</span>
 </pre></div>
 </div>
 <p>could be written</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">47</span><span class="n">CD</span><span class="o">::</span><span class="nl">A456</span><span class="p">:</span><span class="mo">0124</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">47</span><span class="n">CD</span><span class="p">::</span><span class="n">A456</span><span class="p">:</span><span class="mi">0124</span>
 </pre></div>
 </div>
 <p>Clearly, this form of shorthand can only be used for one set of
@@ -359,7 +359,7 @@ contiguous 0s in an address to avoid ambiguity.</p>
 have their own special notation that makes extraction of the IPv4
 address easier. For example, the IPv4-mapped IPv6 address of a host
 whose IPv4 address was 128.96.33.81 could be written as</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">::</span><span class="nl">FFFF</span><span class="p">:</span><span class="mf">128.96.33.81</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">::</span><span class="n">FFFF</span><span class="p">:</span><span class="mf">128.96</span><span class="o">.</span><span class="mf">33.81</span>
 </pre></div>
 </div>
 <p>That is, the last 32&nbsp;bits are written in IPv4 notation, rather than as a

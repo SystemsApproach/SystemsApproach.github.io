@@ -306,7 +306,7 @@ current implementations are close to the algorithm that follows.</p>
 <p>First, RED computes an average queue length using a weighted running
 average similar to the one used in the original TCP timeout computation.
 That is, <code class="docutils literal notranslate"><span class="pre">AvgLen</span></code> is computed as</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">AvgLen</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Weight</span><span class="p">)</span> <span class="n">x</span> <span class="n">AvgLen</span> <span class="o">+</span> <span class="n">Weight</span> <span class="n">x</span> <span class="n">SampleLen</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AvgLen</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Weight</span><span class="p">)</span> <span class="n">x</span> <span class="n">AvgLen</span> <span class="o">+</span> <span class="n">Weight</span> <span class="n">x</span> <span class="n">SampleLen</span>
 </pre></div>
 </div>
 <p>where 0 &lt; <code class="docutils literal notranslate"><span class="pre">Weight</span></code> &lt; 1 and <code class="docutils literal notranslate"><span class="pre">SampleLen</span></code> is the length of the queue
@@ -334,11 +334,11 @@ below.</p>
 activity: <code class="docutils literal notranslate"><span class="pre">MinThreshold</span></code> and <code class="docutils literal notranslate"><span class="pre">MaxThreshold</span></code>. When a packet arrives
 at the gateway, RED compares the current <code class="docutils literal notranslate"><span class="pre">AvgLen</span></code> with these two
 thresholds, according to the following rules:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">AvgLen</span> <span class="o">&lt;=</span> <span class="n">MinThreshold</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">AvgLen</span> <span class="o">&lt;=</span> <span class="n">MinThreshold</span>
     <span class="n">queue</span> <span class="n">the</span> <span class="n">packet</span>
 <span class="k">if</span> <span class="n">MinThreshold</span> <span class="o">&lt;</span> <span class="n">AvgLen</span> <span class="o">&lt;</span> <span class="n">MaxThreshold</span>
     <span class="n">calculate</span> <span class="n">probability</span> <span class="n">P</span>
-    <span class="n">drop</span> <span class="n">the</span> <span class="n">arriving</span> <span class="n">packet</span> <span class="n">with</span> <span class="n">probability</span> <span class="n">P</span>
+    <span class="n">drop</span> <span class="n">the</span> <span class="n">arriving</span> <span class="n">packet</span> <span class="k">with</span> <span class="n">probability</span> <span class="n">P</span>
 <span class="k">if</span> <span class="n">MaxThreshold</span> <span class="o">&lt;=</span> <span class="n">AvgLen</span>
     <span class="n">drop</span> <span class="n">the</span> <span class="n">arriving</span> <span class="n">packet</span>
 </pre></div>
@@ -372,7 +372,7 @@ drop as a function only of <code class="docutils literal notranslate"><span clas
 little more complicated. In fact, <code class="docutils literal notranslate"><span class="pre">P</span></code> is a function of both
 <code class="docutils literal notranslate"><span class="pre">AvgLen</span></code> and how long it has been since the last packet was
 dropped. Specifically, it is computed as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">TempP</span> <span class="o">=</span> <span class="n">MaxP</span> <span class="n">x</span> <span class="p">(</span><span class="n">AvgLen</span> <span class="o">-</span> <span class="n">MinThreshold</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">MaxThreshold</span> <span class="o">-</span> <span class="n">MinThreshold</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TempP</span> <span class="o">=</span> <span class="n">MaxP</span> <span class="n">x</span> <span class="p">(</span><span class="n">AvgLen</span> <span class="o">-</span> <span class="n">MinThreshold</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">MaxThreshold</span> <span class="o">-</span> <span class="n">MinThreshold</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">TempP</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">count</span> <span class="n">x</span> <span class="n">TempP</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -544,7 +544,7 @@ the algorithm decreases the congestion window by one-eighth.</p>
 not to change the current window size is based on changes to both the
 RTT and the window size. The window is adjusted once every two
 round-trip delays based on the product</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">CurrentWindow</span> <span class="o">-</span> <span class="n">OldWindow</span><span class="p">)</span> <span class="n">x</span> <span class="p">(</span><span class="n">CurrentRTT</span> <span class="o">-</span> <span class="n">OldRTT</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">CurrentWindow</span> <span class="o">-</span> <span class="n">OldWindow</span><span class="p">)</span> <span class="n">x</span> <span class="p">(</span><span class="n">CurrentRTT</span> <span class="o">-</span> <span class="n">OldRTT</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If the result is positive, the source decreases the window size by
@@ -621,7 +621,7 @@ the minimum of all measured round-trip times; it is commonly the RTT of
 the first packet sent by the connection, before the router queues
 increase due to traffic generated by this flow. If we assume that we are
 not overflowing the connection, then the expected throughput is given by</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ExpectedRate</span> <span class="o">=</span> <span class="n">CongestionWindow</span> <span class="o">/</span> <span class="n">BaseRTT</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ExpectedRate</span> <span class="o">=</span> <span class="n">CongestionWindow</span> <span class="o">/</span> <span class="n">BaseRTT</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">CongestionWindow</span></code> is the TCP congestion window, which we

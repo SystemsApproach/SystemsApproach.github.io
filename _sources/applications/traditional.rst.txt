@@ -164,7 +164,7 @@ There’s also a readable encoding for mostly ASCII data.
 Putting this all together, a message that contains some plain text, a
 JPEG image, and a PostScript file would look something like this:
 
-.. code-block:: c
+::
 
    MIME-Version: 1.0
    Content-Type: multipart/mixed;
@@ -476,7 +476,7 @@ fetches the page from the server using HTTP running over TCP. Like SMTP,
 HTTP is a text-oriented protocol. At its core, HTTP is a
 request/response protocol, where every message has the general form
 
-.. code-block:: c
+::
 
    START_LINE <CRLF>
    MESSAGE_HEADER <CRLF>
@@ -554,7 +554,7 @@ the Internet.
 
 For example, the ``START_LINE``
 
-.. code-block:: http
+::
 
    GET http://www.cs.princeton.edu/index.html
    HTTP/1.1

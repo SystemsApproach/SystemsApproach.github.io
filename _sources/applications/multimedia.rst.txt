@@ -100,7 +100,7 @@ SDP provides this information formatted in ASCII using a sequence of
 lines of text, each of the form “.” An example of an SDP message will
 illustrate the main points.
 
-.. code-block:: c
+::
 
    v=0
    o=larry 2890844526 2890842807 IN IP4 128.112.136.10
@@ -163,7 +163,7 @@ media types available—audio, video, and a shared whiteboard application
 known as “``wb``.” For each media type there is one line of information
 formatted as follows:
 
-.. code-block:: c
+::
 
    m=<media> <port> <transport> <format>
 
@@ -265,7 +265,7 @@ message to the local proxy for his domain, ``cisco.com``. Among other
 things, this initial message contains a *SIP URI*—these are a form of
 uniform resource identifier which look like this:
 
-.. code-block:: c
+::
 
    SIP:larry@princeton.edu
 
@@ -286,7 +286,7 @@ phone if he doesn’t answer the phone at his desk).
 The initial message from Bruce to Larry is likely to be a SIP ``invite``
 message, which looks something like the following:
 
-.. code-block:: c
+::
 
    INVITE sip:larry@princeton.edu SIP/2.0
    Via: SIP/2.0/UDP bsd-pc.cisco.com;branch=z9hG4bK433yte4

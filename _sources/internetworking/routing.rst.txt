@@ -724,7 +724,7 @@ far by the algorithm, and C(n) denotes the cost of the path from s to
 each node n. Given these definitions, the algorithm is defined as
 follows:
 
-.. code-block:: c
+::
 
    M = {s}
    for each n in N - {s}
@@ -1061,7 +1061,7 @@ the router (``ArrivalTime``); its departure time from the router
 received from the other side, the node computed the delay for that
 packet as
 
-.. code-block:: c
+::
 
    Delay = (DepartTime - ArrivalTime) + TransmissionTime + Latency
 

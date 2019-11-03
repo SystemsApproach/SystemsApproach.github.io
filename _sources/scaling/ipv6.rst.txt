@@ -158,7 +158,7 @@ addresses. The standard representation is ``x:x:x:x:x:x:x:x``, where
 each ``x`` is a hexadecimal representation of a 16-bit piece of the
 address. An example would be
 
-.. code-block:: c
+::
 
    47CD:1234:4422:ACO2:0022:1234:A456:0124
 
@@ -168,13 +168,13 @@ that may be helpful in certain circumstances. For example, an address
 with a large number of contiguous 0s can be written more compactly by
 omitting all the 0 fields. Thus,
 
-.. code-block:: c
+::
 
    47CD:0000:0000:0000:0000:0000:A456:0124
 
 could be written
 
-.. code-block:: c
+::
 
    47CD::A456:0124
 
@@ -186,7 +186,7 @@ have their own special notation that makes extraction of the IPv4
 address easier. For example, the IPv4-mapped IPv6 address of a host
 whose IPv4 address was 128.96.33.81 could be written as
 
-.. code-block:: c
+::
 
    ::FFFF:128.96.33.81
 

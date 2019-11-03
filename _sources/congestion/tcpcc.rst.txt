@@ -52,7 +52,7 @@ ledged data allowed is now the minimum of the congestion window and the
 advertised window. Thus, using the variables defined in the previous
 chapter, TCP’s effective window is revised as follows:
 
-.. code-block:: c
+::
 
    MaxWindow = MIN(CongestionWindow, AdvertisedWindow)
    EffectiveWindow = MaxWindow -  (LastByteSent - LastByteAcked)
@@ -120,7 +120,7 @@ add 1 packet’s worth to the congestion window, but instead increments
 arrives. Specifically, the congestion window is incremented as follows
 each time an ACK arrives:
 
-.. code-block:: c
+::
 
    Increment = MSS x (MSS/CongestionWindow)
    CongestionWindow += Increment

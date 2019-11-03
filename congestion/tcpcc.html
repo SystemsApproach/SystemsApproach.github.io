@@ -229,7 +229,7 @@ TCP is modified such that the maximum number of bytes of unacknow-
 ledged data allowed is now the minimum of the congestion window and the
 advertised window. Thus, using the variables defined in the previous
 chapter, TCP’s effective window is revised as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">MaxWindow</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">CongestionWindow</span><span class="p">,</span> <span class="n">AdvertisedWindow</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MaxWindow</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">CongestionWindow</span><span class="p">,</span> <span class="n">AdvertisedWindow</span><span class="p">)</span>
 <span class="n">EffectiveWindow</span> <span class="o">=</span> <span class="n">MaxWindow</span> <span class="o">-</span>  <span class="p">(</span><span class="n">LastByteSent</span> <span class="o">-</span> <span class="n">LastByteAcked</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -288,7 +288,7 @@ add 1&nbsp;packet’s worth to the congestion window, but instead increments
 <code class="docutils literal notranslate"><span class="pre">CongestionWindow</span></code> by a little for each ACK that
 arrives. Specifically, the congestion window is incremented as follows
 each time an ACK arrives:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Increment</span> <span class="o">=</span> <span class="n">MSS</span> <span class="n">x</span> <span class="p">(</span><span class="n">MSS</span><span class="o">/</span><span class="n">CongestionWindow</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Increment</span> <span class="o">=</span> <span class="n">MSS</span> <span class="n">x</span> <span class="p">(</span><span class="n">MSS</span><span class="o">/</span><span class="n">CongestionWindow</span><span class="p">)</span>
 <span class="n">CongestionWindow</span> <span class="o">+=</span> <span class="n">Increment</span>
 </pre></div>
 </div>

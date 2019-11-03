@@ -325,7 +325,7 @@ frames that the sender can transmit; <code class="docutils literal notranslate">
 of the <em>last acknowledgment received</em>; and <code class="docutils literal notranslate"><span class="pre">LFS</span></code> denotes the sequence
 number of the <em>last frame sent</em>. The sender also maintains the following
 invariant:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LFS</span> <span class="o">-</span> <span class="n">LAR</span> <span class="o">&lt;=</span> <span class="n">SWS</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LFS</span> <span class="o">-</span> <span class="n">LAR</span> <span class="o">&lt;=</span> <span class="n">SWS</span>
 </pre></div>
 </div>
 <p>This situation is illustrated in <a class="reference internal" href="#fig-sw-sender"><span class="std std-numref">Figure 37</span></a>.</p>
@@ -345,7 +345,7 @@ out-of-order frames that the receiver is willing to accept; <code class="docutil
 denotes the sequence number of the <em>largest acceptable frame</em>; and
 <code class="docutils literal notranslate"><span class="pre">LFR</span></code> denotes the sequence number of the <em>last frame received</em>. The
 receiver also maintains the following invariant:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">LAF</span> <span class="o">-</span> <span class="n">LFR</span> <span class="o">&lt;=</span> <span class="n">RWS</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LAF</span> <span class="o">-</span> <span class="n">LFR</span> <span class="o">&lt;=</span> <span class="n">RWS</span>
 </pre></div>
 </div>
 <p>This situation is illustrated in <a class="reference internal" href="#fig-sw-rcvr"><span class="std std-numref">Figure 38</span></a>.</p>
@@ -443,7 +443,7 @@ wanted to avoid.</p>
 <p>It turns out that the sending window size can be no more than half as
 big as the number of available sequence numbers when <code class="docutils literal notranslate"><span class="pre">RWS</span> <span class="pre">=</span> <span class="pre">SWS</span></code>, or
 stated more precisely,</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SWS</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">MaxSeqNum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SWS</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">MaxSeqNum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>Intuitively, what this is saying is that the sliding window protocol

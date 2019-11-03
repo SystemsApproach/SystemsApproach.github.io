@@ -676,21 +676,21 @@ acceptable to have a default router and nothing else—this means that all
 datagrams destined for hosts not on the physical network to which the
 sending host is attached will be sent out through the default router.</p>
 <p>We can describe the datagram forwarding algorithm in the following way:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">one</span> <span class="n">of</span> <span class="n">my</span> <span class="n">interfaces</span><span class="p">)</span> <span class="n">then</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">one</span> <span class="n">of</span> <span class="n">my</span> <span class="n">interfaces</span><span class="p">)</span> <span class="n">then</span>
     <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">destination</span> <span class="n">over</span> <span class="n">that</span> <span class="n">interface</span>
 <span class="k">else</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">destination</span> <span class="n">is</span> <span class="n">in</span> <span class="n">my</span> <span class="n">forwarding</span> <span class="n">table</span><span class="p">)</span> <span class="n">then</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">destination</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">my</span> <span class="n">forwarding</span> <span class="n">table</span><span class="p">)</span> <span class="n">then</span>
         <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">NextHop</span> <span class="n">router</span>
     <span class="k">else</span>
-        <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="k">default</span> <span class="n">router</span>
+        <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">default</span> <span class="n">router</span>
 </pre></div>
 </div>
 <p>For a host with only one interface and only a default router in its
 forwarding table, this simplifies to</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">my</span> <span class="n">NetworkNum</span><span class="p">)</span> <span class="n">then</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">NetworkNum</span> <span class="n">of</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">my</span> <span class="n">NetworkNum</span><span class="p">)</span> <span class="n">then</span>
     <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">destination</span> <span class="n">directly</span>
 <span class="k">else</span>
-    <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="k">default</span> <span class="n">router</span>
+    <span class="n">deliver</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">default</span> <span class="n">router</span>
 </pre></div>
 </div>
 <p>Let’s see how this works in the example internetwork of <a class="reference internal" href="#fig-inet"><span class="std std-numref">Figure
@@ -927,11 +927,11 @@ delivers the datagram to H2 using interface 1, which is the interface
 connected to the same network as H2.</p>
 <p>We can now describe the datagram forwarding algorithm in the following
 way:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">destination</span> <span class="n">IP</span> <span class="n">address</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">destination</span> <span class="n">IP</span> <span class="n">address</span>
 <span class="k">for</span> <span class="n">each</span> <span class="n">forwarding</span> <span class="n">table</span> <span class="n">entry</span> <span class="p">(</span><span class="n">SubnetNumber</span><span class="p">,</span> <span class="n">SubnetMask</span><span class="p">,</span> <span class="n">NextHop</span><span class="p">)</span>
     <span class="n">D1</span> <span class="o">=</span> <span class="n">SubnetMask</span> <span class="o">&amp;</span> <span class="n">D</span>
     <span class="k">if</span> <span class="n">D1</span> <span class="o">=</span> <span class="n">SubnetNumber</span>
-        <span class="k">if</span> <span class="n">NextHop</span> <span class="n">is</span> <span class="n">an</span> <span class="n">interface</span>
+        <span class="k">if</span> <span class="n">NextHop</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">interface</span>
             <span class="n">deliver</span> <span class="n">datagram</span> <span class="n">directly</span> <span class="n">to</span> <span class="n">destination</span>
         <span class="k">else</span>
             <span class="n">deliver</span> <span class="n">datagram</span> <span class="n">to</span> <span class="n">NextHop</span> <span class="p">(</span><span class="n">a</span> <span class="n">router</span><span class="p">)</span>

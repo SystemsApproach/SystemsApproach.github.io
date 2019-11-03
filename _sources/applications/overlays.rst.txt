@@ -266,7 +266,7 @@ adding this edge. If the utility is above a certain threshold, link
 *(i,j)* is added to the mesh. Evaluating the utility of adding edge
 *(i,j)* might look something like this:
 
-.. code-block:: c
+::
 
    EvaluateUtility(j)
        utility = 0
@@ -280,7 +280,7 @@ adding this edge. If the utility is above a certain threshold, link
 Deciding to remove an edge is similar, except each node *i* computes the
 cost of each link to current neighbor *j* as follows:
 
-.. code-block:: c
+::
 
    EvaluateCost(j)
        Cost[i,j] = number of members for which i uses j as next hop
@@ -535,7 +535,7 @@ terminology, how many buckets should there be?) Naively, we could decide
 that there are, say, 101 possible hash values, and we use a modulo hash
 function; that is,
 
-.. code-block:: c
+::
 
    hash(x)
        return x % 101
@@ -637,7 +637,7 @@ as well as any other node in the same set. Thus, if one node is unable
 to make progress routing a message, one of its neighbors in the leaf set
 may be able to. In summary, the routing procedure is defined as follows:
 
-.. code-block:: c
+::
 
    Route(D)
        if D is within range of my leaf set
@@ -1121,7 +1121,7 @@ one server fails its load is distributed evenly among the other
 machines. This approach is the basis for the Cache Array Routing
 Protocol (CARP) and is shown in pseudocode below.
 
-.. code-block:: c
+::
 
    SelectServer(URL, S)
        for each server s in server set S

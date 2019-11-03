@@ -431,7 +431,7 @@ components.</p>
 a 3-dimensional space, and it’s possible to convert from one color space
 to another using linear equations. For one YUV space that is commonly
 used to represent digital images, the equations are:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="mf">0.299</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.587</span><span class="n">G</span> <span class="o">+</span> <span class="mf">0.114</span><span class="n">B</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="mf">0.299</span><span class="n">R</span> <span class="o">+</span> <span class="mf">0.587</span><span class="n">G</span> <span class="o">+</span> <span class="mf">0.114</span><span class="n">B</span>
 <span class="n">U</span> <span class="o">=</span> <span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span> <span class="n">x</span> <span class="mf">0.565</span>
 <span class="n">V</span> <span class="o">=</span>  <span class="p">(</span><span class="n">R</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span> <span class="n">x</span> <span class="mf">0.713</span>
 </pre></div>
@@ -660,23 +660,23 @@ lost). Notice that as a result of such quantization tables many of the
 high-frequency coefficients end up being set to 0 after quantization,
 making them ripe for further compression in the third phase.</p>
 <p>The basic quantization equation is</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">QuantizedValue</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">IntegerRound</span><span class="p">(</span><span class="n">DCT</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">Quantum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QuantizedValue</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">IntegerRound</span><span class="p">(</span><span class="n">DCT</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">Quantum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>where</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">IntegerRound</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IntegerRound</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span>
     <span class="n">Floor</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span>
     <span class="n">Floor</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>Decompression is then simply defined as</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">DCT</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">QuantizedValue</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="n">x</span> <span class="n">Quantum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DCT</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">QuantizedValue</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="n">x</span> <span class="n">Quantum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For example, if the DC coefficient (i.e., DCT(0,0)) for a particular
 block was equal to 25, then the quantization of this value using
 <a class="reference internal" href="#tab-quant"><span class="std std-numref">Table 24</span></a> would result in</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Floor</span><span class="p">(</span><span class="mi">25</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Floor</span><span class="p">(</span><span class="mi">25</span><span class="o">/</span><span class="mi">3</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
 </pre></div>
 </div>
 <p>During decompression, this coefficient would then be restored as 8 × 3 =

@@ -154,7 +154,7 @@ each of the 4-bit nibbles in the byte; leading 0s are dropped. For
 example, ``8:0:2b:e4:b1:2`` is the human-readable representation of
 Ethernet address
 
-.. code-block:: c
+::
 
    00001000  00000000  00101011  11100100  10110001  00000010
 

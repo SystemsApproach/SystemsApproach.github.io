@@ -271,17 +271,17 @@ to be used, the port numbers, the encoding scheme)</li>
 <p>SDP provides this information formatted in ASCII using a sequence of
 lines of text, each of the form “.” An example of an SDP message will
 illustrate the main points.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>v=0
-o=larry 2890844526 2890842807 IN IP4 128.112.136.10
-s=Networking 101
-i=A class on computer networking
-u=http://www.cs.princeton.edu/
-e=larry@cs.princeton.edu
-c=IN IP4 224.2.17.12/127
-t=2873397496 2873404696
-m=audio 49170 RTP/AVP 0
-m=video 51372 RTP/AVP 31
-m=application 32416 udp wb
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">o</span><span class="o">=</span><span class="n">larry</span> <span class="mi">2890844526</span> <span class="mi">2890842807</span> <span class="n">IN</span> <span class="n">IP4</span> <span class="mf">128.112</span><span class="o">.</span><span class="mf">136.10</span>
+<span class="n">s</span><span class="o">=</span><span class="n">Networking</span> <span class="mi">101</span>
+<span class="n">i</span><span class="o">=</span><span class="n">A</span> <span class="k">class</span> <span class="nc">on</span> <span class="n">computer</span> <span class="n">networking</span>
+<span class="n">u</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">princeton</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span>
+<span class="n">e</span><span class="o">=</span><span class="n">larry</span><span class="nd">@cs</span><span class="o">.</span><span class="n">princeton</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">c</span><span class="o">=</span><span class="n">IN</span> <span class="n">IP4</span> <span class="mf">224.2</span><span class="o">.</span><span class="mf">17.12</span><span class="o">/</span><span class="mi">127</span>
+<span class="n">t</span><span class="o">=</span><span class="mi">2873397496</span> <span class="mi">2873404696</span>
+<span class="n">m</span><span class="o">=</span><span class="n">audio</span> <span class="mi">49170</span> <span class="n">RTP</span><span class="o">/</span><span class="n">AVP</span> <span class="mi">0</span>
+<span class="n">m</span><span class="o">=</span><span class="n">video</span> <span class="mi">51372</span> <span class="n">RTP</span><span class="o">/</span><span class="n">AVP</span> <span class="mi">31</span>
+<span class="n">m</span><span class="o">=</span><span class="n">application</span> <span class="mi">32416</span> <span class="n">udp</span> <span class="n">wb</span>
 </pre></div>
 </div>
 <p>Note that SDP, like HTML, is fairly easy for a human to read but has
@@ -325,7 +325,7 @@ information about the media for this session. This session has three
 media types available—audio, video, and a shared whiteboard application
 known as “<code class="docutils literal notranslate"><span class="pre">wb</span></code>.” For each media type there is one line of information
 formatted as follows:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=&lt;</span><span class="n">media</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">transport</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">format</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=&lt;</span><span class="n">media</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">transport</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">format</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>The media types are self-explanatory, and the port numbers in each case
@@ -412,7 +412,7 @@ wants to initiate a session with Larry, he sends his initial SIP
 message to the local proxy for his domain, <code class="docutils literal notranslate"><span class="pre">cisco.com</span></code>. Among other
 things, this initial message contains a <em>SIP URI</em>—these are a form of
 uniform resource identifier which look like this:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>SIP:larry@princeton.edu
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SIP</span><span class="p">:</span><span class="n">larry</span><span class="nd">@princeton</span><span class="o">.</span><span class="n">edu</span>
 </pre></div>
 </div>
 <p>A SIP URI provides complete identification of a user, but (unlike a URL)
@@ -429,15 +429,15 @@ be done either in parallel or in series (e.g., send it to his mobile
 phone if he doesn’t answer the phone at his desk).</p>
 <p>The initial message from Bruce to Larry is likely to be a SIP <code class="docutils literal notranslate"><span class="pre">invite</span></code>
 message, which looks something like the following:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>INVITE sip:larry@princeton.edu SIP/2.0
-Via: SIP/2.0/UDP bsd-pc.cisco.com;branch=z9hG4bK433yte4
-To: Larry &lt;sip:larry@princeton.edu&gt;
-From: Bruce &lt;sip:bruce@cisco.com&gt;;tag=55123
-Call-ID: xy745jj210re3@bsd-pc.cisco.com
-CSeq: 271828 INVITE
-Contact: &lt;sip:bruce@bsd-pc.cisco.com&gt;
-Content-Type: application/sdp
-Content-Length: 142
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INVITE</span> <span class="n">sip</span><span class="p">:</span><span class="n">larry</span><span class="nd">@princeton</span><span class="o">.</span><span class="n">edu</span> <span class="n">SIP</span><span class="o">/</span><span class="mf">2.0</span>
+<span class="n">Via</span><span class="p">:</span> <span class="n">SIP</span><span class="o">/</span><span class="mf">2.0</span><span class="o">/</span><span class="n">UDP</span> <span class="n">bsd</span><span class="o">-</span><span class="n">pc</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="p">;</span><span class="n">branch</span><span class="o">=</span><span class="n">z9hG4bK433yte4</span>
+<span class="n">To</span><span class="p">:</span> <span class="n">Larry</span> <span class="o">&lt;</span><span class="n">sip</span><span class="p">:</span><span class="n">larry</span><span class="nd">@princeton</span><span class="o">.</span><span class="n">edu</span><span class="o">&gt;</span>
+<span class="n">From</span><span class="p">:</span> <span class="n">Bruce</span> <span class="o">&lt;</span><span class="n">sip</span><span class="p">:</span><span class="n">bruce</span><span class="nd">@cisco</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="p">;</span><span class="n">tag</span><span class="o">=</span><span class="mi">55123</span>
+<span class="n">Call</span><span class="o">-</span><span class="n">ID</span><span class="p">:</span> <span class="n">xy745jj210re3</span><span class="nd">@bsd</span><span class="o">-</span><span class="n">pc</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span>
+<span class="n">CSeq</span><span class="p">:</span> <span class="mi">271828</span> <span class="n">INVITE</span>
+<span class="n">Contact</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">sip</span><span class="p">:</span><span class="n">bruce</span><span class="nd">@bsd</span><span class="o">-</span><span class="n">pc</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">sdp</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">142</span>
 </pre></div>
 </div>
 <p>The first line identifies the type of function to be performed

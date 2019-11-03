@@ -501,7 +501,7 @@ stubs can be either interpreted or compiled. One of the claims to fame
 of ASN.1 BER is that it is used by the Internet standard Simple Network
 Management Protocol (SNMP).</p>
 <p>ASN.1 represents each data item with a triple of the form</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">tag</span></code> is typically an 8-bit field, although ASN.1 allows for the
@@ -619,21 +619,21 @@ significant group is first in the serialization.</p>
 byte (e.g., the integer 2 is encoded as <code class="docutils literal notranslate"><span class="pre">0000</span> <span class="pre">0010</span></code>), while for an
 integer bigger than 128, more bytes are needed. For example, 365 would
 be encoded as</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">1110</span> <span class="mi">1101</span> <span class="mo">0000</span> <span class="mo">0010</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1110</span> <span class="mi">1101</span> <span class="mi">0000</span> <span class="mi">0010</span>
 </pre></div>
 </div>
 <p>To see this, first drop the most significant bit from each byte, as it
 is there to tell us whether we’ve reached the end of the integer. In
 this example, the <code class="docutils literal notranslate"><span class="pre">1</span></code> in the most significant bit of the first byte
 indicates there is more than one byte in the varint:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>1110 1101 0000 0010
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1110 1101 0000 0010
 → 110 1101  000 0010
 </pre></div>
 </div>
 <p>Since varints store numbers with the least significant group first, you
 next reverse the two groups of seven bits. Then you concatenate them to
 get your final value:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>000 0010  110 1101
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>000 0010  110 1101
 →  000 0010 || 110 1101
 →  101101101
 →  256 + 64 + 32 + 8 + 4 + 1 = 365

@@ -159,7 +159,7 @@ of the *last acknowledgment received*; and ``LFS`` denotes the sequence
 number of the *last frame sent*. The sender also maintains the following
 invariant:
 
-.. code-block:: c
+::
 		
    LFS - LAR <= SWS
 
@@ -186,7 +186,7 @@ denotes the sequence number of the *largest acceptable frame*; and
 ``LFR`` denotes the sequence number of the *last frame received*. The
 receiver also maintains the following invariant:
 
-.. code-block:: c
+::
 		
    LAF - LFR <= RWS
 
@@ -298,7 +298,7 @@ It turns out that the sending window size can be no more than half as
 big as the number of available sequence numbers when ``RWS = SWS``, or
 stated more precisely,
 
-.. code-block:: c
+::
 		
    SWS < (MaxSeqNum + 1)/ 2
 

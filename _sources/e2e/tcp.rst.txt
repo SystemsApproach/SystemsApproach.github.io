@@ -525,14 +525,14 @@ Looking first at the sending side, three pointers are maintained into
 the send buffer, each with an obvious meaning: ``LastByteAcked``,
 ``LastByteSent``, and ``LastByteWritten``. Clearly,
 
-.. code-block:: c
+::
 
    LastByteAcked <= LastByteSent
 
 since the receiver cannot have acknowledged a byte that has not yet been
 sent, and
 
-.. code-block:: c
+::
 
    LastByteSent <= LastByteWritten
 
@@ -548,7 +548,7 @@ receiving side: ``LastByteRead``, ``NextByteExpected``, and
 ``LastByteRcvd``. The inequalities are a little less intuitive, however,
 because of the problem of out-of-order delivery. The first relationship
 
-.. code-block:: c
+::
 
    LastByteRead < NextByteExpected
 
@@ -557,7 +557,7 @@ received *and* all preceding bytes have also been received.
 ``NextByteExpected`` points to the byte immediately after the latest
 byte to meet this criterion. Second,
 
-.. code-block:: c
+::
 
    NextByteExpected <= LastByteRcvd + 1
 
@@ -594,14 +594,14 @@ from the receiver. Thus, the receiver throttles the sender by
 advertising a window that is no larger than the amount of data that it
 can buffer. Observe that TCP on the receive side must keep
 
-.. code-block:: c
+::
 
    LastByteRcvd - LastByteRead <= MaxRcvBuffer
 
 to avoid overflowing its buffer. It therefore advertises a window size
 of
 
-.. code-block:: c
+::
 
    AdvertisedWindow = MaxRcvBuffer - ((NextByteExpected - 1) - LastByteRead)
 
@@ -623,14 +623,14 @@ TCP on the send side must then adhere to the advertised window it gets
 from the receiver. This means that at any given time, it must ensure
 that
 
-.. code-block:: c
+::
 
    LastByteSent - LastByteAcked <= AdvertisedWindow
 
 Said another way, the sender computes an *effective* window that limits
 how much data it can send:
 
-.. code-block:: c
+::
 
    EffectiveWindow = AdvertisedWindow - (LastByteSent - LastByteAcked)
 
@@ -645,13 +645,13 @@ buffer space, but not to send any more data.
 All the while this is going on, the send side must also make sure that
 the local application process does not overflow the send buffer—that is,
 
-.. code-block:: c
+::
 
    LastByteWritten - LastByteAcked <= MaxSendBuffer
 
 If the sending process tries to write y bytes to TCP, but
 
-.. code-block:: c
+::
 
    (LastByteWritten - LastByteAcked) + y > MaxSendBuffer
 
@@ -932,7 +932,7 @@ eventually receive an ACK. This ACK can be treated like a timer
 firing, triggering the transmission of more data. Nagle’s algorithm
 provides a simple, unified rule for deciding when to transmit:
 
-.. code-block:: c
+::
 
    When the application produces data to send
        if both the available data and the window >= MSS
@@ -986,7 +986,7 @@ difference between these two times as a ``SampleRTT``. TCP then
 computes an ``EstimatedRTT`` as a weighted average between the
 previous estimate and this new sample. That is,
 
-.. code-block:: c
+::
 
    EstimatedRTT = alpha x EstimatedRTT + (1 - alpha) x SampleRTT
 
@@ -998,7 +998,7 @@ adapt to real changes. The original TCP specification recommended a
 setting of ``alpha`` between 0.8 and 0.9. TCP then uses
 ``EstimatedRTT`` to compute the timeout in a rather conservative way:
 
-.. code-block:: c
+::
 
    TimeOut = 2 x EstimatedRTT
 
@@ -1077,7 +1077,7 @@ coupled to the ``EstimatedRTT``.
 In the new approach, the sender measures a new ``SampleRTT`` as before.
 It then folds this new sample into the timeout calculation as follows:
 
-.. code-block:: c
+::
 
    Difference = SampleRTT - EstimatedRTT
    EstimatedRTT = EstimatedRTT + ( delta x Difference)
@@ -1089,7 +1089,7 @@ calculate both the mean RTT and the variation in that mean.
 TCP then computes the timeout value as a function of both
 ``EstimatedRTT`` and ``Deviation`` as follows:
 
-.. code-block:: c
+::
 
    TimeOut = mu x EstimatedRTT + phi x Deviation
 
@@ -1116,7 +1116,7 @@ values. If you find the code hard to follow, you might want to try
 plugging some real numbers into it and verifying that it gives the same
 results as the equations above.
 
-.. code-block:: c
+::
 
    {
        SampleRTT -= (EstimatedRTT >> 3);

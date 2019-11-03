@@ -256,7 +256,7 @@ a 3-dimensional space, and it’s possible to convert from one color space
 to another using linear equations. For one YUV space that is commonly
 used to represent digital images, the equations are:
 
-.. code-block:: c
+::
 
    Y = 0.299R + 0.587G + 0.114B
    U = (B-Y) x 0.565
@@ -444,13 +444,13 @@ making them ripe for further compression in the third phase.
 
 The basic quantization equation is
 
-.. code-block:: c
+::
 
    QuantizedValue(i,j) = IntegerRound(DCT(i,j), Quantum(i,j))
 
 where
 
-.. code-block:: c
+::
 
    IntegerRound(x) =
        Floor(x + 0.5) if x >= 0
@@ -458,7 +458,7 @@ where
 
 Decompression is then simply defined as
 
-.. code-block:: c
+::
 
    DCT(i,j) = QuantizedValue(i,j) x Quantum(i,j)
 
@@ -466,7 +466,7 @@ For example, if the DC coefficient (i.e., DCT(0,0)) for a particular
 block was equal to 25, then the quantization of this value using
 :numref:`Table %s <tab-quant>` would result in
 
-.. code-block:: c
+::
 
    Floor(25/3+0.5) = 8
 

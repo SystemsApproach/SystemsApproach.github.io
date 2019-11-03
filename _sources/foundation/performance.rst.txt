@@ -106,7 +106,7 @@ network, since packet switches generally need to store packets for some
 time before forwarding them on an outbound link. So, we could define the
 total latency as
 
-.. code-block:: c
+::
 
    Latency = Propagation + Transmit + Queue
    Propagation =  Distance/SpeedOfLight
