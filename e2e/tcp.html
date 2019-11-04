@@ -384,7 +384,7 @@ this buffer at its leisure.  This situation is illustrated in
 data flowing in only one direction. Remember that, in general, a
 single TCP connection supports byte streams flowing in both
 directions.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-tcp-stream"></span><a class="reference internal image-reference" href="../_images/f05-03-9780123850591.png"><img alt="../_images/f05-03-9780123850591.png" src="../_images/f05-03-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 127. </span><span class="caption-text">How TCP manages a byte stream.</span></p>
 </div>
@@ -393,7 +393,7 @@ segment of the byte stream. Each TCP segment contains the header
 schematically depicted in <a class="reference internal" href="#fig-tcp-format"><span class="std std-numref">Figure 128</span></a>. The
 relevance of most of these fields will become apparent throughout this
 section. For now, we simply introduce them.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-tcp-format"></span><a class="reference internal image-reference" href="../_images/f05-04-9780123850591.png"><img alt="../_images/f05-04-9780123850591.png" src="../_images/f05-04-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 128. </span><span class="caption-text">TCP header format.</span></p>
 </div>
@@ -422,7 +422,7 @@ data that has a particular <code class="docutils literal notranslate"><span clas
 and <code class="docutils literal notranslate"><span class="pre">Acknowledgement</span></code> and <code class="docutils literal notranslate"><span class="pre">AdvertisedWindow</span></code> values flowing in the
 opposite direction, as illustrated in <a class="reference internal" href="#fig-tcp-flow"><span class="std std-numref">Figure 129</span></a>. The use of these three fields is described more fully
 later in this chapter.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-tcp-flow"></span><a class="reference internal image-reference" href="../_images/f05-05-9780123850591.png"><img alt="../_images/f05-05-9780123850591.png" src="../_images/f05-05-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 129. </span><span class="caption-text">Simplified illustration (showing only one direction)
 of the TCP process, with data flow in one direction and ACKs in
@@ -463,7 +463,7 @@ server (callee). Assuming that the server had earlier done a passive
 open, the two sides engage in an exchange of messages to establish the
 connection. (Recall from Chapter&nbsp;1 that a party wanting to initiate a
 connection performs an active open, while a party willing to accept a
-connection does a passive open.) Only after this connection
+connection does a passive open.<a class="footnote-reference" href="#id2" id="id1">[*]</a>) Only after this connection
 establishment phase is over do the two sides begin sending data.
 Likewise, as soon as a participant is done sending data, it closes one
 direction of the connection, which causes TCP to initiate a round of
@@ -474,11 +474,15 @@ close the connection independently). Therefore, it is possible for one
 side to have done a close, meaning that it can no longer send data, but
 for the other side to keep the other half of the bidirectional
 connection open and to continue sending data.</p>
-<blockquote>
-<div>To be more precise, connection setup can be symmetric, with both
-sides trying to open the connection at the same time, but the common
-case is for one side to do an active open and the other side to do a
-passive open.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>To be more precise, TCP allows connection setup to be symmetric,
+with both sides trying to open the connection at the same time,
+but the common case is for one side to do an active open and the
+other side to do a passive open.</td></tr>
+</tbody>
+</table>
 <div class="section" id="three-way-handshake">
 <h3>Three-Way Handshake<a class="headerlink" href="#three-way-handshake" title="Permalink to this headline">¶</a></h3>
 <p>The algorithm used by TCP to establish and terminate a connection is
@@ -486,7 +490,7 @@ called a <em>three-way handshake</em>. We first describe the basic algorithm
 and then show how it is used by TCP. The three-way handshake involves
 the exchange of three messages between the client and the server, as
 illustrated by the timeline given in <a class="reference internal" href="#fig-twh-timeline"><span class="std std-numref">Figure 130</span></a>.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-twh-timeline"></span><a class="reference internal image-reference" href="../_images/f05-06-9780123850591.png"><img alt="../_images/f05-06-9780123850591.png" src="../_images/f05-06-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 130. </span><span class="caption-text">Timeline for three-way handshake algorithm.</span></p>
 </div>
@@ -530,7 +534,7 @@ This diagram shows only the states involved in opening a connection
 below ESTABLISHED). Everything that goes on while a connection is
 open—that is, the operation of the sliding window algorithm—is hidden in
 the ESTABLISHED state.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-tcp-std"></span><a class="reference internal image-reference" href="../_images/f05-07-9780123850591.png"><img alt="../_images/f05-07-9780123850591.png" src="../_images/f05-07-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 131. </span><span class="caption-text">TCP state-transition diagram.</span></p>
 </div>
@@ -658,7 +662,7 @@ the receiving side, TCP maintains a receive buffer. This buffer holds
 data that arrives out of order, as well as data that is in the correct
 order (i.e., there are no missing bytes earlier in the stream) but
 that the application process has not yet had the chance to read.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id8">
 <span id="fig-tcp-fc"></span><a class="reference internal image-reference" href="../_images/f05-08-9780123850591.png"><img alt="../_images/f05-08-9780123850591.png" src="../_images/f05-08-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 132. </span><span class="caption-text">Relationship between TCP send buffer (a) and receive
 buffer&nbsp;(b).</span></p>
@@ -852,8 +856,8 @@ possible, but of course we will be if we are doing our job of keeping
 the pipe full.) <a class="reference internal" href="#tab-eqnum"><span class="std std-numref">Table 22</span></a> shows how long it takes
 for the sequence number to wrap around on networks with various
 bandwidths.</p>
-<span id="tab-eqnum"></span><table border="1" class="colwidths-auto docutils align-center" id="id7">
-<caption><span class="caption-number">Table 22. </span><span class="caption-text">Time Until 32-Bit Sequence Number Space&nbsp;Wraps Around.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<span id="tab-eqnum"></span><table border="1" class="colwidths-auto docutils align-center" id="id9">
+<caption><span class="caption-number">Table 22. </span><span class="caption-text">Time Until 32-Bit Sequence Number Space&nbsp;Wraps Around.</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Bandwidth</th>
 <th class="head">Time until Wraparound</th>
@@ -907,8 +911,8 @@ delay × bandwidth product’s worth of data to be transmitted. Assuming an
 RTT of 100&nbsp;ms (a typical number for a cross-country connection in the
 United States), <a class="reference internal" href="#tab-adv-win"><span class="std std-numref">Table 23</span></a> gives the delay × bandwidth
 product for several network technologies.</p>
-<span id="tab-adv-win"></span><table border="1" class="colwidths-auto docutils align-center" id="id8">
-<caption><span class="caption-number">Table 23. </span><span class="caption-text">Required Window Size for 100-ms RTT</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<span id="tab-adv-win"></span><table border="1" class="colwidths-auto docutils align-center" id="id10">
+<caption><span class="caption-number">Table 23. </span><span class="caption-text">Required Window Size for 100-ms RTT</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Bandwidth</th>
 <th class="head">Delay × Bandwidth Product</th>
@@ -1004,7 +1008,7 @@ emptied at each end and is never coalesced with adjacent containers to
 create larger containers, as in <a class="reference internal" href="#fig-sillywindow"><span class="std std-numref">Figure 133(b)</span></a>. This scenario was discovered when early
 implementations of TCP regularly found themselves filling the network
 with tiny segments.</p>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id11">
 <span id="fig-sillywindow"></span><a class="reference internal image-reference" href="../_images/f05-09-9780123850591.png"><img alt="../_images/f05-09-9780123850591.png" src="../_images/f05-09-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 133. </span><span class="caption-text">Silly window syndrome. (a) As long as the sender sends
 MSS-sized segments and the receiver ACKs one MSS at a time, the
@@ -1125,7 +1129,7 @@ the original transmission but it was really for the second, then the
 <code class="docutils literal notranslate"><span class="pre">SampleRTT</span></code> is too large (a); if you assume that the ACK is for the
 second transmission but it was actually for the first, then the
 <code class="docutils literal notranslate"><span class="pre">SampleRTT</span></code> is too small (b).</p>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id12">
 <span id="fig-tcp-karn"></span><a class="reference internal image-reference" href="../_images/f05-10-9780123850591.png"><img alt="../_images/f05-10-9780123850591.png" src="../_images/f05-10-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 134. </span><span class="caption-text">Associating the ACK with (a)&nbsp;original transmission
 versus (b)&nbsp;retransmission.</span></p>
@@ -1404,7 +1408,7 @@ protocol graph available to us that includes alternative transport
 protocols, we can discuss how to meaningfully measure its performance.
 The importance of such measurements is that they represent the
 performance seen by application programs.</p>
-<div class="figure align-center" id="id11">
+<div class="figure align-center" id="id13">
 <span id="fig-experiment"></span><a class="reference internal image-reference" href="../_images/f05-11-9780123850591.png"><img alt="../_images/f05-11-9780123850591.png" src="../_images/f05-11-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 135. </span><span class="caption-text">Measured system: Two Linux workstations and a pair of
 Gbps Ethernet links.</span></p>
@@ -1435,7 +1439,7 @@ amortized over more bytes. The throughput curve flattens off above
 1&nbsp;KB, at which point the per-message overhead becomes insignificant
 when compared to the large number of bytes that the protocol stack has
 to process.</p>
-<div class="figure align-center" id="id12">
+<div class="figure align-center" id="id14">
 <span id="fig-xput"></span><a class="reference internal image-reference" href="../_images/f05-12-9780123850591.png"><img alt="../_images/f05-12-9780123850591.png" src="../_images/f05-12-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 136. </span><span class="caption-text">Measured throughput using TCP, for various message
 sizes.</span></p>

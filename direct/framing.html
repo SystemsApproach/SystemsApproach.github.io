@@ -200,7 +200,7 @@ bits arriving on the link and deposits the corresponding frame in B’s
 memory. Recognizing exactly what set of bits constitutes a frame—that
 is, determining where the frame begins and ends—is the central
 challenge faced by the adaptor.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-host-link"></span><a class="reference internal image-reference" href="../_images/f02-06-9780123850591.png"><img alt="../_images/f02-06-9780123850591.png" src="../_images/f02-06-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 26. </span><span class="caption-text">Bits flow between adaptors, frames between hosts.</span></p>
 </div>
@@ -253,7 +253,7 @@ back-to-back frames to be incorrectly received.</p>
 Internet Protocol packets over various sorts of point-to-point links,
 uses sentinels and character stuffing. The format for a PPP frame is
 given in <a class="reference internal" href="#fig-ppp"><span class="std std-numref">Figure 27</span></a>.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-ppp"></span><a class="reference internal image-reference" href="../_images/f02-08-9780123850591.png"><img alt="../_images/f02-08-9780123850591.png" src="../_images/f02-08-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 27. </span><span class="caption-text">PPP frame format.</span></p>
 </div>
@@ -302,7 +302,7 @@ protocols essentially use the sentinel approach. Because this sequence
 might appear anywhere in the body of the frame—in fact, the bits
 <code class="docutils literal notranslate"><span class="pre">01111110</span></code> might cross byte boundaries—bit-oriented protocols use the
 analog of the DLE character, a technique known as <em>bit stuffing</em>.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-hdlc"></span><a class="reference internal image-reference" href="../_images/f02-10-9780123850591.png"><img alt="../_images/f02-10-9780123850591.png" src="../_images/f02-10-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 28. </span><span class="caption-text">HDLC frame format.</span></p>
 </div>
@@ -377,7 +377,7 @@ consistently, hoping to see it appearing once every 810&nbsp;bytes, since
 each frame is 9 × 90 = 810 bytes long. When the special pattern turns
 up in the right place enough times, the receiver concludes that it is
 in sync and can then interpret the frame correctly.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-sonet-frame"></span><a class="reference internal image-reference" href="../_images/f02-11-9780123850591.png"><img alt="../_images/f02-11-9780123850591.png" src="../_images/f02-11-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 29. </span><span class="caption-text">A SONET STS-1 frame.</span></p>
 </div>
@@ -404,7 +404,7 @@ signal with enough transitions to enable clock recovery.</p>
 <p>SONET supports the multiplexing of multiple low-speed links in the
 following way. A given SONET link runs at one of a finite set of
 possible rates, ranging from 51.84&nbsp;Mbps (STS-1) to 39,813,120&nbsp;Mbps
-(STS-768). Note that all of these rates are integer multiples of STS-1.
+(STS-768) <a class="footnote-reference" href="#id2" id="id1">[*]</a>. Note that all of these rates are integer multiples of STS-1.
 The significance for framing is that a single SONET frame can contain
 subframes for multiple lower-rate channels. A second related feature is
 that each frame is 125&nbsp;μs long. This means that at STS-1 rates, a SONET
@@ -412,15 +412,20 @@ frame is 810&nbsp;bytes long, while at STS-3 rates, each SONET frame is
 2430&nbsp;bytes long. Notice the synergy between these two features: 3 × 810
 = 2430, meaning that three STS-1 frames fit exactly in a single STS-3
 frame.</p>
-<blockquote>
-<div>STS stands for <em>Synchronous Transport Signal</em>, which is how SONET
-talks about frames. There is a parallel term—<em>Optical Carrier</em>
-(OC)—that is used to talk about the underlying optical signal that
-carries SONET frames. We say these two terms are parallel because
-STS-3 and OC-3, to use a concrete example, both imply a transmission
-rate of 155.52 Mbps. Since we’re focused on framing here, we will
-stick with STS, but it is more likely that you will hear someone
-refer to an optical link by its “OC” name.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>STS stands for <em>Synchronous Transport Signal</em>, which is how
+SONET talks about frames. There is a parallel term—<em>Optical
+Carrier</em>  (OC)—that is used to talk about the underlying
+optical signal that carries SONET frames. We say these two
+terms are parallel because STS-3 and OC-3, to use a concrete
+example, both imply a transmission rate of 155.52 Mbps. Since
+we’re focused on framing here, we will stick with STS, but it
+is more likely that you will hear someone refer to an optical
+link by its “OC” name.</td></tr>
+</tbody>
+</table>
 <p>Intuitively, the STS-N frame can be thought of as consisting of N STS-1
 frames, where the bytes from these frames are interleaved; that is, a
 byte from the first frame is transmitted, then a byte from the second
@@ -429,7 +434,7 @@ from each STS-N frame is to ensure that the bytes in each STS-1 frame
 are evenly paced; that is, bytes show up at the receiver at a smooth
 51&nbsp;Mbps, rather than all bunched up during one particular <span class="math notranslate nohighlight">\(1/N^{th}\)</span>
 of the 125-μs interval.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-sonet1"></span><a class="reference internal image-reference" href="../_images/f02-12-9780123850591.png"><img alt="../_images/f02-12-9780123850591.png" src="../_images/f02-12-9780123850591.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-number">Figure 30. </span><span class="caption-text">Three STS-1 frames multiplexed onto one STS-3c
 frame.</span></p>
@@ -444,7 +449,7 @@ a single STS-3c frame. The significance of a SONET link being designated
 as STS-3c rather than STS-3 is that, in the former case, the user of the
 link can view it as a single 155.25-Mbps pipe, whereas an STS-3 should
 really be viewed as three 51.84-Mbps links that happen to share a fiber.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id8">
 <span id="fig-sonet3"></span><a class="reference internal image-reference" href="../_images/f02-13-9780123850591.png"><img alt="../_images/f02-13-9780123850591.png" src="../_images/f02-13-9780123850591.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Figure 31. </span><span class="caption-text">SONET frames out of phase.</span></p>
 </div>

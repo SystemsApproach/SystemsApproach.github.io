@@ -471,13 +471,13 @@ to tunnel packets from one site to another; however, the configuration
 of the tunnels is performed automatically by some fairly elaborate use
 of BGP, which is beyond the scope of this book.
 
-   Customer A in fact usually *can* send data to customer B in some
-   restricted way. Most likely, both customer A and customer B have some
-   connection to the global Internet, and thus it is probably possible
-   for customer A to send email messages, for example, to the mail
-   server inside customer B’s network. The “privacy” offered by a VPN
-   prevents customer A from having unrestricted access to all the
-   machines and subnets inside customer B’s network.
+Customer A in fact usually *can* send data to customer B in some
+restricted way. Most likely, both customer A and customer B have some
+connection to the global Internet, and thus it is probably possible
+for customer A to send email messages, for example, to the mail server
+inside customer B’s network. The “privacy” offered by a VPN prevents
+customer A from having unrestricted access to all the machines and
+subnets inside customer B’s network.
 
 In summary, MPLS is a rather versatile tool that has been applied to a
 wide range of different networking problems. It combines the

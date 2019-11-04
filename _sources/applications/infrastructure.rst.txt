@@ -59,7 +59,7 @@ hosts. Note that the Internet did not always use DNS. Early in its
 history, when there were only a few hundred hosts on the Internet, a
 central authority called the *Network Information Center* (NIC)
 maintained a flat table of name-to-address bindings; this table was
-called ``HOSTS.TXT``. Whenever a site wanted to add a new host to the
+called ``HOSTS.TXT``.\ [*]_ Whenever a site wanted to add a new host to the
 Internet, the site administrator sent email to the NIC giving the new
 host’s name/address pair. This information was manually entered into the
 table, the modified table was mailed out to the various sites every few
@@ -68,9 +68,10 @@ every host at the site. Name resolution was then simply implemented by a
 procedure that looked up a host’s name in the local copy of the table
 and returned the corresponding address.
 
-   Believe it or not, there was also a paper book (like a phone book)
-   published periodically that listed all the machines connected to the
-   Internet and all the people that had an Internet email account.
+.. [*] Believe it or not, there was also a paper book (like a phone
+       book) published periodically that listed all the machines
+       connected to the Internet and all the people that had an
+       Internet email account.
 
 It should come as no surprise that the approach to naming did not work
 well as the number of hosts in the Internet started to grow. Therefore,
@@ -125,11 +126,11 @@ tree, where each node in the tree corresponds to a domain, and the
 leaves in the tree correspond to the hosts being named. :numref:`Figure 
 %s <fig-domains>` gives an example of a domain hierarchy. Note that we
 should not assign any semantics to the term *domain* other than that it
-is simply a context in which additional names can be defined.
+is simply a context in which additional names can be defined.\ [*]_
 
-   Confusingly, the word *domain* is also used in Internet routing,
-   where it means something different than it does in DNS, being roughly
-   equivalent to the term *autonomous system*.
+.. [*] Confusingly, the word *domain* is also used in Internet
+       routing, where it means something different than it does in
+       DNS, being roughly equivalent to the term *autonomous system*.
 
 There was actually a substantial amount of discussion that took place
 when the domain name hierarchy was first being developed as to what
@@ -646,10 +647,10 @@ application that is trying to serve a need and support more features
 than the alternatives, there is still much room for innovation in tools
 for network management.
 
-   For completeness, we note that NETCONF is another of the post-SNMP
-   protocols for communicating configuration information to network
-   devices. OpenConfig works with NETCONF, but our reading of the tea
-   leaves points to gNMI as the future.
+For completeness, we note that NETCONF is another of the post-SNMP
+protocols for communicating configuration information to network
+devices. OpenConfig works with NETCONF, but our reading of the tea
+leaves points to gNMI as the future.
 
 We conclude by emphasizing that a seachange is underway. While listing
 SNMP and OpenConfig in the title to this section suggests they are

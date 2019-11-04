@@ -151,14 +151,14 @@ problem: Starting with a fully connected graph representing the
 Internet, the goal is to find the embedded multicast tree that spans all
 the group members.
 
-   There is a simpler version of this problem, enabled by the ready
-   availability of cloud-hosted VMs around the world. The
-   multicast-aware “end systems” can be VMs running at multiple sites.
-   As these sites are well-known and relatively fixed, it’s possible to
-   construct a static multicast tree in the cloud, and have the actual
-   end-hosts simply connect to the nearest cloud location. But for the
-   sake of completeness, the following describes the approach in its
-   full glory.
+Note that there is a simpler version of this problem, enabled by the
+ready availability of cloud-hosted VMs around the world. The
+multicast-aware “end systems” can be VMs running at multiple sites.
+As these sites are well-known and relatively fixed, it’s possible to
+construct a static multicast tree in the cloud, and have the actual
+end-hosts simply connect to the nearest cloud location. But for the
+sake of completeness, the following describes the approach in its full
+glory.
 
 .. _fig-topology:
 .. figure:: figures/f09-21-9780123850591.png

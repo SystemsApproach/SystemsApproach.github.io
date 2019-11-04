@@ -91,13 +91,13 @@ this 20 Gbps would be shared by all users connected to the switch, just
 as the bandwidth of a single (unswitched) Ethernet segment is shared
 among all users connected to the shared medium. Thus, for example, a
 16-port switch with this aggregate throughput would only be able to cope
-with an average data rate of about 1 Gbps on each port.
+with an average data rate of about 1 Gbps on each port.\ [*]_
 
-   These example performance numbers do not represent the absolute
-   maximum throughput rate that highly tuned software running on a
-   high-end server could achieve, but they are indicative of limits one
-   ultimately faces in pursuing this approach.
-
+.. [*] These example performance numbers do not represent the absolute
+       maximum throughput rate that highly tuned software running on a
+       high-end server could achieve, but they are indicative of
+       limits one ultimately faces in pursuing this approach.
+       
 One final consideration is important to understand when evaluating
 switch implementations. The non-trivial algorithms discussed in this
 chapter—the spanning tree algorithm used by learning bridges, the
@@ -182,17 +182,21 @@ packets (input, make a forwarding decision, and output) at rates
 measured in Terabits-per-second (Tbps), easily fast enough to keep up
 with 32x100-Gbps ports, or the 48x40-Gbps ports shown in the diagram.
 
-   Our use of the term NPU is a bit non-standard. Historically, NPU was
-   the name given more narrowly-defined network processing chips used,
-   for example, to implement intelligent firewalls or deep packet
-   inspection. They were not as general-purpose as the NPUs we’re
-   discussing here; nor were they as high-performance. It seems likely
-   that the current approach will make purpose-built network processors
-   obsolete, but in any case, we prefer the NPU nomenclator because it
-   is consistent with the trend to build programmable domain-specific
-   processors, including GPUs for graphics and TPUs (Tensor Processing
-   Units) for AI.
+.. sidebar:: Network Processing Units
 
+	     Our use of the term NPU is a bit
+	     non-standard. Historically, NPU was the name given more
+	     narrowly-defined network processing chips used, for
+	     example, to implement intelligent firewalls or deep
+	     packet inspection. They were not as general-purpose as
+	     the NPUs we’re discussing here; nor were they as
+	     high-performance. It seems likely that the current
+	     approach will make purpose-built network processors
+	     obsolete, but in any case, we prefer the NPU nomenclator
+	     because it is consistent with the trend to build
+	     programmable domain-specific processors, including GPUs
+	     for graphics and TPUs (Tensor Processing Units) for AI.
+	     
 The beauty of this new switch design is that a given white-box can now
 be programmed to be an L2 switch, and L3 router, or a combination of
 both, just by a matter of programming. The exact same control plane
@@ -259,22 +263,21 @@ squarely in the middle of a trend to build *Software Defined Networks*
 it was the early stages of SDN that triggered the networking industry to
 move towards white-box switches.
 
-The fundamental idea of SDN is one we’ve already discussed: to decouple
-the network control plane (i.e., where routing algorithms like RIP,
-OSPF, and BGP run) from the network data plane (i.e., where packet
-forwarding decisions get made), with the former moved into software
-running on commodity servers and the latter implemented by white-box
-switches. The key enabling idea behind SDN was to take this decoupling a
-step further, and to define a standard interface between the control
-plane and the data plane. Doing so allows any implementation of the
-control plane to talk to any implementation of the data plane; this
-breaks the dependency on any one vendor’s bundled solution. The original
-interface is called *OpenFlow*, and this idea of decoupling the control
-and data planes came to be known as disaggregation.
-
-   The P4 language mentioned in the previous subsection is a
-   second-generation attempt to define this interface by generalizing
-   OpenFlow.
+The fundamental idea of SDN is one we’ve already discussed: to
+decouple the network control plane (i.e., where routing algorithms
+like RIP, OSPF, and BGP run) from the network data plane (i.e., where
+packet forwarding decisions get made), with the former moved into
+software running on commodity servers and the latter implemented by
+white-box switches. The key enabling idea behind SDN was to take this
+decoupling a step further, and to define a standard interface between
+the control plane and the data plane. Doing so allows any
+implementation of the control plane to talk to any implementation of
+the data plane; this breaks the dependency on any one vendor’s bundled
+solution. The original interface is called *OpenFlow*, and this idea
+of decoupling the control and data planes came to be known as
+disaggregation. (The P4 language mentioned in the previous subsection
+is a second-generation attempt to define this interface by
+generalizing OpenFlow.)
 
 Another important aspect of disaggregation is that a logically
 centralized control plane can be used to control a distributed network

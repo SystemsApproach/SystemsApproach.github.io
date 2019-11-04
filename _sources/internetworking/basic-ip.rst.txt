@@ -277,14 +277,14 @@ per byte of data sent.
 
 The central idea here is that every network type has a *maximum
 transmission unit* (MTU), which is the largest IP datagram that it can
-carry in a frame. Note that this value is smaller than the largest
+carry in a frame.\ [*]_ Note that this value is smaller than the largest
 packet size on that network because the IP datagram needs to fit in the
 *payload* of the link-layer frame.
 
-   In ATM networks, the MTU is, fortunately, much larger than a single
-   cell, as ATM has its own fragmentation mechanisms. The link-layer
-   frame in ATM is called a *convergence-sublayer protocol data unit*
-   (CS-PDU).
+.. [*] In ATM networks, the MTU is, fortunately, much larger than a
+       single cell, as ATM has its own fragmentation and reassembly
+       mechanism. The link-layer frame in ATM is called a
+       *convergence-sublayer protocol data unit* (CS-PDU).
 
 When a host sends an IP datagram, therefore, it can choose any size that
 it wants. A reasonable choice is the MTU of the network to which the

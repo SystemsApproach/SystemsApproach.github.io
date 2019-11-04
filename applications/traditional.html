@@ -362,7 +362,7 @@ JPEG image, and a PostScript file would look something like this:</p>
 
 <span class="n">Bob</span><span class="p">,</span>
 
-<span class="n">Here</span><span class="s1">&#39;s the jpeg image and draft report I promised.</span>
+<span class="n">Here</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">jpeg</span> <span class="n">image</span> <span class="ow">and</span> <span class="n">draft</span> <span class="n">report</span> <span class="n">I</span> <span class="n">promised</span><span class="o">.</span>
 
 <span class="o">--</span><span class="n">Alice</span>
 
@@ -412,7 +412,7 @@ in theory there could be many different implementations of the mail
 daemon. It turns out, though, that there are only a few popular
 implementations, with the old <code class="docutils literal notranslate"><span class="pre">sendmail</span></code> program from Berkeley Unix
 and <code class="docutils literal notranslate"><span class="pre">postfix</span></code> being the most widespread.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id7">
 <span id="fig-mail"></span><a class="reference internal image-reference" href="../_images/f09-01-9780123850591.png"><img alt="../_images/f09-01-9780123850591.png" src="../_images/f09-01-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 216. </span><span class="caption-text">Sequence of mail gateways store and forward email messages.</span></p>
 </div>
@@ -548,7 +548,7 @@ commands include and <code class="docutils literal notranslate"><span class="pre
 meanings. Additional server responses include <code class="docutils literal notranslate"><span class="pre">NO</span></code> (client does not
 have permission to perform that operation) and <code class="docutils literal notranslate"><span class="pre">BAD</span></code> (command is ill
 formed).</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id8">
 <span id="fig-imap"></span><a class="reference internal image-reference" href="../_images/f09-02-9780123850591.png"><img alt="../_images/f09-02-9780123850591.png" src="../_images/f09-02-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 217. </span><span class="caption-text">IMAP state transition diagram.</span></p>
 </div>
@@ -580,19 +580,23 @@ started around 1989, long after the Internet had become a widely
 deployed system. The original goal of the Web was to find a way to
 organize and retrieve information, drawing on ideas about
 hypertext—interlinked documents—that had been around since at least the
-1960s. The core idea of hypertext is that one document can link to
+1960s.<a class="footnote-reference" href="#id2" id="id1">[*]</a> The core idea of hypertext is that one document can link to
 another document, and the protocol (HTTP) and document language (HTML)
 were designed to meet that goal.</p>
-<blockquote>
-<div>A short history of the Web provided by the World Wide Web consortium
-traces its roots to a 1945 article describing links between
-microfiche documents.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>A short history of the Web provided by the World Wide Web
+consortium traces its roots to a 1945 article describing links
+between microfiche documents.</td></tr>
+</tbody>
+</table>
 <p>One helpful way to think of the Web is as a set of cooperating clients
 and servers, all of whom speak the same language: HTTP. Most people are
 exposed to the Web through a graphical client program or web browser
 like Safari, Chrome, Firefox, or Internet Explorer. <a class="reference internal" href="#fig-netscape"><span class="std std-numref">Figure 218</span></a> shows the Safari browser in use, displaying a page of
 information from Princeton University.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id9">
 <span id="fig-netscape"></span><a class="reference internal image-reference" href="../_images/browser-screenshot.png"><img alt="../_images/browser-screenshot.png" src="../_images/browser-screenshot.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 218. </span><span class="caption-text">The Safari web browser.</span></p>
 </div>
@@ -674,8 +678,8 @@ modified since the browser last fetched it. The full set of operations
 is summarized in <a class="reference internal" href="#tab-ops"><span class="std std-numref">Table 26</span></a>. As innocent as it
 sounds, the <code class="docutils literal notranslate"><span class="pre">POST</span></code> command enables much mischief (including spam) on
 the Internet.</p>
-<span id="tab-ops"></span><table border="1" class="colwidths-auto docutils align-center" id="id4">
-<caption><span class="caption-number">Table 26. </span><span class="caption-text">HTTP Request Operations.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<span id="tab-ops"></span><table border="1" class="colwidths-auto docutils align-center" id="id10">
+<caption><span class="caption-number">Table 26. </span><span class="caption-text">HTTP Request Operations.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Operation</th>
 <th class="head">Description</th>
@@ -744,8 +748,8 @@ example, the <code class="docutils literal notranslate"><span class="pre">START_
 was not found. There are five general types of response codes, with the
 first digit of the code indicating its type. <a class="reference internal" href="#tab-codes"><span class="std std-numref">Table 27</span></a>
 summarizes the five types of codes.</p>
-<span id="tab-codes"></span><table border="1" class="colwidths-auto docutils align-center" id="id5">
-<caption><span class="caption-number">Table 27. </span><span class="caption-text">Five Types of HTTP Result Codes.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<span id="tab-codes"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
+<caption><span class="caption-number">Table 27. </span><span class="caption-text">Five Types of HTTP Result Codes.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Code</th>
 <th class="head">Type</th>
@@ -841,7 +845,7 @@ connections while another two (at least) are spent getting the page
 and image. As well as the latency impact, there is also processing
 cost on the server to handle the extra TCP connection establishment
 and termination.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id12">
 <span id="fig-oldhttp"></span><a class="reference internal image-reference" href="../_images/f09-04-9780123850591.png"><img alt="../_images/f09-04-9780123850591.png" src="../_images/f09-04-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 219. </span><span class="caption-text">HTTP 1.0 behavior.</span></p>
 </div>
@@ -859,7 +863,7 @@ each page. <a class="reference internal" href="#fig-persist"><span class="std st
 from <a class="reference internal" href="#fig-oldhttp"><span class="std std-numref">Figure 219</span></a> using a persistent connection
 in the case where the connection is already open (presumably due to
 some prior access of the same server).</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id13">
 <span id="fig-persist"></span><a class="reference internal image-reference" href="../_images/f09-05-9780123850591.png"><img alt="../_images/f09-05-9780123850591.png" src="../_images/f09-05-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 220. </span><span class="caption-text">HTTP 1.1 behavior with persistent connections.</span></p>
 </div>
@@ -918,7 +922,7 @@ cached copy if the user visits the same page again. As another example,
 a site can support a single site-wide cache. This allows users to take
 advantage of pages previously downloaded by other users. Closer to the
 middle of the Internet, Internet Service Providers (ISPs) can cache
-pages. Note that, in the second case, the users within the site most
+pages.<a class="footnote-reference" href="#id4" id="id3">[†]</a> Note that, in the second case, the users within the site most
 likely know what machine is caching pages on behalf of the site, and
 they configure their browsers to connect directly to the caching host.
 This node is sometimes called a <em>proxy</em>. In contrast, the sites that
@@ -930,12 +934,16 @@ If it has the page in its cache, it returns it. If not, it forwards the
 request to the server and watches for the response to fly by in the
 other direction. When it does, the router saves a copy in the hope that
 it can use it to satisfy a future request.</p>
-<blockquote>
-<div>There are quite a few issues with this sort of caching, ranging from
-the technical to the regulatory. One example of a technical challenge
-is the effect of <em>asymmetric paths</em>, when the request to the server
-and the response to the client do not follow the same sequence of
-router hops.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[†]</a></td><td>There are quite a few issues with this sort of caching, ranging
+from the technical to the regulatory. One example of a
+technical challenge is the effect of <em>asymmetric paths</em>, when
+the request to the server and the response to the client do not
+follow the same sequence of router hops.</td></tr>
+</tbody>
+</table>
 <p>No matter where pages are cached, the ability to cache Web pages is
 important enough that HTTP has been designed to make the job easier. The
 trick is that the cache needs to make sure it is not responding with an
@@ -1013,10 +1021,6 @@ to client applications to form network applications. The terms used as
 informal shorthand to distinguish the two Web Services architectures are
 <em>SOAP</em> and <em>REST</em>. We will discuss the technical meanings of those terms
 shortly.</p>
-<blockquote>
-<div>The name <em>Web Services</em> is unfortunately so generic sounding that
-many mistakenly assume that it includes any sort of service
-associated with the Web.</div></blockquote>
 <p>The SOAP architecture’s approach to the problem is to make it feasible,
 at least in theory, to generate protocols that are customized to each
 network application. The key elements of the approach are a framework
@@ -1036,14 +1040,18 @@ HTTP is well suited.</p>
 <div class="section" id="custom-application-protocols-wsdl-soap">
 <h3>Custom Application Protocols (WSDL, SOAP)<a class="headerlink" href="#custom-application-protocols-wsdl-soap" title="Permalink to this headline">¶</a></h3>
 <p>The architecture informally referred to as SOAP is based on <em>Web
-Services Description Language</em> (WSDL) and <em>SOAP</em>. Both of these
+Services Description Language</em> (WSDL) and <em>SOAP</em>.<a class="footnote-reference" href="#id6" id="id5">[‡]</a> Both of these
 standards are issued by the World Wide Web Consortium (W3C). This is the
 architecture that people usually mean when they use the term Web
 Services without any preceding qualifier. As these standards are still
 evolving, our discussion here is effectively a snapshot.</p>
-<blockquote>
-<div>Although the name <em>SOAP</em> originated as an acronym, it officially no
-longer stands for anything.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[‡]</a></td><td>Although the name <em>SOAP</em> originated as an acronym, it
+officially no longer stands for anything.</td></tr>
+</tbody>
+</table>
 <p>WSDL and SOAP are frameworks for specifying and implementing application
 protocols and transport protocols, respectively. They are generally used
 together, although that is not strictly required. WSDL is used to
@@ -1172,7 +1180,7 @@ blocks</em>. A SOAP message consists of an Envelope, which contains a Header
 that contains header blocks, and a Body, which contains the payload
 destined for the ultimate receiver. This message structure is
 illustrated in <a class="reference internal" href="#fig-soapformat"><span class="std std-numref">Figure 221</span></a>.</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id14">
 <span id="fig-soapformat"></span><a class="reference internal image-reference" href="../_images/f09-06-9780123850591.png"><img alt="../_images/f09-06-9780123850591.png" src="../_images/f09-06-9780123850591.png" style="width: 250px;" /></a>
 <p class="caption"><span class="caption-number">Figure 221. </span><span class="caption-text">SOAP message structure.</span></p>
 </div>

@@ -135,7 +135,7 @@ Secret-Key Ciphers
 ------------------
 
 In a secret-key cipher, both participants in a communication share the
-same key. In other words, if a message is encrypted using a particular
+same key.\ [*]_ In other words, if a message is encrypted using a particular
 key, the same key is required for decrypting the message. If the
 cipher illustrated in :numref:`Figure %s <fig-genericCrypto>` were a
 secret-key cipher, then the encryption and decryption keys would be
@@ -145,11 +145,12 @@ at the alternative, public-key ciphers, shortly. (Public-key cipers
 are known as also asymmetric-key ciphers, since as we’ll soon se, the
 two participants use different keys.)
 
-   We use the term *participant* for the parties involved in a secure
-   communication since that is the term we have been using throughout
-   the book to identify the two endpoints of a channel. In the security
-   world, they are typically called *principals*.
-
+.. [*] We use the term *participant* for the parties involved in a
+       secure communication since that is the term we have been using
+       throughout the book to identify the two endpoints of a
+       channel. In the security world, they are typically called
+       *principals*.
+       
 The U.S. National Institute of Standards and Technology (NIST) has
 issued standards for a series of secret-key ciphers. *Data Encryption
 Standard* (DES) was the first, and it has stood the test of time in
@@ -202,12 +203,6 @@ hardware. It doesn’t require much memory, which makes it suitable for
 small mobile devices. AES has some mathematically proven security
 properties and, as of the time of writing, has not suffered from any
 significant successful attacks.
-
-   Since anything that can recover the plaintext with less computational
-   effort than sheer brute force is technically classified as an attack,
-   there are some forms of attack on AES that have been published. While
-   they do somewhat better than brute force, they remain computationally
-   very expensive.
 
 Public-Key Ciphers
 ------------------

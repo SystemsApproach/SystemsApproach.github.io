@@ -208,7 +208,7 @@ network is unintelligible to any eavesdropper, assuming the
 eavesdropper doesn’t know the decryption function. The transformation
 represented by an encryption function and its corresponding decryption
 function is called a <em>cipher</em>.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-genericcrypto"></span><a class="reference internal image-reference" href="../_images/f08-01-9780123850591.png"><img alt="../_images/f08-01-9780123850591.png" src="../_images/f08-01-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 195. </span><span class="caption-text">Secret-key encryption and decryption.</span></p>
 </div>
@@ -295,7 +295,7 @@ first ciphertext block can be decrypted. This mode is illustrated in
 mode</em>, in which successive values of a counter (e.g., 1, 2, 3,
 <span class="math notranslate nohighlight">\(\ldots\)</span>) are incorporated into the encryption of successive
 blocks of plaintext.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-cbc"></span><a class="reference internal image-reference" href="../_images/f08-02-9780123850591.png"><img alt="../_images/f08-02-9780123850591.png" src="../_images/f08-02-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 196. </span><span class="caption-text">Cipher Block Chaining.</span></p>
 </div>
@@ -303,7 +303,7 @@ blocks of plaintext.</p>
 <div class="section" id="secret-key-ciphers">
 <h2>Secret-Key Ciphers<a class="headerlink" href="#secret-key-ciphers" title="Permalink to this headline">¶</a></h2>
 <p>In a secret-key cipher, both participants in a communication share the
-same key. In other words, if a message is encrypted using a particular
+same key.<a class="footnote-reference" href="#id2" id="id1">[*]</a> In other words, if a message is encrypted using a particular
 key, the same key is required for decrypting the message. If the
 cipher illustrated in <a class="reference internal" href="#fig-genericcrypto"><span class="std std-numref">Figure 195</span></a> were a
 secret-key cipher, then the encryption and decryption keys would be
@@ -312,11 +312,16 @@ since the secret is shared with both participants. We’ll take a look
 at the alternative, public-key ciphers, shortly. (Public-key cipers
 are known as also asymmetric-key ciphers, since as we’ll soon se, the
 two participants use different keys.)</p>
-<blockquote>
-<div>We use the term <em>participant</em> for the parties involved in a secure
-communication since that is the term we have been using throughout
-the book to identify the two endpoints of a channel. In the security
-world, they are typically called <em>principals</em>.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>We use the term <em>participant</em> for the parties involved in a
+secure communication since that is the term we have been using
+throughout the book to identify the two endpoints of a
+channel. In the security world, they are typically called
+<em>principals</em>.</td></tr>
+</tbody>
+</table>
 <p>The U.S. National Institute of Standards and Technology (NIST) has
 issued standards for a series of secret-key ciphers. <em>Data Encryption
 Standard</em> (DES) was the first, and it has stood the test of time in
@@ -364,12 +369,6 @@ hardware. It doesn’t require much memory, which makes it suitable for
 small mobile devices. AES has some mathematically proven security
 properties and, as of the time of writing, has not suffered from any
 significant successful attacks.</p>
-<blockquote>
-<div>Since anything that can recover the plaintext with less computational
-effort than sheer brute force is technically classified as an attack,
-there are some forms of attack on AES that have been published. While
-they do somewhat better than brute force, they remain computationally
-very expensive.</div></blockquote>
 </div>
 <div class="section" id="public-key-ciphers">
 <h2>Public-Key Ciphers<a class="headerlink" href="#public-key-ciphers" title="Permalink to this headline">¶</a></h2>
@@ -386,7 +385,7 @@ Consequently, any participant can get the public key and send an
 encrypted message to the owner of the keys, and only the owner has the
 private key necessary to decrypt it. This scenario is depicted in
 <a class="reference internal" href="#fig-public"><span class="std std-numref">Figure 197</span></a>.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-public"></span><a class="reference internal image-reference" href="../_images/f08-03-9780123850591.png"><img alt="../_images/f08-03-9780123850591.png" src="../_images/f08-03-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 197. </span><span class="caption-text">Public-key encryption.</span></p>
 </div>
@@ -423,7 +422,7 @@ this operation is used to provide authentication is the topic of a
 later section. As we will see, public-key ciphers are used primarily
 for authentication and to confidentially distribute secret (symmetric)
 keys, leaving the rest of confidentiality to secret-key ciphers.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-pksign"></span><a class="reference internal image-reference" href="../_images/f08-04-9780123850591.png"><img alt="../_images/f08-04-9780123850591.png" src="../_images/f08-04-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 198. </span><span class="caption-text">Authentication using public keys.</span></p>
 </div>
@@ -562,7 +561,7 @@ authenticator called a <em>message authentication code</em> (MAC). The sender
 appends the MAC to her plaintext message. The receiver recomputes the
 MAC using the plaintext and the secret value and compares that
 recomputed MAC to the received MAC.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-macandhmac"></span><a class="reference internal image-reference" href="../_images/f08-05-9780123850591.png"><img alt="../_images/f08-05-9780123850591.png" src="../_images/f08-05-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 199. </span><span class="caption-text">Computing a MAC (a) versus computing an HMAC (b).</span></p>
 </div>

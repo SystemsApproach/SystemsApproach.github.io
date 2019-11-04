@@ -180,7 +180,7 @@ JPEG image, and a PostScript file would look something like this:
 
    Bob,
 
-   Here's the jpeg image and draft report I promised.
+   Here is the jpeg image and draft report I promised.
 
    --Alice
 
@@ -418,13 +418,13 @@ started around 1989, long after the Internet had become a widely
 deployed system. The original goal of the Web was to find a way to
 organize and retrieve information, drawing on ideas about
 hypertext—interlinked documents—that had been around since at least the
-1960s. The core idea of hypertext is that one document can link to
+1960s.\ [*]_ The core idea of hypertext is that one document can link to
 another document, and the protocol (HTTP) and document language (HTML)
 were designed to meet that goal.
 
-   A short history of the Web provided by the World Wide Web consortium
-   traces its roots to a 1945 article describing links between
-   microfiche documents.
+.. [*] A short history of the Web provided by the World Wide Web
+       consortium traces its roots to a 1945 article describing links
+       between microfiche documents.
 
 One helpful way to think of the Web is as a set of cooperating clients
 and servers, all of whom speak the same language: HTTP. Most people are
@@ -780,7 +780,7 @@ cached copy if the user visits the same page again. As another example,
 a site can support a single site-wide cache. This allows users to take
 advantage of pages previously downloaded by other users. Closer to the
 middle of the Internet, Internet Service Providers (ISPs) can cache
-pages. Note that, in the second case, the users within the site most
+pages.\ [*]_ Note that, in the second case, the users within the site most
 likely know what machine is caching pages on behalf of the site, and
 they configure their browsers to connect directly to the caching host.
 This node is sometimes called a *proxy*. In contrast, the sites that
@@ -793,11 +793,11 @@ request to the server and watches for the response to fly by in the
 other direction. When it does, the router saves a copy in the hope that
 it can use it to satisfy a future request.
 
-   There are quite a few issues with this sort of caching, ranging from
-   the technical to the regulatory. One example of a technical challenge
-   is the effect of *asymmetric paths*, when the request to the server
-   and the response to the client do not follow the same sequence of
-   router hops.
+.. [*] There are quite a few issues with this sort of caching, ranging
+       from the technical to the regulatory. One example of a
+       technical challenge is the effect of *asymmetric paths*, when
+       the request to the server and the response to the client do not
+       follow the same sequence of router hops.
 
 No matter where pages are cached, the ability to cache Web pages is
 important enough that HTTP has been designed to make the job easier. The
@@ -881,10 +881,6 @@ informal shorthand to distinguish the two Web Services architectures are
 *SOAP* and *REST*. We will discuss the technical meanings of those terms
 shortly.
 
-   The name *Web Services* is unfortunately so generic sounding that
-   many mistakenly assume that it includes any sort of service
-   associated with the Web.
-
 The SOAP architecture’s approach to the problem is to make it feasible,
 at least in theory, to generate protocols that are customized to each
 network application. The key elements of the approach are a framework
@@ -907,14 +903,14 @@ Custom Application Protocols (WSDL, SOAP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The architecture informally referred to as SOAP is based on *Web
-Services Description Language* (WSDL) and *SOAP*. Both of these
+Services Description Language* (WSDL) and *SOAP*.\ [*]_ Both of these
 standards are issued by the World Wide Web Consortium (W3C). This is the
 architecture that people usually mean when they use the term Web
 Services without any preceding qualifier. As these standards are still
 evolving, our discussion here is effectively a snapshot.
 
-   Although the name *SOAP* originated as an acronym, it officially no
-   longer stands for anything.
+.. [*] Although the name *SOAP* originated as an acronym, it
+       officially no longer stands for anything.
 
 WSDL and SOAP are frameworks for specifying and implementing application
 protocols and transport protocols, respectively. They are generally used

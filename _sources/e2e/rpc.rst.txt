@@ -436,12 +436,12 @@ program number ``x00100003`` and procedure number ``6`` to this UDP
 port, and the SunRPC module listening at that port calls the NFS
 ``read`` procedure. The client also caches the program-to-port number
 mapping so that it need not go back to the Port Mapper each time it
-wants to talk to the NFS program.
+wants to talk to the NFS program.\ [*]_
 
-   In practice, NFS is such an important program that it has been given
-   its own well-known UDP port, but for the purposes of illustration
-   we’re pretending that’s not the case.
-
+.. [*] In practice, NFS is such an important program that it has been
+       given its own well-known UDP port, but for the purposes of
+       illustration we’re pretending that’s not the case.
+       
 To match up a reply message with the corresponding request, so that
 the result of the RPC can be returned to the correct caller, both
 request and reply message headers include a ``XID`` (transaction ID)

@@ -242,7 +242,7 @@ hosts. Note that the Internet did not always use DNS. Early in its
 history, when there were only a few hundred hosts on the Internet, a
 central authority called the <em>Network Information Center</em> (NIC)
 maintained a flat table of name-to-address bindings; this table was
-called <code class="docutils literal notranslate"><span class="pre">HOSTS.TXT</span></code>. Whenever a site wanted to add a new host to the
+called <code class="docutils literal notranslate"><span class="pre">HOSTS.TXT</span></code>.<a class="footnote-reference" href="#id2" id="id1">[*]</a> Whenever a site wanted to add a new host to the
 Internet, the site administrator sent email to the NIC giving the new
 host’s name/address pair. This information was manually entered into the
 table, the modified table was mailed out to the various sites every few
@@ -250,10 +250,15 @@ days, and the system administrator at each site installed the table on
 every host at the site. Name resolution was then simply implemented by a
 procedure that looked up a host’s name in the local copy of the table
 and returned the corresponding address.</p>
-<blockquote>
-<div>Believe it or not, there was also a paper book (like a phone book)
-published periodically that listed all the machines connected to the
-Internet and all the people that had an Internet email account.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>Believe it or not, there was also a paper book (like a phone
+book) published periodically that listed all the machines
+connected to the Internet and all the people that had an
+Internet email account.</td></tr>
+</tbody>
+</table>
 <p>It should come as no surprise that the approach to naming did not work
 well as the number of hosts in the Internet started to grow. Therefore,
 in the mid-1980s, the Domain Naming System was put into place. DNS
@@ -270,7 +275,7 @@ TCP) with the host’s IP address. This situation is illustrated (in the
 case of sending email) in <a class="reference internal" href="#fig-names"><span class="std std-numref">Figure 229</span></a>. While this picture
 makes the name resolution task look simple enough, there is a bit more
 to it, as we shall see.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id5">
 <span id="fig-names"></span><a class="reference internal image-reference" href="../_images/f09-14-9780123850591.png"><img alt="../_images/f09-14-9780123850591.png" src="../_images/f09-14-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 229. </span><span class="caption-text">Names translated into addresses, where the numbers 1 to 5 show the
 sequence of steps in the process.</span></p>
@@ -288,7 +293,7 @@ mean by this is that DNS is not strictly used to map host names into
 host addresses. It is more accurate to say that DNS maps domain names
 into values. For the time being, we assume that these values are IP
 addresses; we will come back to this issue later in this section.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id6">
 <span id="fig-domains"></span><a class="reference internal image-reference" href="../_images/f09-15-9780123850591.png"><img alt="../_images/f09-15-9780123850591.png" src="../_images/f09-15-9780123850591.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Figure 230. </span><span class="caption-text">Example of a domain hierarchy.</span></p>
 </div>
@@ -297,11 +302,15 @@ tree, where each node in the tree corresponds to a domain, and the
 leaves in the tree correspond to the hosts being named. <a class="reference internal" href="#fig-domains"><span class="std std-numref">Figure
 230</span></a> gives an example of a domain hierarchy. Note that we
 should not assign any semantics to the term <em>domain</em> other than that it
-is simply a context in which additional names can be defined.</p>
-<blockquote>
-<div>Confusingly, the word <em>domain</em> is also used in Internet routing,
-where it means something different than it does in DNS, being roughly
-equivalent to the term <em>autonomous system</em>.</div></blockquote>
+is simply a context in which additional names can be defined.<a class="footnote-reference" href="#id4" id="id3">[†]</a></p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[†]</a></td><td>Confusingly, the word <em>domain</em> is also used in Internet
+routing, where it means something different than it does in
+DNS, being roughly equivalent to the term <em>autonomous system</em>.</td></tr>
+</tbody>
+</table>
 <p>There was actually a substantial amount of discussion that took place
 when the domain name hierarchy was first being developed as to what
 conventions would govern the names that were to be handed out near the
@@ -333,7 +342,7 @@ University. Within this zone, some departments do not want the
 responsibility of managing the hierarchy (and so they remain in the
 university-level zone), while others, like the Department of Computer
 Science, manage their own department-level zone.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id7">
 <span id="fig-zones"></span><a class="reference internal image-reference" href="../_images/f09-16-9780123850591.png"><img alt="../_images/f09-16-9780123850591.png" src="../_images/f09-16-9780123850591.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Figure 231. </span><span class="caption-text">Domain hierarchy partitioned into zones.</span></p>
 </div>
@@ -348,7 +357,7 @@ a pointer to another server that the client should query next. Thus,
 from an implementation perspective, it is more accurate to think of DNS
 as being represented by a hierarchy of name servers rather than by a
 hierarchy of domains, as illustrated in <a class="reference internal" href="#fig-servers"><span class="std std-numref">Figure 232</span></a>.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id8">
 <span id="fig-servers"></span><a class="reference internal image-reference" href="../_images/f09-17-9780123850591.png"><img alt="../_images/f09-17-9780123850591.png" src="../_images/f09-17-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 232. </span><span class="caption-text">Hierarchy of name servers.</span></p>
 </div>
@@ -522,7 +531,7 @@ partial name (e.g., <code class="docutils literal notranslate"><span class="pre"
 program is configured with the local domain in which the host resides
 (e.g., <code class="docutils literal notranslate"><span class="pre">cs.princeton.edu</span></code>), and it appends this string to any simple
 names before sending out a query.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id9">
 <span id="fig-resolution"></span><a class="reference internal image-reference" href="../_images/f09-18-9780123850591.png"><img alt="../_images/f09-18-9780123850591.png" src="../_images/f09-18-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 233. </span><span class="caption-text">Name resolution in practice, where the numbers 1 to 10 show the sequence
 of steps in the process.</span></p>
@@ -697,7 +706,7 @@ a consequence, zero-touch also implies that the operator should be able
 to declare their network-wide <em>intent</em>, with the management tool being
 smart enough to issue the necessary per-device configuration directives
 in a globally consistent way.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id10">
 <span id="fig-mgmt"></span><a class="reference internal image-reference" href="../_images/Slide1.png"><img alt="../_images/Slide1.png" src="../_images/Slide1.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 234. </span><span class="caption-text">Operator manages a network through a configuration and management tool,
 which in turn programmatically interacts with the underlying network
@@ -756,11 +765,10 @@ automate, or the exact form of the operator-facing interface. Like any
 application that is trying to serve a need and support more features
 than the alternatives, there is still much room for innovation in tools
 for network management.</p>
-<blockquote>
-<div>For completeness, we note that NETCONF is another of the post-SNMP
+<p>For completeness, we note that NETCONF is another of the post-SNMP
 protocols for communicating configuration information to network
 devices. OpenConfig works with NETCONF, but our reading of the tea
-leaves points to gNMI as the future.</div></blockquote>
+leaves points to gNMI as the future.</p>
 <p>We conclude by emphasizing that a seachange is underway. While listing
 SNMP and OpenConfig in the title to this section suggests they are
 equivalent, it is more accurate to say that each is “what we call” these

@@ -233,7 +233,7 @@ we are interconnecting as <em>physical</em> networks. An internet is a
 <em>logical</em> network built out of a collection of physical networks. In
 this context, a collection of Ethernet segments connected by bridges or
 switches would still be viewed as a single network.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-inet"></span><a class="reference internal image-reference" href="../_images/f03-14-9780123850591.png"><img alt="../_images/f03-14-9780123850591.png" src="../_images/f03-14-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 70. </span><span class="caption-text">A simple internetwork. H denotes a host and R denotes
 a router.</span></p>
@@ -246,7 +246,7 @@ these is a single-technology network. The nodes that interconnect the
 networks are called <em>routers</em>.  They are also sometimes called
 <em>gateways</em>, but since this term has several other connotations, we
 restrict our usage to router.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-ip-graph"></span><a class="reference internal image-reference" href="../_images/f03-15-9780123850591.png"><img alt="../_images/f03-15-9780123850591.png" src="../_images/f03-15-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 71. </span><span class="caption-text">A simple internetwork, showing the protocol layers
 used to connect H5 to H8 in the above figure. ETH is the protocol
@@ -346,7 +346,7 @@ representation, you can easily recognize fields that are a multiple of
 8&nbsp;bits long. On the odd occasion when fields are not an even multiple
 of 8&nbsp;bits, you can determine the field lengths by looking at the bit
 positions marked at the top of the packet.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-iphead"></span><a class="reference internal image-reference" href="../_images/f03-16-9780123850591.png"><img alt="../_images/f03-16-9780123850591.png" src="../_images/f03-16-9780123850591.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Figure 72. </span><span class="caption-text">IPv4 packet header.</span></p>
 </div>
@@ -441,14 +441,18 @@ bandwidth and consumes processing resources by requiring more headers
 per byte of data sent.</p>
 <p>The central idea here is that every network type has a <em>maximum
 transmission unit</em> (MTU), which is the largest IP datagram that it can
-carry in a frame. Note that this value is smaller than the largest
+carry in a frame.<a class="footnote-reference" href="#id2" id="id1">[*]</a> Note that this value is smaller than the largest
 packet size on that network because the IP datagram needs to fit in the
 <em>payload</em> of the link-layer frame.</p>
-<blockquote>
-<div>In ATM networks, the MTU is, fortunately, much larger than a single
-cell, as ATM has its own fragmentation mechanisms. The link-layer
-frame in ATM is called a <em>convergence-sublayer protocol data unit</em>
-(CS-PDU).</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>In ATM networks, the MTU is, fortunately, much larger than a
+single cell, as ATM has its own fragmentation and reassembly
+mechanism. The link-layer frame in ATM is called a
+<em>convergence-sublayer protocol data unit</em> (CS-PDU).</td></tr>
+</tbody>
+</table>
 <p>When a host sends an IP datagram, therefore, it can choose any size that
 it wants. A reasonable choice is the MTU of the network to which the
 host is directly attached. Then, fragmentation will only be necessary if
@@ -468,7 +472,7 @@ reassembling host will be able to recognize those fragments that go
 together. Should all the fragments not arrive at the receiving host, the
 host gives up on the reassembly process and discards the fragments that
 did arrive. IP does not attempt to recover from missing fragments.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-frag"></span><a class="reference internal image-reference" href="../_images/f03-17-9780123850591.png"><img alt="../_images/f03-17-9780123850591.png" src="../_images/f03-17-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 73. </span><span class="caption-text">IP datagrams traversing the sequence of physical
 networks graphed in the earlier figure.</span></p>
@@ -491,7 +495,7 @@ other fragments.</li>
 <li>Each IP datagram is re-encapsulated for each physical network over
 which it travels.</li>
 </ol>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-fragment"></span><a class="reference internal image-reference" href="../_images/f03-18-9780123850591.png"><img alt="../_images/f03-18-9780123850591.png" src="../_images/f03-18-9780123850591.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-number">Figure 74. </span><span class="caption-text">Header fields used in IP fragmentation:
 (a)&nbsp;unfragmented packet; (b)&nbsp;fragmented packets.</span></p>
@@ -599,7 +603,7 @@ part. Therefore, a class&nbsp;C network can have only 256 unique host
 identifiers, which means only 254 attached hosts (one host identifier,
 255, is reserved for broadcast, and 0 is not a valid host number).
 However, the addressing scheme supports 2<sup>21</sup> class&nbsp;C networks.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id8">
 <span id="fig-class"></span><a class="reference internal image-reference" href="../_images/f03-19-9780123850591.png"><img alt="../_images/f03-19-9780123850591.png" src="../_images/f03-19-9780123850591.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-number">Figure 75. </span><span class="caption-text">IP addresses: (a)&nbsp;class A; (b)&nbsp;class B; (c)&nbsp;class&nbsp;C.</span></p>
 </div>
@@ -713,8 +717,8 @@ table shown in <a class="reference internal" href="#tab-ipfwdtab"><span class="s
 network number (network 4) and forwards the datagram over the
 point-to-point network to R3. Finally, R3, since it is on the same
 network as H8, forwards the datagram directly to H8.</p>
-<span id="tab-ipfwdtab"></span><table border="1" class="colwidths-auto docutils align-center" id="id7">
-<caption><span class="caption-number">Table 10. </span><span class="caption-text">Forwarding table for Router R2.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<span id="tab-ipfwdtab"></span><table border="1" class="colwidths-auto docutils align-center" id="id9">
+<caption><span class="caption-number">Table 10. </span><span class="caption-text">Forwarding table for Router R2.</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">NetworkNum</th>
 <th class="head">NextHop</th>
@@ -735,8 +739,8 @@ the network interfaces of router R2 as interface 0 for the
 point-to-point link (network 3) and interface 1 for the Ethernet
 (network 2). Then R2 would have the forwarding table shown
 in <a class="reference internal" href="#tab-ipfwdtab2"><span class="std std-numref">Table 11</span></a>.</p>
-<span id="tab-ipfwdtab2"></span><table border="1" class="colwidths-auto docutils align-center" id="id8">
-<caption><span class="caption-number">Table 11. </span><span class="caption-text">Complete Forwarding table for Router R2.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<span id="tab-ipfwdtab2"></span><table border="1" class="colwidths-auto docutils align-center" id="id10">
+<caption><span class="caption-number">Table 11. </span><span class="caption-text">Complete Forwarding table for Router R2.</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">NetworkNum</th>
 <th class="head">NextHop</th>
@@ -854,7 +858,7 @@ introduce a <em>subnet number</em>; all hosts on the same physical network will
 have the same subnet number, which means that hosts may be on different
 physical networks but share a single network number. This concept is
 illustrated in <a class="reference internal" href="#fig-subaddr"><span class="std std-numref">Figure 76</span></a>.</p>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id11">
 <span id="fig-subaddr"></span><a class="reference internal image-reference" href="../_images/f03-20-9780123850591.png"><img alt="../_images/f03-20-9780123850591.png" src="../_images/f03-20-9780123850591.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-number">Figure 76. </span><span class="caption-text">Subnet addressing.</span></p>
 </div>
@@ -868,7 +872,7 @@ bitwise AND of these two numbers defines the subnet number of the host
 and of all other hosts on the same subnet. In this case, 128.96.34.15
 AND 255.255.255.128 equals 128.96.34.0, so this is the subnet number
 for the topmost subnet in the figure.</p>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id12">
 <span id="fig-subnet"></span><a class="reference internal image-reference" href="../_images/f03-21-9780123850591.png"><img alt="../_images/f03-21-9780123850591.png" src="../_images/f03-21-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 77. </span><span class="caption-text">An example of subnetting.</span></p>
 </div>
@@ -895,8 +899,8 @@ table, the router ANDs the packet’s destination address with the
 it forwards the packet to the next hop router indicated. In the example
 network of <a class="reference internal" href="#fig-subnet"><span class="std std-numref">Figure 77</span></a>, router&nbsp;R1 would have the entries
 shown in <a class="reference internal" href="#tab-subnettab"><span class="std std-numref">Table 12</span></a>.</p>
-<span id="tab-subnettab"></span><table border="1" class="colwidths-auto docutils align-center" id="id11">
-<caption><span class="caption-number">Table 12. </span><span class="caption-text">Example Forwarding Table with Subnetting.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<span id="tab-subnettab"></span><table border="1" class="colwidths-auto docutils align-center" id="id13">
+<caption><span class="caption-number">Table 12. </span><span class="caption-text">Example Forwarding Table with Subnetting.</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">SubnetNumber</th>
 <th class="head">SubnetMask</th>
@@ -1027,7 +1031,7 @@ a network address in this way is similar to the<code class="docutils literal not
 approach used in subnetting, as long as <code class="docutils literal notranslate"><span class="pre">masks</span></code> consist of contiguous
 bits starting from the most significant bit (which in practice is almost
 always the case).</p>
-<div class="figure align-center" id="id12">
+<div class="figure align-center" id="id14">
 <span id="fig-cidreg"></span><a class="reference internal image-reference" href="../_images/f03-22-9780123850591.png"><img alt="../_images/f03-22-9780123850591.png" src="../_images/f03-22-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 78. </span><span class="caption-text">Route aggregation with CIDR.</span></p>
 </div>
@@ -1141,7 +1145,7 @@ have an entry for the source in its ARP table, then it does not add an
 entry for the source. This is because there is no reason to believe that
 this host will ever need the source’s link-level address; there is no
 need to clutter its ARP table with this information.</p>
-<div class="figure align-center" id="id13">
+<div class="figure align-center" id="id15">
 <span id="fig-arp"></span><a class="reference internal image-reference" href="../_images/f03-23-9780123850591.png"><img alt="../_images/f03-23-9780123850591.png" src="../_images/f03-23-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 79. </span><span class="caption-text">ARP packet format for mapping IP addresses into Ethernet addresses.</span></p>
 </div>
@@ -1264,7 +1268,7 @@ unicasts it to the DHCP server and awaits the response, which it will
 then send back to the requesting client. The process of relaying a
 message from a host to a remote DHCP server is shown in <a class="reference internal" href="#fig-dhcp-relay"><span class="std std-numref">Figure
 80</span></a>.</p>
-<div class="figure align-center" id="id14">
+<div class="figure align-center" id="id16">
 <span id="fig-dhcp-relay"></span><a class="reference internal image-reference" href="../_images/f03-24-9780123850591.png"><img alt="../_images/f03-24-9780123850591.png" src="../_images/f03-24-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 80. </span><span class="caption-text">A DHCP relay agent receives a broadcast DHCPDISCOVER
 message from a host and sends a unicast DHCPDISCOVER to the DHCP
@@ -1276,7 +1280,7 @@ message. The message is actually sent using a protocol called the
 detail in the next chapter, but the only interesting thing it does in
 this context is to provide a demultiplexing key that says, “This is a
 DHCP packet.”</p>
-<div class="figure align-center" id="id15">
+<div class="figure align-center" id="id17">
 <span id="fig-dhcp"></span><a class="reference internal image-reference" href="../_images/f03-25-9780123850591.png"><img alt="../_images/f03-25-9780123850591.png" src="../_images/f03-25-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 81. </span><span class="caption-text">DHCP packet format.</span></p>
 </div>
@@ -1383,7 +1387,7 @@ both migrated to a virtual circuit network. The limited connectivity
 of a real private network is maintained, but since the private
 networks now share the same transmission facilities and switches we
 say that two virtual private networks have been created.</p>
-<div class="figure align-center" id="id16">
+<div class="figure align-center" id="id18">
 <span id="fig-vpn"></span><a class="reference internal image-reference" href="../_images/f03-26-9780123850591.png"><img alt="../_images/f03-26-9780123850591.png" src="../_images/f03-26-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 82. </span><span class="caption-text">An example of virtual private networks: (a)&nbsp;two
 separate private networks; (b)&nbsp;two virtual private networks
@@ -1406,7 +1410,7 @@ wants to send a packet over this virtual link, it encapsulates the
 packet inside an IP datagram. The destination address in the IP header
 is the address of the router at the far end of the tunnel, while the
 source address is that of the encapsulating router.</p>
-<div class="figure align-center" id="id17">
+<div class="figure align-center" id="id19">
 <span id="fig-tunnel"></span><a class="reference internal image-reference" href="../_images/f03-27-9780123850591.png"><img alt="../_images/f03-27-9780123850591.png" src="../_images/f03-27-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 83. </span><span class="caption-text">A tunnel through an internetwork. 18.5.0.1 is the
 address of R2 that can be reached from R1 across the
@@ -1418,8 +1422,8 @@ example, the network in <a class="reference internal" href="#fig-tunnel"><span c
 been configured from R1 to R2 and assigned a virtual interface number
 of 0. The forwarding table in R1 might therefore look like
 <a class="reference internal" href="#tab-tunneltab"><span class="std std-numref">Table 13</span></a>.</p>
-<span id="tab-tunneltab"></span><table border="1" class="colwidths-auto docutils align-center" id="id18">
-<caption><span class="caption-number">Table 13. </span><span class="caption-text">Forwarding Table for Router R1.</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<span id="tab-tunneltab"></span><table border="1" class="colwidths-auto docutils align-center" id="id20">
+<caption><span class="caption-number">Table 13. </span><span class="caption-text">Forwarding Table for Router R1.</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">NetworkNum</th>
 <th class="head">NextHop</th>

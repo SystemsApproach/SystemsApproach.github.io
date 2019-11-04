@@ -841,14 +841,10 @@ a 64-kbps audio stream. The number of such flows is</p>
 <p>Each of those reservations needs some amount of state that needs to be
 stored in memory and refreshed periodically. The router needs to
 classify, police, and queue each of those flows. Admission control
-decisions need to be made every time such a flow requests a reservation,
-and some mechanisms are needed to “push back” on users so that they
-don’t make arbitrarily large reservations for long periods of time.</p>
-<blockquote>
-<div>Charging per reservation would be one way to push back, consistent
-with the telephony model of billing for each phone call. This is not
-the only way to push back, and per-call billing is believed to be one
-of the major costs of operating the phone network.</div></blockquote>
+decisions need to be made every time such a flow requests a
+reservation, and some mechanism is needed to “push back” on users
+(e.g., charge their credit cards) so that they don’t make arbitrarily
+large reservations for long periods of time.</p>
 <p>These scalability concerns have limited widespread deployment of
 IntServ. Because of these concerns, other approaches that do not require
 so much “per-flow” state have been developed. The next section discusses

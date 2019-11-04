@@ -296,7 +296,7 @@ reserved for a particular circuit are not available for use by other
 traffic even if they were not currently being used by that circuit. The
 focus of this chapter is on resource allocation approaches that apply in
 an internetwork, and thus we focus mainly on connectionless networks.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-congestion"></span><a class="reference internal image-reference" href="../_images/f06-01-9780123850591.png"><img alt="../_images/f06-01-9780123850591.png" src="../_images/f06-01-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 152. </span><span class="caption-text">A potential bottleneck router.</span></p>
 </div>
@@ -321,7 +321,7 @@ reason we introduce a new term is that a flow is visible to the
 routers inside the network, whereas a channel is an end-to-end
 abstraction. <a class="reference internal" href="#fig-flow"><span class="std std-numref">Figure 153</span></a> illustrates several flows
 passing through a series of routers.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-flow"></span><a class="reference internal image-reference" href="../_images/f06-02-9780123850591.png"><img alt="../_images/f06-02-9780123850591.png" src="../_images/f06-02-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 153. </span><span class="caption-text">Multiple flows passing through a set of routers.</span></p>
 </div>
@@ -520,18 +520,23 @@ referred to as the <em>power</em> of the network:</p>
 </div>
 <p>Note that it is not obvious that power is the right metric for judging
 resource allocation effectiveness. For one thing, the theory behind
-power is based on an M/M/1 queuing network that assumes infinite queues;
-real networks have finite buffers and sometimes have to drop packets.
-For another, power is typically defined relative to a single connection
-(flow); it is not clear how it extends to multiple, competing
-connections. Despite these rather severe limitations, however, no
-alternatives have gained wide acceptance, and so power continues to be
-used.</p>
-<blockquote>
-<div>Since this is not a queuing theory book, we provide only this brief
-description of an M/M/1 queue. The 1 means it has a single server,
-and the Ms mean that the distribution of both packet arrival and
-service times is “Markovian,” or exponential.</div></blockquote>
+power is based on an M/M/1 queuing network that assumes infinite
+queues;<a class="footnote-reference" href="#id2" id="id1">[*]</a> real networks have finite buffers and sometimes have to
+drop packets.  For another, power is typically defined relative to a
+single connection (flow); it is not clear how it extends to multiple,
+competing connections. Despite these rather severe limitations,
+however, no alternatives have gained wide acceptance, and so power
+continues to be used.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>Since this is not a queuing theory book, we provide only this
+brief description of an M/M/1 queue. The 1 means it has a
+single server, and the Ms mean that the distribution of both
+packet arrival and service times is <em>Markovian,</em> that is,
+exponential.</td></tr>
+</tbody>
+</table>
 <p>The objective is to maximize this ratio, which is a function of how
 much load you place on the network. The load, in turn, is set by the
 resource allocation mechanism. <a class="reference internal" href="#fig-power"><span class="std std-numref">Figure 154</span></a> gives a
@@ -548,7 +553,7 @@ improves as more jobs are admitted into the system, until it reaches a
 point when there are so many jobs running that the system begins to
 thrash (spends all of its time swapping memory pages) and the throughput
 begins to drop.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-power"></span><a class="reference internal image-reference" href="../_images/f06-03-9780123850591.png"><img alt="../_images/f06-03-9780123850591.png" src="../_images/f06-03-9780123850591.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-number">Figure 154. </span><span class="caption-text">Ratio of throughput to delay as a function of load.</span></p>
 </div>
@@ -585,7 +590,7 @@ even in the absence of reservations, equal shares may not equate to
 fair shares.  Should we also consider the length of the paths being
 compared? For example, as illustrated in <a class="reference internal" href="#fig-path-len"><span class="std std-numref">Figure 155</span></a>, what is fair when one four-hop flow is competing with
 three one-hop flows?</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-path-len"></span><a class="reference internal image-reference" href="../_images/f06-04-9780123850591.png"><img alt="../_images/f06-04-9780123850591.png" src="../_images/f06-04-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 155. </span><span class="caption-text">One four-hop flow competing with three one-hop flows.</span></p>
 </div>

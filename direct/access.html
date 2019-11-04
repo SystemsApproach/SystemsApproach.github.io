@@ -202,11 +202,15 @@ serves a city or neighborhood. These edge sites are commonly called
 but despite their names implying “centralized” and “root of the
 hierarchy” these sites are at the very edge of the ISP’s network; the
 ISP-side of the last-mile that directly connects to customers. PON and
-Cellular access networks are anchored in these facilities.</p>
-<blockquote>
-<div>DSL is the legacy, copper-based counterpart to PON. DSL links are
-also terminated in Telco Central Offices, but we do not describe this
-technology since it is being phased out.</div></blockquote>
+Cellular access networks are anchored in these facilities.<a class="footnote-reference" href="#id2" id="id1">[*]</a></p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>DSL is the legacy, copper-based counterpart to PON. DSL links
+are also terminated in Telco Central Offices, but we do not
+describe this technology since it is being phased out.</td></tr>
+</tbody>
+</table>
 <div class="section" id="passive-optical-network">
 <h2>Passive Optical Network<a class="headerlink" href="#passive-optical-network" title="Permalink to this headline">¶</a></h2>
 <p>PON is the technology most commonly used to deliver fiber-based
@@ -233,7 +237,7 @@ that, among many other things, meters Internet traffic for the sake of
 billing. As its name implies, the BNG is effectively the gateway between
 the access network (everything to the left of the BNG) and the Internet
 (everything to the right of the BNG).</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id5">
 <span id="fig-pon"></span><a class="reference internal image-reference" href="../_images/Slide12.png"><img alt="../_images/Slide12.png" src="../_images/Slide12.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 52. </span><span class="caption-text">An example PON that connects OLTs in the Central Office
 to ONUs in homes and businesses.</span></p>
@@ -287,14 +291,16 @@ there is also an unlicensed band at 3.5-GHz set aside in North
 America, called <em>Citizens Broadband Radio Service</em> (CBRS), that anyone
 with a cellular radio can use. This opens the door for setting up
 private cellular networks.</p>
-<blockquote>
-<div>To be more precise, the CBRS band allows three tiers of users to
+<div class="sidebar">
+<p class="first sidebar-title">CBRS</p>
+<p class="last">To be more precise, the CBRS band allows three tiers of users to
 share the spectrum: first right of use goes to the original owners of
 this spectrum, naval radars and satellite ground stations; followed
 by priority users who receive this right over 10MHz bands for three
 years via regional auctions; and finally the rest of the population,
 who can access and utilize a portion of this band as long as they
-first check with a central database of registered users.</div></blockquote>
+first check with a central database of registered users.</p>
+</div>
 <p>Like 802.11, cellular technology relies on the use of base stations that
 are connected to a wired network. In the case of the cellular network,
 the base stations are often called <em>Broadband Base Units</em> (BBU), the
@@ -302,13 +308,12 @@ mobile devices that connect to them are usually referred to as <em>User
 Equipment</em> (UE), and the set of BBUs are anchored at an <em>Evolved Packet
 Core</em> (EPC) hosted in a Central Office. The wireless network served by
 the EPC is often called a <em>Radio Access Network</em> (RAN).</p>
-<blockquote>
-<div>BBUs officially go by another name—Evolved NodeB, often abbreviated
+<p>BBUs officially go by another name—Evolved NodeB, often abbreviated
 eNodeB or eNB—where NodeB is what the radio unit was called in an
 early incarnation of cellular networks (and has since evolved). Given
 that the cellular world continues to evolve at a rapid pace and eNB’s
 are soon to be upgraded to gNB’s, we have decided to use the more
-generic and less cryptic BBU.</div></blockquote>
+generic and less cryptic BBU.</p>
 <p><a class="reference internal" href="#fig-ran"><span class="std std-numref">Figure 53</span></a> depicts one possible configuration of
 the end-to-end scenario, with a few additional bits of detail. The EPC
 has multiple subcomponents, including an MME (Mobility Management
@@ -325,7 +330,7 @@ Central Offices. Finally, while not explicitly spelled out in
 <a class="reference internal" href="#fig-ran"><span class="std std-numref">Figure 53</span></a>, it is sometimes the case that the ISP’s
 PON network is used to connect the remote BBUs back to the Central
 Office.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id6">
 <span id="fig-ran"></span><a class="reference internal image-reference" href="../_images/Slide2.png"><img alt="../_images/Slide2.png" src="../_images/Slide2.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 53. </span><span class="caption-text">A Radio Access Network (RAN) connecting a set of cellular devices
 (UEs) to an Evolved Packet Core (EPC) hosted in a Central Office.</span></p>
@@ -391,7 +396,7 @@ number of bits that can be encoded in each symbol depends on the
 modulation rate, so for example using Quadrature Amplitude Modulation
 (QAM), 16-QAM yields 4 bits per symbol and 64-QAM yields 6 bits per
 symbol.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id7">
 <span id="fig-ofdma"></span><a class="reference internal image-reference" href="../_images/Slide4.png"><img alt="../_images/Slide4.png" src="../_images/Slide4.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Figure 54. </span><span class="caption-text">The available radio spectrum abstractly represented by
 a 2-D grid of schedulable Resource Elements.</span></p>
@@ -419,16 +424,21 @@ possible to adapt the cellular network to a more diverse set of devices
 and applications domains.</p>
 <p>Fundamentally, 5G defines a family of waveforms—unlike 4G, which
 specified only one waveform—each optimized for a different band in the
-radio spectrum. The bands with carrier frequencies below 1GHz are
+radio spectrum.<a class="footnote-reference" href="#id4" id="id3">[†]</a> The bands with carrier frequencies below 1GHz are
 designed to deliver mobile broadband and massive IoT services with a
 primary focus on range. Carrier frequencies between 1GHz-6GHz are
 designed to offer wider bandwidths, focusing on mobile broadband and
 mission-critical applications. Carrier frequencies above 24GHz (mmWaves)
 are designed to provide super wide bandwidths over short, line-of-sight
 coverage.</p>
-<blockquote>
-<div>A waveform is the frequency, amplitude, and phase-shift independent
-property (shape) of a signal. A sine wave is an example waveform.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[†]</a></td><td>A waveform is the frequency, amplitude, and phase-shift
+independent property (shape) of a signal. A sine wave is an
+example waveform.</td></tr>
+</tbody>
+</table>
 <p>These different waveforms affect the scheduling and subcarrier intervals
 (i.e., the “size” of the Resource Elements just described).</p>
 <ul class="simple">

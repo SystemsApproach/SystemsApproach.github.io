@@ -112,12 +112,12 @@ network links. Each edge has an associated *cost*, which gives some
 indication of the desirability of sending traffic over that link. A
 discussion of how edge costs are assigned is given in a later section.
 
-   In the example networks (graphs) used throughout this chapter, we use
-   undirected edges and assign each edge a single cost. This is actually
-   a slight simplification. It is more accurate to make the edges
-   directed, which typically means that there would be a pair of edges
-   between each node—one flowing in each direction, and each with its
-   own edge cost.
+Note that the example networks (graphs) used throughout this chapter
+have undirected edges that are assigned a single cost. This is actually
+a slight simplification. It is more accurate to make the edges
+directed, which typically means that there would be a pair of edges
+between each node—one flowing in each direction, and each with its
+own edge cost.
   
 .. _fig-graph-route:
 .. figure:: figures/f03-28-9780123850591.png

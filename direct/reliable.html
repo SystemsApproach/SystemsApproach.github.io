@@ -232,7 +232,7 @@ stop-and-wait is straightforward: After transmitting one frame, the
 sender waits for an acknowledgment before transmitting the next frame.
 If the acknowledgment does not arrive after a certain period of time,
 the sender times out and retransmits the original frame.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-ack-timeout"></span><a class="reference internal image-reference" href="../_images/f02-17-9780123850591.png"><img alt="../_images/f02-17-9780123850591.png" src="../_images/f02-17-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 34. </span><span class="caption-text">Timeline showing four different scenarios for the
 stop-and-wait algorithm. (a)&nbsp;The ACK is received before the timer
@@ -275,7 +275,7 @@ sender retransmits frame 0, the receiver can determine that it is
 seeing a second copy of frame 0 rather than the first copy of frame 1
 and therefore can ignore it (the receiver still acknowledges it, in
 case the first ACK was lost).</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-stop-wait"></span><a class="reference internal image-reference" href="../_images/f02-18-9780123850591.png"><img alt="../_images/f02-18-9780123850591.png" src="../_images/f02-18-9780123850591.png" style="width: 250px;" /></a>
 <p class="caption"><span class="caption-number">Figure 35. </span><span class="caption-text">Timeline for stop-and-wait with 1-bit sequence
 number.</span></p>
@@ -309,7 +309,7 @@ be ready to transmit the ninth frame at pretty much the same moment that
 the ACK for the first frame arrives. The algorithm that allows us to do
 this is called <em>sliding window</em>, and an illustrative timeline is given
 in <a class="reference internal" href="#fig-slide-win"><span class="std std-numref">Figure 36</span></a>.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-slide-win"></span><a class="reference internal image-reference" href="../_images/f02-19-9780123850591.png"><img alt="../_images/f02-19-9780123850591.png" src="../_images/f02-19-9780123850591.png" style="width: 250px;" /></a>
 <p class="caption"><span class="caption-number">Figure 36. </span><span class="caption-text">Timeline for the sliding window algorithm.</span></p>
 </div>
@@ -329,7 +329,7 @@ invariant:</p>
 </pre></div>
 </div>
 <p>This situation is illustrated in <a class="reference internal" href="#fig-sw-sender"><span class="std std-numref">Figure 37</span></a>.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-sw-sender"></span><a class="reference internal image-reference" href="../_images/f02-20-9780123850591.png"><img alt="../_images/f02-20-9780123850591.png" src="../_images/f02-20-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 37. </span><span class="caption-text">Sliding window on sender.</span></p>
 </div>
@@ -349,7 +349,7 @@ receiver also maintains the following invariant:</p>
 </pre></div>
 </div>
 <p>This situation is illustrated in <a class="reference internal" href="#fig-sw-rcvr"><span class="std std-numref">Figure 38</span></a>.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-sw-rcvr"></span><a class="reference internal image-reference" href="../_images/f02-21-9780123850591.png"><img alt="../_images/f02-21-9780123850591.png" src="../_images/f02-21-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 38. </span><span class="caption-text">Sliding window on receiver.</span></p>
 </div>
@@ -374,13 +374,17 @@ out of order. (Technically, the receiver could resend an ACK for frame&nbsp;5
 when frames&nbsp;7 and 8 arrive.) Should frame&nbsp;6 then arrive—perhaps it is
 late because it was lost the first time and had to be retransmitted, or
 perhaps it was simply delayed—the receiver acknowledges frame&nbsp;8, bumps
-<code class="docutils literal notranslate"><span class="pre">LFR</span></code> to 8, and sets <code class="docutils literal notranslate"><span class="pre">LAF</span></code> to 12. If frame&nbsp;6 was in fact lost, then
+<code class="docutils literal notranslate"><span class="pre">LFR</span></code> to 8, and sets <code class="docutils literal notranslate"><span class="pre">LAF</span></code> to 12 <a class="footnote-reference" href="#id2" id="id1">[*]</a>. If frame&nbsp;6 was in fact lost, then
 a timeout will have occurred at the sender, causing it to retransmit
 frame&nbsp;6.</p>
-<blockquote>
-<div>It’s unlikely that a packet could be delayed on a point-to-point
-link, this same algorithm is used on multi-hop connections where such
-delays are possible.</div></blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>While it’s unlikely that a packet could be delayed or arrive
+out-of-order on a  point-to-point link, this same algorithm is
+used on multi-hop connections where such delays are possible.</td></tr>
+</tbody>
+</table>
 <p>We observe that when a timeout occurs, the amount of data in transit
 decreases, since the sender is unable to advance its window until
 frame&nbsp;6 is acknowledged. This means that when packet losses occur, this

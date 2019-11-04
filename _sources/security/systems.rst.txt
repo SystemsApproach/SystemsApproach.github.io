@@ -731,11 +731,11 @@ may also impose restrictions on outgoing traffic to prevent certain
 attacks and to limit losses if an adversary succeeds in getting access
 inside the firewall.
 
-   The location of a firewall also often happens to be the dividing line
-   between globally addressable regions and those that use local
-   addresses. Hence, Network Address Translation (NAT) functionality and
-   firewall functionality often are found in the same device, even
-   though they are logically separate.
+The location of a firewall also often happens to be the dividing line
+between globally addressable regions and those that use local
+addresses. Hence, Network Address Translation (NAT) functionality and
+firewall functionality often are found in the same device, even though
+they are logically separate.
 
 Firewalls may be used to create multiple *zones of trust*, such as a
 hierarchy of increasingly trusted zones. A common arrangement involves

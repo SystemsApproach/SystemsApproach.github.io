@@ -198,7 +198,7 @@ server responds with a reply message, with the client blocking
 (suspending execution) to wait for the reply. <a class="reference internal" href="#fig-rpc-timeline"><span class="std std-numref">Figure
 137</span></a> illustrates the basic interaction between the
 client and server in such an exchange.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-rpc-timeline"></span><a class="reference internal image-reference" href="../_images/f05-13-9780123850591.png"><img alt="../_images/f05-13-9780123850591.png" src="../_images/f05-13-9780123850591.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Figure 137. </span><span class="caption-text">Timeline for RPC.</span></p>
 </div>
@@ -260,7 +260,7 @@ returns in a reply message that it hands off to the RPC protocol for
 transmission back to the client. The RPC protocol on the client passes
 this message up to the client stub, which translates it into a return
 value that it returns to the client program.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-rpc-stub"></span><a class="reference internal image-reference" href="../_images/f05-14-9780123850591.png"><img alt="../_images/f05-14-9780123850591.png" src="../_images/f05-14-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 138. </span><span class="caption-text">Complete RPC mechanism.</span></p>
 </div>
@@ -349,7 +349,7 @@ given in <a class="reference internal" href="#fig-chan-timeline1"><span class="s
 request message and the server acknowledges it. Then, after executing
 the procedure, the server sends a reply message and the client
 acknowledges the reply.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-chan-timeline1"></span><a class="reference internal image-reference" href="../_images/f05-15-9780123850591.png"><img alt="../_images/f05-15-9780123850591.png" src="../_images/f05-15-9780123850591.png" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Figure 139. </span><span class="caption-text">Simple timeline for a reliable RPC protocol.</span></p>
 </div>
@@ -389,7 +389,7 @@ acknowledges the preceding reply. Note that we saw a very similar
 approach—called <em>concurrent logical channels</em>—in an earlier section as
 a way to improve on the performance of a stop-and-wait reliability
 mechanism.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-implicitacktimeline"></span><a class="reference internal image-reference" href="../_images/f05-16-9780123850591.png"><img alt="../_images/f05-16-9780123850591.png" src="../_images/f05-16-9780123850591.png" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Figure 140. </span><span class="caption-text">Timeline for a reliable RPC protocol using implicit
 acknowledgment.</span></p>
@@ -519,7 +519,7 @@ something other than a transport protocol since it appears “above” the
 transport layer.  Pragmatically, the design decision to run RPC over
 an existing transport layer makes quite a lot of sense, as will be
 apparent in the following discussion.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-sunrpc"></span><a class="reference internal image-reference" href="../_images/f05-17-9780123850591.png"><img alt="../_images/f05-17-9780123850591.png" src="../_images/f05-17-9780123850591.png" style="width: 100px;" /></a>
 <p class="caption"><span class="caption-number">Figure 141. </span><span class="caption-text">Protocol graph for SunRPC on top of UDP.</span></p>
 </div>
@@ -539,7 +539,7 @@ which the request was sent, even though the same program number may be
 implemented on other machines in the same network. Thus, the address
 of the server’s machine (e.g., an IP address) is an implicit third
 tier of the RPC address.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id8">
 <span id="fig-sunrpc-format"></span><a class="reference internal image-reference" href="../_images/f05-18-9780123850591.png"><img alt="../_images/f05-18-9780123850591.png" src="../_images/f05-18-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 142. </span><span class="caption-text">SunRPC header formats: (a)&nbsp;request; (b)&nbsp;reply.</span></p>
 </div>
@@ -572,11 +572,15 @@ program number <code class="docutils literal notranslate"><span class="pre">x001
 port, and the SunRPC module listening at that port calls the NFS
 <code class="docutils literal notranslate"><span class="pre">read</span></code> procedure. The client also caches the program-to-port number
 mapping so that it need not go back to the Port Mapper each time it
-wants to talk to the NFS program.</p>
-<blockquote>
-<div>In practice, NFS is such an important program that it has been given
-its own well-known UDP port, but for the purposes of illustration
-we’re pretending that’s not the&nbsp;case.</div></blockquote>
+wants to talk to the NFS program.<a class="footnote-reference" href="#id2" id="id1">[*]</a></p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>In practice, NFS is such an important program that it has been
+given its own well-known UDP port, but for the purposes of
+illustration we’re pretending that’s not the&nbsp;case.</td></tr>
+</tbody>
+</table>
 <p>To match up a reply message with the corresponding request, so that
 the result of the RPC can be returned to the correct caller, both
 request and reply message headers include a <code class="docutils literal notranslate"><span class="pre">XID</span></code> (transaction ID)
@@ -625,7 +629,7 @@ semantics, including an idempotent semantics similar to SunRPC’s, but
 at-most-once is the default behavior.) There are some other differences
 between the two approaches, which we will highlight in the following
 paragraphs.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id9">
 <span id="fig-dce"></span><a class="reference internal image-reference" href="../_images/f05-19-9780123850591.png"><img alt="../_images/f05-19-9780123850591.png" src="../_images/f05-19-9780123850591.png" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Figure 143. </span><span class="caption-text">Typical DCE-RPC message exchange.</span></p>
 </div>
@@ -697,7 +701,7 @@ bit-vector (<code class="docutils literal notranslate"><span class="pre">SelAck<
 sixth (26=20+6)&nbsp;bits turned on. So as to support an (almost)
 arbitrarily long bit vector, the size of the vector (measured in
 32-bit words) is given in the <code class="docutils literal notranslate"><span class="pre">SelAckLen</span></code> field.</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id10">
 <span id="fig-fack"></span><a class="reference internal image-reference" href="../_images/f05-20-9780123850591.png"><img alt="../_images/f05-20-9780123850591.png" src="../_images/f05-20-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 144. </span><span class="caption-text">Fragmentation with selective acknowledgments.</span></p>
 </div>
@@ -753,7 +757,7 @@ typically create a new process, per se, but rather, they launch a new
 isolated environment that includes all the software packages the process
 needs to run. Docker is today’s canonical example of a container
 platform.</p>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id11">
 <span id="fig-rpc-service"></span><a class="reference internal image-reference" href="../_images/Slide13.png"><img alt="../_images/Slide13.png" src="../_images/Slide13.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 145. </span><span class="caption-text">Using RPC to invoke a scalable cloud service.</span></p>
 </div>
@@ -800,7 +804,7 @@ HTTP response. The full gRPC stack is depicted in <a class="reference internal" 
 (One strength of gRPC is the wide set of programming languages it
 supports, with only a small subset shown in <a class="reference internal" href="#fig-grpc-stack"><span class="std std-numref">Figure
 146</span></a>.)</p>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id12">
 <span id="fig-grpc-stack"></span><a class="reference internal image-reference" href="../_images/Slide21.png"><img alt="../_images/Slide21.png" src="../_images/Slide21.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 146. </span><span class="caption-text">gRPC core stacked on top of HTTP, TLS, and TCP and
 supporting a collection of languages.</span></p>
