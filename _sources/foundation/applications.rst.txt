@@ -104,12 +104,12 @@ These applications have considerably tighter timing constraints than
 streaming applications. When using a voice-over-IP application such as
 Skype or a videoconferencing application, the interactions among the
 participants must be timely. When a person at one end gestures, then
-that action must be displayed at the other end as quickly as possible.
+that action must be displayed at the other end as quickly as possible [*]_.
 
-   Not quite “as soon as possible”… Human factors research indicates 300
-   ms is a reasonable upper bound for how much round-trip delay can be
-   tolerated in a telephone call before humans complain, and a 100-ms
-   delay sounds very good.
+.. [*] Not quite “as soon as possible”… Human factors research
+       indicates 300 ms is a reasonable upper bound for how much
+       round-trip delay can be tolerated in a telephone call before
+       humans complain, and a 100-ms delay sounds very good.
 
 When one person tries to interrupt another, the interrupted person needs
 to hear that as soon as possible and decide whether to allow the

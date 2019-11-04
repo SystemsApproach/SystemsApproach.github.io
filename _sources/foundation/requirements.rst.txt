@@ -155,11 +155,11 @@ cloud to denote any type of network, whether it is a single
 point-to-point link, a multiple-access link, or a switched
 network. Thus, whenever you see a cloud used in a figure, you can
 think of it as a placeholder for any of the networking technologies
-covered in this book.
+covered in this book [*]_.
 
-   Interestingly, the use of clouds in this way predates the term *cloud
-   computing* by at least a couple of decades, but there is a connection
-   between these two usages, which we’ll discuss later.
+.. [*] Interestingly, the use of clouds in this way predates the term
+       *cloud computing* by at least a couple of decades, but there is
+       a connection between these two usages, which we’ll discuss later.
 
 .. _fig-internet-cloud:
 .. figure:: figures/f01-04-9780123850591.png
@@ -433,10 +433,10 @@ applications, so that a sending application can put data in one end and
 expect that data to be delivered by the network to the application at
 the other end of the pipe.
 
-   Like any abstraction, logical process-to-process channels are
-   implemented on top of a collection of physical host-to-host
-   channels. This is the essense of layering, the cornerstone of
-   network architectures discussed in the next section.
+Like any abstraction, logical process-to-process channels are
+implemented on top of a collection of physical host-to-host
+channels. This is the essense of layering, the cornerstone of network
+architectures discussed in the next section.
 
 The challenge is to recognize what functionality the channels should
 provide to application programs. For example, does the application

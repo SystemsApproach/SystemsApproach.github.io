@@ -268,7 +268,7 @@ are limited in size, in terms of both the geographical distance they can
 cover and the number of nodes they can connect. For this reason, they
 often implement the so-called <em>last mile</em>, connecting end users to the
 rest of the network.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <span id="fig-direct"></span><a class="reference internal image-reference" href="../_images/f01-02-9780123850591.png"><img alt="../_images/f01-02-9780123850591.png" src="../_images/f01-02-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 2. </span><span class="caption-text">Direct links: (a) point-to-point; (b) multiple-access.</span></p>
 </div>
@@ -299,7 +299,7 @@ these blocks of data as corresponding to some piece of application
 data such as a file, a piece of email, or an image. We call each block
 of data either a <em>packet</em> or a <em>message</em>, and for now we use these
 terms interchangeably.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id4">
 <span id="fig-psn"></span><a class="reference internal image-reference" href="../_images/f01-03-9780123850591.png"><img alt="../_images/f01-03-9780123850591.png" src="../_images/f01-03-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 3. </span><span class="caption-text">Switched network.</span></p>
 </div>
@@ -324,12 +324,16 @@ cloud to denote any type of network, whether it is a single
 point-to-point link, a multiple-access link, or a switched
 network. Thus, whenever you see a cloud used in a figure, you can
 think of it as a placeholder for any of the networking technologies
-covered in this book.</p>
-<blockquote>
-<div>Interestingly, the use of clouds in this way predates the term <em>cloud
-computing</em> by at least a couple of decades, but there is a connection
-between these two usages, which we’ll discuss later.</div></blockquote>
-<div class="figure align-center" id="id3">
+covered in this book <a class="footnote-reference" href="#id2" id="id1">[*]</a>.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>Interestingly, the use of clouds in this way predates the term
+<em>cloud computing</em> by at least a couple of decades, but there is
+a connection between these two usages, which we’ll discuss later.</td></tr>
+</tbody>
+</table>
+<div class="figure align-center" id="id5">
 <span id="fig-internet-cloud"></span><a class="reference internal image-reference" href="../_images/f01-04-9780123850591.png"><img alt="../_images/f01-04-9780123850591.png" src="../_images/f01-04-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 4. </span><span class="caption-text">Interconnection of networks.</span></p>
 </div>
@@ -423,7 +427,7 @@ separate flows by switch&nbsp;2. Note that we are being intentionally vague
 about exactly what a “flow of data” corresponds to. For the purposes
 of this discussion, assume that each host on the left has a large
 supply of data that it wants to send to its counterpart on the right.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-mux"></span><a class="reference internal image-reference" href="../_images/f01-05-9780123850591.png"><img alt="../_images/f01-05-9780123850591.png" src="../_images/f01-05-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 5. </span><span class="caption-text">Multiplexing multiple logical flows over a single
 physical link.</span></p>
@@ -480,7 +484,7 @@ packet-switched network limits the maximum size of packets, a host may
 not be able to send a complete message in one packet. The source may
 need to fragment the message into several packets, with the receiver
 reassembling the packets back into the original message.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-statmux"></span><a class="reference internal image-reference" href="../_images/f01-06-9780123850591.png"><img alt="../_images/f01-06-9780123850591.png" src="../_images/f01-06-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 6. </span><span class="caption-text">A switch multiplexing packets from multiple sources
 onto one shared link.</span></p>
@@ -555,7 +559,7 @@ application designer build the application using those services. The
 challenge for a network designer is to identify the right set of common
 services. The goal is to hide the complexity of the network from the
 application without overly constraining the application designer.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id8">
 <span id="fig-channel"></span><a class="reference internal image-reference" href="../_images/f01-07-9780123850591.png"><img alt="../_images/f01-07-9780123850591.png" src="../_images/f01-07-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 7. </span><span class="caption-text">Processes communicating over an abstract channel.</span></p>
 </div>
@@ -571,11 +575,10 @@ We can think of the channel as being like a pipe connecting two
 applications, so that a sending application can put data in one end and
 expect that data to be delivered by the network to the application at
 the other end of the pipe.</p>
-<blockquote>
-<div>Like any abstraction, logical process-to-process channels are
+<p>Like any abstraction, logical process-to-process channels are
 implemented on top of a collection of physical host-to-host
-channels. This is the essense of layering, the cornerstone of
-network architectures discussed in the next section.</div></blockquote>
+channels. This is the essense of layering, the cornerstone of network
+architectures discussed in the next section.</p>
 <p>The challenge is to recognize what functionality the channels should
 provide to application programs. For example, does the application
 require a guarantee that messages sent over the channel are delivered,
