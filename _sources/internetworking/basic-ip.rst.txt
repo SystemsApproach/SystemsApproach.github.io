@@ -86,6 +86,33 @@ because of the size of the Internet. Said another way, it is only the IP
 Internet that has really faced the issue of scale. Thus, it provides the
 best case study of a scalable internetworking protocol.
 
+.. sidebar:: L2 vs L3 Networks
+
+   As seen in the previous chapter, an Ethernet can be treated as a
+   point-to-point *link* interconnecting a pair of switches, with a
+   mesh of interconnected switches forming a *Switched Ethernet*. This
+   configuration is also known as an *L2 Network*.
+
+   But as we've seen here, an Ethernet (even when arranged in a
+   point-to-point configuration rather than a shared CSMA/CD network)
+   can be treated as a *network* interconnecting a pair of routers,
+   with a mesh of such routers forming an Internet.  This
+   configuration is also known as an *L3 Network*.
+
+   Confusingly, this is because a point-to-point Ethernet is both a
+   link and a network (albeit a trivial two-node network in the latter
+   case), depending on whether it's connected to a pair of L2 switches
+   running the spanning tree algorithm, or to a pair of L3 routers
+   running IP (plus the routing protocols described later in this
+   chapter). Why pick one configuration over the other? It partly
+   depends on whether you want the network to be a single broadcast
+   domain (if yes, pick L2), and whether you want the hosts connected
+   to the network to be on different networks (if yes, select L3).
+
+   The good news is that when you fully understand the implications of
+   this duality, you will have cleared a major hurdle in mastering
+   modern packet-switched networks.
+	     
 Service Model
 -------------
 
