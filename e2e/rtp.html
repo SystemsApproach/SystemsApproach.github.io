@@ -197,7 +197,7 @@ shortly, real-time applications place some specific demands on the
 transport protocol that are not well met by the protocols discussed so
 far in this chapter.</p>
 <div class="figure align-center" id="id1">
-<span id="fig-zoom"></span><a class="reference internal image-reference" href="../_images/Zoom.png"><img alt="../_images/Zoom.png" src="../_images/Zoom.png" style="width: 500px;" /></a>
+<span id="fig-zoom"></span><a class="reference internal image-reference" href="../_images/Slide42.png"><img alt="../_images/Slide42.png" src="../_images/Slide42.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 147. </span><span class="caption-text">User interface of a videoconferencing tool.</span></p>
 </div>
 <p>Multimedia applications—those that involve video, audio, and data—are
@@ -225,7 +225,8 @@ the requirements broadly enough to meet the needs of very different
 applications. They must also pay attention to the interactions among
 different applications, such as the synchronization of audio and video
 streams. We will see below how these concerns affected the design of the
-primary real-time transport protocol in use today, RTP.</p>
+primary real-time transport protocol in use today: <em>Real-time
+Transport Protocol</em> (RTP).</p>
 <p>Much of RTP actually derives from protocol functionality that was
 originally embedded in the application itself. Two of the first such
 applications were <code class="docutils literal notranslate"><span class="pre">vic</span></code> and <code class="docutils literal notranslate"><span class="pre">vat</span></code>, the former supporting real-time
@@ -234,8 +235,7 @@ originally ran directly over UDP, while the designers figured out
 which features were needed to handle the real-time nature of the
 communication. Later, they realized that these features could be
 useful to many other applications and defined a protocol with those
-features. That protocol was eventually standardized as the <em>Real-time
-Transport Protocol</em> (RTP).</p>
+features. That protocol was eventually standardized as RTP.</p>
 <p>RTP can run over many lower-layer protocols, but still commonly runs
 over UDP. That leads to the protocol stack shown in <a class="reference internal" href="#fig-vat-stack"><span class="std std-numref">Figure 148</span></a>. Note that we are therefore running a transport
 protocol over a transport protocol. There is no rule against that, and
