@@ -45,9 +45,8 @@ these technologies and how they compare to each other.
    | Typical     | 10 m                  | 100 m           | Tens of      |
    | link length |                       |                 | kilometers   |
    +-------------+-----------------------+-----------------+--------------+
-   | Typical     | 2 Mbps (shared)       | 54 Mbps         | 1-5 Mbps     |
-   | data rate   |                       | (shared)        | (per         |
-   |             |                       |                 | connection)  |
+   | Typical     | 2 Mbps (shared)       | 150-450 Mbps    | 1-5 Mbps     |
+   | data rate   |                       |                 |              |
    +-------------+-----------------------+-----------------+--------------+
    | Typical use | Link a peripheral to  | Link a computer | Link mobile  |
    |             | a computer            | to a wired base | phone to a   |
@@ -233,31 +232,27 @@ various frequency bands and provide a range of different data rates.
 
 The original 802.11 standard defined two radio-based physical layers
 standards, one using frequency hopping (over 79 1-MHz-wide frequency
-bandwidths) and the other using direct sequence spread spectrum (with an
-11-bit chipping sequence). Both provided data rates in the 2 Mbps range.
-The physical layer standard 802.11b was added subsequently. Using a
-variant of direct sequence, 802.11b provides up to 11 Mbps. These three
-standards all operated in the license-exempt 2.4-GHz frequency band of
-the electromagnetic spectrum. Then came 802.11a, which delivers up to
-54 Mbps using a variant of frequency division multiplexing called
-*orthogonal frequency division multiplexing (OFDM)*; 802.11a runs in
-the license-exempt 5-GHz band. On one hand, this band is less used, so
-there is less interference. On the other hand, there is more
-absorption of the signal and it is limited to almost line of
-sight. 802.11g followed; 802.11g also uses OFDM, delivers
-up to 54 Mbps, and is backward compatible with 802.11b (and returns to
-the 2.4-GHz band).
+bandwidths) and the other using direct sequence spread spectrum (with
+an 11-bit chipping sequence). Both provided data rates in the 2 Mbps
+range.  Subsequently, the physical layer standard 802.11b was added,
+and using a variant of direct sequence, supported up to 11 Mbps. These
+three standards all operated in the license-exempt 2.4-GHz frequency
+band of the electromagnetic spectrum. Then came 802.11a, which
+delivered up to 54 Mbps using a variant of frequency division
+multiplexing called *orthogonal frequency division multiplexing
+(OFDM)*. 802.11a runs in the license-exempt 5-GHz band.  802.11g
+followed, and also using OFDM, delivered up to 54 Mbps. 802.11g is
+backward compatible with 802.11b (and returns to the 2.4-GHz band).
 
-At the time of writing, many user devices (e.g., laptops, notebooks) 
-support 802.11n or 802.11ac, which are able to achieve per-device data
-rates of 150 Mbps to 450 Mbps, respectively. This improvement is
-partly due to the use of multiple antennas and allowing greater
-wireless channel bandwidths. The use of multiple antennas is often
-called *MIMO* for multiple-input, multiple-output. The latest emerging
-standard, 802.11ax, promises another substantial improvement in
-throughput, in part by adopting many of the coding and modulation
-techniques used in the 4G/5G cellular network, which we describe in the
-next section.
+At the time of writing, many devices support 802.11n or 802.11ac,
+which typically achieve per-device data rates of 150 Mbps to 450 Mbps,
+respectively. This improvement is partly due to the use of multiple
+antennas and allowing greater wireless channel bandwidths. The use of
+multiple antennas is often called *MIMO* for multiple-input,
+multiple-output. The latest emerging standard, 802.11ax, promises
+another substantial improvement in throughput, in part by adopting
+many of the coding and modulation techniques used in the 4G/5G
+cellular network, which we describe in the next section.
 
 It is common for commercial products to support more than one flavor of
 802.11; many base stations support all five variants (a,b, g, n, and ac).
@@ -267,10 +262,10 @@ choose the highest bandwidth option for a particular environment.
 
 It is worth noting that while all the 802.11 standards define a
 *maximum* bit rate that can be supported, they mostly support lower bit
-rates as well; for example, 802.11a allows for bit rates of 6, 9, 12,
-18, 24, 36, 48, and 54 Mbps. At lower bit rates, it is easier to decode
+rates as well (e.g., 802.11a allows for bit rates of 6, 9, 12,
+18, 24, 36, 48, and 54 Mbps). At lower bit rates, it is easier to decode
 transmitted signals in the presence of noise. Different modulation
-schemes are used to achieve the various bit rates; in addition, the
+schemes are used to achieve the various bit rates. In addition, the
 amount of redundant information in the form of error-correcting codes is
 varied. More redundant information means higher resilience to bit errors
 at the cost of lowering the effective data rate (since more of the
