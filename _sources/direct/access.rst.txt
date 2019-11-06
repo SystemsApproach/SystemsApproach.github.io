@@ -19,9 +19,9 @@ serves a city or neighborhood. These edge sites are commonly called
 but despite their names implying “centralized” and “root of the
 hierarchy” these sites are at the very edge of the ISP’s network; the
 ISP-side of the last-mile that directly connects to customers. PON and
-Cellular access networks are anchored in these facilities.\ [*]_
+Cellular access networks are anchored in these facilities.\ [#]_
 
-.. [*] DSL is the legacy, copper-based counterpart to PON. DSL links
+.. [#] DSL is the legacy, copper-based counterpart to PON. DSL links
        are also terminated in Telco Central Offices, but we do not
        describe this technology since it is being phased out.
 
@@ -272,7 +272,7 @@ and applications domains.
 
 Fundamentally, 5G defines a family of waveforms—unlike 4G, which
 specified only one waveform—each optimized for a different band in the
-radio spectrum.\ [*]_ The bands with carrier frequencies below 1GHz are
+radio spectrum.\ [#]_ The bands with carrier frequencies below 1GHz are
 designed to deliver mobile broadband and massive IoT services with a
 primary focus on range. Carrier frequencies between 1GHz-6GHz are
 designed to offer wider bandwidths, focusing on mobile broadband and
@@ -280,7 +280,7 @@ mission-critical applications. Carrier frequencies above 24GHz (mmWaves)
 are designed to provide super wide bandwidths over short, line-of-sight
 coverage.
 
-.. [*] A waveform is the frequency, amplitude, and phase-shift
+.. [#] A waveform is the frequency, amplitude, and phase-shift
        independent property (shape) of a signal. A sine wave is an
        example waveform.
        

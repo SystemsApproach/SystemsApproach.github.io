@@ -463,7 +463,7 @@ server (callee). Assuming that the server had earlier done a passive
 open, the two sides engage in an exchange of messages to establish the
 connection. (Recall from Chapter&nbsp;1 that a party wanting to initiate a
 connection performs an active open, while a party willing to accept a
-connection does a passive open.<a class="footnote-reference" href="#id2" id="id1">[*]</a>) Only after this connection
+connection does a passive open.<a class="footnote-reference" href="#id2" id="id1">[1]</a>) Only after this connection
 establishment phase is over do the two sides begin sending data.
 Likewise, as soon as a participant is done sending data, it closes one
 direction of the connection, which causes TCP to initiate a round of
@@ -477,7 +477,7 @@ connection open and to continue sending data.</p>
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>To be more precise, TCP allows connection setup to be symmetric,
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>To be more precise, TCP allows connection setup to be symmetric,
 with both sides trying to open the connection at the same time,
 but the common case is for one side to do an active open and the
 other side to do a passive open.</td></tr>

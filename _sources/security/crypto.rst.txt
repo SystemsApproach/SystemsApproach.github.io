@@ -135,7 +135,7 @@ Secret-Key Ciphers
 ------------------
 
 In a secret-key cipher, both participants in a communication share the
-same key.\ [*]_ In other words, if a message is encrypted using a particular
+same key.\ [#]_ In other words, if a message is encrypted using a particular
 key, the same key is required for decrypting the message. If the
 cipher illustrated in :numref:`Figure %s <fig-genericCrypto>` were a
 secret-key cipher, then the encryption and decryption keys would be
@@ -145,7 +145,7 @@ at the alternative, public-key ciphers, shortly. (Public-key cipers
 are known as also asymmetric-key ciphers, since as we’ll soon se, the
 two participants use different keys.)
 
-.. [*] We use the term *participant* for the parties involved in a
+.. [#] We use the term *participant* for the parties involved in a
        secure communication since that is the term we have been using
        throughout the book to identify the two endpoints of a
        channel. In the security world, they are typically called

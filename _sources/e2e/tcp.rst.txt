@@ -287,7 +287,7 @@ server (callee). Assuming that the server had earlier done a passive
 open, the two sides engage in an exchange of messages to establish the
 connection. (Recall from Chapter 1 that a party wanting to initiate a
 connection performs an active open, while a party willing to accept a
-connection does a passive open.\ [*]_) Only after this connection
+connection does a passive open.\ [#]_) Only after this connection
 establishment phase is over do the two sides begin sending data.
 Likewise, as soon as a participant is done sending data, it closes one
 direction of the connection, which causes TCP to initiate a round of
@@ -299,7 +299,7 @@ side to have done a close, meaning that it can no longer send data, but
 for the other side to keep the other half of the bidirectional
 connection open and to continue sending data.
 
-.. [*] To be more precise, TCP allows connection setup to be symmetric,
+.. [#] To be more precise, TCP allows connection setup to be symmetric,
        with both sides trying to open the connection at the same time,
        but the common case is for one side to do an active open and the
        other side to do a passive open.

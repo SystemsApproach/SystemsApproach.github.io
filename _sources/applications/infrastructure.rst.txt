@@ -59,7 +59,7 @@ hosts. Note that the Internet did not always use DNS. Early in its
 history, when there were only a few hundred hosts on the Internet, a
 central authority called the *Network Information Center* (NIC)
 maintained a flat table of name-to-address bindings; this table was
-called ``HOSTS.TXT``.\ [*]_ Whenever a site wanted to add a new host to the
+called ``HOSTS.TXT``.\ [#]_ Whenever a site wanted to add a new host to the
 Internet, the site administrator sent email to the NIC giving the new
 host’s name/address pair. This information was manually entered into the
 table, the modified table was mailed out to the various sites every few
@@ -68,7 +68,7 @@ every host at the site. Name resolution was then simply implemented by a
 procedure that looked up a host’s name in the local copy of the table
 and returned the corresponding address.
 
-.. [*] Believe it or not, there was also a paper book (like a phone
+.. [#] Believe it or not, there was also a paper book (like a phone
        book) published periodically that listed all the machines
        connected to the Internet and all the people that had an
        Internet email account.
@@ -126,9 +126,9 @@ tree, where each node in the tree corresponds to a domain, and the
 leaves in the tree correspond to the hosts being named. :numref:`Figure 
 %s <fig-domains>` gives an example of a domain hierarchy. Note that we
 should not assign any semantics to the term *domain* other than that it
-is simply a context in which additional names can be defined.\ [*]_
+is simply a context in which additional names can be defined.\ [#]_
 
-.. [*] Confusingly, the word *domain* is also used in Internet
+.. [#] Confusingly, the word *domain* is also used in Internet
        routing, where it means something different than it does in
        DNS, being roughly equivalent to the term *autonomous system*.
 

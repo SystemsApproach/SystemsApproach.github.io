@@ -441,13 +441,13 @@ bandwidth and consumes processing resources by requiring more headers
 per byte of data sent.</p>
 <p>The central idea here is that every network type has a <em>maximum
 transmission unit</em> (MTU), which is the largest IP datagram that it can
-carry in a frame.<a class="footnote-reference" href="#id2" id="id1">[*]</a> Note that this value is smaller than the largest
+carry in a frame.<a class="footnote-reference" href="#id2" id="id1">[1]</a> Note that this value is smaller than the largest
 packet size on that network because the IP datagram needs to fit in the
 <em>payload</em> of the link-layer frame.</p>
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>In ATM networks, the MTU is, fortunately, much larger than a
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>In ATM networks, the MTU is, fortunately, much larger than a
 single cell, as ATM has its own fragmentation and reassembly
 mechanism. The link-layer frame in ATM is called a
 <em>convergence-sublayer protocol data unit</em> (CS-PDU).</td></tr>

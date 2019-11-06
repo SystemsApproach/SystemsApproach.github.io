@@ -91,9 +91,9 @@ this 20 Gbps would be shared by all users connected to the switch, just
 as the bandwidth of a single (unswitched) Ethernet segment is shared
 among all users connected to the shared medium. Thus, for example, a
 16-port switch with this aggregate throughput would only be able to cope
-with an average data rate of about 1 Gbps on each port.\ [*]_
+with an average data rate of about 1 Gbps on each port.\ [#]_
 
-.. [*] These example performance numbers do not represent the absolute
+.. [#] These example performance numbers do not represent the absolute
        maximum throughput rate that highly tuned software running on a
        high-end server could achieve, but they are indicative of
        limits one ultimately faces in pursuing this approach.

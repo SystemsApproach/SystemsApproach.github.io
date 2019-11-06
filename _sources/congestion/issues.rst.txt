@@ -360,14 +360,14 @@ referred to as the *power* of the network:
 Note that it is not obvious that power is the right metric for judging
 resource allocation effectiveness. For one thing, the theory behind
 power is based on an M/M/1 queuing network that assumes infinite
-queues;\ [*]_ real networks have finite buffers and sometimes have to
+queues;\ [#]_ real networks have finite buffers and sometimes have to
 drop packets.  For another, power is typically defined relative to a
 single connection (flow); it is not clear how it extends to multiple,
 competing connections. Despite these rather severe limitations,
 however, no alternatives have gained wide acceptance, and so power
 continues to be used.
 
-.. [*] Since this is not a queuing theory book, we provide only this
+.. [#] Since this is not a queuing theory book, we provide only this
        brief description of an M/M/1 queue. The 1 means it has a
        single server, and the Ms mean that the distribution of both
        packet arrival and service times is *Markovian,* that is,

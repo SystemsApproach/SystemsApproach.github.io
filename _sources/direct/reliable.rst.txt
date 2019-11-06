@@ -221,11 +221,11 @@ out of order. (Technically, the receiver could resend an ACK for frame 5
 when frames 7 and 8 arrive.) Should frame 6 then arrive—perhaps it is
 late because it was lost the first time and had to be retransmitted, or
 perhaps it was simply delayed—the receiver acknowledges frame 8, bumps
-``LFR`` to 8, and sets ``LAF`` to 12.\ [*]_ If frame 6 was in fact lost, then
+``LFR`` to 8, and sets ``LAF`` to 12.\ [#]_ If frame 6 was in fact lost, then
 a timeout will have occurred at the sender, causing it to retransmit
 frame 6.
 
-.. [*] While it’s unlikely that a packet could be delayed or arrive
+.. [#] While it’s unlikely that a packet could be delayed or arrive
        out-of-order on a  point-to-point link, this same algorithm is
        used on multi-hop connections where such delays are possible.
 

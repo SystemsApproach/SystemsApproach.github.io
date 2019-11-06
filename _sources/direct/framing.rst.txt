@@ -251,7 +251,7 @@ signal with enough transitions to enable clock recovery.
 SONET supports the multiplexing of multiple low-speed links in the
 following way. A given SONET link runs at one of a finite set of
 possible rates, ranging from 51.84 Mbps (STS-1) to 39,813,120 Mbps
-(STS-768).\ [*]_ Note that all of these rates are integer multiples of STS-1.
+(STS-768).\ [#]_ Note that all of these rates are integer multiples of STS-1.
 The significance for framing is that a single SONET frame can contain
 subframes for multiple lower-rate channels. A second related feature is
 that each frame is 125 μs long. This means that at STS-1 rates, a SONET
@@ -260,7 +260,7 @@ frame is 810 bytes long, while at STS-3 rates, each SONET frame is
 = 2430, meaning that three STS-1 frames fit exactly in a single STS-3
 frame.
 
-.. [*] STS stands for *Synchronous Transport Signal*, which is how
+.. [#] STS stands for *Synchronous Transport Signal*, which is how
        SONET talks about frames. There is a parallel term—\ *Optical
        Carrier*  (OC)—that is used to talk about the underlying
        optical signal that carries SONET frames. We say these two

@@ -374,13 +374,13 @@ out of order. (Technically, the receiver could resend an ACK for frame&nbsp;5
 when frames&nbsp;7 and 8 arrive.) Should frame&nbsp;6 then arrive—perhaps it is
 late because it was lost the first time and had to be retransmitted, or
 perhaps it was simply delayed—the receiver acknowledges frame&nbsp;8, bumps
-<code class="docutils literal notranslate"><span class="pre">LFR</span></code> to 8, and sets <code class="docutils literal notranslate"><span class="pre">LAF</span></code> to 12.<a class="footnote-reference" href="#id2" id="id1">[*]</a> If frame&nbsp;6 was in fact lost, then
+<code class="docutils literal notranslate"><span class="pre">LFR</span></code> to 8, and sets <code class="docutils literal notranslate"><span class="pre">LAF</span></code> to 12.<a class="footnote-reference" href="#id2" id="id1">[1]</a> If frame&nbsp;6 was in fact lost, then
 a timeout will have occurred at the sender, causing it to retransmit
 frame&nbsp;6.</p>
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[*]</a></td><td>While it’s unlikely that a packet could be delayed or arrive
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>While it’s unlikely that a packet could be delayed or arrive
 out-of-order on a  point-to-point link, this same algorithm is
 used on multi-hop connections where such delays are possible.</td></tr>
 </tbody>
