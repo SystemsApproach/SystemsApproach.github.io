@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 4: Advanced Internetworking" href="../scaling.html" />
-    <link rel="prev" title="3.4 Implementation" href="impl.html" /> 
+    <link rel="prev" title="3.5 Implementation" href="impl.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,10 +95,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../internetworking.html">Chapter 3:  Internetworking</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problem.html">Problem: Not All Networks are Directly Connected</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switching.html">3.1 Switching and Bridging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic-ip.html">3.2 Basic Interworking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routing.html">3.3 Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="impl.html">3.4 Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switching.html">3.1 Switching Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">3.2 Switched Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic-ip.html">3.3 Internet (IP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">3.4 Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impl.html">3.5 Implementation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Perspective: Virtual Networks All the Way Down</a></li>
 </ul>
 </li>
@@ -201,7 +202,7 @@ don’t need to change—they see a faithful reproduction of the resource
 being virtualized. Virtualization also means that the different users
 (sometimes called <em>tenants</em>) cannot interfere with each other. So what
 happens when we try to virtualize a network?</p>
-<p>VPNs, as described in <span class="xref std std-ref">Section 3.2</span>,
+<p>VPNs, as described in <a class="reference internal" href="basic-ip.html#internet-ip"><span class="std std-ref">Section 3.3</span></a>,
 were one early success for virtual networking. They allowed carriers
 to present corporate customers with the illusion that they had their
 own private network, even though in reality they were sharing
@@ -213,7 +214,7 @@ virtual network should support all the basic abstractions of a
 physical network. In this sense, they are analogous to the virtual
 machine, with its support of all the resources of a server: CPU,
 storage, I/O, and so on.</p>
-<p>To this end, VLANS, as described in <a class="reference internal" href="switching.html#switching-and-bridging"><span class="std std-ref">Section 3.1</span></a>, are how we typically virtualize an L2 network. VLANs
+<p>To this end, VLANS, as described in <a class="reference internal" href="ethernet.html#switched-ethernet"><span class="std std-ref">Section 3.2</span></a>, are how we typically virtualize an L2 network. VLANs
 proved to be quite useful to enterprises that wanted to isolate
 different internal groups (e.g., departments, labs), giving each of
 them the appearance of having their own private LAN. VLANs were also
@@ -294,7 +295,7 @@ leading the way.</p>
         <a href="../scaling.html" class="btn btn-neutral float-right" title="Chapter 4: Advanced Internetworking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="impl.html" class="btn btn-neutral float-left" title="3.4 Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="impl.html" class="btn btn-neutral float-left" title="3.5 Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

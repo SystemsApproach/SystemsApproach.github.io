@@ -1,4 +1,4 @@
-3.3 Routing
+3.4 Routing
 ===========
 
 So far in this chapter we have assumed that the switches and routers

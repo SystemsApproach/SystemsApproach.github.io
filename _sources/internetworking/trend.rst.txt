@@ -29,7 +29,7 @@ being virtualized. Virtualization also means that the different users
 (sometimes called *tenants*) cannot interfere with each other. So what
 happens when we try to virtualize a network?
 
-VPNs, as described in :ref:`Section 3.2 <3.2 Basic Internetworking>`,
+VPNs, as described in :ref:`Section 3.3 <3.3 Internet (IP)>`,
 were one early success for virtual networking. They allowed carriers
 to present corporate customers with the illusion that they had their
 own private network, even though in reality they were sharing
@@ -42,8 +42,8 @@ physical network. In this sense, they are analogous to the virtual
 machine, with its support of all the resources of a server: CPU,
 storage, I/O, and so on.
 
-To this end, VLANS, as described in :ref:`Section 3.1 <3.1 Switching
-and Bridging>`, are how we typically virtualize an L2 network. VLANs
+To this end, VLANS, as described in :ref:`Section 3.2 <3.2 Switched
+Ethernet>`, are how we typically virtualize an L2 network. VLANs
 proved to be quite useful to enterprises that wanted to isolate
 different internal groups (e.g., departments, labs), giving each of
 them the appearance of having their own private LAN. VLANs were also

@@ -1,5 +1,5 @@
-3.2 Basic Interworking
-======================
+3.3 Internet (IP)
+=================
 
 In the previous section, we saw that it was possible to build reasonably
 large LANs using bridges and LAN switches, but that such approaches were
@@ -88,19 +88,19 @@ best case study of a scalable internetworking protocol.
 
 .. sidebar:: L2 vs L3 Networks
 
-   As seen in the previous chapter, an Ethernet can be treated as a
+   As seen in the previous section, an Ethernet can be treated as a
    point-to-point *link* interconnecting a pair of switches, with a
    mesh of interconnected switches forming a *Switched Ethernet*. This
    configuration is also known as an *L2 Network*.
 
-   But as we've seen here, an Ethernet (even when arranged in a
-   point-to-point configuration rather than a shared CSMA/CD network)
-   can be treated as a *network* interconnecting a pair of routers,
-   with a mesh of such routers forming an Internet.  This
-   configuration is also known as an *L3 Network*.
+   But as we'll discover in this section, an Ethernet (even when
+   arranged in a point-to-point configuration rather than a shared
+   CSMA/CD network) can be treated as a *network* interconnecting a
+   pair of routers, with a mesh of such routers forming an Internet.
+   This configuration is also known as an *L3 Network*.
 
    Confusingly, this is because a point-to-point Ethernet is both a
-   link and a network (albeit a trivial two-node network in the latter
+   link and a network (albeit a trivial two-node network in the second
    case), depending on whether it's connected to a pair of L2 switches
    running the spanning tree algorithm, or to a pair of L3 routers
    running IP (plus the routing protocols described later in this
