@@ -1423,8 +1423,8 @@ well as network speeds increase, and when it runs up against some limit
 both), researchers rush in to find solutions. We’ve seen some of those
 in this chapter, and we’ll see some more in the next.
 
-Alternative Design Choices
---------------------------
+Alternative Design Choices (SCTP, QUIC)
+---------------------------------------
 
 Although TCP has proven to be a robust protocol that satisfies the needs
 of a wide range of applications, the design space for transport
@@ -1484,36 +1484,38 @@ applications that want to send records to each other, you can easily
 insert record boundaries into a byte stream to implement this
 functionality.
 
-A third decision made in the design of TCP is that it delivers bytes *in
-order* to the application. This means that it may hold onto bytes that
-were received out of order from the network, awaiting some missing bytes
-to fill a hole. This is enormously helpful for many applications but
-turns out to be quite unhelpful if the application is capable of
-processing data out of order. As a simple example, a Web page containing
-multiple embedded images doesn’t need all the images to be delivered in
-order before starting to display the page. In fact, there is a class of
-applications that would prefer to handle out-of-order data at the
-application layer, in return for getting data sooner when packets are
-dropped or misordered within the network. The desire to support such
-applications led to the creation of another IETF standard transport
-protocol known as the *Stream Control Transmission Protocol* (SCTP).
-SCTP provides a partially ordered delivery service, rather than the
-strictly ordered service of TCP. (SCTP also makes some other design
-decisions that differ from TCP, including message orientation and
-support of multiple IP addresses for a single session. See the Further
-Reading section for more details.)
+A third decision made in the design of TCP is that it delivers bytes
+*in order* to the application. This means that it may hold onto bytes
+that were received out of order from the network, awaiting some
+missing bytes to fill a hole. This is enormously helpful for many
+applications but turns out to be quite unhelpful if the application is
+capable of processing data out of order. As a simple example, a Web
+page containing multiple embedded objects doesn’t need all the objects
+to be delivered in order before starting to display the page. In fact,
+there is a class of applications that would prefer to handle
+out-of-order data at the application layer, in return for getting data
+sooner when packets are dropped or misordered within the network.  The
+desire to support such applications led to the creation of not one but
+two IETF standard transport protocols. The first of these was SCTP,
+the *Stream Control Transmission Protocol*. SCTP provides a partially
+ordered delivery service, rather than the strictly ordered service of
+TCP.  (SCTP also makes some other design decisions that differ from
+TCP, including message orientation and support of multiple IP
+addresses for a single session.) More recently, the IETF has been
+standardizing a protocol optimized for Web traffic, known as
+QUIC. More on QUIC in a moment.
 
-Fourth, TCP chose to implement explicit setup/teardown phases, but this
-is not required. In the case of connection setup, it would certainly be
+Fourth, TCP chose to implement explicit setup/teardown phases, but
+this is not required. In the case of connection setup, it would be
 possible to send all necessary connection parameters along with the
 first data message. TCP elected to take a more conservative approach
-that gives the receiver the opportunity to reject the connection before
-any data arrives. In the case of teardown, we could quietly close a
-connection that has been inactive for a long period of time, but this
-would complicate applications like Telnet that want to keep a connection
-alive for weeks at a time; such applications would be forced to send
-out-of-band “keep alive” messages to keep the connection state at the
-other end from disappearing.
+that gives the receiver the opportunity to reject the connection
+before any data arrives. In the case of teardown, we could quietly
+close a connection that has been inactive for a long period of time,
+but this would complicate applications like remote login that want to
+keep a connection alive for weeks at a time; such applications would
+be forced to send out-of-band “keep alive” messages to keep the
+connection state at the other end from disappearing.
 
 Finally, TCP is a window-based protocol, but this is not the only
 possibility. The alternative is a *rate-based* design, in which the
@@ -1535,3 +1537,114 @@ changes? While we have just now considered window versus rate in the
 context of flow control, it is an even more hotly contested issue in the
 context of congestion control, which we will discuss in the next
 chapter.
+
+QUIC
+~~~~
+
+QUIC, *Quick UDP Internet Connections*, originated at Google in 2012
+and, at the time of writing, is still undergoing standardization at
+the IETF. It has already seen a moderate amount of deployment (in some
+Web browsers and quite a number of popular Web sites). The fact that
+it has been successful to this degree is in itself an interesting part
+of the QUIC story, and indeed deployability was a key consideration
+for the designers of the protocol.
+
+The motivation for QUIC comes directly from the points we noted above
+about TCP: certain design decisions have turned out to be non-optimal
+for a range of applications that run over TCP, with HTTP (Web) traffic
+being a particularly notable example. These issues have become more
+noticeable over time, due to factors such as the rise of high-latency
+wireless networks, the availability of multiple networks for a single
+device (e.g., Wi-Fi and cellular), and the increasing use of
+encrypted, authenticated connections on the Web. While a full
+description of QUIC is beyond our scope, some of the key design
+decisions are worth discussing.
+
+.. sidebar:: Multipath TCP
+
+	     It isn't always necessary to define a new protocol if you
+	     find an existing protocol not adequately serving a
+	     particular use case. Sometimes it's possible to make
+	     substantial changes in how an existing protocol is
+	     implemented, yet remain true to the original spec.
+	     Multipath TCP is an example of such a situation.
+
+	     The idea of Multipath TCP is to steer packets over
+	     multiple paths through the Internet, for example, by
+	     using two different IP addresses for one of the hosts.
+	     This can be especially helpful when delivering data to a
+	     mobile device that is connected to both Wi-Fi and the
+	     cellular network (and hence, has two unique IP
+	     addresses). Being wireless, both networks can experience
+	     significant packet-loss, so being able to use both to
+	     carry packets can dramatically improve the user
+	     experience.  The key is for the receiving side of TCP to
+	     reconstruct the original, in-order byte stream before
+	     passing data up to the application, which remains unaware
+	     it is sitting on top of Multipath TCP. (This is in
+	     contrast to the application knowingly opening up two or
+	     more TCP connections to get better performance.)
+
+	     As simple as Multipath TCP sounds, it is incredibly
+	     difficult to get right because it breaks many assumptions
+	     about how TCP flow control, segment reassembly, and
+	     congestion control behave. We leave it as an exercise for
+	     the reader to explore these subtlties. Doing so is a
+	     great way to make sure your basic understanding of TCP
+	     is sound.
+
+If network latency is high—in the hundreds of milliseconds—then a few
+RTTs can quickly add up to a visible annoyance for an end
+user. Establishing an HTTP session over TCP with Transport Layer
+Security (:ref:`Section 8.5 <8.5 Example Systems>`) would typically
+take three round trips (one for TCP session establishment and two for
+setting up the encryption parameters) before the first HTTP message
+could be sent. The designers of QUIC recognized that this delay—the
+direct result of a layered approach to protocol design—could be
+dramatically reduced if connection setup and the required security
+handshakes were combined and optimized for minimal round trips.
+
+Note also how the presence of multiple network interfaces might affect
+the design. If your mobile phone loses its Wi-Fi connection and needs
+to switch to a cellular connection, that would typically require both
+a TCP timeout on one connection and a new series of handshakes on the
+other. Making the connection something that can persist over different
+network layer connections was another design goal for QUIC.
+
+Finally, as noted above, the reliable byte stream model for TCP is a
+poor match to a Web page request, when many objects need to be fetched
+and page rendering could begin before they have all arrived. While
+one workaround for this would be to open multiple TCP connections in
+parallel, this approach (which was used in the early days of the Web)
+has its own set of drawbacks, notably on congestion control (see
+:ref:`Chapter 6 <Chapter 6: Congestion Control>`).
+
+Interestingly, by the time QUIC emerged, many design decisions had
+been made that presented challenges for the deployment of a new
+transport protocol. Notably, many "middleboxes'' such as NATs and
+firewalls (see :ref:`Section 8.5 <8.5 Example Systems>`) have enough
+understanding of the existing widespread transport protocols (TCP and
+UDP) that they can't be relied upon to pass a new transport
+protocol. As a result, QUIC actually rides on top of UDP. In other
+words, it is a transport protocol running on top of a transport
+protocol. This is not as uncommon as our focus on layering might
+suggest, as the next two subsections also illustrate.
+
+QUIC implements fast connection establishment with encryption and
+authentication in the first RTT. It provides a connection identifier
+than persists across changes in the underlying network. It supports the
+multiplexing of several streams onto a single transport connection, to
+avoid the head-of-line blocking that may arise when a single packet is
+dropped while other useful data continues to arrive. And it preserves
+the congestion avoidance properties of TCP, an important aspect of
+transport protocols that we return to in :ref:`Chapter 6 <Chapter 6:
+Congestion Control>`.
+
+tQUIC is a most interesting development in the world of transport
+protocols. Many of the limitations of TCP have been known for decades,
+but QUIC represents one of the most successful efforts to date to
+stake out a different point in the design space. Because QUIC was
+inspired by experience with HTTP and the Web—which arose long after
+TCP was well established in the Internet—it presents a fascinating
+case study in the unforeseen consequences of layered designs and in
+the evolution of the Internet.
