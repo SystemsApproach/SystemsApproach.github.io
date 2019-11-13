@@ -1563,7 +1563,7 @@ decisions are worth discussing.
 .. sidebar:: Multipath TCP
 
 	     It isn't always necessary to define a new protocol if you
-	     find an existing protocol not adequately serving a
+	     find an existing protocol does not adequately serve a
 	     particular use case. Sometimes it's possible to make
 	     substantial changes in how an existing protocol is
 	     implemented, yet remain true to the original spec.
@@ -1582,17 +1582,17 @@ decisions are worth discussing.
 	     reconstruct the original, in-order byte stream before
 	     passing data up to the application, which remains unaware
 	     it is sitting on top of Multipath TCP. (This is in
-	     contrast to the application purposely opening up two or
+	     contrast to applications that purposely open up two or
 	     more TCP connections to get better performance.)
 
 	     As simple as Multipath TCP sounds, it is incredibly
 	     difficult to get right because it breaks many assumptions
-	     about how TCP flow control, segment reassembly, and
-	     congestion control behave. We leave it as an exercise for
-	     the reader to explore these subtleties. Doing so is a
-	     great way to make sure your basic understanding of TCP
-	     is sound.
-
+	     about how TCP flow control, in-order segment reassembly,
+	     and congestion control are implemented. We leave it as an
+	     exercise for the reader to explore these subtleties. Doing
+	     so is a great way to make sure your basic understanding
+	     of TCP is sound.
+	     
 If network latency is high—in the hundreds of milliseconds—then a few
 RTTs can quickly add up to a visible annoyance for an end
 user. Establishing an HTTP session over TCP with Transport Layer
