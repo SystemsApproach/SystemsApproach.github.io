@@ -1571,25 +1571,25 @@ decisions are worth discussing.
 
 	     The idea of Multipath TCP is to steer packets over
 	     multiple paths through the Internet, for example, by
-	     using two different IP addresses for one of the hosts.
-	     This can be especially helpful when delivering data to a
-	     mobile device that is connected to both Wi-Fi and the
-	     cellular network (and hence, has two unique IP
-	     addresses). Being wireless, both networks can experience
-	     significant packet-loss, so being able to use both to
-	     carry packets can dramatically improve the user
+	     using two different IP addresses for one of the
+	     end-points.  This can be especially helpful when
+	     delivering data to a mobile device that is connected to
+	     both Wi-Fi and the cellular network (and hence, has two
+	     unique IP addresses). Being wireless, both networks can
+	     experience significant packet-loss, so being able to use
+	     both to carry packets can dramatically improve the user
 	     experience.  The key is for the receiving side of TCP to
 	     reconstruct the original, in-order byte stream before
 	     passing data up to the application, which remains unaware
 	     it is sitting on top of Multipath TCP. (This is in
-	     contrast to the application knowingly opening up two or
+	     contrast to the application purposely opening up two or
 	     more TCP connections to get better performance.)
 
 	     As simple as Multipath TCP sounds, it is incredibly
 	     difficult to get right because it breaks many assumptions
 	     about how TCP flow control, segment reassembly, and
 	     congestion control behave. We leave it as an exercise for
-	     the reader to explore these subtlties. Doing so is a
+	     the reader to explore these subtleties. Doing so is a
 	     great way to make sure your basic understanding of TCP
 	     is sound.
 
@@ -1640,7 +1640,7 @@ the congestion avoidance properties of TCP, an important aspect of
 transport protocols that we return to in :ref:`Chapter 6 <Chapter 6:
 Congestion Control>`.
 
-tQUIC is a most interesting development in the world of transport
+QUIC is a most interesting development in the world of transport
 protocols. Many of the limitations of TCP have been known for decades,
 but QUIC represents one of the most successful efforts to date to
 stake out a different point in the design space. Because QUIC was
