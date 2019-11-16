@@ -1582,8 +1582,8 @@ decisions are worth discussing.
 	     reconstruct the original, in-order byte stream before
 	     passing data up to the application, which remains unaware
 	     it is sitting on top of Multipath TCP. (This is in
-	     contrast to applications that purposely open up two or
-	     more TCP connections to get better performance.)
+	     contrast to applications that purposely open two or more
+	     TCP connections to get better performance.)
 
 	     As simple as Multipath TCP sounds, it is incredibly
 	     difficult to get right because it breaks many assumptions

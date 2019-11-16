@@ -1,15 +1,15 @@
 1.3 Architecture
 ================
 
-In case you hadn’t noticed, the previous section established a pretty
-substantial set of requirements for network design—a computer network
-must provide general, cost-effective, fair, and robust connectivity
-among a large number of computers. As if this weren’t enough, networks
-do not remain fixed at any single point in time but must evolve to
-accommodate changes in both the underlying technologies upon which they
-are based as well as changes in the demands placed on them by
-application programs. Furthermore, networks must be manageable by humans
-of varying levels of skill. Designing a network to meet these
+The previous section established a pretty substantial set of
+requirements for network design—a computer network must provide
+general, cost-effective, fair, and robust connectivity among a large
+number of computers. As if this weren’t enough, networks do not remain
+fixed at any single point in time but must evolve to accommodate
+changes in both the underlying technologies upon which they are based
+as well as changes in the demands placed on them by application
+programs. Furthermore, networks must be manageable by humans of
+varying levels of skill. Designing a network to meet these
 requirements is no small task.
 
 To help deal with this complexity, network designers have developed
@@ -23,19 +23,19 @@ introduces two of the most widely referenced architectures—the OSI (or
 Layering and Protocols
 ----------------------
 
-Abstraction—the hiding of details behind a well-defined interface—is the
-fundamental tool used by system designers to manage complexity. The idea
-of an abstraction is to define a model that can capture some important
-aspect of the system, encapsulate this model in an object that provides
-an interface that can be manipulated by other components of the system,
-and hide the details of how the object is implemented from the users of
-the object. The challenge is to identify abstractions that
-simultaneously provide a service that proves useful in a large number of
-situations and that can be efficiently implemented in the underlying
-system. This is exactly what we were doing when we introduced the idea
-of a channel in the previous section: we were providing an abstraction
-for applications that hides the complexity of the network from
-application writers.
+Abstraction—the hiding of implementation details behind a well-defined
+interface—is the fundamental tool used by system designers to manage
+complexity. The idea of an abstraction is to define a model that can
+capture some important aspect of the system, encapsulate this model in
+an object that provides an interface that can be manipulated by other
+components of the system, and hide the details of how the object is
+implemented from the users of the object. The challenge is to identify
+abstractions that simultaneously provide a service that proves useful
+in a large number of situations and that can be efficiently
+implemented in the underlying system. This is exactly what we were
+doing when we introduced the idea of a channel in the previous
+section: we were providing an abstraction for applications that hides
+the complexity of the network from application writers.
 
 .. _fig-layers1:
 .. figure:: figures/f01-08-9780123850591.png
@@ -61,14 +61,14 @@ the available host-to-host communication service and provides support
 for process-to-process channels, abstracting away the fact that the
 network occasionally loses messages, for example.
 
-Layering provides two nice features. First, it decomposes the problem of
-building a network into more manageable components. Rather than
-implementing a monolithic piece of software that does everything you
-will ever want, you can implement several layers, each of which solves
-one part of the problem. Second, it provides a more modular design. If
-you decide that you want to add some new service, you may only need to
-modify the functionality at one layer, reusing the functions provided at
-all the other layers.
+Layering provides two useful features. First, it decomposes the
+problem of building a network into more manageable components. Rather
+than implementing a monolithic piece of software that does everything
+you will ever want, you can implement several layers, each of which
+solves one part of the problem. Second, it provides a more modular
+design. If you decide that you want to add some new service, you may
+only need to modify the functionality at one layer, reusing the
+functions provided at all the other layers.
 
 Thinking of a system as a linear sequence of layers is an
 oversimplification, however. Many times there are multiple abstractions
@@ -225,22 +225,23 @@ application’s data is *encapsulated* in the new message created by RRP.
    High-level messages are encapsulated inside of low-level messages.
 
 This process of encapsulation is then repeated at each level of the
-protocol graph; for example, HHP encapsulates RRP’s message by attaching
-a header of its own. If we now assume that HHP sends the message to its
-peer over some network, then when the message arrives at the destination
-host, it is processed in the opposite order: HHP first interprets the
-HHP header at the front of the message (i.e., takes whatever action is
-appropriate given the contents of the header) and passes the body of the
-message (but not the HHP header) up to RRP, which takes whatever action
-is indicated by the RRP header that its peer attached and passes the
-body of the message (but not the RRP header) up to the application
-program. The message passed up from RRP to the application on host 2 is
-exactly the same message as the application passed down to RRP on
-host 1; the application does not see any of the headers that have been
-attached to it to implement the lower-level communication services. This
-whole process is illustrated in :numref:`Figure %s <fig-encapsulation>`. Note that
-in this example, nodes in the network (e.g., switches and routers) may
-inspect the HHP header at the front of the message.
+protocol graph; for example, HHP encapsulates RRP’s message by
+attaching a header of its own. If we now assume that HHP sends the
+message to its peer over some network, then when the message arrives
+at the destination host, it is processed in the opposite order: HHP
+first interprets the HHP header at the front of the message (i.e.,
+takes whatever action is appropriate given the contents of the header)
+and passes the body of the message (but not the HHP header) up to RRP,
+which takes whatever action is indicated by the RRP header that its
+peer attached and passes the body of the message (but not the RRP
+header) up to the application program. The message passed up from RRP
+to the application on host 2 is exactly the same message as the
+application passed down to RRP on host 1; the application does not see
+any of the headers that have been attached to it to implement the
+lower-level communication services. This whole process is illustrated
+in :numref:`Figure %s <fig-encapsulation>`. Note that in this example,
+nodes in the network (e.g., switches and routers) may inspect the HHP
+header at the front of the message.
 
 Note that when we say a low-level protocol does not interpret the
 message it is given by some high-level protocol, we mean that it does
@@ -292,11 +293,13 @@ delivered.
 The ISO was one of the first organizations to formally define a common
 way to connect computers. Their architecture, called the *Open Systems
 Interconnection* (OSI) architecture and illustrated in :numref:`Figure
-%s <fig-osi>`, defines a partitioning of network functionality into seven
-layers, where one or more protocols implement the functionality assigned
-to a given layer. In this sense, the schematic given in is not a
-protocol graph, *per se*, but rather a *reference model* for a protocol
-graph. It is often referred to as the 7-layer model.
+%s <fig-osi>`, defines a partitioning of network functionality into
+seven layers, where one or more protocols implement the functionality
+assigned to a given layer. In this sense, the schematic given in is
+not a protocol graph, *per se*, but rather a *reference model* for a
+protocol graph. It is often referred to as the 7-layer model.  While
+there is no OSI-based network running today, the terminology it
+defined is still widely used, so it is still worth a cursory look.
 
 .. _fig-osi:
 .. figure:: figures/f01-13-9780123850591.png
@@ -323,20 +326,19 @@ commonly called a *message* rather than a packet or a frame. The
 transport layer and higher layers typically run only on the end hosts
 and not on the intermediate switches or routers.
 
-There is less agreement about the definition of the top three layers, in
-part because they are not always all present, as we will see below.
-Skipping ahead to the top (seventh) layer, we find the *application*
-layer. Application layer protocols include things like the Hypertext
-Transfer Protocol (HTTP), which is the basis of the World Wide Web and
-is what enables web browsers to request pages from web servers. Below
-that, the *presentation* layer is concerned with the format of data
-exchanged between peers—for example, whether an integer is 16, 32, or 64
-bits long, whether the most significant byte is transmitted first or
-last, or how a video stream is formatted. Finally, the *session* layer
-provides a name space that is used to tie together the potentially
-different transport streams that are part of a single application. For
-example, it might manage an audio stream and a video stream that are
-being combined in a teleconferencing application.
+Skipping ahead to the top (seventh) layer and working our way back
+down, we find the *application* layer. Application layer protocols
+include things like the Hypertext Transfer Protocol (HTTP), which is
+the basis of the World Wide Web and is what enables web browsers to
+request pages from web servers. Below that, the *presentation* layer
+is concerned with the format of data exchanged between peers—for
+example, whether an integer is 16, 32, or 64 bits long, whether the
+most significant byte is transmitted first or last, or how a video
+stream is formatted. Finally, the *session* layer provides a name
+space that is used to tie together the potentially different transport
+streams that are part of a single application. For example, it might
+manage an audio stream and a video stream that are being combined in a
+teleconferencing application.
 
 Internet Architecture
 ---------------------
@@ -367,10 +369,10 @@ them was a major influence on the OSI reference model.
    
    Alternative view of the Internet architecture. The "subnetwork" layer
    was historically referred to as the “network” layer and is now often
-   referred to as “layer 2.”
+   referred to as “Layer 2” (influenced by the OSI model). 
 
 While the 7-layer OSI model can, with some imagination, be applied to
-the Internet, a 4-layer model is often used instead. At the lowest
+the Internet, a simpler stack is often used instead. At the lowest
 level is a wide variety of network protocols, denoted NET\ :sub:`1`,
 NET\ :sub:`2`, and so on. In practice, these protocols are implemented
 by a combination of hardware (e.g., a network adaptor) and software
@@ -378,17 +380,18 @@ by a combination of hardware (e.g., a network adaptor) and software
 or wireless protocols (such as the 802.11 Wi-Fi standards) at this
 layer. (These protocols in turn may actually involve several
 sublayers, but the Internet architecture does not presume anything
-about them.) The second layer consists of a single protocol—the
+about them.) The next layer consists of a single protocol—the
 *Internet Protocol* (IP). This is the protocol that supports the
 interconnection of multiple networking technologies into a single,
-logical internetwork. The third layer contains two main protocols—the
-*Transmission Control Protocol* (TCP) and the *User Datagram Protocol*
-(UDP). TCP and UDP provide alternative logical channels to application
-programs: TCP provides a reliable byte-stream channel, and UDP
-provides an unreliable datagram delivery channel (*datagram* may be
-thought of as a synonym for message). In the language of the Internet,
-TCP and UDP are sometimes called *end-to-end* protocols, although it
-is equally correct to refer to them as *transport* protocols.
+logical internetwork. The layer on top of IP contains two main
+protocols—the *Transmission Control Protocol* (TCP) and the *User
+Datagram Protocol* (UDP). TCP and UDP provide alternative logical
+channels to application programs: TCP provides a reliable byte-stream
+channel, and UDP provides an unreliable datagram delivery channel
+(*datagram* may be thought of as a synonym for message). In the
+language of the Internet, TCP and UDP are sometimes called
+*end-to-end* protocols, although it is equally correct to refer to
+them as *transport* protocols.
 
 Running above the transport layer is a range of application protocols,
 such as HTTP, FTP, Telnet (remote login), and the Simple Mail Transfer
@@ -425,7 +428,7 @@ layer is layer 3, and the link or subnet layer below IP is layer 2.
    and ITU-T's H.232 video encoding standards, to name a few.
 
    In addition to defining architectures and specifying protocols,
-   there are still other organizations that support the larger goal of
+   there are yet other organizations that support the larger goal of
    interoperability. One example is the IANA (Internet Assigned
    Numbers Authority), which as its name impies, is responsible for
    handing out the unique identifiers needed to make the protocols
@@ -457,15 +460,16 @@ technologies, ranging from Ethernet to wireless to single point-to-point
 links.
 
 A final attribute of the Internet architecture (or more accurately, of
-the IETF culture) is that in order for a new
-protocol to be officially included in the architecture, there must be
-both a protocol specification and at least one (and preferably two)
-representative implementations of the specification. The existence of
-working implementations is required for standards to be adopted by the
+the IETF culture) is that in order for a new protocol to be officially
+included in the architecture, there must be both a protocol
+specification and at least one (and preferably two) representative
+implementations of the specification. The existence of working
+implementations is required for standards to be adopted by the
 IETF. This cultural assumption of the design community helps to ensure
 that the architecture’s protocols can be efficiently implemented.
-Perhaps the value the Internet culture places on working software is best
-exemplified by a quote on T-shirts commonly worn at IETF meetings:
+Perhaps the value the Internet culture places on working software is
+best exemplified by a quote on T-shirts commonly worn at IETF
+meetings:
 
    *We reject kings, presidents, and voting. We believe in rough
    consensus and running code.* **(David Clark)**

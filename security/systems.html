@@ -108,8 +108,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#pretty-good-privacy-pgp">Pretty Good Privacy (PGP)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#secure-shell-ssh">Secure Shell (SSH)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#transport-layer-security-tls-ssl-https">Transport Layer Security (TLS, SSL, HTTPS)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-handshake-protocol">The Handshake Protocol</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-record-protocol">The Record Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#handshake-protocol">Handshake Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#record-protocol">Record Protocol</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ip-security-ipsec">IP Security (IPsec)</a></li>
@@ -458,8 +458,8 @@ primarily web browsers.</p>
 on TLS. Although SSL and TLS are unfortunately not interoperable, they
 differ in only minor ways, so nearly all of this description of TLS
 applies to SSL.</p>
-<div class="section" id="the-handshake-protocol">
-<h3>The Handshake Protocol<a class="headerlink" href="#the-handshake-protocol" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="handshake-protocol">
+<h3>Handshake Protocol<a class="headerlink" href="#handshake-protocol" title="Permalink to this headline">¶</a></h3>
 <p>A pair of TLS participants negotiate at runtime which cryptography to
 use. The participants negotiate a choice of:</p>
 <ul class="simple">
@@ -525,8 +525,8 @@ such as would result, for example, if a man in the middle modified the
 initial unencrypted client message to weaken its choices of
 cryptographic algorithms.</p>
 </div>
-<div class="section" id="the-record-protocol">
-<h3>The Record Protocol<a class="headerlink" href="#the-record-protocol" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="record-protocol">
+<h3>Record Protocol<a class="headerlink" href="#record-protocol" title="Permalink to this headline">¶</a></h3>
 <p>Within a session established by the handshake protocol, TLS’s record
 protocol adds confidentiality and integrity to the underlying transport
 service. Messages handed down from the application layer are:</p>

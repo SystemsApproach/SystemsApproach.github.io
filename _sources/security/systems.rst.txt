@@ -299,8 +299,8 @@ on TLS. Although SSL and TLS are unfortunately not interoperable, they
 differ in only minor ways, so nearly all of this description of TLS
 applies to SSL.
 
-The Handshake Protocol
-~~~~~~~~~~~~~~~~~~~~~~
+Handshake Protocol
+~~~~~~~~~~~~~~~~~~
 
 A pair of TLS participants negotiate at runtime which cryptography to
 use. The participants negotiate a choice of:
@@ -377,8 +377,8 @@ such as would result, for example, if a man in the middle modified the
 initial unencrypted client message to weaken its choices of
 cryptographic algorithms.
 
-The Record Protocol
-~~~~~~~~~~~~~~~~~~~
+Record Protocol
+~~~~~~~~~~~~~~~
 
 Within a session established by the handshake protocol, TLS’s record
 protocol adds confidentiality and integrity to the underlying transport
