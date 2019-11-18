@@ -11,7 +11,7 @@ considerations, also influence how networks are designed and built.
 
 Of these, the marketplace is the most influential, and corresponds to
 the interplay between network operators (e.g., AT&T, Comcast, Verizon,
-DT, NTT, China Mobile), network equipment venders (e.g., Cisco, Juniper,
+DT, NTT, China Unicom), network equipment venders (e.g., Cisco, Juniper,
 Ericsson, Nokia, Huawei, NEC), application and service providers (e.g.,
 Facebook, Google, Amazon, Microsoft, Apple, Netflix, Spotify), and of
 course, subscribers and customers (i.e., individuals, but also
@@ -59,13 +59,17 @@ and (2) adopt agile engineering processes that break down barriers
 between development and operations.
 
 This transformation is sometimes called the “cloudification” or
-“softwarization” of the network, but by another name, it is known as
-*Software Defined Networks* (SDN). Whatever you call it, this new
-approach is a game changer, not so much in terms of how we address the
-fundamental technical challenges of framing, routing,
-fragmentation/reassembly, packet scheduling, congestion control,
-security, and so on, but in terms of how rapidly the network evolves to
-support new features.
+“softwarization” of the network, and while the Internet has always had
+a robust software ecosystem, it has historically been limited to the
+applications running *on top of* the network (e.g., using the Socket
+API described in :ref:`Section 1.4 <1.4 Software>`).  What's changed
+is that today these same cloud-inspired engineering practices are
+being applied to the *internals* of the network. This new approach,
+known as *Software Defined Networks* (SDN), is a game changer, not so
+much in terms of how we address the fundamental technical challenges
+of framing, routing, fragmentation/reassembly, packet scheduling,
+congestion control, security, and so on, but in terms of how rapidly
+the network evolves to support new features.
 
 This transformation is so important that we take it up again in the
 *Perspective* section at the end of each chapter. As these discussions

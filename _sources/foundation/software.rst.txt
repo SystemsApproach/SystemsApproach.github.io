@@ -70,6 +70,29 @@ the language of choice for network internals. (C also has the
 advantage of exposing all the low-level details, which is helpful in
 understanding the underlying ideas.)
 
+.. sidebar:: Socket API as Fixed Point
+
+	     It's hard to overstate the importance of the Socket
+	     API. It defines the demarcation point between the
+	     applications running on top of the Internet, and the
+	     details of how the Internet is implemented. As a
+	     consequence of this API defining a stable fixed-point,
+	     writing Internet applications exploded into a
+	     multi-billion dollar industry. Starting with the
+	     client/server paradigm and a handful of simple
+	     application programs (email, file transfer, remote
+	     login), everyone now has access to an unending supply of
+	     cloud applications from their smartphones.
+
+	     This section lays the foundation by revisiting the
+	     simplicity of a client program opening a socket so it can
+	     exchange messages with server program, but there is a
+	     rich software ecosystem for building scalable
+	     applications available today. This ecosystem still runs
+	     on top of the Socket API, but it has grown to also
+	     include the cloud. We return to the interplay between the
+	     cloud and the network in every chapter that follows.
+
 Before describing the socket interface, it is important to keep two
 concerns separate in your mind. Each protocol provides a certain set of
 *services*, and the API provides a *syntax* by which those services can
