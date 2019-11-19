@@ -208,15 +208,15 @@ acquire the information in their forwarding tables.</p>
 <div class="admonition-key-takeaway admonition">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">We restate an important distinction, which is often neglected,
-between <em>forwarding</em> and <em>routing</em>. Forwarding consists of taking a
-packet, looking at its destination address, consulting a table, and
-sending the packet in a direction determined by that table. We saw
-several examples of forwarding in the preceding section. Routing is
-the process by which forwarding tables are built. We also note that
-forwarding is a relatively simple and well-defined process performed
-locally at a node, whereas routing depends on complex distributed
-algorithms that have continued to evolve throughout the history of
-networking.</p>
+between <em>forwarding</em> and <em>routing</em>. Forwarding consists of
+receiving a packet, looking up its destination address in a table,
+and sending the packet in a direction determined by that table. We
+saw several examples of forwarding in the preceding section. It is
+a simple and well-defined process performed locally at each node,
+and is often referred to as the network’s <em>data plane.</em> Routing is
+the process by which forwarding tables are built. It depends on
+complex distributed algorithms, and is often referred to as the
+network’s <em>control plane.</em></p>
 </div>
 <p>While the terms <em>forwarding table</em> and <em>routing table</em> are sometimes
 used interchangeably, we will make a distinction between them here. The
@@ -1162,13 +1162,13 @@ storage potentially required at each node) and the general problem
 (scalability) will be discussed in the next section.</p>
 <div class="admonition-key-takeaway admonition">
 <p class="first admonition-title">Key Takeaway</p>
-<p class="last">The difference between the distance-vector and link-state algorithms
-can be summarized as follows. In distance-vector, each node talks
-only to its directly connected neighbors, but it tells them
-everything it has learned (i.e., distance to all nodes). In
-link-state, each node talks to all other nodes, but it tells them
-only what it knows for sure (i.e., only the state of its directly
-connected links).</p>
+<p class="last">Distance-vector and link-state are both distributed routing
+algorithms, but they adopt different strategies. In distance-vector,
+each node talks only to its directly connected neighbors, but it
+tells them everything it has learned (i.e., distance to all
+nodes). In link-state, each node talks to all other nodes, but it
+tells them only what it knows for sure (i.e., only the state of its
+directly connected links).</p>
 </div>
 </div>
 <div class="section" id="the-open-shortest-path-first-protocol-ospf">
@@ -1419,10 +1419,10 @@ common approach to setting metrics is to use a constant multiplied by
 <p class="last">Why do we still tell the story about a decades old algorithm that’s
 no longer in use? Because it perfectly illustrates two valuable
 lessons. The first is that computer systems are often <em>designed
-iteratively, based on experience.</em> We seldom get it right the first
+iteratively based on experience.</em> We seldom get it right the first
 time, so it’s important to deploy a simple solution sooner rather
 than later, and expect to improve it over time. Staying stuck in the
-design phase indefinitely is usually not a good approach. The second
+design phase indefinitely is usually not a good plan. The second
 is the well-know KISS principle: <em>Keep it Simple, Stupid.</em> When
 building a complex system, less is often more. Opportunities to
 invent sophisticated optimizations are plentiful, and it’s a tempting
@@ -1430,7 +1430,7 @@ opportunity to pursue. While such optimizations sometimes have
 short-term value, it is shocking how often a simple approach proves
 best over time. This is because when a system has many moving parts,
 as the Internet most certainly does, keeping each part as simple as
-possible is usually the best bet.</p>
+possible is usually the best approach.</p>
 </div>
 </div>
 </div>

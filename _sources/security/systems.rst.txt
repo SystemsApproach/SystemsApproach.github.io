@@ -461,7 +461,11 @@ key exchange upon resumption.
    of TLS seems like a good idea, but it needs to be considered in the
    context of the dominate use case, which is HTTP. Once the overhead of
    doing multiple TCP connections was addressed by HTTP, the equation
-   for how resumption should be implemented by TLS changed.
+   for how resumption should be implemented by TLS changed. The bigger
+   lesson is that we need to avoid rigid thinking about the right
+   layer to implement a given function—the answer changes over time
+   as the network evolves—where a holistic/cross-layer analysis is
+   required to get the design right.
 
 IP Security (IPsec)
 -------------------

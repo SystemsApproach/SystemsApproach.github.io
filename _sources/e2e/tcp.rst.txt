@@ -1164,8 +1164,10 @@ section.
    the line between specification and implementation becomes blurred.
    That has happened more than once with TCP, causing some to argue that
    “the implementation **is** the specification.” But that’s not
-   necessarily a bad thing, since by another name, what we’ve just
-   described is open source software.
+   necessarily a bad thing as long as the reference implementation is
+   available as open source software. More generally, the industry is
+   seeing open source software grow in importance as open standards
+   receed in importance.
 
 Record Boundaries
 -----------------

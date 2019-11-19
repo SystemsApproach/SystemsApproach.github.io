@@ -106,13 +106,11 @@ certain memory address on one machine does not mean it will live at the
 same address on another machine. In other words, the marshalling system
 must *serialize* (flatten) complex data structures.
 
-.. admonition:: Key Takeaway
-
-   In summary, depending on how complicated the type system is, the task
-   of argument marshalling usually involves converting the base types,
-   packing the structures, and linearizing the complex data structures,
-   all to form a contiguous message that can be transmitted over the
-   network. :numref:`Figure %s <fig-marshal2>` illustrates this task.
+In summary, depending on how complicated the type system is, the task
+of argument marshalling usually involves converting the base types,
+packing the structures, and linearizing the complex data structures,
+all to form a contiguous message that can be transmitted over the
+network. :numref:`Figure %s <fig-marshal2>` illustrates this task.
 
 .. _fig-marshal2:
 .. figure:: figures/f07-03-9780123850591.png

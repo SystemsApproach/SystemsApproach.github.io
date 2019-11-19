@@ -160,12 +160,12 @@ need to use the absolute shortest path.
 
    This illustrates an important principle in network design. There is
    frequently a trade-off between scalability and some sort of
-   optimality. When hierarchy is introduced, information is hidden from
-   some nodes in the network, hindering their ability to make perfect
-   decisions. However, information hiding is essential to scalability,
-   since it saves all nodes from having global knowledge. It is
-   invariably true in large networks that scalability is a more pressing
-   design goal than selecting the optimal route.
+   optimality. When hierarchy is introduced, information is hidden
+   from some nodes in the network, hindering their ability to make
+   perfect decisions. However, information hiding is essential to
+   scaling a solution, since it saves all nodes from having global
+   knowledge. It is invariably true in large networks that scalability
+   is a more pressing design goal than selecting the optimal route.
 
 Finally, we note that there is a trick by which network administrators
 can more flexibly decide which routers go in area 0. This trick uses the

@@ -17,15 +17,15 @@ acquire the information in their forwarding tables.
 .. admonition:: Key Takeaway
 
    We restate an important distinction, which is often neglected,
-   between *forwarding* and *routing*. Forwarding consists of taking a
-   packet, looking at its destination address, consulting a table, and
-   sending the packet in a direction determined by that table. We saw
-   several examples of forwarding in the preceding section. Routing is
-   the process by which forwarding tables are built. We also note that
-   forwarding is a relatively simple and well-defined process performed
-   locally at a node, whereas routing depends on complex distributed
-   algorithms that have continued to evolve throughout the history of
-   networking.
+   between *forwarding* and *routing*. Forwarding consists of
+   receiving a packet, looking up its destination address in a table,
+   and sending the packet in a direction determined by that table. We
+   saw several examples of forwarding in the preceding section. It is
+   a simple and well-defined process performed locally at each node,
+   and is often referred to as the network's *data plane.* Routing is
+   the process by which forwarding tables are built. It depends on
+   complex distributed algorithms, and is often referred to as the
+   network's *control plane.*
 
 While the terms *forwarding table* and *routing table* are sometimes
 used interchangeably, we will make a distinction between them here. The
@@ -871,13 +871,13 @@ storage potentially required at each node) and the general problem
 
 .. admonition:: Key Takeaway
 
-   The difference between the distance-vector and link-state algorithms
-   can be summarized as follows. In distance-vector, each node talks
-   only to its directly connected neighbors, but it tells them
-   everything it has learned (i.e., distance to all nodes). In
-   link-state, each node talks to all other nodes, but it tells them
-   only what it knows for sure (i.e., only the state of its directly
-   connected links).
+   Distance-vector and link-state are both distributed routing
+   algorithms, but they adopt different strategies. In distance-vector,
+   each node talks only to its directly connected neighbors, but it
+   tells them everything it has learned (i.e., distance to all
+   nodes). In link-state, each node talks to all other nodes, but it
+   tells them only what it knows for sure (i.e., only the state of its
+   directly connected links).
 
 The Open Shortest Path First Protocol (OSPF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1162,10 +1162,10 @@ common approach to setting metrics is to use a constant multiplied by
    Why do we still tell the story about a decades old algorithm that’s
    no longer in use? Because it perfectly illustrates two valuable
    lessons. The first is that computer systems are often *designed
-   iteratively, based on experience.* We seldom get it right the first
+   iteratively based on experience.* We seldom get it right the first
    time, so it’s important to deploy a simple solution sooner rather
    than later, and expect to improve it over time. Staying stuck in the
-   design phase indefinitely is usually not a good approach. The second
+   design phase indefinitely is usually not a good plan. The second
    is the well-know KISS principle: *Keep it Simple, Stupid.* When
    building a complex system, less is often more. Opportunities to
    invent sophisticated optimizations are plentiful, and it’s a tempting
@@ -1173,4 +1173,4 @@ common approach to setting metrics is to use a constant multiplied by
    short-term value, it is shocking how often a simple approach proves
    best over time. This is because when a system has many moving parts,
    as the Internet most certainly does, keeping each part as simple as
-   possible is usually the best bet.
+   possible is usually the best approach.

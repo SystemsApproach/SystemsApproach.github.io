@@ -284,14 +284,11 @@ implemented by memory addresses, and just because a structure lives at a
 certain memory address on one machine does not mean it will live at the
 same address on another machine. In other words, the marshalling system
 must <em>serialize</em> (flatten) complex data structures.</p>
-<div class="admonition-key-takeaway admonition">
-<p class="first admonition-title">Key Takeaway</p>
-<p class="last">In summary, depending on how complicated the type system is, the task
+<p>In summary, depending on how complicated the type system is, the task
 of argument marshalling usually involves converting the base types,
 packing the structures, and linearizing the complex data structures,
 all to form a contiguous message that can be transmitted over the
 network. <a class="reference internal" href="#fig-marshal2"><span class="std std-numref">Figure 181</span></a> illustrates this task.</p>
-</div>
 <div class="figure align-center" id="id3">
 <span id="fig-marshal2"></span><a class="reference internal image-reference" href="../_images/f07-03-9780123850591.png"><img alt="../_images/f07-03-9780123850591.png" src="../_images/f07-03-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 181. </span><span class="caption-text">Argument marshalling: converting, packing, and linearizing</span></p>
