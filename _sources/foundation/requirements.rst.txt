@@ -175,13 +175,13 @@ is shown in :numref:`Figure %s <fig-internet-cloud>`. In this
 situation, a set of independent networks (clouds) are interconnected
 to form an *internetwork*, or internet for short. We adopt the
 Internet’s convention of referring to a generic internetwork of
-networks as a lowercase *i* internet, and the currently operational
-TCP/IP Internet as the capital *I* Internet. A node that is connected
+networks as a lowercase *i* internet, and the TCP/IP Internet we all
+use every day as the capital *I* Internet. A node that is connected
 to two or more networks is commonly called a *router* or *gateway*,
 and it plays much the same role as a switch—it forwards messages from
 one network to another. Note that an internet can itself be viewed as
 another kind of network, which means that an internet can be built
-from an of internets.  Thus, we can recursively build arbitrarily
+from a set of internets.  Thus, we can recursively build arbitrarily
 large networks by interconnecting clouds to form larger clouds. It can
 reasonably be argued that this idea of interconnecting widely
 differing networks was the fundamental innovation of the Internet and

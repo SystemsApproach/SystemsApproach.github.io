@@ -40,7 +40,7 @@ authenticated each other and they have a new secret key to use. Without
 a new session key, the protocol would just authenticate Alice and Bob at
 one point in time; a session key allows them to efficiently authenticate
 subsequent messages. Generally, session key establishment protocols
-perform authentication (a notable exception is Diffie-Hellman, as
+perform authentication. A notable exception is Diffie-Hellman, as
 described below, so the terms *authentication protocol* and *session key
 establishment protocol* are almost synonymous.
 
