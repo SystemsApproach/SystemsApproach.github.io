@@ -354,7 +354,7 @@ reorder messages. As a consequence of these small windows of
 vulnerability, it is still necessary to provide true end-to-end checks
 to guarantee reliable/ordered service, even though the lower levels of
 the system also implement that functionality.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-e2e">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">This discussion serves to illustrate one of the most important
 principles in system design—the <em>end-to-end argument</em>. In a nutshell,
@@ -368,7 +368,7 @@ performance optimization. This is why it is perfectly consistent with
 the end-to-end argument to perform error detection (e.g., CRC) on a
 hop-by-hop basis; detecting and retransmitting a single corrupt
 packet across one hop is preferable to having to retransmit an entire
-file end-to-end.</p>
+file end-to-end.  <a class="reference internal" href="#key-dumb-receiver"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="segment-format">
@@ -821,7 +821,7 @@ practice they are sent every 5 to 60 seconds. As for what single byte of
 data to send in the probe: it’s the next byte of actual data just
 outside the window. (It has to be real data in case it’s accepted by the
 receiver.)</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-dumb-receiver">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">Note that the reason the sending side periodically sends this probe
 segment is that TCP is designed to make the receive side as simple as
@@ -830,7 +830,8 @@ initiates any activity on its own. This is an example of a
 well-recognized (although not universally applied) protocol design
 rule, which, for lack of a better name, we call the <em>smart sender/
 dumb receiver</em> rule. Recall that we saw another example of this rule
-when we discussed the use of NAKs in sliding window algorithm.</p>
+when we discussed the use of NAKs in sliding window algorithm.
+<a class="reference internal" href="#key-open-source"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="protecting-against-wraparound">
@@ -1249,7 +1250,7 @@ more intelligent about which segments it retransmits, draw better
 conclusions about the state of congestion, and make better RTT
 estimates. A TCP extension supporting this is described in a later
 section.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-open-source">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">There is one other point to make about computing timeouts. It is a
 surprisingly tricky business, so much so, that there is an entire RFC
@@ -1262,7 +1263,7 @@ That has happened more than once with TCP, causing some to argue that
 necessarily a bad thing as long as the reference implementation is
 available as open source software. More generally, the industry is
 seeing open source software grow in importance as open standards
-receed in importance.</p>
+receed in importance. <a class="reference internal" href="rpc.html#key-micro-service"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 </div>

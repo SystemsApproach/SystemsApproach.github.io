@@ -14,6 +14,7 @@ section, the switch makes this decision by consulting a forwarding
 table. The fundamental problem of routing is how switches and routers
 acquire the information in their forwarding tables.
 
+.. _key-forwarding:
 .. admonition:: Key Takeaway
 
    We restate an important distinction, which is often neglected,
@@ -25,7 +26,7 @@ acquire the information in their forwarding tables.
    and is often referred to as the network's *data plane.* Routing is
    the process by which forwarding tables are built. It depends on
    complex distributed algorithms, and is often referred to as the
-   network's *control plane.*
+   network's *control plane.*  :ref:`[Next] <key-routing-alg>`
 
 While the terms *forwarding table* and *routing table* are sometimes
 used interchangeably, we will make a distinction between them here. The
@@ -869,6 +870,7 @@ scalability. Some solutions to both the specific problem (the amount of
 storage potentially required at each node) and the general problem
 (scalability) will be discussed in the next section.
 
+.. _key-routing-alg:
 .. admonition:: Key Takeaway
 
    Distance-vector and link-state are both distributed routing
@@ -877,7 +879,7 @@ storage potentially required at each node) and the general problem
    tells them everything it has learned (i.e., distance to all
    nodes). In link-state, each node talks to all other nodes, but it
    tells them only what it knows for sure (i.e., only the state of its
-   directly connected links).
+   directly connected links).  :ref:`[Next] <key-kiss>`
 
 The Open Shortest Path First Protocol (OSPF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1157,6 +1159,7 @@ that prevailed in the ARPANET. Thus, static metrics are the norm. One
 common approach to setting metrics is to use a constant multiplied by
 (1/link_bandwidth).
 
+.. _key-kiss:
 .. admonition:: Key Takeaway
 
    Why do we still tell the story about a decades old algorithm that’s
@@ -1173,4 +1176,4 @@ common approach to setting metrics is to use a constant multiplied by
    short-term value, it is shocking how often a simple approach proves
    best over time. This is because when a system has many moving parts,
    as the Internet most certainly does, keeping each part as simple as
-   possible is usually the best approach.
+   possible is usually the best approach.  :ref:`[Next] <key-tradeoffs>`

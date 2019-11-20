@@ -807,7 +807,7 @@ hosts in the network (of which there were eight) in a four-entry table.
 Even if there were 100&nbsp;hosts on each physical network, R2 would still
 only need those same four entries. This is a good first step (although
 by no means the last) in achieving scalability.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-aggregation">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">This illustrates one of the most important principles of building
 scalable networks: To achieve scalability, you need to reduce the
@@ -818,7 +818,7 @@ networks at the top level and nodes at the bottom level. We have
 aggregated information by letting routers deal only with reaching the
 right network; the information that a router needs to deliver a
 datagram to any node on a given network is represented by a single
-aggregated piece of information.</p>
+aggregated piece of information. <a class="reference internal" href="#key-best-effort"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="subnetting-and-classless-addressing">
@@ -1196,7 +1196,7 @@ in a forwarding table like the one in <a class="reference internal" href="#tab-i
 Thus, for example, when R2 needs to forward a packet to network&nbsp;2, it
 not only finds that the next hop is R1, but also finds the MAC address
 to place on the packet to send it to R1.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-best-effort">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">We have now seen the basic mechanisms that IP provides for dealing
 with both heterogeneity and scale. On the issue of heterogeneity, IP
@@ -1212,7 +1212,8 @@ addressing schemes). On the issue of scale, IP uses hierarchical
 aggregation to reduce the amount of information needed to forward
 packets. Specifically, IP addresses are partitioned into network and
 host components, with packets first routed toward the destination
-network and then delivered to the correct host on that network.</p>
+network and then delivered to the correct host on that network.
+<a class="reference internal" href="#key-dhcp"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="host-configuration-dhcp">
@@ -1327,7 +1328,7 @@ the lease expires, the server is free to return that address to its
 pool. A host with a leased address clearly needs to renew the lease
 periodically if in fact it is still connected to the network and
 functioning correctly.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-dhcp">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">DHCP illustrates an important aspect of scaling: the scaling of
 network management. While discussions of scaling often focus on
@@ -1335,7 +1336,7 @@ keeping the state in network devices from growing too fast, it is
 important to pay attention to the growth of network management
 complexity. By allowing network managers to configure a range of IP
 addresses per network rather than one IP address per host, DHCP
-improves the manageability of a network.</p>
+improves the manageability of a network. <a class="reference internal" href="routing.html#key-forwarding"><span class="std std-ref">[Next]</span></a></p>
 </div>
 <p>Note that DHCP may also introduce some more complexity into network
 management, since it makes the binding between physical hosts and IP

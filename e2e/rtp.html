@@ -367,24 +367,25 @@ audio sample taken a defined interval after the previous one.
 Alternatively, the format of the data might be much more complex; an
 MPEG-encoded video stream, for example, would need to have a good deal
 of structure to represent all the different types of information.</p>
-<div class="admonition-key-takeaway admonition">
-<p class="first admonition-title">Key Takeaway*</p>
+<div class="admonition-key-takeaway admonition" id="key-alf">
+<p class="first admonition-title">Key Takeaway</p>
 <p class="last">The design of RTP embodies an architectural principle known as
-<em>Application Level Framing</em> (ALF). This principle was put forward by
-Clark and Tennenhouse in 1990 as a new way to design protocols for
-emerging multimedia applications. They recognized that these new
-applications were unlikely to be well served by existing protocols
-such as TCP, and that furthermore they might not be well served by
-any sort of “one-size-fits-all” protocol. At the heart of this
-principle is the belief that an application understands its own needs
-best. For example, an MPEG video application knows how best to
-recover from lost frames and how to react differently if an I&nbsp;frame
-or a B&nbsp;frame is lost. The same application also understands best how
-to segment the data for transmission—for example, it’s better to send
-the data from different frames in different datagrams, so that a lost
-packet only corrupts a single frame, not two. It is for this reason
-that RTP leaves so many of the protocol details to the profile and
-format documents that are specific to an application.</p>
+<em>Application Level Framing</em> (ALF). This principle was put forward
+by Clark and Tennenhouse in 1990 as a new way to design protocols
+for emerging multimedia applications. They recognized that these
+new applications were unlikely to be well served by existing
+protocols such as TCP, and that furthermore they might not be well
+served by any sort of “one-size-fits-all” protocol. At the heart of
+this principle is the belief that an application understands its
+own needs best. For example, an MPEG video application knows how
+best to recover from lost frames and how to react differently if an
+I&nbsp;frame or a B&nbsp;frame is lost. The same application also understands
+best how to segment the data for transmission—for example, it’s
+better to send the data from different frames in different
+datagrams, so that a lost packet only corrupts a single frame, not
+two. It is for this reason that RTP leaves so many of the protocol
+details to the profile and format documents that are specific to an
+application. <a class="reference internal" href="../congestion/issues.html#key-congestion"><span class="std std-ref">[Next]</span></a></p>
 </div>
 <div class="section" id="header-format">
 <h3>Header Format<a class="headerlink" href="#header-format" title="Permalink to this headline">¶</a></h3>

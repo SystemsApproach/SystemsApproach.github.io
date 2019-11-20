@@ -205,7 +205,7 @@ the best choice to get a packet to that address. As we saw in an earlier
 section, the switch makes this decision by consulting a forwarding
 table. The fundamental problem of routing is how switches and routers
 acquire the information in their forwarding tables.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-forwarding">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">We restate an important distinction, which is often neglected,
 between <em>forwarding</em> and <em>routing</em>. Forwarding consists of
@@ -216,7 +216,7 @@ a simple and well-defined process performed locally at each node,
 and is often referred to as the network’s <em>data plane.</em> Routing is
 the process by which forwarding tables are built. It depends on
 complex distributed algorithms, and is often referred to as the
-network’s <em>control plane.</em></p>
+network’s <em>control plane.</em>  <a class="reference internal" href="#key-routing-alg"><span class="std std-ref">[Next]</span></a></p>
 </div>
 <p>While the terms <em>forwarding table</em> and <em>routing table</em> are sometimes
 used interchangeably, we will make a distinction between them here. The
@@ -1160,7 +1160,7 @@ problems of routing and is an instance of the more general problem of
 scalability. Some solutions to both the specific problem (the amount of
 storage potentially required at each node) and the general problem
 (scalability) will be discussed in the next section.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-routing-alg">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">Distance-vector and link-state are both distributed routing
 algorithms, but they adopt different strategies. In distance-vector,
@@ -1168,7 +1168,7 @@ each node talks only to its directly connected neighbors, but it
 tells them everything it has learned (i.e., distance to all
 nodes). In link-state, each node talks to all other nodes, but it
 tells them only what it knows for sure (i.e., only the state of its
-directly connected links).</p>
+directly connected links).  <a class="reference internal" href="#key-kiss"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="the-open-shortest-path-first-protocol-ospf">
@@ -1414,7 +1414,7 @@ networks today lack the great disparity of link speeds and latencies
 that prevailed in the ARPANET. Thus, static metrics are the norm. One
 common approach to setting metrics is to use a constant multiplied by
 (1/link_bandwidth).</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-kiss">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">Why do we still tell the story about a decades old algorithm that’s
 no longer in use? Because it perfectly illustrates two valuable
@@ -1430,7 +1430,7 @@ opportunity to pursue. While such optimizations sometimes have
 short-term value, it is shocking how often a simple approach proves
 best over time. This is because when a system has many moving parts,
 as the Internet most certainly does, keeping each part as simple as
-possible is usually the best approach.</p>
+possible is usually the best approach.  <a class="reference internal" href="../scaling/global.html#key-tradeoffs"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 </div>

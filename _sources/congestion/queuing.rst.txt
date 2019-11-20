@@ -294,15 +294,17 @@ other flows are sharing the link.) We will see in a later section how
 WFQ can be used as a component of a reservation-based resource
 allocation mechanism.
 
+.. _key-policy-mechanism:
 .. admonition:: Key Takeaway
 
    Finally, we observe that this whole discussion of queue management
-   illustrates an important system design principle known as *separating
-   policy and mechanism*. The idea is to view each mechanism as a black
-   box that provides a multifaceted service that can be controlled by a
-   set of knobs. A policy specifies a particular setting of those knobs
-   but does not know (or care) about how the black box is implemented.
-   In this case, the mechanism in question is the queuing discipline,
-   and the policy is a particular setting of which flow gets what level
-   of service (e.g., priority or weight). We discuss some policies that
-   can be used with the WFQ mechanism in a later section.
+   illustrates an important system design principle known as
+   *separating policy and mechanism*. The idea is to view each
+   mechanism as a black box that provides a multifaceted service that
+   can be controlled by a set of knobs. A policy specifies a
+   particular setting of those knobs but does not know (or care) about
+   how the black box is implemented.  In this case, the mechanism in
+   question is the queuing discipline, and the policy is a particular
+   setting of which flow gets what level of service (e.g., priority or
+   weight). We discuss some policies that can be used with the WFQ
+   mechanism in a later section. :ref:`[Next] <key-red>`

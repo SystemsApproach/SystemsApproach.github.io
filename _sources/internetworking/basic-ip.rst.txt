@@ -674,6 +674,7 @@ Even if there were 100 hosts on each physical network, R2 would still
 only need those same four entries. This is a good first step (although
 by no means the last) in achieving scalability.
 
+.. _key-aggregation:
 .. admonition:: Key Takeaway
 
    This illustrates one of the most important principles of building
@@ -685,7 +686,7 @@ by no means the last) in achieving scalability.
    aggregated information by letting routers deal only with reaching the
    right network; the information that a router needs to deliver a
    datagram to any node on a given network is represented by a single
-   aggregated piece of information.
+   aggregated piece of information. :ref:`[Next] <key-best-effort>`
 
 Subnetting and Classless Addressing
 -----------------------------------
@@ -1099,6 +1100,7 @@ Thus, for example, when R2 needs to forward a packet to network 2, it
 not only finds that the next hop is R1, but also finds the MAC address
 to place on the packet to send it to R1.
 
+.. _key-best-effort:
 .. admonition:: Key Takeaway
 
    We have now seen the basic mechanisms that IP provides for dealing
@@ -1116,6 +1118,7 @@ to place on the packet to send it to R1.
    packets. Specifically, IP addresses are partitioned into network and
    host components, with packets first routed toward the destination
    network and then delivered to the correct host on that network.
+   :ref:`[Next] <key-dhcp>`
 
 Host Configuration (DHCP)
 -------------------------
@@ -1247,6 +1250,7 @@ pool. A host with a leased address clearly needs to renew the lease
 periodically if in fact it is still connected to the network and
 functioning correctly.
 
+.. _key-dhcp:
 .. admonition:: Key Takeaway
 
    DHCP illustrates an important aspect of scaling: the scaling of
@@ -1255,7 +1259,7 @@ functioning correctly.
    important to pay attention to the growth of network management
    complexity. By allowing network managers to configure a range of IP
    addresses per network rather than one IP address per host, DHCP
-   improves the manageability of a network.
+   improves the manageability of a network. :ref:`[Next] <key-forwarding>`
 
 Note that DHCP may also introduce some more complexity into network
 management, since it makes the binding between physical hosts and IP

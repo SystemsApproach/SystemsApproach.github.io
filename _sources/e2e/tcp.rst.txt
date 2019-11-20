@@ -156,6 +156,7 @@ vulnerability, it is still necessary to provide true end-to-end checks
 to guarantee reliable/ordered service, even though the lower levels of
 the system also implement that functionality.
 
+.. _key-e2e:
 .. admonition::  Key Takeaway
 
    This discussion serves to illustrate one of the most important
@@ -170,7 +171,7 @@ the system also implement that functionality.
    the end-to-end argument to perform error detection (e.g., CRC) on a
    hop-by-hop basis; detecting and retransmitting a single corrupt
    packet across one hop is preferable to having to retransmit an entire
-   file end-to-end.
+   file end-to-end.  :ref:`[Next] <key-dumb-receiver>`
 
 Segment Format
 --------------
@@ -698,6 +699,7 @@ data to send in the probe: it’s the next byte of actual data just
 outside the window. (It has to be real data in case it’s accepted by the
 receiver.)
 
+.. _key-dumb-receiver:
 .. admonition::  Key Takeaway
 
    Note that the reason the sending side periodically sends this probe
@@ -708,6 +710,7 @@ receiver.)
    rule, which, for lack of a better name, we call the *smart sender/
    dumb receiver* rule. Recall that we saw another example of this rule
    when we discussed the use of NAKs in sliding window algorithm.
+   :ref:`[Next] <key-open-source>`
 
 Protecting Against Wraparound
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1154,6 +1157,7 @@ conclusions about the state of congestion, and make better RTT
 estimates. A TCP extension supporting this is described in a later
 section.
 
+.. _key-open-source:
 .. admonition::  Key Takeaway
 
    There is one other point to make about computing timeouts. It is a
@@ -1167,7 +1171,7 @@ section.
    necessarily a bad thing as long as the reference implementation is
    available as open source software. More generally, the industry is
    seeing open source software grow in importance as open standards
-   receed in importance.
+   receed in importance. :ref:`[Next] <key-micro-service>`
 
 Record Boundaries
 -----------------

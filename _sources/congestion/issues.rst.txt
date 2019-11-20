@@ -73,6 +73,7 @@ shared-access networks (e.g., Ethernet and Wi-Fi). These access-control
 algorithms are, in some sense, analogous to congestion-control
 algorithms in a switched network.
 
+.. _key-congestion:
 .. admonition:: Key Takeaway
 
    Note that congestion control is a different problem than routing.
@@ -86,7 +87,7 @@ algorithms in a switched network.
    have a certain router that it is not possible to route around. This
    router can become congested, and there is nothing the routing
    mechanism can do about it. This congested router is sometimes called
-   the *bottleneck* router.
+   the *bottleneck* router. :ref:`[Next] <key-policy-mechanism>`
 
 Connectionless Flows
 ~~~~~~~~~~~~~~~~~~~~

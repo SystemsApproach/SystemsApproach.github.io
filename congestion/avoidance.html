@@ -425,7 +425,7 @@ by no means precise. While arguably fair, because RED punishes
 high-bandwidth flows more than low-bandwidth flows, it increases the
 probability of a TCP restart, which is doubly painful for those
 high-bandwidth flows.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-red">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">Note that a fair amount of analysis has gone into setting the various
 RED parameters—for example, and <code class="docutils literal notranslate"><span class="pre">Weight</span></code>—all in the name of
@@ -439,7 +439,7 @@ RED is a mechanism by which the router can more accurately manage its
 queue length. Defining precisely what constitutes an optimal queue
 length depends on the traffic mix and is still a subject of research,
 with real information now being gathered from operational deployment
-of RED in the Internet.</p>
+of RED in the Internet. <a class="reference internal" href="../security/systems.html#key-layering"><span class="std std-ref">[Next]</span></a></p>
 </div>
 <p>Consider the setting of the two thresholds, <code class="docutils literal notranslate"><span class="pre">MinThreshold</span></code> and
 <code class="docutils literal notranslate"><span class="pre">MaxThreshold</span></code>. If the traffic is fairly bursty, then <code class="docutils literal notranslate"><span class="pre">MinThreshold</span></code>

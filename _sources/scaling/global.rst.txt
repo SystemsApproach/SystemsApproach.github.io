@@ -156,6 +156,7 @@ flow between them because they are in different nonbackbone areas. It
 turns out that the need for scalability is often more important than the
 need to use the absolute shortest path.
 
+.. _key-tradeoffs:
 .. admonition:: Key Takeaway
 
    This illustrates an important principle in network design. There is
@@ -166,6 +167,7 @@ need to use the absolute shortest path.
    scaling a solution, since it saves all nodes from having global
    knowledge. It is invariably true in large networks that scalability
    is a more pressing design goal than selecting the optimal route.
+   :ref:`[Next] <key-scaling>`
 
 Finally, we note that there is a trick by which network administrators
 can more flexibly decide which routers go in area 0. This trick uses the
@@ -510,19 +512,21 @@ have other providers as their customers. At the top, we have providers
 who have customers and peers but are not customers of anyone. These
 providers are known as the *Tier-1* providers.
 
+.. _key-scaling:
 .. admonition:: Key Takeaway
 
-   Let’s return to the real question: How does all this help us to build
-   scalable networks? First, the number of nodes participating in BGP is
-   on the order of the number of autonomous systems, which is much
-   smaller than the number of networks. Second, finding a good
+   Let’s return to the real question: How does all this help us to
+   build scalable networks? First, the number of nodes participating
+   in BGP is on the order of the number of autonomous systems, which
+   is much smaller than the number of networks. Second, finding a good
    interdomain route is only a matter of finding a path to the right
    border router, of which there are only a few per AS. Thus, we have
    neatly subdivided the routing problem into manageable parts, once
    again using a new level of hierarchy to increase scalability. The
    complexity of interdomain routing is now on the order of the number
    of autonomous systems, and the complexity of intradomain routing is
-   on the order of the number of networks in a single AS.
+   on the order of the number of networks in a single AS. :ref:`[Next]
+   <key-e2e>`
 
 Integrating Interdomain and Intradomain Routing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

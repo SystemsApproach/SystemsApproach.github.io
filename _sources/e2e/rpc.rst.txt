@@ -831,6 +831,7 @@ generate the stubs that sit between the underlying RPC mechanism and
 the actual functions being called (see :numref:`Figure %s
 <fig-rpc-stub>`). This is a topic we’ll take up in Chapter 7.
 
+.. _key-micro-service:
 .. admonition:: Key Takeaway
 
    The bottom line is that complex mechanisms like RPC, once packaged as
@@ -842,4 +843,4 @@ the actual functions being called (see :numref:`Figure %s
    applies the “built from small parts” strategy to entire cloud
    applications (e.g., Uber, Lyft, Netflix, Yelp, Spotify), where gRPC
    is often the communication mechanism used by those small pieces to
-   exchange messages with each other.
+   exchange messages with each other. :ref:`[Next] <key-alf>`

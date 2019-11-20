@@ -366,6 +366,7 @@ millions of RONs aggressively probing paths swamp the network, and does
 anyone see improved behavior when many RONs compete for the same paths?
 These questions are still unanswered.
 
+.. _key-virtualization:
 .. admonition:: Key Takeaway
 
    All of these overlays illustrate a concept that is central to
@@ -376,7 +377,7 @@ These questions are still unanswered.
    of each other and for multiple virtual network to coexist at the same
    level. Each virtual network, in turn, provides new capabilities that
    are of value to some set of users, applications, or higher-level
-   networks.
+   networks. :ref:`[Next] <key-nested>`
 
 Peer-to-Peer Networks
 ---------------------

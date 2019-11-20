@@ -273,6 +273,7 @@ high-bandwidth flows more than low-bandwidth flows, it increases the
 probability of a TCP restart, which is doubly painful for those
 high-bandwidth flows.
 
+.. _key-red:
 .. admonition:: Key Takeaway
 
    Note that a fair amount of analysis has gone into setting the various
@@ -287,7 +288,7 @@ high-bandwidth flows.
    queue length. Defining precisely what constitutes an optimal queue
    length depends on the traffic mix and is still a subject of research,
    with real information now being gathered from operational deployment
-   of RED in the Internet.
+   of RED in the Internet. :ref:`[Next] <key-layering>`
 
 Consider the setting of the two thresholds, ``MinThreshold`` and
 ``MaxThreshold``. If the traffic is fairly bursty, then ``MinThreshold``

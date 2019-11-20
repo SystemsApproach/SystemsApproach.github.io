@@ -391,6 +391,7 @@ names before sending out a query.
    Name resolution in practice, where the numbers 1 to 10 show the sequence
    of steps in the process.
 
+.. _key-naming:
 .. admonition:: Key Takeaway
 
    Just to make sure we are clear, we have now seen three different
@@ -411,7 +412,7 @@ names before sending out a query.
    address into the physical address for that machine; the next hop
    might be the ultimate destination or it might be an intermediate
    router. Frames sent over the physical network have these physical
-   addresses in their headers.
+   addresses in their headers. :ref:`[Next] <key-virtualization>`
 
 Network Management (SNMP, OpenConfig)
 -------------------------------------

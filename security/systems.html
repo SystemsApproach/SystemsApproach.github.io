@@ -591,7 +591,7 @@ ticket</em> to the server upon resumption. This ticket contains all the
 information required to resume the session. The same master secret is
 used across handshakes, but the default behavior is to perform a session
 key exchange upon resumption.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-layering">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">We call attention to this change in TLS because it illustrates the
 challenge of knowing which layer should solve a given problem. In
@@ -603,7 +603,7 @@ for how resumption should be implemented by TLS changed. The bigger
 lesson is that we need to avoid rigid thinking about the right
 layer to implement a given function—the answer changes over time
 as the network evolves—where a holistic/cross-layer analysis is
-required to get the design right.</p>
+required to get the design right. <a class="reference internal" href="../applications/infrastructure.html#key-naming"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 </div>

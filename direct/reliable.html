@@ -291,14 +291,14 @@ implies a maximum sending rate of</p>
 <strong>Bits-Per-Frame / Time-Per-Frame = 1024 x 8 / 0.045 = 182 kbps</strong></p><p>or about one-eighth of the link’s capacity. To use the link fully, then,
 we’d like the sender to be able to transmit up to eight frames before
 having to wait for an acknowledgment.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-pipe-full">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">The significance of the delay × bandwidth product is that it
 represents the amount of data that could be in transit. We would like
 to be able to send this much data without waiting for the first
 acknowledgment. The principle at work here is often referred to as
 <em>keeping the pipe full</em>. The algorithms presented in the following
-two subsections do exactly this.</p>
+two subsections do exactly this. <a class="reference internal" href="#key-separate-concerns"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="sliding-window">
@@ -727,7 +727,7 @@ receiver is capable of receiving corresponds to how much free buffer
 space it has. As in the case of ordered delivery, we need to make sure
 that flow control is necessary at the link level before incorporating it
 into the sliding window protocol.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-separate-concerns">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">One important concept to take away from this discussion is the system
 design principle we call <em>separation of concerns</em>. That is, you must
@@ -737,7 +737,7 @@ that each function is necessary and being supported in the most
 effective way. In this particular case, reliable delivery, ordered
 delivery, and flow control are sometimes combined in a single sliding
 window protocol, and we should ask ourselves if this is the right
-thing to do at the link level.</p>
+thing to do at the link level. <a class="reference internal" href="../internetworking/basic-ip.html#key-aggregation"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 </div>

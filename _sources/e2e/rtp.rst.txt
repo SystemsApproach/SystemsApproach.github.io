@@ -209,24 +209,26 @@ Alternatively, the format of the data might be much more complex; an
 MPEG-encoded video stream, for example, would need to have a good deal
 of structure to represent all the different types of information.
 
-.. admonition::  Key Takeaway*
+.. _key-alf:
+.. admonition::  Key Takeaway
 
    The design of RTP embodies an architectural principle known as
-   *Application Level Framing* (ALF). This principle was put forward by
-   Clark and Tennenhouse in 1990 as a new way to design protocols for
-   emerging multimedia applications. They recognized that these new
-   applications were unlikely to be well served by existing protocols
-   such as TCP, and that furthermore they might not be well served by
-   any sort of “one-size-fits-all” protocol. At the heart of this
-   principle is the belief that an application understands its own needs
-   best. For example, an MPEG video application knows how best to
-   recover from lost frames and how to react differently if an I frame
-   or a B frame is lost. The same application also understands best how
-   to segment the data for transmission—for example, it’s better to send
-   the data from different frames in different datagrams, so that a lost
-   packet only corrupts a single frame, not two. It is for this reason
-   that RTP leaves so many of the protocol details to the profile and
-   format documents that are specific to an application.
+   *Application Level Framing* (ALF). This principle was put forward
+   by Clark and Tennenhouse in 1990 as a new way to design protocols
+   for emerging multimedia applications. They recognized that these
+   new applications were unlikely to be well served by existing
+   protocols such as TCP, and that furthermore they might not be well
+   served by any sort of “one-size-fits-all” protocol. At the heart of
+   this principle is the belief that an application understands its
+   own needs best. For example, an MPEG video application knows how
+   best to recover from lost frames and how to react differently if an
+   I frame or a B frame is lost. The same application also understands
+   best how to segment the data for transmission—for example, it’s
+   better to send the data from different frames in different
+   datagrams, so that a lost packet only corrupts a single frame, not
+   two. It is for this reason that RTP leaves so many of the protocol
+   details to the profile and format documents that are specific to an
+   application. :ref:`[Next] <key-congestion>`
 
 Header Format
 ~~~~~~~~~~~~~

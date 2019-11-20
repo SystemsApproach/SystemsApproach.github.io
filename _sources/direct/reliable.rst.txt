@@ -119,6 +119,7 @@ or about one-eighth of the link’s capacity. To use the link fully, then,
 we’d like the sender to be able to transmit up to eight frames before
 having to wait for an acknowledgment.
 
+.. _key-pipe-full:
 .. admonition::  Key Takeaway
 
    The significance of the delay × bandwidth product is that it
@@ -126,7 +127,7 @@ having to wait for an acknowledgment.
    to be able to send this much data without waiting for the first
    acknowledgment. The principle at work here is often referred to as
    *keeping the pipe full*. The algorithms presented in the following
-   two subsections do exactly this.
+   two subsections do exactly this. :ref:`[Next] <key-separate-concerns>`
 
 Sliding Window
 --------------
@@ -601,6 +602,7 @@ space it has. As in the case of ordered delivery, we need to make sure
 that flow control is necessary at the link level before incorporating it
 into the sliding window protocol.
 
+.. _key-separate-concerns:
 .. admonition::  Key Takeaway
 
    One important concept to take away from this discussion is the system
@@ -611,7 +613,7 @@ into the sliding window protocol.
    effective way. In this particular case, reliable delivery, ordered
    delivery, and flow control are sometimes combined in a single sliding
    window protocol, and we should ask ourselves if this is the right
-   thing to do at the link level.
+   thing to do at the link level. :ref:`[Next] <key-aggregation>`
 
 Concurrent Logical Channels
 ---------------------------

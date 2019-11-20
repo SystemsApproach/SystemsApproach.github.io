@@ -453,6 +453,7 @@ information required to resume the session. The same master secret is
 used across handshakes, but the default behavior is to perform a session
 key exchange upon resumption.
 
+.. _key-layering:
 .. admonition:: Key Takeaway
 
    We call attention to this change in TLS because it illustrates the
@@ -465,7 +466,7 @@ key exchange upon resumption.
    lesson is that we need to avoid rigid thinking about the right
    layer to implement a given function—the answer changes over time
    as the network evolves—where a holistic/cross-layer analysis is
-   required to get the design right.
+   required to get the design right. :ref:`[Next] <key-naming>`
 
 IP Security (IPsec)
 -------------------
