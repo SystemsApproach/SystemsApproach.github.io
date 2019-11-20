@@ -258,7 +258,7 @@ physical medium, such as a coaxial cable or an optical fiber. We call
 such a physical medium a <em>link</em>, and we often refer to the computers it
 connects as <em>nodes</em>. (Sometimes a node is a more specialized piece of
 hardware rather than a computer, but we overlook that distinction for
-the purposes of this discussion.) As illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code>, physical links are sometimes limited to a pair of nodes
+the purposes of this discussion.) As illustrated in <a class="reference internal" href="#fig-direct"><span class="std std-numref">Figure 2</span></a>, physical links are sometimes limited to a pair of nodes
 (such a link is said to be <em>point-to-point</em>), while in other cases more
 than two nodes may share a single physical link (such a link is said to
 be <em>multiple-access</em>). Wireless links, such as those provided by
@@ -281,7 +281,7 @@ Fortunately, connectivity between two nodes does not necessarily imply a
 direct physical connection between them—indirect connectivity may be
 achieved among a set of cooperating nodes. Consider the following two
 examples of how a collection of computers can be indirectly connected.</p>
-<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code> shows a pair of shows a set of nodes,
+<p><a class="reference internal" href="#fig-psn"><span class="std std-numref">Figure 3</span></a> shows a pair of shows a set of nodes,
 each of which is attached to one or more point-to-point links. Those
 nodes that are attached to at least two links run software that
 forwards data received on one link out on another. If organized in a
@@ -313,7 +313,7 @@ and then allows the source node to send a stream of bits across this
 circuit to a destination node. The major reason for using packet
 switching rather than circuit switching in a computer network is
 efficiency, discussed in the next subsection.</p>
-<p>The cloud in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code> distinguishes between the
+<p>The cloud in <a class="reference internal" href="#fig-psn"><span class="std std-numref">Figure 3</span></a> distinguishes between the
 nodes on the inside that <em>implement</em> the network (they are commonly
 called <em>switches</em>, and their primary function is to store and forward
 packets) and the nodes on the outside of the cloud that <em>use</em> the
@@ -340,7 +340,7 @@ chapter.</td></tr>
 <p class="caption"><span class="caption-number">Figure 4. </span><span class="caption-text">Interconnection of networks.</span></p>
 </div>
 <p>A second way in which a set of computers can be indirectly connected
-is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code>. In this
+is shown in <a class="reference internal" href="#fig-internet-cloud"><span class="std std-numref">Figure 4</span></a>. In this
 situation, a set of independent networks (clouds) are interconnected
 to form an <em>internetwork</em>, or internet for short. We adopt the
 Internet’s convention of referring to a generic internetwork of
@@ -391,7 +391,7 @@ implemented by some physical medium. Among the key challenges in
 providing network connectivity are the definition of an address for
 each node that is reachable on the network (including support for
 broadcast and multicast), and the use of such addresses to forward
-messages toward the appropriate destination node(s). <a class="reference internal" href="../hold-requirements.html#key-stat-mux"><span class="std std-ref">[Next]</span></a></p>
+messages toward the appropriate destination node(s). <a class="reference internal" href="#key-stat-mux"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="cost-effective-resource-sharing">
@@ -418,7 +418,7 @@ which believes it has its own private processor. Similarly, data being
 sent by multiple users can be multiplexed over the physical links that
 make up a network.</p>
 <p>To see how this might work, consider the simple network illustrated in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code>, where the three hosts on the left side
+<a class="reference internal" href="#fig-mux"><span class="std std-numref">Figure 5</span></a>, where the three hosts on the left side
 of the network (senders S1-S3) are sending data to the three hosts on
 the right (receivers R1-R3) by sharing a switched network that
 contains only one physical link. (For simplicity, assume that host S1
@@ -496,12 +496,12 @@ physical link, with a decision made on a packet-by-packet basis as to
 which flow’s packet to send next. Notice that, if only one flow has
 data to send, then it can send a sequence of packets back-to-back;
 however, should more than one of the flows have data to send, then
-their packets are interleaved on the link. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code> depicts a switch multiplexing packets from multiple
+their packets are interleaved on the link. <a class="reference internal" href="#fig-statmux"><span class="std std-numref">Figure 6</span></a> depicts a switch multiplexing packets from multiple
 sources onto a single shared link.</p>
 <p>The decision as to which packet to send next on a shared link can be
 made in a number of different ways. For example, in a network consisting
-of switches interconnected by links such as the one in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span>
-<span class="pre">%s</span></code>, the decision would be made by the switch that transmits
+of switches interconnected by links such as the one in <a class="reference internal" href="#fig-mux"><span class="std std-numref">Figure
+5</span></a>, the decision would be made by the switch that transmits
 packets onto the shared link. (As we will see later, not all
 packet-switched networks actually involve switches, and they may use
 other mechanisms to determine whose packet goes onto the link next.)
@@ -517,7 +517,7 @@ that they never have their packets delayed in the switch for more than a
 certain length of time. A network that attempts to allocate bandwidth to
 particular flows is sometimes said to support <em>quality of service</em>
 (QoS).</p>
-<p>Also, notice in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code> that since the
+<p>Also, notice in <a class="reference internal" href="#fig-statmux"><span class="std std-numref">Figure 6</span></a> that since the
 switch has to multiplex three incoming packet streams onto one
 outgoing link, it is possible that the switch will receive packets
 faster than the shared link can accommodate. In this case, the switch
@@ -536,7 +536,7 @@ links of the network are allocated to different flows, with each
 switch able to schedule the use of the physical links it is
 connected to on a per-packet basis. Fairly allocating link capacity
 to different flows and dealing with congestion when it occurs are
-the key challenges of statistical multiplexing. <a class="reference internal" href="../hold-requirements.html#key-semantic-gap"><span class="std std-ref">[Next]</span></a></p>
+the key challenges of statistical multiplexing. <a class="reference internal" href="#key-semantic-gap"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="support-for-common-services">
@@ -570,7 +570,7 @@ which application-level processes can communicate with each other; each
 channel provides the set of services required by that application. In
 other words, just as we use a cloud to abstractly represent connectivity
 among a set of computers, we now think of a channel as connecting one
-process to another. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code> shows a pair of
+process to another. <a class="reference internal" href="#fig-channel"><span class="std std-numref">Figure 7</span></a> shows a pair of
 application-level processes communicating over a logical channel that
 is, in turn, implemented on top of a cloud that connects a set of hosts.
 We can think of the channel as being like a pipe connecting two
@@ -743,7 +743,7 @@ useful channels involves both understanding the applications’
 requirements and recognizing the limitations of the underlying
 technology. The challenge is to fill in the gap between what the
 application expects and what the underlying technology can provide.
-This is sometimes called the <em>semantic gap.</em>  <a class="reference internal" href="../hold-architecture.html#key-hourglass"><span class="std std-ref">[Next]</span></a></p>
+This is sometimes called the <em>semantic gap.</em>  <a class="reference internal" href="architecture.html#key-hourglass"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 </div>
