@@ -1163,12 +1163,15 @@ storage potentially required at each node) and the general problem
 <div class="admonition-key-takeaway admonition" id="key-routing-alg">
 <p class="first admonition-title">Key Takeaway</p>
 <p class="last">Distance-vector and link-state are both distributed routing
-algorithms, but they adopt different strategies. In distance-vector,
-each node talks only to its directly connected neighbors, but it
-tells them everything it has learned (i.e., distance to all
-nodes). In link-state, each node talks to all other nodes, but it
-tells them only what it knows for sure (i.e., only the state of its
-directly connected links).  <a class="reference internal" href="#key-kiss"><span class="std std-ref">[Next]</span></a></p>
+algorithms, but they adopt different strategies. In
+distance-vector, each node talks only to its directly connected
+neighbors, but it tells them everything it has learned (i.e.,
+distance to all nodes). In link-state, each node talks to all other
+nodes, but it tells them only what it knows for sure (i.e., only
+the state of its directly connected links). In contrast to both of
+these algorithms, we will consider a more centralized approach to
+routing in <a class="reference internal" href="impl.html#implementation"><span class="std std-ref">Section 3.5</span></a> when we
+introduce Software Defined Networking (SDN). <a class="reference internal" href="#key-kiss"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="the-open-shortest-path-first-protocol-ospf">
@@ -1430,7 +1433,7 @@ opportunity to pursue. While such optimizations sometimes have
 short-term value, it is shocking how often a simple approach proves
 best over time. This is because when a system has many moving parts,
 as the Internet most certainly does, keeping each part as simple as
-possible is usually the best approach.  <a class="reference internal" href="../scaling/global.html#key-tradeoffs"><span class="std std-ref">[Next]</span></a></p>
+possible is usually the best approach.  <a class="reference internal" href="impl.html#key-control-data"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 </div>

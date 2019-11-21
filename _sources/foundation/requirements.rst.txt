@@ -224,10 +224,9 @@ addresses.
   nesting of networks, where at the bottom level, the network is
   implemented by some physical medium. Among the key challenges in
   providing network connectivity are the definition of an address for
-  each node that is reachable on the network (including support for
-  broadcast and multicast), and the use of such addresses to forward
-  messages toward the appropriate destination node(s). :ref:`[Next]
-  <key-stat-mux>`
+  each node that is reachable on the network (be it logical or
+  physical), and the use of such addresses to forward messages toward
+  the appropriate destination node(s). :ref:`[Next] <key-stat-mux>`
 
 Cost-Effective Resource Sharing
 ===============================

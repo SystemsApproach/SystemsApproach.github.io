@@ -483,5 +483,6 @@ meetings:
    set of global capabilities that allows both higher-level applications
    and lower-level communication technologies to coexist, share
    capabilities, and evolve rapidly. The narrow-waisted model is
-   critical to the Internet’s ability to adapt rapidly to new user
+   critical to the Internet’s ability to adapt to new user
    demands and changing technologies. :ref:`[Next] <key-pipe-full>`
+

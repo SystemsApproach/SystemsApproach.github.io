@@ -277,7 +277,7 @@ routine the CPU is likely to execute on a per-packet basis is a table
 lookup, for example, looking up a VCI number in a VC table, an IP
 address in an L3 forwarding table, or an Ethernet address in an L2
 forwarding table.</p>
-<div class="admonition-key-takeaway admonition">
+<div class="admonition-key-takeaway admonition" id="key-control-data">
 <p class="first admonition-title">Key Takeaway</p>
 <p>The distinction between these two kinds of processing is important
 enough to give it a name: the <em>control plane</em> corresponds to the
@@ -294,7 +294,7 @@ the same CPU, as is the case in software switch depicted in <a class="reference 
 93</span></a>, but performance can be dramatically improved by
 optimizing how the data plane is implemented, and correspondingly,
 specifying a well-defined interface between the control and data
-planes.</p>
+planes. <a class="reference internal" href="#key-sdn"><span class="std std-ref">[Next]</span></a></p>
 </div>
 </div>
 <div class="section" id="hardware-switch">
@@ -476,6 +476,24 @@ algorithm and load the forwarding rules into the underlying
 switches. By centralizing this logic, the goal is to come up with a
 globally optimized solution. The published evidence from cloud
 providers that have embraced this approach confirms this advantage.</p>
+<div class="admonition-key-takeaway admonition" id="key-sdn">
+<p class="first admonition-title">Key Takeaway</p>
+<p class="last">It is important to understand that SDN is an implementation
+strategy. It does not magically make fundamental problems like
+needing to compute a forwarding table go away. But instead of
+burdening the switches with having to exchange messages with each
+other as part of a distributed routing algorithm, the logically
+centralized SDN controller is charged with collecting link and port
+status information from the individual switches, constructing a
+global view of the network graph, and making that graph available
+to the control apps.  From the control application’s perspective,
+all the information it needs to compute the forwarding table is
+locally available.  Keeping in mind that the SDN Controller is
+logically centralized but physically replicated on multple
+servers—for both scalable performance and high availability—it is
+still a hotly contested question whether the centralized or
+distributed approach is best. <a class="reference internal" href="../scaling/global.html#key-tradeoffs"><span class="std std-ref">[Next]</span></a></p>
+</div>
 <p>As much of an advantage as the cloud providers have been able to get out
 of SDN, its adoption in enterprises and Telcos has been much slower.
 This is partly about the ability of different markets to manage their
