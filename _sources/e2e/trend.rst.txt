@@ -75,7 +75,7 @@ between the client and server, making it possible to replicate popular
 content in multiple locations and save clients the delay of going all
 the way across the Internet to retrieve some piece of
 information. (Both of these capabilities are discussed in
-:ref:`Section 9.1 <9.1 Traditional Applications`.) Finally, HTTP has
+:ref:`Section 9.1 <9.1 Traditional Applications>`.) Finally, HTTP has
 been used to deliver real-time multimedia, in an approach known as
 *adaptive streaming*. (See how in :ref:`Section 7.2 <7.2 Multimedia
 Data>`.)

@@ -24,8 +24,8 @@ network. In the worse case, it might involve laying cable across an
 ocean or launching a satellite into space.
 
 But with the advent of technologies like DWDM (:ref:`Section 3.1
-<3.1 Switching and Bridging>`) and MPLS (:ref:`Section 4.4 <4.4
-Multiprotocol Lable Switchin>`), we don’t always have to lay more fiber,
+<3.1 Switching Basics>`) and MPLS (:ref:`Section 4.4 <4.4
+Multiprotocol Label Switching>`), we don’t always have to lay more fiber,
 but can instead turn on additional wavelengths or establish new circuits
 between any pair of sites. (These sites need not be directly connected
 by fiber. For example, a wavelength between Boston and San Francisco
@@ -46,7 +46,7 @@ using white-box switches and SDN. B4 does not add/drop wavelengths to
 adjust inter-node bandwidth—it dynamically builds end-to-end tunnels
 using a technique called *Equal-Cost Multipath* (ECMP), an alternative
 to CSPF introduced in :ref:`Section 4.4 <4.4 Multiprotocol Label
-Switching`\ —but the flexibility it affords is similar.
+Switching>`\ —but the flexibility it affords is similar.
 
 A Traffic Engineering (TE) control program then provisions the network
 according to the needs of various classes of applications. B4 identifies

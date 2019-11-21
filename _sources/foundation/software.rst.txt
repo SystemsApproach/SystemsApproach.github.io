@@ -70,7 +70,7 @@ the language of choice for network internals. (C also has the
 advantage of exposing all the low-level details, which is helpful in
 understanding the underlying ideas.)
 
-.. sidebar:: Sockets Enable Applications
+.. sidebar:: Sockets Enabled Application Explosion
 
 	     It is hard to overstate the importance of the Socket
 	     API. It defines the demarcation point between the
@@ -80,19 +80,19 @@ understanding the underlying ideas.)
 	     stable interface, writing Internet applications exploded
 	     into a multi-billion dollar industry. Starting from the
 	     humble beginnings of the client/server paradigm and a
-	     handful of simple application programs (email, file
-	     transfer, remote login), everyone now has access to an
+	     handful of simple application programs like email, file
+	     transfer, and remote login, everyone now has access to an
 	     never-ending supply of cloud applications from their
 	     smartphones.
 
 	     This section lays the foundation by revisiting the
 	     simplicity of a client program opening a socket so it can
-	     exchange messages with server program, but today a rich
-	     software ecosystem for building scalable applications is
-	     available. This ecosystem still runs on top of the Socket
-	     API, but it has grown to also include a plethora of
-	     cloud-based tools. We return to the interplay between the
-	     cloud and the network in each chapter, starting with the
+	     exchange messages with a server program, but today a rich
+	     software ecosystem is layered on top of the Socket
+	     API. This layer includes a plethora of cloud-based tools
+	     that lower the barrier for implementing scalable
+	     applications. We return to the interplay between the
+	     cloud and the network in every chapter, starting with the
 	     *Perspective* section at the end of Chapter 1.
 
 Before describing the socket interface, it is important to keep two

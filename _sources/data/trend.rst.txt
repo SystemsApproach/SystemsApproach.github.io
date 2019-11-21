@@ -92,7 +92,7 @@ A second is *In-band Network Telemetry* (INT), a framework to collect
 and report network state, directly in the data plane. This is in
 contrast to the conventional reporting done by the network control
 plane, as typified by the example systems described in :ref:`Section
-9.3 <Section 9.3 Infrastructure Applications>`. In the INT architecture,
+9.3 <9.3 Infrastructure Applications>`. In the INT architecture,
 packets contain header fields that are interpreted as “telemetry
 instructions” by network devices. These instructions tell an INT-capable
 device what state to collect and write into the packet as it transits
@@ -103,7 +103,7 @@ sinks* retrieve (and optionally report) the collected results of these
 instructions, allowing the traffic sinks to monitor the exact data plane
 state that the packets “observed” while being forwarded. INT is still
 early-stage, and takes advantage of the programmable pipelines described
-in :ref:`Section 3.4 <3.4 Implementation>`, but it has the
+in :ref:`Section 3.5 <3.5 Implementation>`, but it has the
 potential to provide a qualitatively deeper insights into traffic
 patterns and the root causes of network failures.
 

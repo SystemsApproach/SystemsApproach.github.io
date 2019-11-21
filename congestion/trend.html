@@ -198,7 +198,7 @@ be sure the usage trend you observed was not just a passing blip since
 it would take a significant amount of time and money to change the
 network. In the worse case, it might involve laying cable across an
 ocean or launching a satellite into space.</p>
-<p>But with the advent of technologies like DWDM (<span class="xref std std-ref">Section 3.1</span>) and MPLS (<span class="xref std std-ref">Section 4.4</span>), we don’t always have to lay more fiber,
+<p>But with the advent of technologies like DWDM (<a class="reference internal" href="../internetworking/switching.html#switching-basics"><span class="std std-ref">Section 3.1</span></a>) and MPLS (<a class="reference internal" href="../scaling/mpls.html#multiprotocol-label-switching"><span class="std std-ref">Section 4.4</span></a>), we don’t always have to lay more fiber,
 but can instead turn on additional wavelengths or establish new circuits
 between any pair of sites. (These sites need not be directly connected
 by fiber. For example, a wavelength between Boston and San Francisco
@@ -217,8 +217,7 @@ publicly described their private WAN, called B4, which is built entirely
 using white-box switches and SDN. B4 does not add/drop wavelengths to
 adjust inter-node bandwidth—it dynamically builds end-to-end tunnels
 using a technique called <em>Equal-Cost Multipath</em> (ECMP), an alternative
-to CSPF introduced in <span class="xref std std-ref">Section 4.4 &lt;4.4 Multiprotocol Label
-Switching</span>—but the flexibility it affords is similar.</p>
+to CSPF introduced in <a class="reference internal" href="../scaling/mpls.html#multiprotocol-label-switching"><span class="std std-ref">Section 4.4</span></a>—but the flexibility it affords is similar.</p>
 <p>A Traffic Engineering (TE) control program then provisions the network
 according to the needs of various classes of applications. B4 identifies
 three such classes: (1) copying user data (e.g., email, documents,
