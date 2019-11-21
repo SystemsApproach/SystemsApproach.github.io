@@ -40,6 +40,31 @@ considered more *scalable* (i.e., more capable of growing to large
 numbers of nodes) than shared-media networks because of this ability to
 support many hosts at full speed.
 
+.. sidebar:: Dense Wavelength Division Multiplexing
+
+   Our focus on packet-switched networks obsures the fact that,
+   especially in wide-area networks, the underlying physical transport
+   is all-optical: there are no packets. At this layer, commercially
+   available DWDM (*Dense Wavelength Division Multiplexing*) equipment
+   is able to transmit a large numbers of optical wavelengths (colors)
+   down a single fiber. For example, one might send data on 100 or more
+   different wavelengths, and each wavelength might carry as much as 100
+   Gbps of data.
+
+   Connecting these fibers is an optical device called a ROADM
+   (*Reconfigurable Optical Add/Drop Multiplexers*). A collection of
+   ROADMs (nodes) and fibers (links) form an optical transport network,
+   where each ROADM is able to forward individual wavelengths along a
+   multi-hop path, creating a logical end-to-end circuit. From the
+   perspective of a packet-switched network that might be constructed on
+   top of this optical transport, one wavelength, even it it crosses
+   multiple ROADMs, appears to be a single point-to-point link between
+   two switches, over which one might elect to run SONET or 100-Gbps
+   Ethernet as the framing protocol. The reconfigurability feature of
+   ROADMs means that it is possible to change these underlying
+   end-to-end wavelengths, effectively creating a new topology at the
+   packet-switching layer. 
+
 A switch is connected to a set of links and, for each of these links,
 runs the appropriate data link protocol to communicate with the node at
 the other end of the link. A switch’s primary job is to receive incoming
