@@ -189,12 +189,21 @@ switch or router: Buy a general-purpose processor and equip it with
 multiple network interfaces. Such a device, running suitable software,
 can receive packets on one of its interfaces, perform any of the
 switching or forwarding functions described in this chapter, and send
-packets out another of its interfaces. This so called <em>software switch</em>
-is not too far removed from the architecture of many commercial mid- to
-low-end network devices. Implementations that deliver high-end
-performance typically take advantage of additional hardware
-acceleration. We refer to these as <em>hardware switches</em>, although both
-approaches obviously include a combination of hardware and software.</p>
+packets out another of its interfaces. This so called <em>software
+switch</em> is not too far removed from the architecture of many
+commercial mid- to low-end network devices.<a class="footnote-reference" href="#id2" id="id1">[1]</a> Implementations that
+deliver high-end performance typically take advantage of additional
+hardware acceleration. We refer to these as <em>hardware switches</em>,
+although both approaches obviously include a combination of hardware
+and software.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>This is also how the very first Internet routers, often called
+<em>gateways</em> at the time, were implemented in the early days of
+the Internet.</td></tr>
+</tbody>
+</table>
 <p>This section gives an overview of both software-centric and
 hardware-centric designs, but it is worth noting that on the question of
 switches versus routers, the distinction isn’t such a big deal. It turns
@@ -220,7 +229,7 @@ memory using DMA. The important take-away is that the packet is
 buffered in main memory (this is the “store” half of
 store-and-forward), with the CPU reading only the necessary header
 fields into its internal registers for processing.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id5">
 <span id="fig-softswitch"></span><a class="reference internal image-reference" href="../_images/Slide14.png"><img alt="../_images/Slide14.png" src="../_images/Slide14.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Figure 93. </span><span class="caption-text">A general-purpose processor used as a software
 switch.</span></p>
@@ -256,11 +265,11 @@ this 20 Gbps would be shared by all users connected to the switch, just
 as the bandwidth of a single (unswitched) Ethernet segment is shared
 among all users connected to the shared medium. Thus, for example, a
 16-port switch with this aggregate throughput would only be able to cope
-with an average data rate of about 1 Gbps on each port.<a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
+with an average data rate of about 1 Gbps on each port.<a class="footnote-reference" href="#id4" id="id3">[2]</a></p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>These example performance numbers do not represent the absolute
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>These example performance numbers do not represent the absolute
 maximum throughput rate that highly tuned software running on a
 high-end server could achieve, but they are indicative of
 limits one ultimately faces in pursuing this approach.</td></tr>
@@ -324,7 +333,7 @@ from a commodity switch manufacturer and then load your own software
 onto it. The following describes these open <em>white-box switches</em>, so
 called to contrast them with closed “black-box” devices that have
 historically dominated the industry.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id6">
 <span id="fig-whitebox"></span><a class="reference internal image-reference" href="../_images/Slide22.png"><img alt="../_images/Slide22.png" src="../_images/Slide22.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 94. </span><span class="caption-text">White-box switch using a Network Processing
 Unit.</span></p>
@@ -451,7 +460,7 @@ virtual servers (e.g., Virtual Machines and containers). If you’re
 counting “switch ports” (a good measure of all the devices connected to
 your network) then the number of virtual ports in the Internet rocketed
 past the number of physical ports in 2012.</p>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id7">
 <span id="fig-sdn"></span><a class="reference internal image-reference" href="../_images/Slide32.png"><img alt="../_images/Slide32.png" src="../_images/Slide32.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 95. </span><span class="caption-text">Network Operating System (NOS) hosting a set of
 control applications and providing a logically centralized point

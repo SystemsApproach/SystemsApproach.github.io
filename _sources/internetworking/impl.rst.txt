@@ -7,13 +7,18 @@ switch or router: Buy a general-purpose processor and equip it with
 multiple network interfaces. Such a device, running suitable software,
 can receive packets on one of its interfaces, perform any of the
 switching or forwarding functions described in this chapter, and send
-packets out another of its interfaces. This so called *software switch*
-is not too far removed from the architecture of many commercial mid- to
-low-end network devices. Implementations that deliver high-end
-performance typically take advantage of additional hardware
-acceleration. We refer to these as *hardware switches*, although both
-approaches obviously include a combination of hardware and software.
+packets out another of its interfaces. This so called *software
+switch* is not too far removed from the architecture of many
+commercial mid- to low-end network devices.\ [#]_ Implementations that
+deliver high-end performance typically take advantage of additional
+hardware acceleration. We refer to these as *hardware switches*,
+although both approaches obviously include a combination of hardware
+and software.
 
+.. [#] This is also how the very first Internet routers, often called
+       *gateways* at the time, were implemented in the early days of
+       the Internet.
+       
 This section gives an overview of both software-centric and
 hardware-centric designs, but it is worth noting that on the question of
 switches versus routers, the distinction isn’t such a big deal. It turns

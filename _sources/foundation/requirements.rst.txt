@@ -155,7 +155,7 @@ cloud to denote any type of network, whether it is a single
 point-to-point link, a multiple-access link, or a switched
 network. Thus, whenever you see a cloud used in a figure, you can
 think of it as a placeholder for any of the networking technologies
-covered in this book [#]_.
+covered in this book.\ [#]_
 
 .. [#] The use of clouds to represent networks predates the term
        *cloud computing* by at least a couple of decades, but there an
