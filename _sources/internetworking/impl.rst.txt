@@ -80,15 +80,9 @@ would imply
 
 .. centered:: Throughput = pps x BitsPerPacket
 
-.. math::
+.. centered:: = 40 × 10\ :sup:`6` × 64 × 8
 
-
-   = 40 \times 10^6 \times 64 \times 8
-
-.. math::
-
-
-   = 2048 \times 10^7
+.. centered:: = 2048 × 10\ :sup:`7`
 
 that is, a throughput of about 20 Gbps—fast, but substantially below the
 range users are demanding from their switches today. Bear in mind that

@@ -201,9 +201,8 @@ time) you can calculate how many bits fit in the pipe. For example, a
 transcontinental channel with a one-way latency of 50 ms and a bandwidth
 of 45 Mbps is able to hold
 
-.. math::
-
-   50 \times 10^{-3}sec \times 45 \times 10^6\ bits/sec = 2.25 \times 10^6\ bits
+.. centered:: 50 × 10\ :sup:`-3` × 45 × 10\ :sup:`6` *bits/sec* = 2.25
+	      × 10\ :sup:`6` *bits*
 
 or approximately 280 KB of data. In other words, this example channel
 (pipe) holds as many bytes as the memory of a personal computer from the

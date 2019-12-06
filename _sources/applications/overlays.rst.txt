@@ -522,9 +522,7 @@ to do a better job of finding those objects at a later time.
 A well-known technique for mapping names into an address is to use a
 hash table, so that
 
-.. math::
-
-   hash(x) \rightarrow  n
+.. centered:: *hash(x) → n*
 
 implies object *x* is first placed on node *n*, and at a later time a
 client trying to locate *x* would only have to perform the hash of *x*
@@ -563,15 +561,11 @@ algorithm known as *consistent hashing*, which hashes a set of objects
 visualizes a 128-bit ID space as a circle, where we use the algorithm to
 place both objects
 
-.. math::
-
-   hash(ObjectName) \rightarrow Objid
+.. centered:: *hash(ObjectName) → ObjectID*
 
 and nodes
 
-.. math::
-
-   hash(IPAddr) \rightarrow Nodeid
+.. centered:: *hash(IPAddr) → NodeID*
 
 onto this circle. Since a 128-bit ID space is enormous, it is unlikely
 that an object will hash to exactly the same ID as a machine’s IP

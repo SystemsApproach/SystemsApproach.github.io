@@ -706,9 +706,7 @@ have a corresponding reservation. To understand the severity of this
 problem, suppose that every flow on an OC-48 (2.5-Gbps) link represents
 a 64-kbps audio stream. The number of such flows is
 
-.. math::
-
-   2.5 \times 10^{9} / 64 \times 10^{3} = 39{,}000
+.. centered:: 2.5 × 10\ :sup:`9` / 64 × 10\ :sup:`3` = 39,000
 
 Each of those reservations needs some amount of state that needs to be
 stored in memory and refreshed periodically. The router needs to
@@ -897,11 +895,8 @@ example, if we give the premium queue a weight of 1 and the best-effort
 queue a weight of 4, that ensures that the bandwidth available to
 premium packets is
 
-.. math::
-
-
-   B_\mathit{premium} = W_{\mathit{premium}}/(W_{\mathit{premium}} +
-   W_{\mathit{best}-\mathit{effort}})  = 1/(1+4) = 0.2
+.. centered:: B\ :sub:`premium` = W\ :sub:`premium` / (W\ :sub:`premium`
+		   + W\ :sub:`best-effort`\ ) = 1/(1 + 4) = 0.2
 
 That is, we have effectively reserved 20% of the link for premium
 packets, so if the offered load of premium traffic is only 10% of the

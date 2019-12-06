@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5.4 Transport for Real-Time (RTP) &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  <title>5.4 Transport for Real-Time (RTP) &mdash; Computer Networks: A Systems Approach Version 6.2-dev documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                Version 6.1
+                Version 6.2-dev
               </div>
             
           
@@ -487,9 +487,8 @@ timestamps are relevant. For example, if the sampling interval is
 the first sample in packet n, then the number of sampling instants
 between these two samples is</p>
 <p class="centered">
-<strong>TimeBetweenPackets / TimePerSample</strong></p><div class="math notranslate nohighlight">
-\[= (10 \times 10^{-3}) / (125 \times 10^{-6}) = 80\]</div>
-<p>Assuming the clock granularity is the same as the sampling interval,
+<strong>TimeBetweenPackets / TimePerSample</strong></p><p class="centered">
+<strong>= (10 × 10<sup>-3</sup>) / (125 × 10<sup>-6</sup>) = 80</strong></p><p>Assuming the clock granularity is the same as the sampling interval,
 then the timestamp in packet n+1 would be greater than that in packet n
 by 80. Note that fewer than 80 samples might have been sent due to
 compression techniques such as silence detection, and yet the timestamp

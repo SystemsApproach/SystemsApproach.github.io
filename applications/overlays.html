@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>9.4 Overlay Networks &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  <title>9.4 Overlay Networks &mdash; Computer Networks: A Systems Approach Version 6.2-dev documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                Version 6.1
+                Version 6.2-dev
               </div>
             
           
@@ -654,9 +654,8 @@ control how objects get distributed over the network, we might be able
 to do a better job of finding those objects at a later time.</p>
 <p>A well-known technique for mapping names into an address is to use a
 hash table, so that</p>
-<div class="math notranslate nohighlight">
-\[hash(x) \rightarrow  n\]</div>
-<p>implies object <em>x</em> is first placed on node <em>n</em>, and at a later time a
+<p class="centered">
+<strong><em>hash(x) → n</em></strong></p><p>implies object <em>x</em> is first placed on node <em>n</em>, and at a later time a
 client trying to locate <em>x</em> would only have to perform the hash of <em>x</em>
 to determine that it is on node <em>n</em>. A hash-based approach has the nice
 property that it tends to spread the objects evenly across the set of
@@ -686,12 +685,10 @@ algorithm known as <em>consistent hashing</em>, which hashes a set of objects
 <em>x</em> uniformly across a large ID space. <a class="reference internal" href="#fig-unitcircle"><span class="std std-numref">Figure 241</span></a>
 visualizes a 128-bit ID space as a circle, where we use the algorithm to
 place both objects</p>
-<div class="math notranslate nohighlight">
-\[hash(ObjectName) \rightarrow Objid\]</div>
-<p>and nodes</p>
-<div class="math notranslate nohighlight">
-\[hash(IPAddr) \rightarrow Nodeid\]</div>
-<p>onto this circle. Since a 128-bit ID space is enormous, it is unlikely
+<p class="centered">
+<strong><em>hash(ObjectName) → ObjectID</em></strong></p><p>and nodes</p>
+<p class="centered">
+<strong><em>hash(IPAddr) → NodeID</em></strong></p><p>onto this circle. Since a 128-bit ID space is enormous, it is unlikely
 that an object will hash to exactly the same ID as a machine’s IP
 address hashes to. To account for this unlikelihood, each object is
 maintained on the node whose ID is <em>closest</em>, in this 128-bit space, to

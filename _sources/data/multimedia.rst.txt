@@ -36,9 +36,7 @@ networked multimedia, consider the following example. A high-definition
 TV screen has something like 1080 × 1920 pixels, each of which has 24
 bits of color information, so each frame is
 
-.. math::
-
-   1080 \times 1920 \times 24 = 50\ Mb
+.. centered:: 1080 × 1920 × 24 = 50 *Mb*
 
 so if you want to send 24 frames per second, that would be over
 1 Gbps.  That’s more than most Internet users have access to.  By
@@ -911,9 +909,7 @@ high-quality audio, is sampled at a rate of 44.1 KHz (i.e., a sample is
 collected approximately once every 23 μs). Each sample is 16 bits, which
 means that a stereo (2-channel) audio stream results in a bit rate of
 
-.. math::
-
-   2 \times 44.1 \times 1000 \times 16 = 1.41\ Mbps
+.. centered:: 2 × 44.1 × 1000 × 16 = 1.41 *Mbps*
 
 By comparison, telephone-quality voice is sampled at a rate of 8 KHz,
 with 8-bit samples, resulting in a bit rate of 64 kbps.
@@ -924,9 +920,7 @@ line pair. To make matters worse, synchronization and error correction
 overhead require that 49 bits be used to encode each 16-bit sample,
 resulting in an actual bit rate of
 
-.. math::
-
-   49/16 \times 1.41\ Mbps = 4.32\ Mbps
+.. centered:: 49/16 × 1.41 *Mbps*  = 4.32 *Mbps*
 
 MPEG addresses this need by defining three levels of compression, as
 enumerated in :numref:`Table %s <tab-mp3>`. Of these, Layer III, which is more

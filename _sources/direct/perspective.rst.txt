@@ -81,13 +81,9 @@ through copper would have a wavelength of
 
 .. centered:: SpeedOfLightInCopper / Frequency
 
-.. math::
-
-   = 2/3 \times 3 \times 10^8 / 300
-
-.. math::
-
-   = 667 \times 10^3\ meters
+.. centered:: = 2/3 × 3 × 10\ :sup:`8` / 300
+   
+.. centered:: = 667 × 10\ :sup:`3` *meters*
 
 Generally, electromagnetic waves span a much wider range of
 frequencies, ranging from radio waves, to infrared light, to visible

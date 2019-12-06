@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.5 Quality of Service &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  <title>6.5 Quality of Service &mdash; Computer Networks: A Systems Approach Version 6.2-dev documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                Version 6.1
+                Version 6.2-dev
               </div>
             
           
@@ -836,9 +836,8 @@ raises the possibility that every flow passing through a router might
 have a corresponding reservation. To understand the severity of this
 problem, suppose that every flow on an OC-48 (2.5-Gbps) link represents
 a 64-kbps audio stream. The number of such flows is</p>
-<div class="math notranslate nohighlight">
-\[2.5 \times 10^{9} / 64 \times 10^{3} = 39{,}000\]</div>
-<p>Each of those reservations needs some amount of state that needs to be
+<p class="centered">
+<strong>2.5 × 10<sup>9</sup> / 64 × 10<sup>3</sup> = 39,000</strong></p><p>Each of those reservations needs some amount of state that needs to be
 stored in memory and refreshed periodically. The router needs to
 classify, police, and queue each of those flows. Admission control
 decisions need to be made every time such a flow requests a
@@ -1006,10 +1005,9 @@ packets. This depends on the offered load of premium packets. For
 example, if we give the premium queue a weight of 1 and the best-effort
 queue a weight of 4, that ensures that the bandwidth available to
 premium packets is</p>
-<div class="math notranslate nohighlight">
-\[B_\mathit{premium} = W_{\mathit{premium}}/(W_{\mathit{premium}} +
-W_{\mathit{best}-\mathit{effort}})  = 1/(1+4) = 0.2\]</div>
-<p>That is, we have effectively reserved 20% of the link for premium
+<p class="centered">
+<strong>B<sub>premium</sub> = W<sub>premium</sub> / (W<sub>premium</sub>
++ W<sub>best-effort</sub>) = 1/(1 + 4) = 0.2</strong></p><p>That is, we have effectively reserved 20% of the link for premium
 packets, so if the offered load of premium traffic is only 10% of the
 link on average, then the premium traffic will behave as if it is
 running on a very underloaded network and the service will be very good.

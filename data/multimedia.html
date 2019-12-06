@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.2 Multimedia Data &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  <title>7.2 Multimedia Data &mdash; Computer Networks: A Systems Approach Version 6.2-dev documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                Version 6.1
+                Version 6.2-dev
               </div>
             
           
@@ -232,9 +232,8 @@ more.</p>
 networked multimedia, consider the following example. A high-definition
 TV screen has something like 1080 × 1920 pixels, each of which has 24
 bits of color information, so each frame is</p>
-<div class="math notranslate nohighlight">
-\[1080 \times 1920 \times 24 = 50\ Mb\]</div>
-<p>so if you want to send 24 frames per second, that would be over
+<p class="centered">
+<strong>1080 × 1920 × 24 = 50 <em>Mb</em></strong></p><p>so if you want to send 24 frames per second, that would be over
 1&nbsp;Gbps.  That’s more than most Internet users have access to.  By
 contrast, modern compression techniques can get a reasonably
 high-quality HDTV signal down to the range of 10 Mbps, a two order of
@@ -1068,18 +1067,16 @@ CD-quality audio, which is the <em>de facto</em> digital representation for
 high-quality audio, is sampled at a rate of 44.1&nbsp;KHz (i.e., a sample is
 collected approximately once every 23 μs). Each sample is 16 bits, which
 means that a stereo (2-channel) audio stream results in a bit rate&nbsp;of</p>
-<div class="math notranslate nohighlight">
-\[2 \times 44.1 \times 1000 \times 16 = 1.41\ Mbps\]</div>
-<p>By comparison, telephone-quality voice is sampled at a rate of 8&nbsp;KHz,
+<p class="centered">
+<strong>2 × 44.1 × 1000 × 16 = 1.41 <em>Mbps</em></strong></p><p>By comparison, telephone-quality voice is sampled at a rate of 8&nbsp;KHz,
 with 8-bit samples, resulting in a bit rate of 64&nbsp;kbps.</p>
 <p>Clearly, some amount of compression is going to be required to transmit
 CD-quality audio over, say, the 128-kbps capacity of an ISDN data/voice
 line pair. To make matters worse, synchronization and error correction
 overhead require that 49&nbsp;bits be used to encode each 16-bit sample,
 resulting in an actual bit rate of</p>
-<div class="math notranslate nohighlight">
-\[49/16 \times 1.41\ Mbps = 4.32\ Mbps\]</div>
-<p>MPEG addresses this need by defining three levels of compression, as
+<p class="centered">
+<strong>49/16 × 1.41 <em>Mbps</em>  = 4.32 <em>Mbps</em></strong></p><p>MPEG addresses this need by defining three levels of compression, as
 enumerated in <a class="reference internal" href="#tab-mp3"><span class="std std-numref">Table 25</span></a>. Of these, Layer III, which is more
 widely known as MP3, is the most commonly used.</p>
 <span id="tab-mp3"></span><table border="1" class="colwidths-auto docutils align-center" id="id8">

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.4 Advanced Congestion Control &mdash; Computer Networks: A Systems Approach Version 6.1 documentation</title>
+  <title>6.4 Advanced Congestion Control &mdash; Computer Networks: A Systems Approach Version 6.2-dev documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                Version 6.1
+                Version 6.2-dev
               </div>
             
           
@@ -748,9 +748,8 @@ throughput with shallow-buffered switches.</p>
 <p>The key challenge DCTCP faces is to estimate the fraction of bytes
 encountering congestion. Each switch is simple. If a packet arrives and
 the switch sees the queue length (K) is above some threshold; e.g.,</p>
-<div class="math notranslate nohighlight">
-\[\mathsf{K} &gt; (\mathsf{RTT} \times \mathsf{C})/7\]</div>
-<p>where C is the link rate in packets per second, then the switch sets the
+<p class="centered">
+<strong>K &gt; (RTT × C)/7</strong></p><p>where C is the link rate in packets per second, then the switch sets the
 CE bit in the IP header. The complexity of RED is not required.</p>
 <p>The receiver then maintains a boolean variable for every flow, which
 we’ll denote <code class="docutils literal notranslate"><span class="pre">SeenCE</span></code>, and implements the following state machine in

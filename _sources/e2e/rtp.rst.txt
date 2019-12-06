@@ -349,9 +349,7 @@ between these two samples is
 
 .. centered:: TimeBetweenPackets / TimePerSample
 
-.. math::
-
-   = (10 \times 10^{-3}) / (125 \times 10^{-6}) = 80
+.. centered:: = (10 × 10\ :sup:`-3`\ ) / (125 × 10\ :sup:`-6`\ ) = 80
 
 Assuming the clock granularity is the same as the sampling interval,
 then the timestamp in packet n+1 would be greater than that in packet n
