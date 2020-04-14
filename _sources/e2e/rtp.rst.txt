@@ -525,22 +525,24 @@ are experiencing high loss of its packets, it might decide that it
 should reduce its sending rate or use a coding scheme that is more
 resilient to loss.
 
-The final aspect of RTCP that we will consider is the source description
-packet. Such a packet contains, at a minimum, the SSRC of the sender and
-the sender’s CNAME. The canonical name is derived in such a way that all
-applications that generate media streams that might need to be
-synchronized (e.g., separately generated audio and video streams from
-the same user) will choose the same CNAME even though they might choose
-different SSRC values. This enables a receiver to identify the media
-stream that came from the same sender. The most common format of the
-CNAME is , where ``host`` is the fully qualified domain name of the
-sending machine. Thus, an application launched by the user whose user
-name is ``jdoe`` running on the machine would use the string as its
-CNAME. The large and variable number of bytes used in this
-representation would make it a bad choice for the format of an SSRC,
-since the SSRC is sent with every data packet and must be processed in
-real time. Allowing CNAMEs to be bound to SSRC values in periodic RTCP
-messages enables a compact and efficient format for the SSRC.
+The final aspect of RTCP that we will consider is the source
+description packet. Such a packet contains, at a minimum, the SSRC of
+the sender and the sender’s CNAME. The canonical name is derived in
+such a way that all applications that generate media streams that
+might need to be synchronized (e.g., separately generated audio and
+video streams from the same user) will choose the same CNAME even
+though they might choose different SSRC values. This enables a
+receiver to identify the media stream that came from the same
+sender. The most common format of the CNAME is ``user@host``, where
+``host`` is the fully qualified domain name of the sending machine.
+Thus, an application launched by the user whose user name is ``jdoe``
+running on the machine ``cicada.cs.princeton.edu`` would use the
+string ``jdoe@cicada.cs.princeton.edu`` as its CNAME. The large and
+variable number of bytes used in this representation would make it a
+bad choice for the format of an SSRC, since the SSRC is sent with
+every data packet and must be processed in real time. Allowing CNAMEs
+to be bound to SSRC values in periodic RTCP messages enables a compact
+and efficient format for the SSRC.
 
 Other items may be included in the source description packet, such as
 the real name and email address of the user. These are used in user

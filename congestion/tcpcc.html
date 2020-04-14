@@ -310,13 +310,12 @@ is in contrast to an additive increase/additive decrease strategy in
 which the window would be increased by 1&nbsp;packet when an ACK arrives
 and decreased by 1 when a timeout occurs. It has been shown that AIMD
 is a necessary condition for a congestion-control mechanism to be
-stable (see the Further Reading section). One intuitive reason to
-decrease the window aggressively and increase it conservatively is
-that the consequences of having too large a window are much worse than
-those of it being too small. For example, when the window is too
+stable.</p>
+<p>An intuitive explanation for why TCP decreases the window aggressively
+and increases it conservatively is that the consequences of having too
+large a window are compounding. This is because when the window is too
 large, packets that are dropped will be retransmitted, making
-congestion even worse; thus, it is important to get out of this state
-quickly.</p>
+congestion even worse. It is important to get out of this state quickly.</p>
 <p>Finally, since a timeout is an indication of congestion that triggers
 multiplicative decrease, TCP needs the most accurate timeout mechanism
 it can afford. We already covered TCP’s timeout mechanism in an earlier
@@ -467,7 +466,7 @@ reaches <code class="docutils literal notranslate"><span class="pre">CongestionT
 occurs.</p>
 <p>We now return to the question of why so many packets are lost during the
 initial slow start period. At this point, TCP is attempting to learn how
-much bandwidth is available on the network. This is a very difficult
+much bandwidth is available on the network. This is a difficult
 task. If the source is not aggressive at this stage—for example, if it
 only increases the congestion window linearly—then it takes a long time
 for it to discover how much bandwidth is available. This can have a
