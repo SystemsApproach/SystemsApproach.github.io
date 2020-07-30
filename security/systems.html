@@ -124,6 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../applications.html">Chapter 9: Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements.html">Emerging Topics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">About This Book</a></li>
 </ul>
 
@@ -372,20 +373,21 @@ so-and-so from a certain set of trusted hosts is automatically believed
 to be that same user on the server. Host-based authentication requires
 that the client <em>host</em> authenticate itself to the server when they first
 connect; standard SSH-TRANS only authenticates the server by default.</p>
-<p>The main thing you should take away from this discussion is that SSH is
-a fairly straightforward application of the protocols and algorithms we
-have seen throughout this chapter. However, what sometimes makes SSH a
-challenge to understand is all the keys a user has to create and manage,
-where the exact interface is operating system dependent. For example,
-the OpenSSH package that runs on most Unix machines supports a command
-that can be used to create public/private key pairs. These keys are then
-stored in various files in directory in the user’s home directory. For
-example, file <code class="docutils literal notranslate"><span class="pre">~/.ssh/known_hosts</span></code> records the keys for all the hosts
-the user has logged into, file <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> contains the
-public keys needed to authenticate the user when he or she logs into
-this machine (i.e., they are used on the server side), and file contains
-the private keys needed to authenticate the user on remote machines
-(i.e., they are used on the client side).</p>
+<p>The main thing you should take away from this discussion is that SSH
+is a fairly straightforward application of the protocols and
+algorithms we have seen throughout this chapter. However, what
+sometimes makes SSH a challenge to understand is all the keys a user
+has to create and manage, where the exact interface is operating
+system dependent. For example, the OpenSSH package that runs on most
+Unix machines supports a command that can be used to create
+public/private key pairs. These keys are then stored in various files
+in directory in the user’s home directory. For example, file
+<code class="docutils literal notranslate"><span class="pre">~/.ssh/known_hosts</span></code> records the keys for all the hosts the user has
+logged into, file <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> contains the public keys
+needed to authenticate the user when he or she logs into this machine
+(i.e., they are used on the server side), and file <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa</span></code>
+contains the private keys needed to authenticate the user on remote
+machines (i.e., they are used on the client side).</p>
 <div class="figure align-center" id="id2">
 <span id="fig-ssh-tunnel"></span><a class="reference internal image-reference" href="../_images/f08-14-9780123850591.png"><img alt="../_images/f08-14-9780123850591.png" src="../_images/f08-14-9780123850591.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Figure 208. </span><span class="caption-text">Using SSH port forwarding to secure other TCP-based applications.</span></p>

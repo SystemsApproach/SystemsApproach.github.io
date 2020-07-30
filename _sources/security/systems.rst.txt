@@ -201,20 +201,21 @@ to be that same user on the server. Host-based authentication requires
 that the client *host* authenticate itself to the server when they first
 connect; standard SSH-TRANS only authenticates the server by default.
 
-The main thing you should take away from this discussion is that SSH is
-a fairly straightforward application of the protocols and algorithms we
-have seen throughout this chapter. However, what sometimes makes SSH a
-challenge to understand is all the keys a user has to create and manage,
-where the exact interface is operating system dependent. For example,
-the OpenSSH package that runs on most Unix machines supports a command
-that can be used to create public/private key pairs. These keys are then
-stored in various files in directory in the user’s home directory. For
-example, file ``~/.ssh/known_hosts`` records the keys for all the hosts
-the user has logged into, file ``~/.ssh/authorized_keys`` contains the
-public keys needed to authenticate the user when he or she logs into
-this machine (i.e., they are used on the server side), and file contains
-the private keys needed to authenticate the user on remote machines
-(i.e., they are used on the client side).
+The main thing you should take away from this discussion is that SSH
+is a fairly straightforward application of the protocols and
+algorithms we have seen throughout this chapter. However, what
+sometimes makes SSH a challenge to understand is all the keys a user
+has to create and manage, where the exact interface is operating
+system dependent. For example, the OpenSSH package that runs on most
+Unix machines supports a command that can be used to create
+public/private key pairs. These keys are then stored in various files
+in directory in the user’s home directory. For example, file
+``~/.ssh/known_hosts`` records the keys for all the hosts the user has
+logged into, file ``~/.ssh/authorized_keys`` contains the public keys
+needed to authenticate the user when he or she logs into this machine
+(i.e., they are used on the server side), and file ``~/.ssh/id_rsa``
+contains the private keys needed to authenticate the user on remote
+machines (i.e., they are used on the client side).
 
 .. _fig-ssh-tunnel:
 .. figure:: figures/f08-14-9780123850591.png
