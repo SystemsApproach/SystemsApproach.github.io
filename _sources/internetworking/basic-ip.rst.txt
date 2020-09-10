@@ -140,21 +140,22 @@ the data delivery model.
 Datagram Delivery
 ~~~~~~~~~~~~~~~~~
 
-The IP datagram is fundamental to the Internet Protocol. Recall an
-earlier section that a datagram is a type of packet that happens to be
-sent in a connectionless manner over a network. Every datagram carries
-enough information to let the network forward the packet to its correct
+The IP datagram is fundamental to the Internet Protocol. Recall from
+an earlier section that a datagram is a packet sent in a
+connectionless manner over a network. Every datagram carries enough
+information to let the network forward the packet to its correct
 destination; there is no need for any advance setup mechanism to tell
 the network what to do when the packet arrives. You just send it, and
-the network makes its best effort to get it to the desired destination.
-The “best-effort” part means that if something goes wrong and the packet
-gets lost, corrupted, misdelivered, or in any way fails to reach its
-intended destination, the network does nothing—it made its best effort,
-and that is all it has to do. It does not make any attempt to recover
-from the failure. This is sometimes called an *unreliable* service.
+the network makes its best effort to get it to the desired
+destination.  The “best-effort” part means that if something goes
+wrong and the packet gets lost, corrupted, misdelivered, or in any way
+fails to reach its intended destination, the network does nothing—it
+made its best effort, and that is all it has to do. It does not make
+any attempt to recover from the failure. This is sometimes called an
+*unreliable* service.
 
 Best-effort, connectionless service is about the simplest service you
-could ask for from an internetwork, and this is a great strength. For
+could ask for from an internetwork, and this is its great strength. For
 example, if you provide best-effort service over a network that provides
 a reliable service, then that’s fine—you end up with a best-effort
 service that just happens to always deliver the packets. If, on the
@@ -168,7 +169,7 @@ The ability of IP to “run over anything” is frequently cited as one of
 its most important characteristics. It is noteworthy that many of the
 technologies over which IP runs today did not exist when IP was
 invented. So far, no networking technology has been invented that has
-proven too bizarre for IP; in principle, IP can run over a network that
+proven too bizarre for IP. In principle, IP can run over a network that
 transports messages using carrier pigeons.
 
 Best-effort delivery does not just mean that packets can get lost.
