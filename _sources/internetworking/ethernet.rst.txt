@@ -540,7 +540,7 @@ heterogeneity. That is, switches are limited in the kinds of networks
 they can interconnect. In particular, switches make use of the
 network’s frame header and so can support only networks that have
 exactly the same format for addresses. For example, switches can be
-used to connect Ethernet and 802.11 based networks to another, since
+used to connect Ethernet and 802.11-based networks to each other, since
 they share a common header format, but switches do not readily
 generalize to other kinds of networks with different addressing
 formats, such as ATM, SONET, PON, or the cellular network. The next
