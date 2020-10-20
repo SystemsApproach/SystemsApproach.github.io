@@ -52,7 +52,7 @@ capacity). Similarly, each end-user site is typically not a single
 network but instead consists of multiple physical networks connected by
 switches and routers.
 
-Notice in that each provider and end-user is likely to be an
+Notice that each provider and end-user is likely to be an
 administratively independent entity. This has some significant
 consequences on routing. For example, it is quite likely that different
 providers will have different ideas about the best routing protocol to

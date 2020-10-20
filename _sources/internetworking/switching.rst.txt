@@ -57,7 +57,7 @@ support many hosts at full speed.
    where each ROADM is able to forward individual wavelengths along a
    multi-hop path, creating a logical end-to-end circuit. From the
    perspective of a packet-switched network that might be constructed on
-   top of this optical transport, one wavelength, even it it crosses
+   top of this optical transport, one wavelength, even if it crosses
    multiple ROADMs, appears to be a single point-to-point link between
    two switches, over which one might elect to run SONET or 100-Gbps
    Ethernet as the framing protocol. The reconfigurability feature of

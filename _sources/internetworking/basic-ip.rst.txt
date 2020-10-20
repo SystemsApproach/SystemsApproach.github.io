@@ -652,7 +652,7 @@ in :numref:`Table %s <tab-ipfwdtab2>`.
    +------------+-------------+
 
 Thus, for any network number that R2 encounters in a packet, it knows
-pwhat to do. Either that network is directly connected to R2, in which
+what to do. Either that network is directly connected to R2, in which
 case the packet can be delivered to its destination over that network,
 or the network is reachable via some next hop router that R2 can reach
 over a network to which it is connected. In either case, R2 will use
@@ -905,7 +905,7 @@ Internet backbone router needs 16 entries in its routing tables to
 direct packets to that site. This is true even if the path to every one
 of those networks is the same. If we had assigned a class B address to
 the site, the same routing information could be stored in one table
-entry. However, our address assignment efficiency would then be only 6 x
+entry. However, our address assignment efficiency would then be only 16 x
 255 / 65,536 = 6.2%.
 
 CIDR, therefore, tries to balance the desire to minimize the number of
@@ -1424,7 +1424,7 @@ carries its own address, so it removes the IP header and looks at the
 payload of the packet. What it finds is an inner IP packet whose
 destination address is in network 2. R2 now processes this packet like
 any other IP packet it receives. Since R2 is directly connected to
-network 2, it forwards the packet on to that network. :numref:`Figur
+network 2, it forwards the packet on to that network. :numref:`Figure
 %s <fig-tunnel>` shows the change in encapsulation of the packet as it
 moves across the network.
 

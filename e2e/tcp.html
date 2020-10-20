@@ -1188,8 +1188,8 @@ It then folds this new sample into the timeout calculation as follows:</p>
 <span class="n">Deviation</span> <span class="o">=</span> <span class="n">Deviation</span> <span class="o">+</span> <span class="n">delta</span> <span class="p">(</span><span class="o">|</span><span class="n">Difference</span><span class="o">|</span> <span class="o">-</span> <span class="n">Deviation</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">delta</span></code> and delta are fractions between 0 and 1. That is, we
-calculate both the mean RTT and the variation in that mean.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">delta</span></code> is between 0 and 1. That is, we calculate both the
+mean RTT and the variation in that mean.</p>
 <p>TCP then computes the timeout value as a function of both
 <code class="docutils literal notranslate"><span class="pre">EstimatedRTT</span></code> and <code class="docutils literal notranslate"><span class="pre">Deviation</span></code> as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TimeOut</span> <span class="o">=</span> <span class="n">mu</span> <span class="n">x</span> <span class="n">EstimatedRTT</span> <span class="o">+</span> <span class="n">phi</span> <span class="n">x</span> <span class="n">Deviation</span>

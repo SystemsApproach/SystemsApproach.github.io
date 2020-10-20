@@ -1086,8 +1086,8 @@ It then folds this new sample into the timeout calculation as follows:
    EstimatedRTT = EstimatedRTT + ( delta x Difference)
    Deviation = Deviation + delta (|Difference| - Deviation)
 
-where ``delta`` and delta are fractions between 0 and 1. That is, we
-calculate both the mean RTT and the variation in that mean.
+where ``delta`` is between 0 and 1. That is, we calculate both the
+mean RTT and the variation in that mean.
 
 TCP then computes the timeout value as a function of both
 ``EstimatedRTT`` and ``Deviation`` as follows:

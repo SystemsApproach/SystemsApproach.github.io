@@ -789,7 +789,7 @@ in <a class="reference internal" href="#tab-ipfwdtab2"><span class="std std-numr
 </tbody>
 </table>
 <p>Thus, for any network number that R2 encounters in a packet, it knows
-pwhat to do. Either that network is directly connected to R2, in which
+what to do. Either that network is directly connected to R2, in which
 case the packet can be delivered to its destination over that network,
 or the network is reachable via some next hop router that R2 can reach
 over a network to which it is connected. In either case, R2 will use
@@ -1023,7 +1023,7 @@ Internet backbone router needs 16 entries in its routing tables to
 direct packets to that site. This is true even if the path to every one
 of those networks is the same. If we had assigned a class&nbsp;B address to
 the site, the same routing information could be stored in one table
-entry. However, our address assignment efficiency would then be only 6 x
+entry. However, our address assignment efficiency would then be only 16 x
 255 / 65,536 = 6.2%.</p>
 <p>CIDR, therefore, tries to balance the desire to minimize the number of
 routes that a router needs to know against the need to hand out
@@ -1489,7 +1489,7 @@ carries its own address, so&nbsp;it removes the IP header and looks at the
 payload of the packet. What it finds is an inner IP packet whose
 destination address is in network&nbsp;2. R2 now processes this packet like
 any other IP packet it receives. Since R2 is directly connected to
-network&nbsp;2, it forwards the packet on to that network. <a class="reference internal" href="#fig-tunnel"><span class="std std-numref">Figur
+network&nbsp;2, it forwards the packet on to that network. <a class="reference internal" href="#fig-tunnel"><span class="std std-numref">Figure
 83</span></a> shows the change in encapsulation of the packet as it
 moves across the network.</p>
 <p>While R2 is acting as the endpoint of the tunnel, there is nothing to
