@@ -107,7 +107,7 @@ direct physical connection between them—indirect connectivity may be
 achieved among a set of cooperating nodes. Consider the following two
 examples of how a collection of computers can be indirectly connected.
 
-:numref:`Figure %s <fig-psn>` shows a pair of shows a set of nodes,
+:numref:`Figure %s <fig-psn>` shows a set of nodes,
 each of which is attached to one or more point-to-point links. Those
 nodes that are attached to at least two links run software that
 forwards data received on one link out on another. If organized in a
