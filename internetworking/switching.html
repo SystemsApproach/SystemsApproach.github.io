@@ -90,6 +90,7 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -250,8 +251,9 @@ the other end of the link. A switch’s primary job is to receive incoming
 packets on one of its links and to transmit them on some other link.
 This function is sometimes referred to as either <em>switching</em> or
 <em>forwarding,</em> and in terms of the Open Systems Interconnection (OSI)
-architecture, it is the main function of the network layer, otherwise
-known as <em>Layer 2</em>.</p>
+architecture, it is considered a function of the network layer. (This is a
+case where OSI layering isn’t a perfect reflection of the real world,
+as we’ll see later.)</p>
 <p>The question, then, is how does the switch decide which output link to
 place each packet on? The general answer is that it looks at the header
 of the packet for an identifier that it uses to make the decision. The

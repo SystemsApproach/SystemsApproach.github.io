@@ -71,8 +71,9 @@ the other end of the link. A switch’s primary job is to receive incoming
 packets on one of its links and to transmit them on some other link.
 This function is sometimes referred to as either *switching* or
 *forwarding,* and in terms of the Open Systems Interconnection (OSI)
-architecture, it is the main function of the network layer, otherwise
-known as *Layer 2*.
+architecture, it is considered a function of the network layer. (This is a
+case where OSI layering isn't a perfect reflection of the real world,
+as we'll see later.)
 
 The question, then, is how does the switch decide which output link to
 place each packet on? The general answer is that it looks at the header
