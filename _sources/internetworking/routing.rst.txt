@@ -797,8 +797,7 @@ paths to all nodes.
 
 .. _tab-ls-trace:
 .. table:: Steps for Building Routing Table for Node D.
-   :align: center 
-   :widths: auto
+
 
   +---------+-------------------+-------------------+-------------------+
   | Step    | Confirmed         | Tentative         | Comments          |
