@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -296,7 +298,7 @@ each time an ACK arrives:</p>
 <p>That is, rather than incrementing <code class="docutils literal notranslate"><span class="pre">CongestionWindow</span></code> by an entire
 <code class="docutils literal notranslate"><span class="pre">MSS</span></code> bytes each RTT, we increment it by a fraction of <code class="docutils literal notranslate"><span class="pre">MSS</span></code> every
 time an ACK is received. Assuming that each ACK acknowledges the receipt
-of <code class="docutils literal notranslate"><span class="pre">MSS</span></code> bytes, then that fraction is .</p>
+of <code class="docutils literal notranslate"><span class="pre">MSS</span></code> bytes, then that fraction is <code class="docutils literal notranslate"><span class="pre">MSS/CongestionWindow</span></code>.</p>
 <div class="figure align-center" id="id2">
 <span id="fig-sawtooth"></span><a class="reference internal image-reference" href="../_images/f06-09-9780123850591.png"><img alt="../_images/f06-09-9780123850591.png" src="../_images/f06-09-9780123850591.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Figure 160. </span><span class="caption-text">Typical TCP sawtooth pattern.</span></p>

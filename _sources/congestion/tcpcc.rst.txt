@@ -128,7 +128,7 @@ each time an ACK arrives:
 That is, rather than incrementing ``CongestionWindow`` by an entire
 ``MSS`` bytes each RTT, we increment it by a fraction of ``MSS`` every
 time an ACK is received. Assuming that each ACK acknowledges the receipt
-of ``MSS`` bytes, then that fraction is .
+of ``MSS`` bytes, then that fraction is ``MSS/CongestionWindow``.
 
 .. _fig-sawtooth:
 .. figure:: figures/f06-09-9780123850591.png

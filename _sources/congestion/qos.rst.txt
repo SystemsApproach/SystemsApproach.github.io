@@ -824,7 +824,7 @@ will become clear shortly. Because the “out” curve has a lower
 levels of congestion, only packets marked “out” will be discarded by
 the RED algorithm. If the congestion becomes more serious, a higher
 percentage of “out” packets are dropped, and then if the average queue
-length exceeds , RED starts to drop “in” packets as well.
+length exceeds Min\ :sub:`in`, RED starts to drop “in” packets as well.
 
 .. _fig-rio-prob:
 .. figure:: figures/f06-26-9780123850591.png

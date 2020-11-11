@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -945,7 +947,7 @@ will become clear shortly. Because the “out” curve has a lower
 levels of congestion, only packets marked “out” will be discarded by
 the RED algorithm. If the congestion becomes more serious, a higher
 percentage of “out” packets are dropped, and then if the average queue
-length exceeds , RED starts to drop “in” packets as well.</p>
+length exceeds Min<sub>in</sub>, RED starts to drop “in” packets as well.</p>
 <div class="figure align-center" id="id7">
 <span id="fig-rio-prob"></span><a class="reference internal image-reference" href="../_images/f06-26-9780123850591.png"><img alt="../_images/f06-26-9780123850591.png" src="../_images/f06-26-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 178. </span><span class="caption-text">RED with In and Out drop probabilities.</span></p>
