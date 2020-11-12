@@ -264,7 +264,7 @@ prevent tail drop behavior if possible.
 The random nature of RED confers an interesting property on the
 algorithm. Because RED drops packets randomly, the probability that RED
 decides to drop a particular flow’s packet(s) is roughly proportional to
-the share of the bandwidth that that flow is currently getting at that
+the share of the bandwidth that flow is currently getting at that
 router. This is because a flow that is sending a relatively large number
 of packets is providing more candidates for random dropping. Thus, there
 is some sense of fair resource allocation built into RED, although it is

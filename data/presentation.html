@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -576,9 +578,9 @@ same performance.</p>
 </div>
 <div class="section" id="protobufs">
 <h3>ProtoBufs<a class="headerlink" href="#protobufs" title="Permalink to this headline">¶</a></h3>
-<p>Protocol Buffers (Protobufs, for short) is a language-neutral and
+<p>Protocol Buffers (Protobufs, for short) provide a language-neutral and
 platform-neutral way of serializing structured data, commonly used with
-gRPC. It uses a tagged strategy with a canonical intermediate form,
+gRPC. They use a tagged strategy with a canonical intermediate form,
 where the stub on both sides is generated from a shared <code class="docutils literal notranslate"><span class="pre">.proto</span></code> file.
 This specification uses a simple C-like syntax, as the following example
 illustrates:</p>
@@ -607,7 +609,7 @@ illustrates:</p>
 except that every field is given a numeric identifier to ensure
 uniqueness should the specification change over time, and each field can
 be annotated as being either <code class="docutils literal notranslate"><span class="pre">required</span></code> or <code class="docutils literal notranslate"><span class="pre">optional</span></code>.</p>
-<p>The way Protobufs encodes integers is novel. It uses a technique called
+<p>The way Protobufs encode integers is novel. They use a technique called
 <em>varints</em> (variable length integers) in which each 8-bit byte uses the
 most significant bit to indicate whether there are more bytes in the
 integer, and the lower seven bits to encode the two’s complement

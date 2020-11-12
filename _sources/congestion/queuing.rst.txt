@@ -263,7 +263,7 @@ It is possible to implement a variation of FQ, called *weighted fair
 queuing* (WFQ), that allows a weight to be assigned to each flow
 (queue). This weight logically specifies how many bits to transmit each
 time the router services that queue, which effectively controls the
-percentage of the link’s bandwidth that that flow will get. Simple FQ
+percentage of the link’s bandwidth that flow will get. Simple FQ
 gives each queue a weight of 1, which means that logically only 1 bit is
 transmitted from each queue each time around. This results in each flow
 getting :math:`1/n^{th}` of the bandwidth when there are *n*

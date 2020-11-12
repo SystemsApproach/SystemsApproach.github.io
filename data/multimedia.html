@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -330,7 +332,8 @@ to the dictionary. For example, instead of working with individual
 characters in text data, you could treat each word as a string and
 output the index in the dictionary for that word. To further elaborate
 on this example, the word <em>compression</em> has the index 4978 in one
-particular dictionary; it is the 4978th word in . To compress a body of
+particular dictionary; it is the 4978th word in
+<code class="docutils literal notranslate"><span class="pre">/usr/share/dict/words</span></code>. To compress a body of
 text, each time the string “compression” appears, it would be replaced
 by 4978. Since this particular dictionary has just over 25,000 words in
 it, it would take 15&nbsp;bits to encode the index, meaning that the string

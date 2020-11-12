@@ -452,9 +452,9 @@ same performance.
 ProtoBufs
 ~~~~~~~~~
 
-Protocol Buffers (Protobufs, for short) is a language-neutral and
+Protocol Buffers (Protobufs, for short) provide a language-neutral and
 platform-neutral way of serializing structured data, commonly used with
-gRPC. It uses a tagged strategy with a canonical intermediate form,
+gRPC. They use a tagged strategy with a canonical intermediate form,
 where the stub on both sides is generated from a shared ``.proto`` file.
 This specification uses a simple C-like syntax, as the following example
 illustrates:
@@ -486,7 +486,7 @@ except that every field is given a numeric identifier to ensure
 uniqueness should the specification change over time, and each field can
 be annotated as being either ``required`` or ``optional``.
 
-The way Protobufs encodes integers is novel. It uses a technique called
+The way Protobufs encode integers is novel. They use a technique called
 *varints* (variable length integers) in which each 8-bit byte uses the
 most significant bit to indicate whether there are more bytes in the
 integer, and the lower seven bits to encode the two’s complement

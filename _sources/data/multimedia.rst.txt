@@ -145,7 +145,8 @@ to the dictionary. For example, instead of working with individual
 characters in text data, you could treat each word as a string and
 output the index in the dictionary for that word. To further elaborate
 on this example, the word *compression* has the index 4978 in one
-particular dictionary; it is the 4978th word in . To compress a body of
+particular dictionary; it is the 4978th word in
+``/usr/share/dict/words``. To compress a body of
 text, each time the string “compression” appears, it would be replaced
 by 4978. Since this particular dictionary has just over 25,000 words in
 it, it would take 15 bits to encode the index, meaning that the string

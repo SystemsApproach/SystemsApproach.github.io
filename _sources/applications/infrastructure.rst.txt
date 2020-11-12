@@ -76,7 +76,7 @@ and returned the corresponding address.
 It should come as no surprise that the approach to naming did not work
 well as the number of hosts in the Internet started to grow. Therefore,
 in the mid-1980s, the Domain Naming System was put into place. DNS
-employs a hierarchical namespace rather than a flat name space, and the
+employs a hierarchical name space rather than a flat name space, and the
 “table” of bindings that implements this name space is partitioned into
 disjoint pieces and distributed throughout the Internet. These subtables
 are made available in name servers that can be queried over the network.
