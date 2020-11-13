@@ -364,7 +364,7 @@ information in the computer, or it could have been learned by DHCP. Then
 the ``cisco.com`` proxy had to find the ``princeton.edu`` proxy. This
 could be done using a special sort of DNS lookup that would return the
 IP address of the SIP proxy for the domain. (We’ll discuss how DNS can
-do this in the next section.) Finally, the ``princeton.ed`` proxy had to
+do this in the next section.) Finally, the ``princeton.edu`` proxy had to
 find a device on which Larry could be contacted. Typically, a proxy
 server has access to a location database that can be populated in
 several ways. Manual configuration is one option, but a more flexible
