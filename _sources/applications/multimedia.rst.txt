@@ -301,16 +301,17 @@ message, which looks something like the following:
 The first line identifies the type of function to be performed
 (``invite``); the resource on which to perform it, the called party
 (``sip:larry@princeton.edu`` ); and the protocol version (2.0). The
-subsequent header lines probably look somewhat familiar because of their
-resemblance to the header lines in an email message. SIP defines a large
-number of header fields, only some of which we describe here. Note that
-the header in this example identifies the device from which this message
-originated. The and headers describe the contents of the message
+subsequent header lines probably look somewhat familiar because of
+their resemblance to the header lines in an email message. SIP defines
+a large number of header fields, only some of which we describe
+here. Note that the ``Via:`` header in this example identifies the
+device from which this message originated. The ``Content-Type:`` and
+``Content-Length:`` headers describe the contents of the message
 following the header, just as in a MIME-encoded email message. In this
 case, the content is an SDP message. That message would describe such
 things as the type of media (audio, video, etc.) that Bruce would like
-to exchange with Larry and other properties of the session such as codec
-types that he supports. Note that the field in SIP provides the
+to exchange with Larry and other properties of the session such as
+codec types that he supports. Note that the field in SIP provides the
 capability to use any protocol for this purpose, although SDP is the
 most common.
 
@@ -360,7 +361,7 @@ The other big issue we have glossed over is that of locating the correct
 device for Larry. First, Bruce’s computer had to send its ``invite`` to
 the ``cisco.com`` proxy. This could have been a configured piece of
 information in the computer, or it could have been learned by DHCP. Then
-the ``cisco.com`` proxy had to find the ``princeton.ed`` proxy. This
+the ``cisco.com`` proxy had to find the ``princeton.edu`` proxy. This
 could be done using a special sort of DNS lookup that would return the
 IP address of the SIP proxy for the domain. (We’ll discuss how DNS can
 do this in the next section.) Finally, the ``princeton.ed`` proxy had to

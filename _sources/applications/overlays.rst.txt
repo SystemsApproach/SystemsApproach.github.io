@@ -234,7 +234,7 @@ a “join mesh” message to this node. This connects the new node to the
 mesh by an edge to the known node. In general, the new node might send a
 join message to multiple current nodes, thereby joining the mesh by
 multiple links. Once a node is connected to the mesh by a set of links,
-it periodically sends “keep alive” messages to its neighbors, letting
+it periodically sends “keepalive” messages to its neighbors, letting
 them know that it still wants to be part of the group.
 
 When a node leaves the group, it sends a “leave mesh” message to its
@@ -935,18 +935,18 @@ Systems that do this are often called *Content Distribution Networks*
 (CDNs). Akamai operates what is probably the best-known CDN.
 
 The idea of a CDN is to geographically distribute a collection of
-*server surrogates* that cache pages normally maintained in some set of
-*backend servers*. Thus, rather than having millions of users wait
+*server surrogates* that cache pages normally maintained in some set
+of *backend servers*. Thus, rather than having millions of users wait
 forever to contact when a big news story breaks—such a situation is
-known as a *flash crowd*—it is possible to spread this load across many
-servers. Moreover, rather than having to traverse multiple ISPs to reach
-, if these surrogate servers happen to be spread across all the backbone
-ISPs, then it should be possible to reach one without having to cross a
-peering point. Clearly, maintaining thousands of surrogate servers all
-over the Internet is too expensive for any one site that wants to
-provide better access to its Web pages. Commercial CDNs provide this
-service for many sites, thereby amortizing the cost across many
-customers.
+known as a *flash crowd*—it is possible to spread this load across
+many servers. Moreover, rather than having to traverse multiple ISPs
+to reach ``www.cnn.com``, if these surrogate servers happen to be
+spread across all the backbone ISPs, then it should be possible to
+reach one without having to cross a peering point. Clearly,
+maintaining thousands of surrogate servers all over the Internet is
+too expensive for any one site that wants to provide better access to
+its Web pages. Commercial CDNs provide this service for many sites,
+thereby amortizing the cost across many customers.
 
 Although we call them surrogate servers, in fact, they can just as
 correctly be viewed as caches. If they don’t have a page that has been
@@ -1008,14 +1008,16 @@ come and go.
 
 First, redirection could be implemented by augmenting DNS to return
 different server addresses to clients. For example, when a client asks
-to resolve the name , the DNS server could return the IP address of a
-server hosting CNN’s Web pages that is known to have the lightest load.
-Alternatively, for a given set of servers, it might just return
-addresses in a round-robin fashion. Note that the granularity of
-DNS-based redirection is usually at the level of a site (e.g., ) rather
-than a specific URL (e.g., ). However, when returning an embedded link,
-the server can rewrite the URL, thereby effectively pointing the client
-at the most appropriate server for that specific object.
+to resolve the name ``www.cnn.com``, the DNS server could return the
+IP address of a server hosting CNN’s Web pages that is known to have
+the lightest load.  Alternatively, for a given set of servers, it
+might just return addresses in a round-robin fashion. Note that the
+granularity of DNS-based redirection is usually at the level of a site
+(e.g., ``cnn.com``) rather than a specific URL (e.g.,
+``https://www.cnn.com/2020/11/12/politics/biden-wins-arizona/index.html``). However,
+when returning an embedded link, the server can rewrite the URL,
+thereby effectively pointing the client at the most appropriate server
+for that specific object.
 
 Commercial CDNs essentially use a combination of URL rewriting and
 DNS-based redirection. For scalability reasons, the high-level DNS
@@ -1112,7 +1114,7 @@ which the redirector will consider the available servers. The redirector
 then walks down this list until it finds a server whose load is below
 some threshold. The benefit of this approach compared to plain
 consistent hashing is that server order is different for each URL, so if
-one server fails its load is distributed evenly among the other
+one server fails, its load is distributed evenly among the other
 machines. This approach is the basis for the Cache Array Routing
 Protocol (CARP) and is shown in pseudocode below.
 

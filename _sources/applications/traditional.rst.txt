@@ -119,9 +119,10 @@ the message, analogous to the line), (the type of data contained in the
 message), and (how the data in the message body is encoded).
 
 The second piece is definitions for a set of content types (and
-subtypes). For example, MIME defines two different still image types,
-denoted and , each with the obvious meaning. As another example, refers
-to simple text you might find in a vanilla 822-style message, while
+subtypes). For example, MIME defines several different image types,
+including ``image/gif`` and ``image/jpeg``, each with the obvious
+meaning. As another example, ``text/plane`` refers to simple text you
+might find in a vanilla 822-style message, while ``text/richtext``
 denotes a message that contains “marked up” text (text using special
 fonts, italics, etc.). As a third example, MIME defines an
 ``application`` type, where the subtypes correspond to the output of
@@ -180,7 +181,7 @@ JPEG image, and a PostScript file would look something like this:
 
    Bob,
 
-   Here is the jpeg image and draft report I promised.
+   Here are the jpeg image and draft report I promised.
 
    --Alice
 
@@ -195,7 +196,8 @@ JPEG image, and a PostScript file would look something like this:
 
 In this example, the line in the message header says that this message
 contains various pieces, each denoted by a character string that does
-not appear in the data itself. Each piece then has its own and lines.
+not appear in the data itself. Each piece then has its own
+``Content-Type`` and ``Content-Transfer-Encoding`` lines.
 
 Message Transfer
 ~~~~~~~~~~~~~~~~
@@ -314,12 +316,13 @@ to make the dialog more readable.
    QUIT
    221 Closing connection
 
-As you can see, SMTP involves a sequence of exchanges between the client
-and the server. In each exchange, the client posts a command (e.g.,
-``QUIT``) and the server responds with a code (e.g., ``221``). The
-server also returns a human-readable explanation for the code (e.g., ).
-In this particular example, the client first identifies itself to the
-server with the ``HELO`` command. It gives its domain name as an
+As you can see, SMTP involves a sequence of exchanges between the
+client and the server. In each exchange, the client posts a command
+(e.g., ``QUIT``) and the server responds with a code (e.g., ``250``,
+``550``, ``354``, ``221``). The server also returns a human-readable
+explanation for the code (e.g., ``No such user here``).  In this
+particular example, the client first identifies itself to the server
+with the ``HELO`` command. It gives its domain name as an
 argument. The server verifies that this name corresponds to the IP
 address being used by the TCP connection; you’ll notice the server
 states this IP address back to the client. The client then asks the
@@ -389,15 +392,16 @@ formed).
 
    IMAP state transition diagram.
 
-When the user asks to ``FETCH`` a message, the server returns it in MIME
-format and the mail reader decodes it. In addition to the message
+When the user asks to ``FETCH`` a message, the server returns it in
+MIME format and the mail reader decodes it. In addition to the message
 itself, IMAP also defines a set of message *attributes* that are
 exchanged as part of other commands, independent of transferring the
-message itself. Message attributes include information like the size of
-the message and, more interestingly, various *flags* associated with the
-message (e.g., and ``Recent``). These flags are used to keep the client
-and server synchronized; that is, when the user deletes a message in the
-mail reader, the client needs to report this fact to the mail server.
+message itself. Message attributes include information like the size
+of the message and, more interestingly, various *flags* associated
+with the message (e.g., ``Seen``, ``Answered``, ``Deleted``, and
+``Recent``). These flags are used to keep the client and server
+synchronized; that is, when the user deletes a message in the mail
+reader, the client needs to report this fact to the mail server.
 Later, should the user decide to expunge all deleted messages, the
 client issues an ``EXPUNGE`` command to the server, which knows to
 actually remove all earlier deleted messages from the mailbox.
@@ -559,20 +563,21 @@ For example, the ``START_LINE``
    GET http://www.cs.princeton.edu/index.html
    HTTP/1.1
 
-says that the client wants the server on host to return the page named .
-This particular example uses an *absolute* URL. It is also possible to
-use a *relative* identifier and specify the host name in one of the
-``MESSAGE_HEADER`` lines; for example,
+says that the client wants the server on host to return the page named
+``index.html``.  This particular example uses an *absolute* URL. It is
+also possible to use a *relative* identifier and specify the host name
+in one of the ``MESSAGE_HEADER`` lines; for example,
 
 .. code-block:: http
 
    GET index.html HTTP/1.1
    Host: www.cs.princeton.edu
 
-Here, ``Host`` is one of the possible ``MESSAGE_HEADER`` fields. One of
-the more interesting of these is , which gives the client a way to
-conditionally request a Web page—the server returns the page only if it
-has been modified since the time specified in that header line.
+Here, ``Host`` is one of the possible ``MESSAGE_HEADER`` fields. One
+of the more interesting of these is ``If-Modified-Since``, which gives
+the client a way to conditionally request a Web page—the server
+returns the page only if it has been modified since the time specified
+in that header line.
 
 Response Messages
 ~~~~~~~~~~~~~~~~~
@@ -624,11 +629,13 @@ out to be a powerful mechanism that plays a big role in Content
 Distribution Networks (CDNs) by redirecting requests to a nearby cache.
 
 Also similar to request messages, response messages can contain one or
-more ``MESSAGE_HEADER`` lines. These lines relay additional information
-back to the client. For example, the ``Location`` header line specifies
-that the requested URL is available at another location. Thus, if the
-Princeton CS Department Web page had moved from to , for example, then
-the server at the original address might respond with
+more ``MESSAGE_HEADER`` lines. These lines relay additional
+information back to the client. For example, the ``Location`` header
+line specifies that the requested URL is available at another
+location. Thus, if the Princeton CS Department Web page had moved from
+``http://www.cs.princeton.edu/index.html`` to
+``http://www.princeton.edu/cs/index.html``, for example, then the
+server at the original address might respond with
 
 .. code-block:: http
 

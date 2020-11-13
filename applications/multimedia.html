@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -444,16 +446,17 @@ message, which looks something like the following:</p>
 <p>The first line identifies the type of function to be performed
 (<code class="docutils literal notranslate"><span class="pre">invite</span></code>); the resource on which to perform it, the called party
 (<code class="docutils literal notranslate"><span class="pre">sip:larry&#64;princeton.edu</span></code> ); and the protocol version (2.0). The
-subsequent header lines probably look somewhat familiar because of their
-resemblance to the header lines in an email message. SIP defines a large
-number of header fields, only some of which we describe here. Note that
-the header in this example identifies the device from which this message
-originated. The and headers describe the contents of the message
+subsequent header lines probably look somewhat familiar because of
+their resemblance to the header lines in an email message. SIP defines
+a large number of header fields, only some of which we describe
+here. Note that the <code class="docutils literal notranslate"><span class="pre">Via:</span></code> header in this example identifies the
+device from which this message originated. The <code class="docutils literal notranslate"><span class="pre">Content-Type:</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Content-Length:</span></code> headers describe the contents of the message
 following the header, just as in a MIME-encoded email message. In this
 case, the content is an SDP message. That message would describe such
 things as the type of media (audio, video, etc.) that Bruce would like
-to exchange with Larry and other properties of the session such as codec
-types that he supports. Note that the field in SIP provides the
+to exchange with Larry and other properties of the session such as
+codec types that he supports. Note that the field in SIP provides the
 capability to use any protocol for this purpose, although SDP is the
 most common.</p>
 <p>Returning to the example, when the <code class="docutils literal notranslate"><span class="pre">invite</span></code> message arrives at the
@@ -495,7 +498,7 @@ parameters are agreed to before the media flow starts.</p>
 device for Larry. First, Bruce’s computer had to send its <code class="docutils literal notranslate"><span class="pre">invite</span></code> to
 the <code class="docutils literal notranslate"><span class="pre">cisco.com</span></code> proxy. This could have been a configured piece of
 information in the computer, or it could have been learned by DHCP. Then
-the <code class="docutils literal notranslate"><span class="pre">cisco.com</span></code> proxy had to find the <code class="docutils literal notranslate"><span class="pre">princeton.ed</span></code> proxy. This
+the <code class="docutils literal notranslate"><span class="pre">cisco.com</span></code> proxy had to find the <code class="docutils literal notranslate"><span class="pre">princeton.edu</span></code> proxy. This
 could be done using a special sort of DNS lookup that would return the
 IP address of the SIP proxy for the domain. (We’ll discuss how DNS can
 do this in the next section.) Finally, the <code class="docutils literal notranslate"><span class="pre">princeton.ed</span></code> proxy had to

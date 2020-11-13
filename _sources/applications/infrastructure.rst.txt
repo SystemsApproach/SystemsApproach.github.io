@@ -207,9 +207,9 @@ fields:
 
 The ``Name`` and ``Value`` fields are exactly what you would expect,
 while the ``Type`` field specifies how the ``Value`` should be
-interpreted. For example, indicates that the ``Value`` is an IP address.
-Thus, ``A`` records implement the name-to-address mapping we have been
-assuming. Other record types include:
+interpreted. For example, ``Type=A`` indicates that the ``Value`` is
+an IP address.  Thus, ``A`` records implement the name-to-address
+mapping we have been assuming. Other record types include:
 
 -  ``NS``—The ``Value`` field gives the domain name for a host that is
    running a name server that knows how to resolve names within the
@@ -624,13 +624,14 @@ with different over-the-wire message formats, including XML, but also
 ProtoBufs and JSON.
 
 What’s important about going in this direction is that the data model
-that defines the semantics of the variables available to be read and
-written in a programmatic form (i.e., it’s not just text in a standards
-specification). It’s not a free-for-all with each vendor defining a
-unique model since the network operators that buy network hardware have
-a strong incentive to drive the models for similar devices towards
-convergence. YANG makes the process of creating, using, and modifying
-models more programmable, and hence, adaptable to this process.
+that defines the semantics of the variables that are available to be
+read and written in a programmatic form (i.e., it’s not just text in a
+standards specification). It’s not a free-for-all with each vendor
+defining a unique model since the network operators that buy network
+hardware have a strong incentive to drive the models for similar
+devices towards convergence. YANG makes the process of creating,
+using, and modifying models more programmable, and hence, adaptable to
+this process.
 
 This is where OpenConfig comes in. It uses YANG as its modeling
 language, but has also established a process for driving the industry

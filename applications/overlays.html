@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -399,7 +401,7 @@ a “join mesh” message to this node. This connects the new node to the
 mesh by an edge to the known node. In general, the new node might send a
 join message to multiple current nodes, thereby joining the mesh by
 multiple links. Once a node is connected to the mesh by a set of links,
-it periodically sends “keep alive” messages to its neighbors, letting
+it periodically sends “keepalive” messages to its neighbors, letting
 them know that it still wants to be part of the group.</p>
 <p>When a node leaves the group, it sends a “leave mesh” message to its
 directly connected neighbors, and this information is propagated to the
@@ -1012,18 +1014,18 @@ it is possible to use replication to address the remaining problems.
 Systems that do this are often called <em>Content Distribution Networks</em>
 (CDNs). Akamai operates what is probably the best-known CDN.</p>
 <p>The idea of a CDN is to geographically distribute a collection of
-<em>server surrogates</em> that cache pages normally maintained in some set of
-<em>backend servers</em>. Thus, rather than having millions of users wait
+<em>server surrogates</em> that cache pages normally maintained in some set
+of <em>backend servers</em>. Thus, rather than having millions of users wait
 forever to contact when a big news story breaks—such a situation is
-known as a <em>flash crowd</em>—it is possible to spread this load across many
-servers. Moreover, rather than having to traverse multiple ISPs to reach
-, if these surrogate servers happen to be spread across all the backbone
-ISPs, then it should be possible to reach one without having to cross a
-peering point. Clearly, maintaining thousands of surrogate servers all
-over the Internet is too expensive for any one site that wants to
-provide better access to its Web pages. Commercial CDNs provide this
-service for many sites, thereby amortizing the cost across many
-customers.</p>
+known as a <em>flash crowd</em>—it is possible to spread this load across
+many servers. Moreover, rather than having to traverse multiple ISPs
+to reach <code class="docutils literal notranslate"><span class="pre">www.cnn.com</span></code>, if these surrogate servers happen to be
+spread across all the backbone ISPs, then it should be possible to
+reach one without having to cross a peering point. Clearly,
+maintaining thousands of surrogate servers all over the Internet is
+too expensive for any one site that wants to provide better access to
+its Web pages. Commercial CDNs provide this service for many sites,
+thereby amortizing the cost across many customers.</p>
 <p>Although we call them surrogate servers, in fact, they can just as
 correctly be viewed as caches. If they don’t have a page that has been
 requested by a client, they ask the backend server for it. In practice,
@@ -1076,14 +1078,16 @@ communication takes place to keep this information up-to-date as servers
 come and go.</p>
 <p>First, redirection could be implemented by augmenting DNS to return
 different server addresses to clients. For example, when a client asks
-to resolve the name , the DNS server could return the IP address of a
-server hosting CNN’s Web pages that is known to have the lightest load.
-Alternatively, for a given set of servers, it might just return
-addresses in a round-robin fashion. Note that the granularity of
-DNS-based redirection is usually at the level of a site (e.g., ) rather
-than a specific URL (e.g., ). However, when returning an embedded link,
-the server can rewrite the URL, thereby effectively pointing the client
-at the most appropriate server for that specific object.</p>
+to resolve the name <code class="docutils literal notranslate"><span class="pre">www.cnn.com</span></code>, the DNS server could return the
+IP address of a server hosting CNN’s Web pages that is known to have
+the lightest load.  Alternatively, for a given set of servers, it
+might just return addresses in a round-robin fashion. Note that the
+granularity of DNS-based redirection is usually at the level of a site
+(e.g., <code class="docutils literal notranslate"><span class="pre">cnn.com</span></code>) rather than a specific URL (e.g.,
+<code class="docutils literal notranslate"><span class="pre">https://www.cnn.com/2020/11/12/politics/biden-wins-arizona/index.html</span></code>). However,
+when returning an embedded link, the server can rewrite the URL,
+thereby effectively pointing the client at the most appropriate server
+for that specific object.</p>
 <p>Commercial CDNs essentially use a combination of URL rewriting and
 DNS-based redirection. For scalability reasons, the high-level DNS
 server first points to a regional-level DNS server, which replies with
@@ -1172,7 +1176,7 @@ which the redirector will consider the available servers. The redirector
 then walks down this list until it finds a server whose load is below
 some threshold. The benefit of this approach compared to plain
 consistent hashing is that server order is different for each URL, so if
-one server fails its load is distributed evenly among the other
+one server fails, its load is distributed evenly among the other
 machines. This approach is the basis for the Cache Array Routing
 Protocol (CARP) and is shown in pseudocode below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SelectServer</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>

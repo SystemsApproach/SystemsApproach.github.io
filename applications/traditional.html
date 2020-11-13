@@ -90,6 +90,8 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword_1e.html">Foreword to the First Edition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foundation.html">Chapter 1:  Foundation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../direct.html">Chapter 2:  Direct Links</a></li>
@@ -309,9 +311,10 @@ version of MIME being used), (a human-readable description of what’s in
 the message, analogous to the line), (the type of data contained in the
 message), and (how the data in the message body is encoded).</p>
 <p>The second piece is definitions for a set of content types (and
-subtypes). For example, MIME defines two different still image types,
-denoted and , each with the obvious meaning. As another example, refers
-to simple text you might find in a vanilla 822-style message, while
+subtypes). For example, MIME defines several different image types,
+including <code class="docutils literal notranslate"><span class="pre">image/gif</span></code> and <code class="docutils literal notranslate"><span class="pre">image/jpeg</span></code>, each with the obvious
+meaning. As another example, <code class="docutils literal notranslate"><span class="pre">text/plane</span></code> refers to simple text you
+might find in a vanilla 822-style message, while <code class="docutils literal notranslate"><span class="pre">text/richtext</span></code>
 denotes a message that contains “marked up” text (text using special
 fonts, italics, etc.). As a third example, MIME defines an
 <code class="docutils literal notranslate"><span class="pre">application</span></code> type, where the subtypes correspond to the output of
@@ -363,7 +366,7 @@ JPEG image, and a PostScript file would look something like this:</p>
 
 <span class="n">Bob</span><span class="p">,</span>
 
-<span class="n">Here</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">jpeg</span> <span class="n">image</span> <span class="ow">and</span> <span class="n">draft</span> <span class="n">report</span> <span class="n">I</span> <span class="n">promised</span><span class="o">.</span>
+<span class="n">Here</span> <span class="n">are</span> <span class="n">the</span> <span class="n">jpeg</span> <span class="n">image</span> <span class="ow">and</span> <span class="n">draft</span> <span class="n">report</span> <span class="n">I</span> <span class="n">promised</span><span class="o">.</span>
 
 <span class="o">--</span><span class="n">Alice</span>
 
@@ -379,7 +382,8 @@ JPEG image, and a PostScript file would look something like this:</p>
 </div>
 <p>In this example, the line in the message header says that this message
 contains various pieces, each denoted by a character string that does
-not appear in the data itself. Each piece then has its own and lines.</p>
+not appear in the data itself. Each piece then has its own
+<code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> and <code class="docutils literal notranslate"><span class="pre">Content-Transfer-Encoding</span></code> lines.</p>
 </div>
 <div class="section" id="message-transfer">
 <h3>Message Transfer<a class="headerlink" href="#message-transfer" title="Permalink to this headline">¶</a></h3>
@@ -486,12 +490,13 @@ QUIT
 <span class="m">221</span> Closing connection
 </pre></div>
 </div>
-<p>As you can see, SMTP involves a sequence of exchanges between the client
-and the server. In each exchange, the client posts a command (e.g.,
-<code class="docutils literal notranslate"><span class="pre">QUIT</span></code>) and the server responds with a code (e.g., <code class="docutils literal notranslate"><span class="pre">221</span></code>). The
-server also returns a human-readable explanation for the code (e.g., ).
-In this particular example, the client first identifies itself to the
-server with the <code class="docutils literal notranslate"><span class="pre">HELO</span></code> command. It gives its domain name as an
+<p>As you can see, SMTP involves a sequence of exchanges between the
+client and the server. In each exchange, the client posts a command
+(e.g., <code class="docutils literal notranslate"><span class="pre">QUIT</span></code>) and the server responds with a code (e.g., <code class="docutils literal notranslate"><span class="pre">250</span></code>,
+<code class="docutils literal notranslate"><span class="pre">550</span></code>, <code class="docutils literal notranslate"><span class="pre">354</span></code>, <code class="docutils literal notranslate"><span class="pre">221</span></code>). The server also returns a human-readable
+explanation for the code (e.g., <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">such</span> <span class="pre">user</span> <span class="pre">here</span></code>).  In this
+particular example, the client first identifies itself to the server
+with the <code class="docutils literal notranslate"><span class="pre">HELO</span></code> command. It gives its domain name as an
 argument. The server verifies that this name corresponds to the IP
 address being used by the TCP connection; you’ll notice the server
 states this IP address back to the client. The client then asks the
@@ -553,15 +558,16 @@ formed).</p>
 <span id="fig-imap"></span><a class="reference internal image-reference" href="../_images/f09-02-9780123850591.png"><img alt="../_images/f09-02-9780123850591.png" src="../_images/f09-02-9780123850591.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Figure 217. </span><span class="caption-text">IMAP state transition diagram.</span></p>
 </div>
-<p>When the user asks to <code class="docutils literal notranslate"><span class="pre">FETCH</span></code> a message, the server returns it in MIME
-format and the mail reader decodes it. In addition to the message
+<p>When the user asks to <code class="docutils literal notranslate"><span class="pre">FETCH</span></code> a message, the server returns it in
+MIME format and the mail reader decodes it. In addition to the message
 itself, IMAP also defines a set of message <em>attributes</em> that are
 exchanged as part of other commands, independent of transferring the
-message itself. Message attributes include information like the size of
-the message and, more interestingly, various <em>flags</em> associated with the
-message (e.g., and <code class="docutils literal notranslate"><span class="pre">Recent</span></code>). These flags are used to keep the client
-and server synchronized; that is, when the user deletes a message in the
-mail reader, the client needs to report this fact to the mail server.
+message itself. Message attributes include information like the size
+of the message and, more interestingly, various <em>flags</em> associated
+with the message (e.g., <code class="docutils literal notranslate"><span class="pre">Seen</span></code>, <code class="docutils literal notranslate"><span class="pre">Answered</span></code>, <code class="docutils literal notranslate"><span class="pre">Deleted</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">Recent</span></code>). These flags are used to keep the client and server
+synchronized; that is, when the user deletes a message in the mail
+reader, the client needs to report this fact to the mail server.
 Later, should the user decide to expunge all deleted messages, the
 client issues an <code class="docutils literal notranslate"><span class="pre">EXPUNGE</span></code> command to the server, which knows to
 actually remove all earlier deleted messages from the mailbox.</p>
@@ -718,18 +724,19 @@ the Internet.</p>
 <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 </pre></div>
 </div>
-<p>says that the client wants the server on host to return the page named .
-This particular example uses an <em>absolute</em> URL. It is also possible to
-use a <em>relative</em> identifier and specify the host name in one of the
-<code class="docutils literal notranslate"><span class="pre">MESSAGE_HEADER</span></code> lines; for example,</p>
+<p>says that the client wants the server on host to return the page named
+<code class="docutils literal notranslate"><span class="pre">index.html</span></code>.  This particular example uses an <em>absolute</em> URL. It is
+also possible to use a <em>relative</em> identifier and specify the host name
+in one of the <code class="docutils literal notranslate"><span class="pre">MESSAGE_HEADER</span></code> lines; for example,</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">index.html</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">www.cs.princeton.edu</span>
 </pre></div>
 </div>
-<p>Here, <code class="docutils literal notranslate"><span class="pre">Host</span></code> is one of the possible <code class="docutils literal notranslate"><span class="pre">MESSAGE_HEADER</span></code> fields. One of
-the more interesting of these is , which gives the client a way to
-conditionally request a Web page—the server returns the page only if it
-has been modified since the time specified in that header line.</p>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">Host</span></code> is one of the possible <code class="docutils literal notranslate"><span class="pre">MESSAGE_HEADER</span></code> fields. One
+of the more interesting of these is <code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code>, which gives
+the client a way to conditionally request a Web page—the server
+returns the page only if it has been modified since the time specified
+in that header line.</p>
 </div>
 <div class="section" id="response-messages">
 <h3>Response Messages<a class="headerlink" href="#response-messages" title="Permalink to this headline">¶</a></h3>
@@ -786,11 +793,13 @@ practice. For example, request redirection (specifically code 302) turns
 out to be a powerful mechanism that plays a big role in Content
 Distribution Networks (CDNs) by redirecting requests to a nearby cache.</p>
 <p>Also similar to request messages, response messages can contain one or
-more <code class="docutils literal notranslate"><span class="pre">MESSAGE_HEADER</span></code> lines. These lines relay additional information
-back to the client. For example, the <code class="docutils literal notranslate"><span class="pre">Location</span></code> header line specifies
-that the requested URL is available at another location. Thus, if the
-Princeton CS Department Web page had moved from to , for example, then
-the server at the original address might respond with</p>
+more <code class="docutils literal notranslate"><span class="pre">MESSAGE_HEADER</span></code> lines. These lines relay additional
+information back to the client. For example, the <code class="docutils literal notranslate"><span class="pre">Location</span></code> header
+line specifies that the requested URL is available at another
+location. Thus, if the Princeton CS Department Web page had moved from
+<code class="docutils literal notranslate"><span class="pre">http://www.cs.princeton.edu/index.html</span></code> to
+<code class="docutils literal notranslate"><span class="pre">http://www.princeton.edu/cs/index.html</span></code>, for example, then the
+server at the original address might respond with</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">301</span> <span class="ne">Moved Permanently</span>
 <span class="na">Location</span><span class="o">:</span> <span class="l">http://www.princeton.edu/cs/index.html</span>
 </pre></div>

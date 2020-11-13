@@ -377,9 +377,9 @@ fields:</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code> fields are exactly what you would expect,
 while the <code class="docutils literal notranslate"><span class="pre">Type</span></code> field specifies how the <code class="docutils literal notranslate"><span class="pre">Value</span></code> should be
-interpreted. For example, indicates that the <code class="docutils literal notranslate"><span class="pre">Value</span></code> is an IP address.
-Thus, <code class="docutils literal notranslate"><span class="pre">A</span></code> records implement the name-to-address mapping we have been
-assuming. Other record types include:</p>
+interpreted. For example, <code class="docutils literal notranslate"><span class="pre">Type=A</span></code> indicates that the <code class="docutils literal notranslate"><span class="pre">Value</span></code> is
+an IP address.  Thus, <code class="docutils literal notranslate"><span class="pre">A</span></code> records implement the name-to-address
+mapping we have been assuming. Other record types include:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">NS</span></code>—The <code class="docutils literal notranslate"><span class="pre">Value</span></code> field gives the domain name for a host that is
 running a name server that knows how to resolve names within the
@@ -746,13 +746,14 @@ XSD, YANG is not XML-specific. It can instead be used in conjunction
 with different over-the-wire message formats, including XML, but also
 ProtoBufs and JSON.</p>
 <p>What’s important about going in this direction is that the data model
-that defines the semantics of the variables available to be read and
-written in a programmatic form (i.e., it’s not just text in a standards
-specification). It’s not a free-for-all with each vendor defining a
-unique model since the network operators that buy network hardware have
-a strong incentive to drive the models for similar devices towards
-convergence. YANG makes the process of creating, using, and modifying
-models more programmable, and hence, adaptable to this process.</p>
+that defines the semantics of the variables that are available to be
+read and written in a programmatic form (i.e., it’s not just text in a
+standards specification). It’s not a free-for-all with each vendor
+defining a unique model since the network operators that buy network
+hardware have a strong incentive to drive the models for similar
+devices towards convergence. YANG makes the process of creating,
+using, and modifying models more programmable, and hence, adaptable to
+this process.</p>
 <p>This is where OpenConfig comes in. It uses YANG as its modeling
 language, but has also established a process for driving the industry
 towards common models. OpenConfig is officially agnostic as to the RPC
