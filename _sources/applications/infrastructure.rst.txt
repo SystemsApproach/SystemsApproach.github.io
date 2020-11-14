@@ -621,10 +621,10 @@ XSD, which you may recall is a language for defining a schema (model)
 for XML. That is, YANG defines the structure of the data. But unlike
 XSD, YANG is not XML-specific. It can instead be used in conjunction
 with different over-the-wire message formats, including XML, but also
-ProtoBufs and JSON.
+Protobufs and JSON.
 
-What’s important about going in this direction is that the data model
-that defines the semantics of the variables that are available to be
+What’s important about this approach is that the data model
+defines the semantics of the variables that are available to be
 read and written in a programmatic form (i.e., it’s not just text in a
 standards specification). It’s not a free-for-all with each vendor
 defining a unique model since the network operators that buy network
@@ -639,7 +639,7 @@ towards common models. OpenConfig is officially agnostic as to the RPC
 mechanism used to communicate with network devices, but one approach it
 is actively pursuing is called gNMI (*gRPC Network Management
 Interface*). As you might guess from its name, gNMI uses gRPC, which you
-may recall, runs on top of HTTP. This means gNMI also adopts ProtoBufs
+may recall, runs on top of HTTP. This means gNMI also adopts Protobufs
 as the way it specifies the data actually communicated over the HTTP
 connection. Thus, as depicted in :numref:`Figure %s <fig-mgmt>`, gNMI 
 is intended as a standard management interface for network devices. 
