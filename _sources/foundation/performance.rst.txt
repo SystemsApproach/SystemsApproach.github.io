@@ -130,7 +130,7 @@ application will perform much differently on a transcontinental channel
 with a 100-ms RTT than it will on an across-the-room channel with a
 1-ms RTT. Whether the channel is 1 Mbps or 100 Mbps is relatively
 insignificant, however, since the former implies that the time to
-transmit a byte (``Transimt``) is 8 μs and the latter implies
+transmit a byte (``Transmit``) is 8 μs and the latter implies
 ``Transmit`` = 0.08 μs.
 
 In contrast, consider a digital library program that is being asked to
